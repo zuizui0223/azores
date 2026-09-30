@@ -1,0 +1,35 @@
+{
+  "schema": "azores.ecological_hypothesis_registry.v1",
+  "origin": "Post-hoc hypotheses generated from the already-open EOG Azores endpoint; same-data tests are exploratory.",
+  "primary_question": "In a strongly resident yellow-eel population, is temporal predictability generated primarily by persistent local residence, time-varying detectability/activity, or hydrologically synchronized pool dynamics?",
+  "hypotheses": [
+    {
+      "id": "A1",
+      "name": "persistent_local_state_memory",
+      "prediction": "same-tag/same-pool previous state explains future detection; neighbour state adds little after local memory",
+      "next_test": "M1 vs M0"
+    },
+    {
+      "id": "A2",
+      "name": "activity_detection_memory",
+      "prediction": "latent residence with time-varying detection explains detection gaps/reappearances better than observed-state switching",
+      "next_test": "M4 vs observed-state models"
+    },
+    {
+      "id": "A3",
+      "name": "hydrological_reset",
+      "prediction": "local-memory effect weakens during hydrological disturbance; memory-by-hydrology interaction is nonzero",
+      "next_test": "M3 vs M2"
+    },
+    {
+      "id": "A4",
+      "name": "shared_hydrological_synchrony",
+      "prediction": "neighbour covariance attenuates after hydrological covariates",
+      "next_test": "neighbour effect before/after hydrology"
+    }
+  ],
+  "independence": {
+    "same_azores_data": "exploratory_only",
+    "independent_confirmation": "new stream/population/period or external telemetry"
+  }
+}
