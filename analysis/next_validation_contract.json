@@ -1,0 +1,51 @@
+{
+  "schema": "azores.next_validation_contract.v1",
+  "frozen_after": {
+    "eog_receiver_week_result": true,
+    "receiver_operability_audit": true,
+    "prefailure_locality_sensitivity": true
+  },
+  "key_phase0_findings": {
+    "no_valid_between_receiver_movement_in_retained_detected_yellow_eels": true,
+    "eog_heldout_weeks_at_151_after_documented_failure": 9,
+    "prefailure_same_minus_different_receiver_weekly_correlation": 0.14325363713473677,
+    "prefailure_locality_permutation_p": 0.0117988201179882
+  },
+  "primary_hypothesis": "Predictive memory in the Azores seed system is local-state memory rather than spatial propagation; the unresolved distinction is biological pool state versus receiver/tag observation state.",
+  "next_discriminating_evidence_order": [
+    {
+      "rank": 1,
+      "evidence": "receiver-operability or hardware-change natural experiments at fixed pools",
+      "supports_observation_if": "detection-state shifts coincide with receiver/hardware state while pool identity is unchanged"
+    },
+    {
+      "rank": 2,
+      "evidence": "independent local hydrology/water-state covariates frozen before outcome comparison",
+      "supports_biology_if": "local shared eel activity/detection state tracks hydrology after receiver operability is represented"
+    },
+    {
+      "rank": 3,
+      "evidence": "sub-weekly co-activity timing among co-resident eels before documented receiver failure",
+      "supports_biology_if": "within-pool synchrony remains beyond receiver-wide observation-state effects"
+    },
+    {
+      "rank": 4,
+      "evidence": "independent yellow-eel telemetry population/stream",
+      "purpose": "prospective confirmation that memory without observed propagation recurs outside the hypothesis-generating stream"
+    }
+  ],
+  "primary_next_test": {
+    "statement": "A shared receiver/pool temporal effect remains after individual detection history and known receiver-operability state are represented.",
+    "competing_explanations": [
+      "shared_pool_biological_state",
+      "shared_receiver_observation_state"
+    ],
+    "required_failure_mode": "If available data cannot separate pool from receiver because they are perfectly aliased, return unidentifiable and move to an independent receiver/hydrology design."
+  },
+  "claim_boundary": [
+    "The original EOG ~7% gain is not a biological effect size because 9 heldout weeks at a major receiver were affected by documented operability failure.",
+    "The pre-failure locality association is robust to that known failure but remains observational.",
+    "Do not fit or infer receiver-to-receiver movement in this retained cohort.",
+    "A broader movement-compression claim requires independent systems."
+  ]
+}
