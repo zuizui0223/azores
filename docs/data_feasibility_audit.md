@@ -2,84 +2,106 @@
 
 ## Current decision
 
-The project is no longer blocked on finding an independent eel dataset.
+The Europe-wide European eel panel is executable from openly available processed data before downloading the 1.1 GB raw detection table.
 
-### GO — Europe-wide European eel biotelemetry dataset
+Source:
+- Verhelst et al. 2025, Fish and Fisheries, DOI 10.1111/faf.12904
+- public analysis repository: PieterjanVerhelst/eel-meta-analysis
+- raw detections: Zenodo DOI 10.5281/zenodo.15260539
 
-**Paper**
-- Verhelst et al. 2025, *Fish and Fisheries*
-- DOI: 10.1111/faf.12904
+## What is already openly available in the source repository
 
-**Open data**
-- Verhelst 2025, *Detection data for silver eel meta-analysis*
-- Zenodo: 10.5281/zenodo.15260539
-- public file: `raw_detection_data.csv`
-- size: about 1.1 GB
-- MD5: `b4528016678b0bec8948265a7c285fab`
+The public repository contains:
 
-The dataset covers 16 ETN projects / 17 ETN locations; the associated analysis also includes two non-ETN projects from the code repository. The published study combines 18 water bodies and 2,306 tagged eels. Importantly, some animals were tagged in the yellow phase and later began seaward migration during tracking.
+- data/interim/eel_meta_data.csv
+- per-project data/interim/migration/*.csv
+- per-project residency and speed tables
+- data/external/eels_wrs.csv
+- data/external/habitats.csv
+- station-order and distance information
+- the published migration-classification code.
 
-This is the strongest currently executable independent dataset for the **mobility-gating** programme.
+Therefore the first gate does not require downloading the 1.1 GB raw file.
 
-## Why this dataset can test more than the published paper
+## Life-history-state audit
 
-The original meta-analysis focused on migration classification, arrival at sea, migration speed, tidal/non-tidal differences, geography and water-regulating structures.
+Public eel_meta_data.csv contains 2,684 individuals across 19 project codes.
 
-Our question is different:
+life_stage counts:
 
-> **Does the effect of landscape opportunity change when an individual switches from a resident/growth movement state into a directed migratory state?**
+| stage | n |
+|---|---:|
+| FII | 17 |
+| FIII | 303 |
+| FIV | 98 |
+| FV | 336 |
+| MII | 12 |
+| coarse silver | 396 |
+| NA | 1,522 |
 
-The published method already provides a reproducible movement-state classifier. Their general rule using at least 4 km of movement at at least 0.01 m/s agreed with expert classification about 95% of the time.
+The exact Durif-coded cohort is therefore **766**, not a clean yellow-versus-silver panel.
 
-The first analysis can therefore use the published state-classification machinery as provenance, then test a different estimand: **within-individual and cross-system change in movement expression around state transition**.
+This distinction is important. The previous wording that the panel simply contains "yellow + silver records" was too coarse.
 
-## Primary executable test
+## Landscape-overlap audit
 
-For individuals with sufficient pre-migration observations:
+All 766 exact Durif-coded animals have rows in the public WRS table.
 
-1. reconstruct detection sequence;
-2. identify migration onset with the published classifier;
-3. estimate pre-onset movement scale / station use;
-4. estimate post-onset movement speed / directionality;
-5. compute within-individual mobility-release contrast;
-6. test whether the contrast differs among:
-   - free-flowing versus regulated systems;
-   - tidal versus non-tidal reaches;
-   - water-body types;
-   - hydrological opportunity where external flow data can be joined without outcome-driven selection.
+The three well-replicated female stages span multiple projects and WRS classes:
 
-### Gate A — pre-transition information
+- FIII: 303 individuals across 7 projects;
+- FIV: 98 across 7 projects;
+- FV: 336 across 7 projects.
 
-The mobility-gating hypothesis requires enough individuals with detections before classified migration onset.
+FII is sparse and highly context-confounded:
+- n=17;
+- 16 are from 2012_leopoldkanaal;
+- WRS classes are almost entirely one context.
 
-If most animals enter the dataset only after migratory behaviour has started, **do not** claim a within-individual state switch from this panel. In that case use it only for the landscape-gating component and seek another stage-transition dataset.
+MII is also sparse (n=12).
 
-### Gate B — landscape interaction
+Therefore the primary independent analysis should be **FIII/FIV/FV**, with FII and MII as explicit boundary/sensitivity groups.
 
-A stage effect alone is already expected biologically. The new target requires:
+## Outcome availability already inspected
 
-```text
-movement_state × landscape_opportunity
-```
+The public successful_migrants_final_detection.csv was inspected during development.
 
-If stage-specific landscape effects cannot be estimated across independent systems, the programme collapses to a known ontogenetic movement result.
+Successful-tag counts among exact stages:
 
-## Secondary candidate — Wolastoq / Saint John River
+- FII: 0/17;
+- FIII: 106/303;
+- FIV: 45/98;
+- FV: 116/336;
+- MII: 1/12.
 
-Eissenhauer et al. 2026 tracked 72 American eels. Sixteen were classified as apparent silver-stage outmigrants, with rapid freshwater downstream movement after onset. This is an excellent biological replication because resident yellow-stage and migratory behaviour occur in the same river study.
+These are **not effect estimates**. They are unadjusted counts confounded by project, tracking geometry, season and landscape context, and were seen before protocol freeze.
 
-Current status: **paper verified; public raw telemetry not located in the present audit**.
+Do not use the raw proportions as the headline result.
 
-Use as:
-- independent published contrast now;
-- direct validation dataset if raw data become openly accessible.
+## Current GO
 
-## HOLD candidates
+### GO 1 — morphology stage -> later movement
 
-The Tone River, Mehaigne, Poole Harbour and other yellow-eel studies remain useful comparative systems, but raw individual telemetry access has not yet been verified here. Do not build the main analysis around them until access is confirmed.
+Capture-time Durif stage is independent of the later telemetry movement outcome, so the core state predictor is non-circular.
 
-## Immediate implementation target
+### GO 2 — stage-dependent landscape resistance
 
-The next executable object is the Europe-wide raw detection panel, not the Flores response.
+FIII/FIV/FV have sufficient representation across projects and WRS classes to test whether landscape resistance has stage-dependent effects, subject to leave-one-project-out stability.
 
-Use `analysis/02_fetch_public_comparative_data.py` to audit/download the Zenodo record.
+### HOLD — within-individual yellow-to-silver transition
+
+The current public metadata mostly contain a capture-time stage, not repeated physiological staging of the same individual.
+
+Do not describe the Europe-wide panel as a direct repeated-measures physiological transition experiment.
+
+The movement classifier can identify behavioural onset, but that is an outcome, not an independent state predictor.
+
+## Next executable step
+
+Run the lightweight stage/landscape preflight before any 1.1 GB download:
+
+~~~bash
+python analysis/03_stage_landscape_preflight.py
+~~~
+
+Only download raw detections if an analysis requires reconstruction beyond the already public migration/residency/speed tables.
