@@ -1,8 +1,16 @@
-# Analysis order
+# Analysis programme
 
-The EOG result is used only to generate ecological hypotheses.
+## Publication target
 
-## Stage 1 — observation audit
+This repository does **not** aim to publish a re-analysis of the Azores eel paper.
+
+Azores is a seed system for the cross-system **memory–propagation regime programme**:
+
+> predictive memory can arise from local persistence, shared forcing, observation-process memory, or actual propagation; history-based forecast gain alone does not identify which source generated it.
+
+See [general-principle programme](../docs/general_principle_program.md).
+
+## Phase 0 — seed-system diagnosis only
 
 Run:
 
@@ -10,23 +18,35 @@ Run:
 python analysis/01_receiver_state_diagnostic.py
 ```
 
-This checks:
+This checks the published zero-between-receiver-movement constraint, same-receiver detection gaps, whole-array weekly state, and the documented station-4 failure boundary.
 
-- the published zero-between-receiver-movement constraint;
-- same-receiver detection gaps and persistence;
-- whole-array weekly state;
-- the known station 4 / `151 FLO CRUZ` failure boundary.
+These results are **not the paper endpoint**. Their purpose is to estimate which corner of the general regime map Azores occupies and to derive plausible process timescales.
 
-**Stop rule:** do not interpret EOG's residual history signal as biology until known receiver-operability problems are audited.
+## Phase 1 — known-truth regime benchmark
 
-## Stage 2 — local memory versus shared synchrony
+Before broad empirical synthesis, construct simulated systems with known truth spanning:
 
-Fit the model ladder frozen in `hypothesis_registry.json`:
+- persistence without propagation;
+- shared forcing without propagation;
+- observation-memory / imperfect-detection artifacts;
+- genuine directional propagation;
+- mixed regimes.
 
-`M0 -> M0b -> M1 -> M2 -> M3 -> M4`.
+Vary observation interval relative to process timescales and test whether the proposed scale ratios recover the correct memory source.
 
-Hydrological covariates must be chosen/frozen before using them to explain the detection sequence.
+## Phase 2 — independent cross-system panel
 
-## Stage 3 — independent confirmation
+Add independent systems spanning the same regimes. For every system estimate the same quantities:
 
-Same-Azores mechanism analysis is exploratory. Confirmation requires an independent stream/population/period or external telemetry dataset.
+1. gain from lagged history beyond current environment;
+2. same-site persistence contribution;
+3. shared-forcing contribution;
+4. observation-process contribution;
+5. residual directional propagation contribution;
+6. sensitivity of all contributions to temporal re-binning.
+
+## Phase 3 — comparative principle
+
+Test whether systems cluster by the proposed scale ratios better than by taxon or ecosystem label.
+
+Azores is one anchor point, not the evidence base.
