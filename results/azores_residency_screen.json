@@ -38,7 +38,7 @@
     "pooled_risk_difference": 0.6361079802252005,
     "individual_risk_difference": {
       "n": 18,
-      "mean": 0.287871774742844,
+      "mean": 0.2878717747428439,
       "median": 0.3472222222222222,
       "q25": -0.037735849056603765,
       "q75": 0.4318181818181818
@@ -49,20 +49,20 @@
       "n": 39,
       "mean": 0.14208395815242536,
       "median": 0.14285714285714285,
-      "q25": -0.07418318309487697,
-      "q75": 0.31277897600492205
+      "q25": -0.07418318309487702,
+      "q75": 0.3127789760049224
     },
     "different_receiver_pairwise_weekly_correlation": {
       "n": 96,
-      "mean": -0.009429282270831731,
-      "median": -0.02331715434315132,
+      "mean": -0.009429282270831767,
+      "median": -0.023317154343151333,
       "q25": -0.17407765595569785,
-      "q75": 0.1345345587992626
+      "q75": 0.13453455879926252
     },
-    "same_minus_different_mean_correlation": 0.1526824862746618,
+    "same_minus_different_mean_correlation": 0.15151324042325712,
     "receiver_label_permutations": 10000,
     "permutation_seed": 20260930,
-    "one_sided_permutation_p": 0.0072992700729927005
+    "one_sided_permutation_p": 0.007499250074992501
   },
   "interpretation": {
     "supported_as_exploratory": [
