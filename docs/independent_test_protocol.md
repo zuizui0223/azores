@@ -2,17 +2,17 @@
 
 ## Scientific target
 
-The independent Europe-wide eel panel is used to test a biological interaction, not to repeat the published migration-speed analysis.
+The Europe-wide eel panel is used to develop and stress-test a biological interaction, not to repeat the published migration-speed analysis.
 
 > **Does independently measured migratory readiness change how landscape resistance is translated into realised movement?**
 
-The key ecological claim is that a barrier or hydrological corridor has no single biological effect. Its realised effect depends on the animal's internal movement state.
+The key ecological claim is that a barrier or hydrological corridor has no single biological effect. Its realised effect may depend on the animal's internal movement state.
 
 ## Independent state variable
 
 Use capture-time life_stage from the public eel metadata.
 
-Exact Durif-coded individuals currently present in the public processed metadata:
+Exact Durif-coded individuals:
 
 - FII: 17
 - FIII: 303
@@ -22,66 +22,69 @@ Exact Durif-coded individuals currently present in the public processed metadata
 
 Total exact Durif-coded: **766**.
 
-There are also 396 animals recorded only as silver and 1,522 with NA stage.
-
-### Primary cohort
-
-Use female stages with enough replication and cross-project overlap:
+Primary female cohort:
 
 ~~~text
 FIII -> FIV -> FV
 ~~~
 
-These stages occur across multiple independent projects and multiple WRS classes.
+FII is a sparse resident boundary case; MII is a sparse male boundary case. Neither is pooled into the primary cohort.
 
-FII is retained as an ecological boundary case but is not the primary contrast because n=17 and 16/17 individuals come from one project/WRS context.
+## Identifiability boundary discovered in preflight
 
-MII is analysed separately because n=12 and sex/stage are confounded.
+The panel is strong for testing **stage effects within projects**, but weaker for a universal stage × landscape interaction.
 
-The coarse silver group is not mixed into the ordinal Durif analysis.
+Why:
+
+- FIII/FIV/FV occur across seven projects;
+- all exact-stage animals have WRS records;
+- but WRS impact is largely a project/system property;
+- only a small subset of projects contain meaningful within-project WRS variation.
+
+Therefore:
+
+### GO — internal-state effect
+
+Estimate whether capture-time Durif stage predicts later migration initiation/progression within project.
+
+### GO, developmental — state × resistance
+
+Estimate the interaction with project-aware models and leave-one-project-out diagnostics.
+
+### HOLD — general confirmation of state-dependent resistance
+
+Do not treat this panel alone as confirmation of a general state × landscape law. A second dataset/system with stronger within-system resistance contrast is required.
 
 ## Outcomes
 
-State is defined independently of movement. Movement outcomes can therefore be evaluated without circularity.
+State is defined independently of movement.
 
 ### O1 — migration initiation
 
-For each tagged individual, determine whether/when the published movement classifier first identifies directed downstream migration.
+Time from release to first later event meeting the frozen published migration criterion, with non-initiators censored.
 
-Primary response:
-- time from release to first classified migration event;
-- censor individuals with no detected migration onset.
-
-### O2 — migration progression after initiation
+### O2 — progression after initiation
 
 Among initiators:
-- downstream progression rate;
+- downstream progression;
 - migration speed;
-- distance progressed before long interruption;
-- successful arrival/escapement where the published endpoint is available.
+- interruption/delay;
+- successful escapement where estimable.
 
-### O3 — barrier sensitivity
+### O3 — landscape resistance
 
-Use response-independent landscape descriptors already published with the dataset:
+Use response-independent:
 - barrier_number;
 - wrs_impact_score;
 - water_body_class;
-- station-level habitat type.
-
-The target is the interaction:
-
-~~~text
-Durif stage × landscape resistance
-~~~
-
-not the marginal WRS effect already analysed in the source paper.
+- station habitat type.
 
 ## Model ladder
 
 ### A0 — project/design baseline
 
 ~~~text
-outcome ~ project + release date + body size + sex where estimable
+outcome ~ project + release timing + body size + design covariates
 ~~~
 
 ### A1 — internal state
@@ -90,12 +93,10 @@ outcome ~ project + release date + body size + sex where estimable
 outcome ~ A0 + Durif stage
 ~~~
 
-Question: does independently measured readiness predict later movement expression?
-
 ### A2 — landscape resistance
 
 ~~~text
-outcome ~ A1 + WRS / water-body context
+outcome ~ A1 + WRS
 ~~~
 
 ### A3 — state-dependent resistance
@@ -104,29 +105,28 @@ outcome ~ A1 + WRS / water-body context
 outcome ~ A2 + Durif stage × WRS
 ~~~
 
-This is the main ecological test.
+A3 is exploratory/developmental in this panel because WRS is substantially system-confounded.
 
 ## Interpretation
 
-- **A1 only:** movement is state dependent, but state-dependent landscape resistance is not established.
-- **A3 supported:** the same landscape resistance has different realised effects depending on internal migratory readiness.
-- **no robust A1/A3:** mobility-gating programme is not supported by this panel.
+- **A1 robust:** internal readiness predicts later movement expression.
+- **A3 stable across project deletion:** state-dependent resistance becomes a strong candidate general mechanism.
+- **A3 unstable to one project:** interaction remains system-specific/underidentified.
+- **no A1:** mobility-gating interpretation is weakened.
 
 ## Existing outcome access
 
-The public processed files have already been inspected during development. Aggregate successful-migrant counts by stage were seen before this protocol was frozen. Therefore this Europe-wide analysis is **not outcome-blind/preregistered**.
+Aggregate successful-migrant counts were inspected before this protocol was frozen. This is not outcome-blind/preregistered evidence.
 
-It is a developmental independent test. Confirmation must use another system or a held-out project not used for specification.
+## Anti-circularity and no-rescue rules
 
-## Anti-circularity rules
+1. Movement-derived migration flags are outcomes, never the internal-state predictor.
+2. Capture-time Durif stage is fixed before modelling.
+3. Do not regroup FII/FIII/FIV/FV/MII after seeing model results.
+4. Do not tune WRS categories to maximise interaction.
+5. Report leave-one-project-out sign and magnitude changes.
+6. Distinguish within-project stage information from between-project resistance information.
 
-1. Never use the movement-derived migration flag as the predictor of movement.
-2. Capture-time Durif stage is the primary internal-state predictor.
-3. Do not redefine stages after seeing movement outcomes.
-4. Do not tune WRS categories to maximise a stage interaction.
-5. Do not pool FII into FIII or MII into female stages to improve significance.
-6. Project-level leave-one-project-out stability is mandatory because stage composition differs among projects.
+## Confirmation requirement
 
-## Strong ecological conclusion if supported
-
-> **Landscape resistance is state dependent: internal migratory readiness determines not only whether an animal moves, but how strongly barriers and hydrological opportunity constrain that movement.**
+A general statement that landscape resistance is state dependent requires at least one additional independent system where internal state and landscape opportunity vary with less confounding than in the Europe-wide panel.
