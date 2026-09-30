@@ -9,7 +9,7 @@ permissions:
   contents: read
 
 jobs:
-  residency-screen:
+  azores-mechanism-diagnosis:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -17,11 +17,52 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Run published receiver-state diagnostic
+        run: python analysis/01_receiver_state_diagnostic.py
+
+      - name: Show receiver-state summary
+        run: cat analysis/results/azores_receiver_state/summary.json
+
       - name: Recompute locality and persistence screen
         run: python analysis/run_residency_screen.py --output build/azores_residency_screen.json
-      - name: Verify committed result
-        run: diff -u results/azores_residency_screen.json build/azores_residency_screen.json
+
+      - name: Verify committed ecological screen numerically
+        run: |
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+
+          committed = json.loads(Path("results/azores_residency_screen.json").read_text())
+          rebuilt = json.loads(Path("build/azores_residency_screen.json").read_text())
+
+          def compare(a, b, path="root"):
+              if isinstance(a, dict) and isinstance(b, dict):
+                  if set(a) != set(b):
+                      raise SystemExit(f"key mismatch at {path}: {set(a)^set(b)}")
+                  for k in a:
+                      compare(a[k], b[k], f"{path}.{k}")
+              elif isinstance(a, list) and isinstance(b, list):
+                  if len(a) != len(b):
+                      raise SystemExit(f"length mismatch at {path}")
+                  for i, (x, y) in enumerate(zip(a, b)):
+                      compare(x, y, f"{path}[{i}]")
+              elif isinstance(a, (int, float)) and isinstance(b, (int, float)):
+                  if not math.isclose(float(a), float(b), rel_tol=1e-12, abs_tol=1e-12):
+                      raise SystemExit(f"numeric mismatch at {path}: {a} != {b}")
+              else:
+                  if a != b:
+                      raise SystemExit(f"value mismatch at {path}: {a!r} != {b!r}")
+
+          compare(committed, rebuilt)
+          print("Azores committed result matches deterministic recomputation.")
+          PY
+
       - uses: actions/upload-artifact@v4
         with:
-          name: azores-residency-screen
-          path: build/azores_residency_screen.json
+          name: azores-mechanism-diagnosis
+          path: |
+            analysis/results/azores_receiver_state/summary.json
+            analysis/results/azores_receiver_state/tag_residence_bouts.csv
+            analysis/results/azores_receiver_state/weekly_array_state.csv
+            build/azores_residency_screen.json
