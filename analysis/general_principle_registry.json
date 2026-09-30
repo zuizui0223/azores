@@ -1,30 +1,37 @@
 {
-  "schema": "azores.mobility_gating_program.v1",
-  "publication_endpoint": "independent comparative test of life-history-state by landscape-opportunity control of realised mobility",
+  "schema": "azores.mobility_gating_program.v2",
+  "publication_endpoint": "independent test of capture-time migratory readiness x landscape resistance on later movement expression",
   "seed_system": "Flores yellow European eel",
-  "core_hypothesis": "realised mobility is a gated phenotype produced by internal movement state x landscape opportunity x local refuge value",
+  "core_hypothesis": "movement capacity is gated by internal readiness, and the ecological cost of landscape resistance depends on that readiness",
+  "primary_cohort": {
+    "stages": [
+      "FIII",
+      "FIV",
+      "FV"
+    ],
+    "rationale": "each stage has >=98 individuals across 7 projects with complete WRS-table coverage"
+  },
+  "boundary_groups": {
+    "FII": "n=17; 16/17 from one project, descriptive boundary only",
+    "MII": "n=12; male stage analysed separately",
+    "silver": "coarse stage label; not pooled into ordinal Durif analysis"
+  },
   "primary_predictions": [
-    "movement increases sharply when individuals transition from yellow/growth state to silver/migratory state",
-    "landscape permeability and hydrological opportunity modify the magnitude or timing of that mobility release",
-    "local refuge stability suppresses yellow-stage exploration more strongly than it suppresses silver-stage migration",
-    "stage-specific landscape effects outperform a single movement rule across systems"
+    "capture-time Durif stage predicts later migration initiation/progression",
+    "WRS/barrier effects differ among FIII/FIV/FV stages",
+    "stage x landscape interaction is stable to leaving one project out"
   ],
   "primary_estimands": {
-    "M_yellow": "movement scale before migratory transition",
-    "M_silver": "movement scale after migratory transition",
-    "R_stage": "log((M_silver+epsilon)/(M_yellow+epsilon))",
-    "T_release": "timing of transition to directed migration"
+    "stage_effect": "effect of capture-time Durif stage on later movement expression",
+    "state_dependent_resistance": "Durif stage x WRS/landscape interaction",
+    "project_robustness": "leave-one-project-out stability"
   },
   "falsification": [
-    "stage effects disappear after body size/season/tracking-design control",
-    "landscape opportunity does not interact with state",
-    "same environmental effects apply unchanged across yellow and silver stages"
+    "stage effect disappears after project/design covariate control",
+    "landscape resistance does not interact robustly with stage",
+    "interaction is driven by one project",
+    "effect requires post-hoc regrouping of Durif stages"
   ],
-  "priority_independent_systems": [
-    "Wolastoq/Saint John River American eel",
-    "Europe-wide European eel biotelemetry panel",
-    "Japanese yellow-eel telemetry systems",
-    "additional small-stream European eel systems"
-  ],
+  "evidence_boundary": "aggregate successful-migrant counts by stage were inspected during development; Europe-wide panel is independent developmental evidence, not outcome-blind confirmation",
   "eog_role": "discovery of an extreme resident anchor only"
 }
