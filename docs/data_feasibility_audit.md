@@ -105,3 +105,27 @@ python analysis/03_stage_landscape_preflight.py
 ~~~
 
 Only download raw detections if an analysis requires reconstruction beyond the already public migration/residency/speed tables.
+
+## New confirmation candidate — consecutive barriers in one Dutch system
+
+van Rijn et al. (2026) tracked 40 European eels through a pumping station and then a tidal sluice in the same source-to-sea route.
+
+Key properties for the present programme:
+
+- all tagged fish were classified with the Durif silvering index;
+- only FIII–FV individuals were retained;
+- the same individuals encountered two structurally different barriers;
+- discharge and weather conditions were measured at passage opportunities;
+- 35/40 passed the pumping station and 27/40 completed seaward passage through the tidal sluice;
+- the underlying data are openly archived at DANS, DOI 10.17026/LS/WTSUNG.
+
+The source paper already considered Durif stage as an individual predictor at the pumping station, where it was dropped during model selection. At the tidal sluice, Durif stage was excluded because stage and body mass could not be separated among successful individuals.
+
+Therefore this dataset **does not provide an untouched simple stage-effect test**.
+
+Its value is narrower and more relevant:
+
+> can internal readiness modify how a sequence of different passage opportunities/barriers is experienced within one shared landscape?
+
+Because n=40 and stage/weight are partly confounded, treat this as a confirmation candidate rather than a decisive test.
+
