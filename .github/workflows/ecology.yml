@@ -1,0 +1,27 @@
+name: ecological screen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  residency-screen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recompute locality and persistence screen
+        run: python analysis/run_residency_screen.py --output build/azores_residency_screen.json
+      - name: Verify committed result
+        run: diff -u results/azores_residency_screen.json build/azores_residency_screen.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: azores-residency-screen
+          path: build/azores_residency_screen.json
