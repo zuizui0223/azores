@@ -1,40 +1,45 @@
 {
-  "schema": "azores.independent_test_contract.v1",
-  "scientific_question": "Does life-history state release latent mobility, and does landscape opportunity modulate the magnitude/timing of that release?",
-  "priority_design": "within-individual or within-system yellow-to-silver stage contrast",
+  "schema": "azores.independent_test_contract.v2",
+  "scientific_question": "Does independently measured capture-time migratory readiness modify how landscape resistance is translated into later realised movement?",
+  "priority_design": "project-aware Durif-stage x landscape-resistance comparison using open Europe-wide eel telemetry products",
   "eligibility": {
-    "taxon": "Anguilla spp. preferred for primary test",
-    "required": [
-      "individual-resolved telemetry",
-      "yellow-stage observations before migratory release",
-      "identified or defensible onset of silver/outmigration state for at least a subset",
-      "timestamps sufficient for movement-rate estimation",
-      "spatial detections/positions sufficient to estimate movement scale",
-      "landscape connectivity or hydrological opportunity measurable without using the movement outcome"
+    "taxon": "Anguilla anguilla primary; other Anguilla spp. for replication",
+    "primary_stages": [
+      "FIII",
+      "FIV",
+      "FV"
     ],
-    "preferred": [
-      "same individuals observed before and after transition",
-      "flow/discharge or tidal state",
-      "barrier locations",
-      "body size and stage covariates",
-      "multiple water bodies or strong within-system hydrological contrast"
+    "boundary_stages": [
+      "FII",
+      "MII"
+    ],
+    "required": [
+      "individual-resolved capture-time life stage independent of later movement outcome",
+      "later telemetry-derived migration initiation/progression outcome",
+      "response-independent landscape resistance or hydrological-opportunity covariates",
+      "project/study identity",
+      "enough cross-project stage overlap for leave-one-project-out analysis"
     ],
     "reject_if": [
-      "only population-level counts are available",
-      "stage is inferred solely from the movement outcome being tested",
-      "tracking starts only after directed migration has already begun",
-      "movement metric cannot be harmonised across individuals",
-      "landscape covariates are selected after seeing movement outcomes"
+      "movement-derived migration flag is used as predictor of movement",
+      "FII is pooled into FIII to increase power",
+      "MII is pooled with female stages without an explicit sex/stage sensitivity analysis",
+      "landscape categories are redefined after inspecting the stage interaction",
+      "a single project determines the interaction"
     ]
   },
-  "primary_estimand": "within-individual change in movement around independently defined migratory-state onset",
-  "secondary_estimand": "state x landscape-opportunity interaction",
-  "primary_comparator": "state-only model",
-  "stronger_model": "state x landscape opportunity plus body size, season and tracking design",
+  "primary_estimand": "Durif stage x WRS/landscape-resistance interaction on later movement expression",
+  "secondary_estimands": [
+    "capture-time Durif stage effect on migration initiation",
+    "stage x landscape effect on migration progression or successful escapement"
+  ],
+  "primary_cohort_note": "FIII/FIV/FV are the primary cohort because each has >=98 individuals across 7 projects; FII n=17 and MII n=12 are boundary groups.",
+  "outcome_access_note": "Aggregate successful-migrant counts by stage were inspected during development before v2 freeze; this panel is developmental independent evidence, not outcome-blind confirmation.",
+  "stability_requirement": "report project-aware estimates and leave-one-project-out stability",
   "interpretation": {
-    "state_effect_only": "mobility is strongly state dependent but landscape gating is not established",
-    "state_by_landscape": "supports ecological mobility-gating hypothesis",
-    "no_state_effect": "core hypothesis not supported in this system"
+    "stage_only": "internal readiness predicts movement but landscape gating is not established",
+    "stage_by_landscape": "supports state-dependent landscape resistance",
+    "no_robust_interaction": "do not claim the mobility-gating general principle from this panel"
   },
-  "no_rescue": "do not change state-onset definition or landscape covariates after inspecting the primary contrast"
+  "no_rescue": "do not change stage grouping, WRS definition, or primary interaction after model inspection"
 }
