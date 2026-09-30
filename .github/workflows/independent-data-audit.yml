@@ -7,6 +7,7 @@ on:
       - "analysis/03_stage_transition_gate.py"
       - "analysis/04_zenodo_header_probe.py"
       - "analysis/05_processed_panel_transition_audit.py"
+      - "analysis/06_build_stage_landscape_panel.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -24,9 +25,13 @@ jobs:
         run: python analysis/04_zenodo_header_probe.py
       - name: Clone source study public processed repository
         run: git clone --depth 1 https://github.com/PieterjanVerhelst/eel-meta-analysis.git external/eel-meta-analysis
-      - name: Audit yellow-at-tagging to classified-migration transitions
+      - name: Audit physiological-stage to behavioral-migration transitions
         run: |
           python analysis/05_processed_panel_transition_audit.py \
+            --source-repo external/eel-meta-analysis
+      - name: Build descriptive state-landscape panel when eligible
+        run: |
+          python analysis/06_build_stage_landscape_panel.py \
             --source-repo external/eel-meta-analysis
       - name: Upload audit
         uses: actions/upload-artifact@v4
@@ -36,3 +41,5 @@ jobs:
             data/external/silver_eel_meta/zenodo_metadata_audit.json
             analysis/results/eel_meta_header_probe.json
             analysis/results/processed_panel_transition_audit.json
+            analysis/results/state_landscape_panel.csv
+            analysis/results/state_landscape_panel.csv.summary.json
