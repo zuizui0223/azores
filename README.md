@@ -1,39 +1,34 @@
 # azores
 
-Independent ecological project on temporal state, activity and detectability of yellow eels in an island-stream landscape.
+## Main target: a general ecological principle, not a re-analysis paper
 
-## Scientific origin
+Azores is now a **seed / anchor system** for a broader programme on the source of ecological predictive memory.
 
-This project grew from an EOG fresh-data result: a time-updated spatial/history state improved held-out receiver-week detection beyond an already rich conventional predictor, but EOG could not identify the biological mechanism.
+Candidate principle:
 
-The decisive ecological constraint is that the source study observed **no valid receiver-to-receiver movement among the 36 tagged eels**. The EOG gain therefore is not interpreted as dispersal information.
+> **Predictive memory is not spatial propagation.**
 
-The target is instead to explain **why fixed local pools show persistent and coordinated temporal detection/activity states**.
+Recent spatial state can improve forecasts because of local persistence, shared environmental forcing, observation-process memory, or actual propagation. Only the last is movement/connectivity.
 
-## Current question
+The broader hypothesis is that which source dominates can be predicted from the relative timescales and spatial scales of:
 
-> **In a strongly resident island-stream eel population, is temporal predictability primarily an observation-system phenomenon, shared hydrological synchrony, or persistent local activity state?**
+- local-state persistence;
+- movement/colonisation;
+- common environmental forcing;
+- observation/detection;
+- the sampling interval and site spacing.
 
-Current test order:
+Azores occupies an unusually informative corner: the source study reports **zero valid between-receiver movements among 36 tagged yellow eels**, yet the EOG spatial-history representation improved future receiver-week prediction. It is therefore an anchor for **memory without observed propagation**.
 
-1. **receiver-operability audit** — especially the documented station 4 / `151 FLO CRUZ` failure after 2022-07-24;
-2. **same-tag / same-pool observation memory**;
-3. **shared temporal state across pools**;
-4. **hydrology and memory × hydrology**;
-5. **latent residence + acoustic-detection model**.
-
-Only after these are resolved should a biological local-state mechanism be claimed.
+The same-data mechanism analysis is diagnostic only. It is not the final paper.
 
 See:
-- [idea origin](docs/idea_origin_from_eog.md)
-- [EOG result → ecological tests](docs/eog_result_to_ecological_tests.md)
+
+- [general-principle programme](docs/general_principle_program.md)
+- [EOG result -> ecological tests](docs/eog_result_to_ecological_tests.md)
 - [analysis order](analysis/README.md)
-- [hypothesis registry](analysis/hypothesis_registry.json)
+- [general-principle registry](analysis/general_principle_registry.json)
 
-## Evidence boundary
+## Publication boundary
 
-The Azores response has already been opened in EOG. Analyses using the same telemetry are exploratory mechanism diagnosis. Independent confirmation requires another stream, population, time series, or external telemetry dataset.
-
-The broader **movement-compression** idea remains a later comparative hypothesis requiring independent telemetry systems; it is not the immediate explanation of the EOG residual.
-
-EOG is provenance only. Ecological claims here require direct ecological evidence.
+The publishable main claim must be supported by known-truth simulations plus independent systems spanning multiple memory-source regimes. Azores alone is motivation and one anchor point.
