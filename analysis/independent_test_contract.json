@@ -1,0 +1,40 @@
+{
+  "schema": "azores.independent_test_contract.v1",
+  "scientific_question": "Does life-history state release latent mobility, and does landscape opportunity modulate the magnitude/timing of that release?",
+  "priority_design": "within-individual or within-system yellow-to-silver stage contrast",
+  "eligibility": {
+    "taxon": "Anguilla spp. preferred for primary test",
+    "required": [
+      "individual-resolved telemetry",
+      "yellow-stage observations before migratory release",
+      "identified or defensible onset of silver/outmigration state for at least a subset",
+      "timestamps sufficient for movement-rate estimation",
+      "spatial detections/positions sufficient to estimate movement scale",
+      "landscape connectivity or hydrological opportunity measurable without using the movement outcome"
+    ],
+    "preferred": [
+      "same individuals observed before and after transition",
+      "flow/discharge or tidal state",
+      "barrier locations",
+      "body size and stage covariates",
+      "multiple water bodies or strong within-system hydrological contrast"
+    ],
+    "reject_if": [
+      "only population-level counts are available",
+      "stage is inferred solely from the movement outcome being tested",
+      "tracking starts only after directed migration has already begun",
+      "movement metric cannot be harmonised across individuals",
+      "landscape covariates are selected after seeing movement outcomes"
+    ]
+  },
+  "primary_estimand": "within-individual change in movement around independently defined migratory-state onset",
+  "secondary_estimand": "state x landscape-opportunity interaction",
+  "primary_comparator": "state-only model",
+  "stronger_model": "state x landscape opportunity plus body size, season and tracking design",
+  "interpretation": {
+    "state_effect_only": "mobility is strongly state dependent but landscape gating is not established",
+    "state_by_landscape": "supports ecological mobility-gating hypothesis",
+    "no_state_effect": "core hypothesis not supported in this system"
+  },
+  "no_rescue": "do not change state-onset definition or landscape covariates after inspecting the primary contrast"
+}
