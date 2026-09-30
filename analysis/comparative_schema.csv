@@ -1,0 +1,17 @@
+field,level,required,meaning
+study_id,system,yes,independent telemetry study/system identifier
+individual_id,individual,yes,tagged eel identifier
+species,individual,yes,Anguilla species
+life_history_state,time,yes,yellow or migratory/silver state defined independently of tested movement metric
+timestamp,time,yes,observation time
+position_or_receiver,time,yes,spatial observation
+movement_metric,time,derived,harmonised displacement or movement rate
+body_length,individual,preferred,body size
+waterbody_type,system,yes,stream river lake estuary canal etc
+accessible_network_length,system,preferred,accessible longitudinal habitat extent
+barrier_index,system,preferred,response-independent barrier/resistance metric
+flow_or_tide,time,preferred,hydrological opportunity
+refuge_stability,space_time,optional,response-independent local refuge stability proxy
+tracking_method,system,yes,acoustic radio GPS etc
+receiver_spacing,system,yes,observation resolution
+tracking_duration,individual,yes,total monitored duration
