@@ -1,18 +1,19 @@
 #!/usr/bin/env python3
 """Audit the public eel meta-analysis for a non-circular stage x landscape test.
 
-This script downloads only lightweight public CSVs from the upstream GitHub
-repository. It does NOT download the ~1.1 GB Zenodo detection file.
+The gate separates:
+  1) individual-stage information within projects, and
+  2) landscape-resistance information across/within projects.
 
-The gate asks whether independently measured capture-time Durif stage has enough
-replication and landscape overlap to support a stage-dependent resistance test.
+A large individual sample does not automatically make a stage x landscape
+interaction well identified if resistance is mostly a project-level property.
 """
 from __future__ import annotations
 
 import csv
 import io
 import json
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 import urllib.request
 
@@ -34,6 +35,18 @@ def fetch(url: str) -> str:
 
 def rows(text: str) -> list[dict[str, str]]:
     return list(csv.DictReader(io.StringIO(text)))
+
+
+def numeric(value: str | None) -> float | None:
+    if value is None:
+        return None
+    v = value.strip()
+    if not v or v.upper() == "NA":
+        return None
+    try:
+        return float(v)
+    except ValueError:
+        return None
 
 
 def main() -> None:
@@ -66,32 +79,76 @@ def main() -> None:
             ),
         }
 
-    primary_ok = all(
+    primary_rows = [
+        r for r in exact_rows if (r.get("life_stage") or "").strip() in PRIMARY
+    ]
+    project_impacts: dict[str, Counter] = defaultdict(Counter)
+    project_stages: dict[str, Counter] = defaultdict(Counter)
+
+    for r in primary_rows:
+        project = r["animal_project_code"]
+        stage = (r.get("life_stage") or "").strip()
+        project_stages[project][stage] += 1
+        w = wrs_by_tag.get(r["acoustic_tag_id"], {})
+        imp = numeric(w.get("wrs_impact_score"))
+        if imp is not None:
+            project_impacts[project][str(imp)] += 1
+
+    project_overlap = {}
+    informative_within_project_resistance = 0
+    for project in sorted(project_stages):
+        impacts = project_impacts.get(project, Counter())
+        stage_ok = all(project_stages[project].get(s, 0) > 0 for s in PRIMARY)
+        # Require >=2 distinct numeric resistance levels represented by >=5 eels each.
+        robust_impacts = [k for k, n in impacts.items() if n >= 5]
+        resistance_ok = len(robust_impacts) >= 2
+        if stage_ok and resistance_ok:
+            informative_within_project_resistance += 1
+        project_overlap[project] = {
+            "stage_counts": dict(project_stages[project]),
+            "wrs_impact_counts": dict(impacts),
+            "all_primary_stages_present": stage_ok,
+            "meaningful_within_project_resistance_contrast": resistance_ok,
+        }
+
+    stage_main_effect_ok = all(
         int(by_stage[s]["n"]) >= 50
         and int(by_stage[s]["n_projects"]) >= 3
         and int(by_stage[s]["wrs_coverage_n"]) == int(by_stage[s]["n"])
         for s in PRIMARY
     )
 
+    interaction_confirmatory = informative_within_project_resistance >= 3
+
+    if not stage_main_effect_ok:
+        status = "STOP_STAGE_COVERAGE"
+    elif interaction_confirmatory:
+        status = "PASS_STAGE_AND_INTERACTION"
+    else:
+        status = "PASS_STAGE_HOLD_INTERACTION_CONFIRMATION"
+
     result = {
-        "schema": "azores.stage_landscape_preflight.v1",
-        "status": "PASS_PRIMARY_FEMALE_STAGES" if primary_ok else "STOP_PRIMARY_COVERAGE",
+        "schema": "azores.stage_landscape_preflight.v2",
+        "status": status,
         "metadata_rows": len(meta),
         "exact_durif_n": len(exact_rows),
         "life_stage_counts": dict(stage_counts),
         "primary_stages": list(PRIMARY),
         "by_stage": by_stage,
-        "primary_question": (
-            "Does capture-time Durif stage modify the later effect of landscape resistance on movement?"
+        "project_overlap": project_overlap,
+        "n_projects_with_strong_within_project_stage_and_resistance_overlap": (
+            informative_within_project_resistance
         ),
+        "stage_main_effect_estimable": stage_main_effect_ok,
+        "stage_x_resistance_confirmatory_from_this_panel": interaction_confirmatory,
         "claim_boundary": (
-            "Successful-migrant counts were inspected during development and are not confirmatory effect estimates. "
-            "FII and MII are sparse boundary groups; do not pool them into the primary FIII/FIV/FV contrast."
+            "The panel can support project-aware stage effects. "
+            "If resistance is mainly between projects, stage x WRS remains developmental and requires external confirmation."
         ),
         "next_step": (
-            "freeze project-aware models and perform leave-one-project-out stage x WRS analysis"
-            if primary_ok else
-            "do not fit stage x WRS interaction until cross-project coverage is adequate"
+            "fit project-aware stage models and exploratory stage x WRS with leave-one-project-out stability"
+            if stage_main_effect_ok else
+            "do not fit the proposed primary models"
         ),
     }
 
