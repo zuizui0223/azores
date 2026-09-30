@@ -6,11 +6,12 @@ on:
       - "analysis/02_fetch_public_comparative_data.py"
       - "analysis/03_stage_transition_gate.py"
       - "analysis/04_zenodo_header_probe.py"
+      - "analysis/05_processed_panel_transition_audit.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
 jobs:
-  zenodo-metadata:
+  public-panel-audit:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -21,6 +22,12 @@ jobs:
         run: python analysis/02_fetch_public_comparative_data.py
       - name: Probe raw detection schema without full download
         run: python analysis/04_zenodo_header_probe.py
+      - name: Clone source study public processed repository
+        run: git clone --depth 1 https://github.com/PieterjanVerhelst/eel-meta-analysis.git external/eel-meta-analysis
+      - name: Audit yellow-at-tagging to classified-migration transitions
+        run: |
+          python analysis/05_processed_panel_transition_audit.py \
+            --source-repo external/eel-meta-analysis
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -28,3 +35,4 @@ jobs:
           path: |
             data/external/silver_eel_meta/zenodo_metadata_audit.json
             analysis/results/eel_meta_header_probe.json
+            analysis/results/processed_panel_transition_audit.json
