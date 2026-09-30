@@ -2,31 +2,41 @@
 
 ## Main ecological question
 
-> **Why does a highly mobile organism suppress movement during one life-history phase and remain anchored to a local refuge?**
+> **Does internal migratory readiness change how strongly landscape resistance constrains realised movement?**
 
-This project uses the Azores yellow-eel system as an extreme anchor for a broader movement-ecology question.
+This project began from an extreme Azores yellow-eel system in which 36 tagged individuals showed very strong pool fidelity and zero valid receiver-to-receiver movement.
 
-The source study already showed very strong pool fidelity and zero valid receiver-to-receiver movement among 36 tagged yellow eels. The goal is **not** to rediscover site fidelity.
+The goal is **not** to rediscover site fidelity.
 
-The working ecological hypothesis is:
+The ecological hypothesis is:
 
-> **movement capacity and movement expression are different traits; predictable profitable refuges, relocation costs, hydrological connectivity and internal life-history state determine when latent mobility is expressed.**
+> **movement capacity is gated by internal life-history state, and the same landscape barrier can have different realised effects depending on how ready the animal is to move.**
 
-Azores represents the **anchoring** route to spatial persistence.
+Azores is the deep-residence anchor.
 
-The main publication target is comparative and independent: yellow-eel/anguillid telemetry systems across small streams, large rivers, lakes and estuaries, testing whether refuge predictability and landscape structure explain realised mobility.
+The main independent test now uses the open Europe-wide European eel panel, where capture-time Durif stages are available independently of later telemetry movement. The primary cohort is FIII/FIV/FV; the focal test is:
+
+~~~text
+later movement ~ Durif stage
+               + landscape resistance
+               + Durif stage × landscape resistance
+               + project/design covariates
+~~~
 
 See:
 
 - [Azores-specific ecological principle](docs/specific_general_principle.md)
-- [two ecological routes to spatial persistence](docs/azores_louisiana_contrast.md)
-- [EOG result -> ecological tests](docs/eog_result_to_ecological_tests.md)
-- [independent test contract](analysis/independent_test_contract.json)
-- [comparative data schema](analysis/comparative_schema.csv)
-- [candidate independent systems](analysis/candidate_independent_systems.csv)
+- [stay in place versus stay in state](docs/azores_louisiana_contrast.md)
+- [independent test protocol](docs/independent_test_protocol.md)
+- [data feasibility audit](docs/data_feasibility_audit.md)
+- [analysis programme](analysis/README.md)
+
+## Evidence boundary
+
+The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
+
+Project-level leave-one-project-out stability is mandatory, and a later external eel system is required for stronger confirmation.
 
 ## Role of EOG
 
-EOG is only the discovery route. It showed that temporal state remained predictive in a system with no observed between-receiver propagation. That contradiction motivated the biological question above.
-
-Same-Azores mechanism analyses are exploratory and are not the final paper.
+EOG is only the discovery route. It exposed temporal structure in a system with no observed receiver-to-receiver propagation, motivating the question of when latent mobility is actually expressed.
