@@ -1,131 +1,77 @@
-# Specific general principle for Azores: landscape compression of realised mobility
+# Ecological mainline for Azores: mobility is gated, not continuously expressed
 
-## Why Azores is not just another site-fidelity reanalysis
+## Biological puzzle
 
-The published Azores study already showed restricted movement and strong pool fidelity in 36 yellow European eels. Re-estimating site fidelity is not a new ecological question.
+European eels are capable of extraordinary movement across their life cycle, yet the yellow eels in the Azorean stream were effectively pool-resident at the monitored scale.
 
-The EOG result adds a different clue: future receiver-week detection remained predictable from the evolving array state even though **no valid between-receiver movement was observed**.
+The ecological question is not whether site fidelity exists. That is already known.
 
-That combination means the system is not primarily a propagation system at the monitored scale. It is a **state-persistence system embedded in a physically compressed habitat network**.
+The stronger question is:
 
-## The biological contrast that matters
+> **Why does a high-mobility organism suppress movement during one life-history phase and remain anchored to a local refuge?**
 
-European eel has extreme life-cycle mobility: the species is capable of ocean-scale migration. Yet during the yellow growth phase in this Azorean stream, realised longitudinal movement collapsed to the scale of individual pools.
+## Candidate mechanism: refuge anchoring
 
-This creates a concrete ecological problem:
+The working idea is that realised movement reflects a balance among:
 
-> **When does a highly mobile species express its mobility, and when does landscape structure compress that mobility into long-lived local residence?**
+- quality and predictability of the current refuge;
+- uncertainty about alternative refuges;
+- energetic and predation costs of relocation;
+- barriers and hydrological connectivity;
+- internal life-history state.
 
-The relevant contrast is therefore not "mobile versus sedentary species." It is **potential mobility versus realised mobility within the same life-history architecture**.
+If a pool provides persistent refuge/food and alternatives are uncertain or costly to reach, remaining local can be adaptive even for an intrinsically mobile species.
 
-## Candidate general principle
+This gives a more biological interpretation of the EOG clue: the system had predictive temporal structure without observed between-pool movement because the dominant process may be **persistent use of familiar refuges**, not dispersal.
 
-> **Realised movement is jointly constrained by movement capacity and the scale of usable habitat; in strongly bounded landscapes, high-capacity movers can become locally persistent state systems.**
+## General principle candidate
 
-Call this provisionally **landscape compression of realised mobility**.
+> **Movement capacity and movement expression are different ecological traits. Resource predictability, relocation cost and internal state determine when latent mobility is expressed.**
 
-The claim is stronger than ordinary site fidelity only if it predicts variation among systems.
+This is an ecological gating hypothesis rather than a statement about monitoring.
 
-## Why the Azores case is an extreme anchor
+## Key predictions
 
-The monitored stream has:
+1. **Predictable refuges -> stronger fidelity.**  
+   Yellow-stage movement should be lowest where local food/refuge quality is temporally predictable.
 
-- short longitudinal extent;
-- pools separated by riffles/runs and waterfalls;
-- seasonal drying in parts of the stream;
-- tagged individuals tied to known identities;
-- release locations known;
-- zero valid receiver-to-receiver movements in the study.
+2. **Unpredictability -> exploration.**  
+   Movement should increase when local conditions become unreliable through drying, disturbance, resource depletion or density-dependent competition.
 
-Thus the observation units approximate actual local residence compartments far better than generic point sampling in a continuous landscape.
+3. **Hydrological connectivity opens a gate.**  
+   Rare relocations should be concentrated in periods when barriers become passable or disconnected pools become connected.
 
-This gives unusually strong evidence for **stasis at the monitored spatial scale**.
+4. **Ontogeny changes the gate.**  
+   The same taxon should express radically different movement regimes across life-history state, especially yellow versus silver stages.
 
-## The comparative prediction
+5. **Landscape size alone is insufficient.**  
+   Two streams of similar size can differ strongly in realised mobility if refuge predictability, barrier structure or local resource renewal differ.
 
-Across yellow-eel telemetry systems, define:
+## Comparative design
 
-- (L_A): accessible longitudinal habitat/network extent;
-- (B): barrier density or resistance;
-- (H): spacing/size of persistent refuge habitats;
-- (Q): hydrological variability/connectivity;
-- (M_R): realised movement range;
-- (M_C): life-stage/species movement capacity proxy.
+The main paper should not reanalyse only Azores. It should compare independent yellow-eel/anguillid telemetry systems spanning:
 
-The core prediction is:
-
-[
-M_R / L_A
-]
-
-and absolute (M_R) should be more strongly structured by (L_A, B, H, Q) than by the fact that the taxon is ancestrally/highly migratory.
-
-A stronger version predicts a saturation curve:
-
-[
-M_R approx f(L_A)
-]
-
-with realised range increasing with accessible network scale until intrinsic behavioural/energetic limits dominate.
-
-## Mechanistic alternatives
-
-### A. Physical compression
-
-Small accessible network and barriers directly cap movement.
-
-Prediction: realised range scales with accessible network length and barrier structure across systems.
-
-### B. Resource compression
-
-Patchy refugia/food make movement unnecessary or costly.
-
-Prediction: movement decreases where local resource/refuge quality is high even after network size is controlled.
-
-### C. Hydrological gating
-
-Movement capacity is expressed only during connectivity windows.
-
-Prediction: rare transition events cluster around high-flow/connectivity periods in systems where movement occurs.
-
-### D. Behavioural canalisation / local adaptation
-
-Island populations may differ behaviourally from continental populations beyond immediate landscape geometry.
-
-Prediction: Azorean eels remain unusually resident even after matching systems for habitat size and barriers.
-
-This is the evolutionary version of the hypothesis and requires independent populations.
-
-## What data would make this a general-ecology paper
-
-The main test should assemble independent yellow-stage anguillid telemetry systems across:
-
-- tiny island streams;
+- small island streams;
 - larger continental streams;
 - large rivers;
 - lakes;
-- estuaries/coastal systems.
+- estuaries.
 
-The recent large-river American-eel study is a useful contrast: most yellow eels were resident, but mean longitudinal range was kilometres and some individuals made 20–25 km or ~83 km seasonal movements. The biological contrast with the Azores is therefore quantitative, not simply "resident versus migratory."
+For each system quantify:
 
-For every system extract the same quantities:
+- realised home-range / longitudinal movement;
+- accessible network length;
+- barrier structure;
+- refuge spacing and persistence;
+- hydrological variability;
+- resource predictability proxies;
+- density/competition where available;
+- life-history stage.
 
-1. realised linear/home range;
-2. accessible habitat-network length;
-3. barrier density;
-4. habitat compartment size;
-5. hydrological variability;
-6. body size/life stage;
-7. tracking duration and receiver spacing.
+The primary test is whether ecological state and refuge predictability explain realised mobility better than simple system size or taxonomic mobility labels.
 
-Then ask whether ecological geometry explains realised mobility across systems.
+## Ecological meaning
 
-## Role of EOG
+The broader target is a movement-ecology principle:
 
-EOG is only the discovery route:
-
-> it showed that useful temporal structure remained in a dataset with no observed between-receiver propagation.
-
-That contradiction motivated the question of how a highly mobile organism becomes a persistent local-state system.
-
-The paper-level evidence must come from independent comparative telemetry, not from re-fitting the Azores dataset.
+> **high mobility does not imply high movement; stable profitable refuges can convert a mobile organism into a resident one until environmental or ontogenetic state changes reopen the movement gate.**
