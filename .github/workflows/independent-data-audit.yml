@@ -1,0 +1,25 @@
+name: independent-data-audit
+
+on:
+  push:
+    paths:
+      - "analysis/02_fetch_public_comparative_data.py"
+      - "analysis/03_stage_transition_gate.py"
+      - ".github/workflows/independent-data-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  zenodo-metadata:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Audit Europe-wide eel Zenodo record
+        run: python analysis/02_fetch_public_comparative_data.py
+      - name: Upload audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-independent-data-audit
+          path: data/external/silver_eel_meta/zenodo_metadata_audit.json
