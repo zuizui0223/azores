@@ -1,51 +1,47 @@
 {
   "schema": "azores.ecological_hypothesis_registry.v2",
-  "origin": "Post-hoc hypotheses generated from the already-open EOG Azores endpoint; same-data tests are exploratory.",
-  "eog_result": {
-    "baseline_macro_log_loss": 0.1422727,
-    "augmented_macro_log_loss": 0.1322871,
-    "augmented_wins": "5/5 heldout blocks",
-    "mechanism_boundary": "The source study reports zero valid receiver-to-receiver movements, so the EOG gain is not evidence of dispersal."
+  "provenance": {
+    "source": "EOG fresh Azores yellow-eel endpoint plus upstream cleaned residency screen",
+    "eog_pattern": "Layer-B world-support summary improved held-out receiver-week log loss from 0.1422727 to 0.1322871 and won 5/5 blocks despite a history-rich baseline.",
+    "post_eog_screen": {
+      "detected_yellow_eels": 26,
+      "eels_using_multiple_retained_study_receivers": 0,
+      "p_next_detected_given_detected": 0.9192938209331651,
+      "p_next_detected_given_nondetected": 0.2831858407079646,
+      "same_minus_different_receiver_pairwise_weekly_correlation": 0.1526824862746618,
+      "locality_permutation_p": 0.0072992700729927005
+    },
+    "interpretation_boundary": "all values are hypothesis-generating associations; no causal pool state, hydrological driver, occupancy or movement path is identified"
   },
-  "primary_question": "In a strongly resident island-stream eel population, is temporal predictability primarily an observation-system phenomenon, shared hydrological synchrony, or persistent local activity state?",
-  "mandatory_first_audit": {
-    "id": "A0",
-    "name": "receiver_operability",
-    "known_event": "station 4 / 151 FLO CRUZ ceased detections after 2022-07-24 because of sediment burial",
-    "prediction": "censoring known receiver failure changes the apparent temporal-memory signal",
-    "next_test": "M0b vs M0 before any biological interpretation"
-  },
+  "published_boundary": "Restricted movement/pool fidelity is already reported by Verhelst et al. 2026 and is not the new target.",
+  "primary_question": "Why do co-resident yellow eels show temporally persistent, locally clustered detection states despite no retained between-receiver movement?",
   "hypotheses": [
     {
-      "id": "A1",
-      "name": "persistent_residence_time_varying_detection",
-      "prediction": "detections disappear and return at the same receiver; latent residence remains high while observation probability varies",
-      "next_test": "M1/M4 vs audited baseline"
+      "id": "H1",
+      "name": "pool_level_biological_state",
+      "primary_prediction": "a shared pool-week component remains after individual history and observation heterogeneity are represented"
     },
     {
-      "id": "A2",
-      "name": "shared_hydrological_synchrony",
-      "prediction": "cross-pool temporal covariance attenuates after frozen rainfall/flow covariates",
-      "next_test": "M3 vs M2"
+      "id": "H2",
+      "name": "receiver_tag_observation_state",
+      "primary_prediction": "receiver/tag observation effects absorb same-pool covariance and reduce it toward the between-pool baseline"
     },
     {
-      "id": "A3",
-      "name": "persistent_local_activity_regime",
-      "prediction": "receiver/tag latent state remains persistent after receiver-operability and hydrology controls",
-      "next_test": "residual latent-state persistence after M3"
+      "id": "H3",
+      "name": "shared_biological_activity_rhythm",
+      "primary_prediction": "co-resident eels show excess sub-weekly/diel synchrony after receiver operation is accounted for"
+    },
+    {
+      "id": "H4",
+      "name": "hydrological_reset",
+      "primary_prediction": "independently defined disturbance windows alter persistence or pool-level synchrony after H1-H3 decomposition"
     }
   ],
-  "model_order": [
-    "M0_temporal_effort",
-    "M0b_receiver_operability_audit",
-    "M1_local_observation_memory",
-    "M2_shared_temporal_state",
-    "M3_hydrology",
-    "M4_latent_residence_detection"
+  "validation_order": [
+    "T1_reproduce_residency_screen",
+    "T2_observation_vs_pool_state",
+    "T3_subweekly_activity_synchrony",
+    "T4_external_driver_test"
   ],
-  "not_primary": "movement_compression is a later independent comparative hypothesis, not the explanation of the EOG residual in this zero-between-receiver-movement dataset",
-  "independence": {
-    "same_azores_data": "exploratory_only",
-    "independent_confirmation": "new stream/population/period or external telemetry"
-  }
+  "future_extension": "Cross-system movement compression requires independent telemetry systems and is not inferable from Azores alone."
 }
