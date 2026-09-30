@@ -1,0 +1,81 @@
+{
+  "schema": "azores.residency_screen.v1",
+  "source": {
+    "repository": "PieterjanVerhelst/eel-azores-yellow",
+    "path": "data/interim/residency_false_removed.csv",
+    "git_blob_sha1": "2de3f5e5c9d5decdcc5b632fff9473e644709bc4"
+  },
+  "filter": {
+    "animal_project_code": "2021_YEELAZ",
+    "excluded_non_yellow_tag": "A69-1303-2711",
+    "study_station_range": [
+      148,
+      157
+    ]
+  },
+  "sample": {
+    "filtered_residency_rows": 7664,
+    "detected_yellow_eels": 26,
+    "study_receivers_with_detected_yellow_eels": 5,
+    "station_eel_counts": {
+      "148 FLO CRUZ": 2,
+      "149 FLO CRUZ": 4,
+      "151 FLO CRUZ": 10,
+      "155 FLO CRUZ": 9,
+      "156 FLO CRUZ": 1
+    },
+    "eels_using_multiple_study_receivers": {}
+  },
+  "weekly_persistence": {
+    "transition_counts": {
+      "detected_to_detected": 729,
+      "detected_to_nondetected": 64,
+      "nondetected_to_detected": 64,
+      "nondetected_to_nondetected": 162
+    },
+    "p_next_detected_given_detected": 0.9192938209331651,
+    "p_next_detected_given_nondetected": 0.2831858407079646,
+    "pooled_risk_difference": 0.6361079802252005,
+    "individual_risk_difference": {
+      "n": 18,
+      "mean": 0.287871774742844,
+      "median": 0.3472222222222222,
+      "q25": -0.037735849056603765,
+      "q75": 0.4318181818181818
+    }
+  },
+  "locality_screen": {
+    "same_receiver_pairwise_weekly_correlation": {
+      "n": 39,
+      "mean": 0.14208395815242536,
+      "median": 0.14285714285714285,
+      "q25": -0.07418318309487697,
+      "q75": 0.31277897600492205
+    },
+    "different_receiver_pairwise_weekly_correlation": {
+      "n": 96,
+      "mean": -0.009429282270831731,
+      "median": -0.02331715434315132,
+      "q25": -0.17407765595569785,
+      "q75": 0.1345345587992626
+    },
+    "same_minus_different_mean_correlation": 0.1526824862746618,
+    "receiver_label_permutations": 10000,
+    "permutation_seed": 20260930,
+    "one_sided_permutation_p": 0.0072992700729927005
+  },
+  "interpretation": {
+    "supported_as_exploratory": [
+      "No retained detected yellow eel used more than one 148-157 study receiver in the cleaned residency table.",
+      "Weekly detection is strongly persistent within individual tracking windows.",
+      "Weekly detection association is stronger among eels sharing a receiver than among eels at different receivers."
+    ],
+    "not_identified": [
+      "pool-level ecological forcing versus shared receiver detectability",
+      "causal hydrological forcing",
+      "movement route",
+      "occupancy from nondetection"
+    ],
+    "next_test": "Separate local biological persistence from receiver/tag observation persistence; only then test external hydrological disturbance as a predeclared driver."
+  }
+}
