@@ -47,7 +47,7 @@ def get(url: str) -> bytes:
 
 def parse_time(value: str) -> datetime | None:
     text = value.strip()
-    if not text:
+    if text in {"", "NA", "NaN", "NAN", "NULL"}:
         return None
     text = text.replace("Z", "+00:00")
     parsed = datetime.fromisoformat(text)
