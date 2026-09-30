@@ -5,6 +5,7 @@ on:
     paths:
       - "analysis/02_fetch_public_comparative_data.py"
       - "analysis/03_stage_transition_gate.py"
+      - "analysis/04_zenodo_header_probe.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -18,8 +19,12 @@ jobs:
           python-version: "3.12"
       - name: Audit Europe-wide eel Zenodo record
         run: python analysis/02_fetch_public_comparative_data.py
+      - name: Probe raw detection schema without full download
+        run: python analysis/04_zenodo_header_probe.py
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
           name: azores-independent-data-audit
-          path: data/external/silver_eel_meta/zenodo_metadata_audit.json
+          path: |
+            data/external/silver_eel_meta/zenodo_metadata_audit.json
+            analysis/results/eel_meta_header_probe.json
