@@ -40,3 +40,16 @@ Project-level leave-one-project-out stability is mandatory, and a later external
 ## Role of EOG
 
 EOG is only the discovery route. It exposed temporal structure in a system with no observed receiver-to-receiver propagation, motivating the question of when latent mobility is actually expressed.
+
+
+## Three separate EOG-derived ecology programmes
+
+Azores is one of three independent ecological projects:
+
+- **Azores:** state-dependent mobility gating;
+- **Louisiana:** within-home-range micro-niche tracking;
+- **Tampa:** buffered persistence under quantitative degradation.
+
+These are not intended as one umbrella analysis or one shared endpoint.
+
+See [three independent ecology programmes](docs/three_ecology_programs.md).
