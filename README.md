@@ -1,34 +1,29 @@
 # azores
 
-## Main target: a general ecological principle, not a re-analysis paper
+## Main ecological question
 
-Azores is now a **seed / anchor system** for a broader programme on the source of ecological predictive memory.
+> **Why does a highly mobile organism suppress movement during one life-history phase and remain anchored to a local refuge?**
 
-Candidate principle:
+This project uses the Azores yellow-eel system as an extreme anchor for a broader movement-ecology question.
 
-> **Predictive memory is not spatial propagation.**
+The source study already showed very strong pool fidelity and zero valid receiver-to-receiver movement among 36 tagged yellow eels. The goal is **not** to rediscover site fidelity.
 
-Recent spatial state can improve forecasts because of local persistence, shared environmental forcing, observation-process memory, or actual propagation. Only the last is movement/connectivity.
+The working ecological hypothesis is:
 
-The broader hypothesis is that which source dominates can be predicted from the relative timescales and spatial scales of:
+> **movement capacity and movement expression are different traits; predictable profitable refuges, relocation costs, hydrological connectivity and internal life-history state determine when latent mobility is expressed.**
 
-- local-state persistence;
-- movement/colonisation;
-- common environmental forcing;
-- observation/detection;
-- the sampling interval and site spacing.
+Azores represents the **anchoring** route to spatial persistence.
 
-Azores occupies an unusually informative corner: the source study reports **zero valid between-receiver movements among 36 tagged yellow eels**, yet the EOG spatial-history representation improved future receiver-week prediction. It is therefore an anchor for **memory without observed propagation**.
-
-The same-data mechanism analysis is diagnostic only. It is not the final paper.
+The main publication target is comparative and independent: yellow-eel/anguillid telemetry systems across small streams, large rivers, lakes and estuaries, testing whether refuge predictability and landscape structure explain realised mobility.
 
 See:
 
-- [general-principle programme](docs/general_principle_program.md)
+- [Azores-specific ecological principle](docs/specific_general_principle.md)
+- [two ecological routes to spatial persistence](docs/azores_louisiana_contrast.md)
 - [EOG result -> ecological tests](docs/eog_result_to_ecological_tests.md)
-- [analysis order](analysis/README.md)
-- [general-principle registry](analysis/general_principle_registry.json)
 
-## Publication boundary
+## Role of EOG
 
-The publishable main claim must be supported by known-truth simulations plus independent systems spanning multiple memory-source regimes. Azores alone is motivation and one anchor point.
+EOG is only the discovery route. It showed that temporal state remained predictive in a system with no observed between-receiver propagation. That contradiction motivated the biological question above.
+
+Same-Azores mechanism analyses are exploratory and are not the final paper.
