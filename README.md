@@ -31,6 +31,20 @@ See:
 - [data feasibility audit](docs/data_feasibility_audit.md)
 - [analysis programme](analysis/README.md)
 
+## Current developmental result
+
+Project-fixed ordinal analysis of the Europe-wide panel shows a strong stage signal:
+
+- FIII -> FIV -> FV: OR **1.89** per stage increment;
+- 95% CI **1.49–2.38**;
+- body-size and release-timing robustness: OR **1.74**, 95% CI **1.37–2.22**.
+
+Project heterogeneity is strong, so this supports **internal-state dependence**, not yet a universal stage × landscape-resistance law.
+
+See:
+- [project-fixed stage result](docs/project_fixed_stage_result.md)
+- [body/timing robustness](docs/stage_effect_body_timing_robustness.md)
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
