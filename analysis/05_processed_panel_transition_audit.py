@@ -1,237 +1,122 @@
 #!/usr/bin/env python3
-"""Audit processed public eel-meta-analysis outputs for mobility-gating eligibility.
+"""Audit source-study processed eel tracks for state-dependent mobility gating.
 
-Uses the source study's own public migration classifications. It does NOT
-reclassify migration from raw detections.
+Uses the public source repository's migration flags unchanged. Initial
+physiological stage is grouped from Durif-style labels:
+  growth/resident: I, FI, FII
+  premigrant: FIII
+  morphologically migratory: FIV, FV, MII, generic "silver"
 
-Goal: count eels tagged as yellow that later contain migration==TRUE records,
-quantify pre/post classified track support, and audit WRS/water-body covariate
-coverage for a future state x landscape analysis.
+The target is not to rediscover silver migration. It is to identify individuals
+initially in growth/premigrant states that later enter the source study's
+movement-defined migration state, and whether that contrast spans different
+landscape opportunity classes.
 """
 from __future__ import annotations
-
-import argparse
-import csv
-import json
+import argparse,csv,json
 from collections import defaultdict
 from datetime import datetime
 from pathlib import Path
 
-FALSE = {"false","0","f","no","n",""}
-TRUE = {"true","1","t","yes","y"}
-
-PROJECT_MAP = {
-    "2004_gudena":"2004_gudena",
-    "2004_gudena".lower():"2004_gudena",
-    "2011_loire":"2011_loire",
-    "2011_warnow":"2011_warnow",
-    "2013_stour":"2013_stour",
-    "2014_frome":"2014_frome",
-    "2014_nene":"2014_nene",
-    "2017_fremur":"2017_fremur",
-    "2019_grotenete":"2019_grotenete",
-    "ptn-silver-eel-mondego":"mondego",
-    "emmn":"emmn",
-    "esgl":"esgl",
-    "semp":"semp",
-    "noordzeekanaal":"noordzeekanaal",
-    "nedap_meuse":"nedap_meuse",
-    "2012_leopoldkanaal":"2012_leopoldkanaal",
-    "2013_albertkanaal":"2013_albertkanaal",
-    "2015_phd_verhelst_eel":"2015_phd_verhelst_eel",
-    "dak_markiezaatsmeer":"dak_markiezaatsmeer",
-    "dak_superpolder":"dak_superpolder",
+TRUE={"true","1","t","yes","y"}
+STAGE_GROUP={
+    "i":"growth","fi":"growth","fii":"growth",
+    "fiii":"premigrant",
+    "fiv":"morph_migrant","fv":"morph_migrant","mii":"morph_migrant",
+    "silver":"morph_migrant",
+    "na":"unknown","":"unknown",
 }
 
-
-def norm_project(x: str) -> str:
-    k = (x or "").strip().lower()
-    return PROJECT_MAP.get(k, k)
-
-
-def parse_bool(x: str | None):
-    v=(x or "").strip().lower()
-    if v in TRUE: return True
-    if v in FALSE: return False
-    return None
-
-
-def parse_time(x: str | None):
-    v=(x or "").strip()
-    if not v: return None
-    v=v.replace("Z","+00:00")
+def read(path):
+    with path.open("r",encoding="utf-8-sig",newline="") as f:return list(csv.DictReader(f))
+def norm(x):return (x or "").strip().lower()
+def pb(x):return norm(x) in TRUE
+def pt(x):
+    v=(x or "").strip().replace("Z","+00:00")
+    if not v:return None
     for fmt in (None,"%Y-%m-%d %H:%M:%S","%Y-%m-%d","%d/%m/%Y %H:%M","%d/%m/%Y"):
-        try:
-            return datetime.fromisoformat(v) if fmt is None else datetime.strptime(v,fmt)
-        except Exception:
-            pass
+        try:return datetime.fromisoformat(v) if fmt is None else datetime.strptime(v,fmt)
+        except:pass
     return None
-
-
-def read_csv(path: Path):
-    with path.open("r",encoding="utf-8-sig",newline="") as f:
-        return list(csv.DictReader(f))
-
 
 def main():
     ap=argparse.ArgumentParser()
-    ap.add_argument("--source-repo", default="external/eel-meta-analysis")
-    ap.add_argument("--out", default="analysis/results/processed_panel_transition_audit.json")
+    ap.add_argument("--source-repo",default="external/eel-meta-analysis")
+    ap.add_argument("--out",default="analysis/results/processed_panel_transition_audit.json")
     args=ap.parse_args()
     root=Path(args.source_repo)
-    meta_path=root/"data/interim/eel_meta_data.csv"
-    wrs_path=root/"data/external/eels_wrs.csv"
-    mig_dir=root/"data/interim/migration"
-    if not (meta_path.exists() and wrs_path.exists() and mig_dir.exists()):
-        raise SystemExit("required source-repo processed assets are missing")
+    meta_rows=read(root/"data/interim/eel_meta_data.csv")
+    wrs_rows=read(root/"data/external/eels_wrs.csv")
 
-    meta_rows=read_csv(meta_path)
-    wrs_rows=read_csv(wrs_path)
-
-    # Audit tag uniqueness before allowing tag-only fallback joins.
-    meta_projects_by_tag=defaultdict(set)
-    for r in meta_rows:
-        meta_projects_by_tag[(r.get("acoustic_tag_id") or "").strip()].add(
-            norm_project(r.get("animal_project_code") or "")
-        )
-    tag_collisions={k:sorted(v) for k,v in meta_projects_by_tag.items() if k and len(v)>1}
-
-    meta={}
+    meta_by_tag=defaultdict(list);wrs_by_tag=defaultdict(list)
     for r in meta_rows:
         tag=(r.get("acoustic_tag_id") or "").strip()
-        proj=norm_project(r.get("animal_project_code") or "")
-        meta[(proj,tag)]=r
-
-    wrs_by_key={}
-    wrs_by_tag={}
+        if tag:meta_by_tag[tag].append(r)
     for r in wrs_rows:
         tag=(r.get("acoustic_tag_id") or "").strip()
-        proj=norm_project(r.get("animal_project_code") or "")
-        wrs_by_key[(proj,tag)]=r
-        if tag:
-            wrs_by_tag[tag]=r
+        if tag:wrs_by_tag[tag].append(r)
 
-    eels={}
-    for p in sorted(mig_dir.glob("migration_*.csv")):
-        rows=read_csv(p)
-        for r in rows:
+    tracks=defaultdict(list);project_by_tag=defaultdict(set)
+    for p in sorted((root/"data/interim/migration").glob("migration_*.csv")):
+        for r in read(p):
             tag=(r.get("acoustic_tag_id") or "").strip()
-            proj=norm_project(r.get("animal_project_code") or "")
-            if not tag:
-                continue
-            key=(proj,tag)
-            d=eels.setdefault(key,{
-                "project":proj,"tag":tag,"rows":0,"pre_rows":0,"post_rows":0,
-                "first_time":None,"migration_start":None,"last_time":None,
-                "source_file":p.name,
-            })
-            d["rows"]+=1
-            when=parse_time(r.get("arrival"))
-            if when is not None:
-                if d["first_time"] is None or when<d["first_time"]: d["first_time"]=when
-                if d["last_time"] is None or when>d["last_time"]: d["last_time"]=when
-            mig=parse_bool(r.get("migration"))
-            if mig and when is not None and (d["migration_start"] is None or when<d["migration_start"]):
-                d["migration_start"]=when
+            if not tag:continue
+            tracks[tag].append(r);project_by_tag[tag].add(norm(r.get("animal_project_code")))
 
-    # second pass so rows before/after start are counted with final onset.
-    for p in sorted(mig_dir.glob("migration_*.csv")):
-        for r in read_csv(p):
-            tag=(r.get("acoustic_tag_id") or "").strip()
-            proj=norm_project(r.get("animal_project_code") or "")
-            key=(proj,tag)
-            if key not in eels: continue
-            start=eels[key]["migration_start"]
-            when=parse_time(r.get("arrival"))
-            if start is None or when is None:
-                continue
-            if when < start:
-                eels[key]["pre_rows"]+=1
-            else:
-                eels[key]["post_rows"]+=1
-
-    joined=[]
-    meta_miss=0
-    wrs_miss=0
-    for key,d in eels.items():
-        m=meta.get(key)
-        if m is None and not tag_collisions.get(d["tag"]):
-            # some source project recodings differ; unique tag fallback is auditable
-            candidates=[r for (p,t),r in meta.items() if t==d["tag"]]
-            m=candidates[0] if len(candidates)==1 else None
-        if m is None:
-            meta_miss+=1
-        w=wrs_by_key.get(key)
-        if w is None and d["tag"] in wrs_by_tag and not tag_collisions.get(d["tag"]):
-            w=wrs_by_tag[d["tag"]]
-        if w is None:
-            wrs_miss+=1
-        stage=((m or {}).get("life_stage") or "").strip().lower()
-        first=d["first_time"]; start=d["migration_start"]; last=d["last_time"]
-        joined.append({
-            "project":d["project"],"tag":d["tag"],"life_stage_at_tagging":stage,
-            "has_classified_migration": start is not None,
-            "rows":d["rows"],"pre_rows":d["pre_rows"],"post_rows":d["post_rows"],
-            "pre_days": ((start-first).total_seconds()/86400 if start and first else None),
-            "post_days": ((last-start).total_seconds()/86400 if start and last else None),
-            "barrier_number": (w or {}).get("barrier_number"),
-            "wrs_impact_score": (w or {}).get("wrs_impact_score"),
-            "water_body_class": (w or {}).get("water_body_class"),
+    rows=[];metadata_ambiguous=0;wrs_ambiguous=0
+    for tag,tr in tracks.items():
+        ms=meta_by_tag.get(tag,[])
+        if len(ms)!=1:
+            metadata_ambiguous+=1;continue
+        m=ms[0];stage_raw=norm(m.get("life_stage"));group=STAGE_GROUP.get(stage_raw,"other")
+        tr=sorted(tr,key=lambda r:pt(r.get("arrival")) or datetime.max)
+        mig=[i for i,r in enumerate(tr) if pb(r.get("migration"))]
+        onset_i=min(mig) if mig else None
+        onset=pt(tr[onset_i].get("arrival")) if onset_i is not None else None
+        first=pt(tr[0].get("arrival")) if tr else None;last=pt(tr[-1].get("arrival")) if tr else None
+        pre_rows=onset_i if onset_i is not None else 0;post_rows=(len(tr)-onset_i) if onset_i is not None else 0
+        ws=wrs_by_tag.get(tag,[]);w=ws[0] if len(ws)==1 else {}
+        if len(ws)>1:wrs_ambiguous+=1
+        rows.append({
+            "tag":tag,"source_projects":sorted(project_by_tag[tag]),
+            "life_stage_raw":stage_raw,"stage_group":group,
+            "has_behavioral_migration":onset_i is not None,
+            "pre_rows":pre_rows,"post_rows":post_rows,
+            "pre_days":((onset-first).total_seconds()/86400 if onset and first else None),
+            "post_days":((last-onset).total_seconds()/86400 if onset and last else None),
+            "barrier_number":w.get("barrier_number"),"wrs_impact_score":w.get("wrs_impact_score"),
+            "water_body_class":w.get("water_body_class"),
         })
 
-    stage_counts=defaultdict(int)
-    project_yellow_migrants=defaultdict(int)
-    water_classes=set()
-    wrs_values=set()
-    yellow_migrants=[]
-    for r in joined:
-        stage_counts[r["life_stage_at_tagging"] or "missing"]+=1
-        if r["water_body_class"] not in (None,""): water_classes.add(str(r["water_body_class"]))
-        if r["wrs_impact_score"] not in (None,""): wrs_values.add(str(r["wrs_impact_score"]))
-        if r["life_stage_at_tagging"]=="yellow" and r["has_classified_migration"]:
-            yellow_migrants.append(r)
-            project_yellow_migrants[r["project"]]+=1
+    raw_counts=defaultdict(int);group_counts=defaultdict(int);transition_counts=defaultdict(int);projects=defaultdict(int);eligible=[]
+    for r in rows:
+        raw_counts[r["life_stage_raw"] or "missing"]+=1;group_counts[r["stage_group"]]+=1
+        if r["has_behavioral_migration"]:transition_counts[r["stage_group"]]+=1
+        if r["stage_group"] in {"growth","premigrant"} and r["has_behavioral_migration"]:
+            eligible.append(r)
+            for p in r["source_projects"]:projects[p]+=1
 
-    support_thresholds={}
-    for pre_min,post_min in [(1,1),(3,3),(5,5),(10,10)]:
-        support_thresholds[f"pre{pre_min}_post{post_min}"]=sum(
-            r["pre_rows"]>=pre_min and r["post_rows"]>=post_min
-            for r in yellow_migrants
-        )
+    support={}
+    for a,b in [(1,1),(3,3),(5,5),(10,10)]:
+        support[f"pre{a}_post{b}"]=sum(r["pre_rows"]>=a and r["post_rows"]>=b for r in eligible)
 
-    projects_with_yellow_switch=[p for p,n in project_yellow_migrants.items() if n>0]
-    status = (
-        "GO_STATE_LANDSCAPE_AUDIT"
-        if yellow_migrants and len(projects_with_yellow_switch)>=2 and len(water_classes)>=2
-        else "LIMITED"
-    )
+    classes=sorted({str(r["water_body_class"]) for r in eligible if r["water_body_class"] not in (None,"","NA")})
+    wrs_vals=sorted({str(r["wrs_impact_score"]) for r in eligible if r["wrs_impact_score"] not in (None,"")})
+    status="GO_STATE_LANDSCAPE_AUDIT" if eligible and len(projects)>=2 and (len(classes)>=2 or len(wrs_vals)>=2) else "LIMITED"
 
     result={
-        "schema":"azores.processed_eel_panel_transition_audit.v1",
-        "status":status,
-        "source_repository":"PieterjanVerhelst/eel-meta-analysis",
-        "migration_classification":"source study processed migration flags; not recomputed here",
-        "total_migration_panel_eels":len(joined),
-        "metadata_join_missing":meta_miss,
-        "wrs_join_missing":wrs_miss,
-        "tag_collisions_across_projects":tag_collisions,
-        "life_stage_counts":dict(sorted(stage_counts.items())),
-        "yellow_at_tagging_with_classified_migration":len(yellow_migrants),
-        "yellow_switch_projects":dict(sorted(project_yellow_migrants.items())),
-        "pre_post_support_counts":support_thresholds,
-        "water_body_classes":sorted(water_classes),
-        "wrs_impact_values_count":len(wrs_values),
-        "yellow_migrant_examples":yellow_migrants[:30],
-        "claim_boundary":(
-            "A yellow-at-tagging eel with later migration==TRUE supports a within-individual "
-            "movement-state transition contrast. The new hypothesis is the interaction with "
-            "landscape opportunity, not the existence of silver-eel migration itself."
-        )
+      "schema":"azores.processed_eel_panel_transition_audit.v2","status":status,
+      "stage_definition":{"growth":["I","FI","FII"],"premigrant":["FIII"],"morph_migrant":["FIV","FV","MII","silver"],"basis":"Durif-style silvering stages; movement-defined migration remains the source study's separate classifier"},
+      "source_repository":"PieterjanVerhelst/eel-meta-analysis","total_track_tags":len(rows),
+      "metadata_ambiguous_or_missing":metadata_ambiguous,"wrs_ambiguous":wrs_ambiguous,
+      "life_stage_raw_counts":dict(sorted(raw_counts.items())),"stage_group_counts":dict(sorted(group_counts.items())),
+      "behavioral_migration_by_initial_stage_group":dict(sorted(transition_counts.items())),
+      "growth_or_premigrant_to_behavioral_migration":len(eligible),"transition_projects":dict(sorted(projects.items())),
+      "pre_post_support_counts":support,"eligible_water_body_classes":classes,"eligible_wrs_impact_values_count":len(wrs_vals),
+      "eligible_examples":eligible[:40],
+      "claim_boundary":"The transition is from physiological state at tagging to later movement-defined migration. It is not a repeated physiological measurement. The novel test is whether landscape opportunity modifies timing/magnitude of movement expression."
     }
-    out=Path(args.out); out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(result,indent=2,default=str),encoding="utf-8")
-    print(json.dumps(result,indent=2,default=str))
+    out=Path(args.out);out.parent.mkdir(parents=True,exist_ok=True)
+    out.write_text(json.dumps(result,indent=2,default=str),encoding="utf-8");print(json.dumps(result,indent=2,default=str))
 
-
-if __name__=="__main__":
-    main()
+if __name__=="__main__":main()
