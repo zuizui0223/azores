@@ -1,27 +1,30 @@
 {
-  "schema": "memory_propagation_regime_program.v1",
-  "repository_role": "high_persistence_zero_observed_propagation_anchor",
-  "seed_system": "Azores yellow eel telemetry",
-  "publication_endpoint": "known-truth plus independent cross-system test; not single-dataset reanalysis",
-  "general_claims": [
-    "predictive memory can exist without propagation",
-    "propagation requires directional residual information after persistence, forcing and observation are controlled",
-    "memory-source regime changes systematically with observation interval",
-    "scale ratios should generalize better than taxonomy if the principle is real"
+  "schema": "azores.mobility_gating_program.v1",
+  "publication_endpoint": "independent comparative test of life-history-state by landscape-opportunity control of realised mobility",
+  "seed_system": "Flores yellow European eel",
+  "core_hypothesis": "realised mobility is a gated phenotype produced by internal movement state x landscape opportunity x local refuge value",
+  "primary_predictions": [
+    "movement increases sharply when individuals transition from yellow/growth state to silver/migratory state",
+    "landscape permeability and hydrological opportunity modify the magnitude or timing of that mobility release",
+    "local refuge stability suppresses yellow-stage exploration more strongly than it suppresses silver-stage migration",
+    "stage-specific landscape effects outperform a single movement rule across systems"
   ],
-  "provisional_dimensionless_axes": {
-    "Pi_P": "local-state persistence time / observation interval",
-    "Pi_G": "movement or colonisation distance per observation interval / site spacing",
-    "Pi_F_t": "external-forcing persistence time / observation interval",
-    "Pi_F_s": "external-forcing coherence length / site spacing",
-    "Pi_O": "observation-state persistence time / observation interval",
-    "p": "detection probability or observation quality"
+  "primary_estimands": {
+    "M_yellow": "movement scale before migratory transition",
+    "M_silver": "movement scale after migratory transition",
+    "R_stage": "log((M_silver+epsilon)/(M_yellow+epsilon))",
+    "T_release": "timing of transition to directed migration"
   },
-  "seed_prediction": "Azores should remain persistence/observation/forcing dominated across temporal re-binning because valid between-receiver propagation is absent.",
-  "required_independent_extension": [
-    "at least one independent high-residence telemetry system",
-    "at least one system with known or strongly supported propagation",
-    "at least one passive-monitoring system with explicit detection model",
-    "known-truth simulation spanning all regimes"
-  ]
+  "falsification": [
+    "stage effects disappear after body size/season/tracking-design control",
+    "landscape opportunity does not interact with state",
+    "same environmental effects apply unchanged across yellow and silver stages"
+  ],
+  "priority_independent_systems": [
+    "Wolastoq/Saint John River American eel",
+    "Europe-wide European eel biotelemetry panel",
+    "Japanese yellow-eel telemetry systems",
+    "additional small-stream European eel systems"
+  ],
+  "eog_role": "discovery of an extreme resident anchor only"
 }
