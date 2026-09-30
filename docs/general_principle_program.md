@@ -1,249 +1,113 @@
-# General-principle programme: memory is not propagation
+# General ecological programme: state-dependent mobility gating
 
-## Why this project must go beyond re-analysis
+## Publication target
 
-The originating datasets were already published and the EOG responses have already been opened. Re-fitting those same data with another ecological model can diagnose mechanisms, but **that is not the publication endpoint**.
+This project is not a re-analysis of the Flores yellow-eel study and is not a general paper about predictive memory.
 
-The single-system analyses in this repository have only two roles:
+The target is a movement-ecology question:
 
-1. identify which kind of temporal/spatial memory the seed system plausibly represents;
-2. generate quantitative predictions for a genuinely cross-system test.
-
-The target is a general ecological principle that can be tested across taxa, ecosystems and monitoring designs.
-
-## Candidate general principle
-
-> **Predictive memory is not spatial propagation.**
-
-More precisely:
-
-> When recent ecological observations improve prediction beyond current environment and static habitat, the gain shows that the measured present state is incomplete. It does not identify why the system has memory.
-
-At least four sources can produce the same forecast pattern:
-
-1. **local persistence / endogenous state memory** — the same organism, population or local state persists;
-2. **shared exogenous forcing** — spatially separated sites respond coherently to weather, hydrology, resources or disturbance;
-3. **observation-process memory** — detectability, sensor operation, activity or sampling creates temporally correlated observations;
-4. **spatial propagation** — movement, colonisation or other transmission carries state among sites.
-
-Only (4) is spatial propagation.
-
-The general problem is therefore not to ask whether "history helps", but:
-
-> **Under what spatial and temporal regimes does predictive history represent persistence, forcing, observation, or propagation?**
+> **How does a high-mobility organism switch between local residence and long-distance movement as internal life-history state changes, and how strongly can landscape opportunity constrain that switch?**
 
 ## Literature boundary
 
-Existing work already establishes important pieces of this problem:
+Several component ideas are already established:
 
-- ecological-memory frameworks separate antecedent endogenous and exogenous effects;
-- dynamic occupancy separates persistence, colonisation and imperfect detection;
-- synchrony theory separates dispersal from correlated environmental forcing (Moran effect);
-- passive-monitoring work shows that autocorrelated detections can bias occupancy inference;
-- movement and occupancy studies show that sampling interval can change inferred ecological states;
-- dimensionless scaling has successfully united very different patchy ecological systems.
+- site fidelity can arise from stable/predictable resources, familiarity and movement costs;
+- movement ecology already treats movement as the interaction of internal state, motion capacity, navigation and external environment;
+- yellow-stage anguillid eels often show high site fidelity;
+- silver-stage eels initiate directed seaward migration;
+- landscape barriers and hydrodynamics can delay or alter eel migration.
 
-Therefore none of those pieces alone is claimed as new.
+Therefore none of those statements is the novelty claim.
 
-The novelty candidate to test is their **cross-system unification as a predictive-memory source regime map**, including the observation process as a first-class source of apparent memory.
+The specific empirical target is their interaction within one unusually plastic movement architecture:
 
-## Scale formulation
+> **the same catadromous lineage can express resident and migratory movement regimes, and the magnitude/timing of that switch should depend on both internal migratory state and landscape opportunity.**
 
-Let the observation interval be (Delta t), and let typical inter-patch/site spacing be (d).
+## Core hypothesis
 
-Define provisional scale ratios:
+### Mobility-gating hypothesis
 
-### Persistence number
+Realised mobility is a behavioural phenotype produced by internal movement state × landscape opportunity × local refuge value, not a fixed species-level property.
 
-[
-Pi_P = 	au_P / Delta t
-]
+For anguillid eels, the strongest state contrast is:
 
-where (	au_P) is the characteristic persistence/dwell time of a local ecological state.
+- yellow/growth phase: local growth, refuge use and optional exploration;
+- silver/migratory phase: directed seaward movement.
 
-### Propagation number
+## Primary quantities
 
-[
-Pi_G = ell_G(Delta t) / d
-]
+For individual i in system j:
 
-where (ell_G(Delta t)) is the characteristic movement/colonisation distance possible during one observation interval.
+- M_yellow: yellow-stage movement scale before migratory transition;
+- M_silver: movement rate after migratory transition;
+- T_release: timing of abrupt transition from resident to directional movement;
+- L_access: accessible network length;
+- B: barrier/resistance structure;
+- Q: hydrological connectivity/flow opportunity;
+- R_refuge: local refuge/resource stability.
 
-### Forcing coherence numbers
+A useful within-individual contrast is the mobility-release ratio:
 
-[
-Pi_F^t = 	au_F / Delta t
-]
+R_stage = log((M_silver + epsilon) / (M_yellow + epsilon)).
 
-and
+Movement metrics must be harmonised within each telemetry design before cross-system comparison.
 
-[
-Pi_F^s = ell_F / d
-]
+## Falsifiable predictions
 
-where (	au_F) and (ell_F) are the temporal persistence and spatial coherence scales of the dominant external forcing.
+### A1 — state release
 
-### Observation-memory number
+Within individuals observed across the transition, movement should increase sharply after migratory state onset even though taxonomy and much of the landscape are unchanged.
 
-[
-Pi_O = 	au_O / Delta t
-]
+### A2 — landscape gating of the state switch
 
-where (	au_O) is the characteristic persistence of observation state (activity/detectability/sensor condition). Detection probability (p) remains an additional observation-quality axis rather than being forced into the same ratio.
+The magnitude and timing of mobility release should interact with landscape opportunity. Barriers should delay or compress the realised silver-stage response, while high-flow/connectivity windows should permit stronger expression of the migratory state.
 
-These definitions are provisional and must be stress-tested in known-truth simulations before being treated as estimands.
+### A3 — local refuge value matters mainly before release
 
-## Regime predictions
+During the yellow stage, stable/high-value refuges should suppress exploratory movement. After silvering, the effect of local refuge quality should weaken relative to directional connectivity toward the sea.
 
-### Regime P — persistence-dominated memory
+### A4 — stage × landscape interaction beats a single movement rule
 
-If:
-
-[
-Pi_P gg 1,quad Pi_G ll 1
-]
-
-then recent state should predict the future strongly even though little or no propagation occurs.
-
-Expected signature:
-
-- high same-site/state memory;
-- weak directional neighbour-lag effect after same-site persistence;
-- forecast gain from history without spatial spread.
-
-### Regime F — forcing-dominated synchrony
-
-If both forcing coherence ratios are large:
-
-[
-Pi_F^t gg 1,quad Pi_F^s gg 1
-]
-
-then multiple sites may change together without exchange among them.
-
-Expected signature:
-
-- cross-site synchrony;
-- synchrony attenuates after common forcing is included;
-- no directional propagation lag is required.
-
-### Regime O — observation-dominated memory
-
-If observation state persists and detection is imperfect:
-
-[
-Pi_O gg 1
-]
-
-especially with low/intermediate (p), then detections and nondetections can cluster even when latent ecological state is unchanged.
-
-Expected signature:
-
-- large difference between observed turnover and latent-state turnover;
-- apparent unsupported appearances disappear after observation modelling;
-- strong sensitivity to detection-window / sampling-interval choice.
-
-### Regime G — propagation-dominated memory
-
-Propagation is plausible only when movement/colonisation operates on the sampled scale:
-
-[
-Pi_G gtrsim 1
-]
-
-and a directional lagged neighbour signal remains after persistence, shared forcing and observation processes are controlled.
-
-Expected signature:
-
-- source-to-target temporal ordering;
-- distance/connectivity-dependent lag;
-- residual neighbour effect after local persistence;
-- external forcing cannot reproduce the directional sequence.
-
-## Strongest comparative prediction
-
-The same ecological system can move among apparent regimes when (Delta t) changes.
-
-Therefore a powerful test is **temporal re-binning** of high-frequency observations.
-
-If the framework is correct:
-
-- very short intervals relative to (	au_P) exaggerate persistence;
-- intervals near movement/colonisation timescales expose propagation if it exists;
-- coarse intervals erase short memory and can merge distinct processes;
-- observation-induced memory changes predictably with the detection window.
-
-The goal is not to choose the interval producing the strongest result. The interval series is itself the experiment.
-
-## Cross-system study design
-
-A publishable general-principle test should include independent systems spanning the regime space, rather than treating any one published dataset as the evidence base.
-
-Minimum system classes:
-
-- high-residence telemetry / biologging;
-- passive acoustic or camera monitoring with imperfect detection;
-- genuinely dispersive or recolonising patch system;
-- spatially coherent externally forced system;
-- ideally a non-animal system to test taxonomic generality.
-
-For each system, estimate the same objects:
-
-1. forecast gain from lagged history beyond contemporaneous environment;
-2. same-site persistence contribution;
-3. shared-forcing contribution;
-4. observation-process contribution;
-5. residual directional propagation contribution;
-6. how all five change under temporal re-binning.
-
-## Primary falsifiable claims
-
-### G1 — predictive memory without propagation exists
-
-Systems with high persistence and low movement can show strong history-based forecast gain.
-
-### G2 — propagation requires directional residual information
-
-A history signal is not classified as propagation unless directional neighbour information remains after persistence, forcing and observation are controlled.
-
-### G3 — apparent memory source changes with scale
-
-Changing (Delta t) shifts systems across predicted regimes in accordance with process timescales.
-
-### G4 — cross-taxon similarity follows scale ratios better than taxonomy
-
-Systems that are taxonomically unrelated but occupy similar ((Pi_P,Pi_G,Pi_F,Pi_O)) regions should show similar memory decompositions.
-
-This is the strongest general-ecology target.
+A model with stage-specific landscape effects should predict movement better across systems than a taxon-only mobility score, system size alone, barrier count alone, or a single landscape effect assumed constant across life stages.
 
 ## What would falsify the programme
 
-The framework fails as a useful general principle if:
+The mobility-gating interpretation is weakened if:
 
-- decomposition is unstable to reasonable model families;
-- scale ratios do not predict which source dominates;
-- re-binning changes inferred regimes idiosyncratically rather than systematically;
-- taxonomy/system identity explains the decomposition substantially better than the scale ratios;
-- propagation cannot be distinguished even in known-truth systems designed to contain it.
+- apparent stage effects disappear after controlling body size, season and tracking design;
+- individuals do not show a strong increase in movement around migratory transition;
+- the same landscape variables have indistinguishable effects in yellow and silver stages;
+- landscape opportunity does not modify migration timing/speed across independent systems;
+- system-specific idiosyncrasy dominates any transferable stage × landscape relationship.
 
-## Publication boundary
+## Why Azores matters
 
-A single re-analysis of the seed dataset is **not sufficient for the main claim**.
+Flores is an extreme yellow-stage endpoint: 36 yellow eels, one year of tracking, no valid receiver-to-receiver movement, a highly constrained pool–riffle–waterfall stream, and seasonal drying risk.
 
-The seed dataset can appear as:
+It supplies the **deep-residence anchor**, not the general test.
 
-- motivation;
-- one anchor point in a cross-system regime map;
-- a mechanism-diagnostic example.
+## Independent empirical route
 
-The paper-level result must come from known-truth falsification plus independent cross-system comparison.
+Priority comparison systems:
 
-## Role of Azores in the general programme
+1. **Wolastoq / Saint John River American eel** — 72 tagged yellow eels; most resident, several large seasonal movements; 16 individuals apparently transitioned to silver-stage outmigration. This is especially valuable because it contains a within-study life-history switch.
+2. **Europe-wide European eel biotelemetry panel** — 2,306 eels across 18 water bodies; migration timing and speed vary with latitude, tidal setting, hydrodynamics and water-regulating structures. Raw individual access must be verified before treating it as executable evidence.
+3. **Japanese yellow-eel telemetry systems** — useful as independent yellow-stage residence/movement contrasts.
+4. **Additional small-stream European eel studies** — useful for separating small-system size from Azores-specific ecology.
 
-Azores is the **high-persistence / empirically zero-between-receiver-propagation anchor**.
+## Main paper-level model
 
-Because the published study observed no valid receiver-to-receiver movement among the 36 yellow eels, it provides an unusually clean test of G1:
+At minimum:
 
-> can spatially structured predictive memory exist when observed propagation is absent?
+movement ~ life_history_state * landscape_opportunity + refuge_stability + body_size + season + tracking_design + (1 | study/system)
 
-The Azores dataset is not intended to become the whole paper. Its value is to anchor the persistence/observation/forcing corner of the general regime map and to estimate effect sizes needed to design independent tests.
+Where data permit within-individual stage transition:
+
+movement_it ~ pre/post_migratory_state * hydrological_opportunity_t + individual random effects
+
+## Strong ecological conclusion if supported
+
+> **Mobility is a gated phenotype: internal life-history state determines the motivation to move, while landscape opportunity determines how completely that latent mobility can be expressed.**
+
+This is the ecological endpoint. EOG is only the route that exposed the extreme resident anchor.
