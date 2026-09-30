@@ -1,17 +1,18 @@
 field,level,required,meaning
-study_id,system,yes,independent telemetry study/system identifier
+study_id,system,yes,independent telemetry project/system identifier
 individual_id,individual,yes,tagged eel identifier
 species,individual,yes,Anguilla species
-life_history_state,time,yes,yellow or migratory/silver state defined independently of tested movement metric
-timestamp,time,yes,observation time
-position_or_receiver,time,yes,spatial observation
-movement_metric,time,derived,harmonised displacement or movement rate
-body_length,individual,preferred,body size
-waterbody_type,system,yes,stream river lake estuary canal etc
-accessible_network_length,system,preferred,accessible longitudinal habitat extent
-barrier_index,system,preferred,response-independent barrier/resistance metric
-flow_or_tide,time,preferred,hydrological opportunity
-refuge_stability,space_time,optional,response-independent local refuge stability proxy
-tracking_method,system,yes,acoustic radio GPS etc
-receiver_spacing,system,yes,observation resolution
-tracking_duration,individual,yes,total monitored duration
+capture_durif_stage,individual,yes,"FII/FIII/FIV/FV/MII or coarse silver; primary analysis uses FIII/FIV/FV"
+sex,individual,preferred,sex
+body_length_mm,individual,preferred,body size at capture
+release_date_time,individual,preferred,release timing
+migration_onset_time,individual_outcome,preferred,first later movement-classifier onset; outcome not predictor
+migration_initiated,individual_outcome,yes,whether later telemetry meets frozen migration criterion
+migration_progression,individual_outcome,preferred,post-onset downstream distance/rate
+successful_escapement,individual_outcome,preferred,published successful-migrant endpoint
+barrier_number,individual_landscape,yes,response-independent number of WRS barriers
+wrs_impact_score,individual_landscape,yes,response-independent WRS impact
+water_body_class,system,yes,published water-body resistance/context class
+habitat_type,space,preferred,freshwater/tidal/marine habitat classification
+tracking_method,system,yes,tracking technology
+project_effect,system,yes,project/study clustering variable
