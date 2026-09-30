@@ -6,55 +6,69 @@ This repository does **not** aim to publish a re-analysis of the Flores eel pape
 
 The primary ecological programme is **state-dependent mobility gating**:
 
-> internal life-history state determines motivation to move, while landscape opportunity determines how fully that mobility is expressed.
+> internal migratory readiness may change how strongly landscape resistance constrains realised movement.
 
-See [general-principle programme](../docs/general_principle_program.md).
+See [general-principle programme](../docs/general_principle_program.md) and [independent test protocol](../docs/independent_test_protocol.md).
 
 ## Phase 0 — Flores seed diagnosis only
 
-```bash
+~~~bash
 python analysis/01_receiver_state_diagnostic.py
-```
+~~~
 
 Flores is the extreme resident anchor. It is not the evidence base for the general claim.
 
-## Phase 1 — independent Europe-wide panel
+## Phase 1 — lightweight independent preflight
 
-Audit the public Zenodo record:
+Do **not** download 1.1 GB first.
 
-```bash
-python analysis/02_fetch_public_comparative_data.py
-```
+Run:
 
-Download only when ready for the ~1.1 GB file:
+~~~bash
+python analysis/03_stage_landscape_preflight.py
+~~~
 
-```bash
-python analysis/02_fetch_public_comparative_data.py --download
-```
+This audits the public processed Europe-wide eel products and tests whether exact capture-time Durif stages have enough cross-project/WRS overlap.
 
-Then gate the raw detection schema:
+Current design target:
 
-```bash
-python analysis/03_stage_transition_gate.py \
-  --detections data/external/silver_eel_meta/raw_detection_data.csv
-```
+~~~text
+FIII / FIV / FV × landscape resistance
+~~~
 
-**Hard rule:** detection tracks alone do not establish a yellow-to-silver state transition. The published migration-state classifier/software must be integrated before pre/post mobility-release inference.
+FII and MII remain boundary groups.
 
-## Phase 2 — mobility-release analysis
+## Phase 2 — standardized individual table
 
-Primary test:
+~~~bash
+python analysis/04_build_stage_landscape_table.py
+~~~
 
-```text
-movement ~ migratory_state
-         * landscape_opportunity
-         + refuge/context covariates
-         + tracking design
-         + study/system effects
-```
+This creates:
 
-The new biological content is the interaction. A state effect alone is not enough.
+~~~text
+analysis/derived/eel_stage_landscape.csv
+~~~
 
-## Phase 3 — replication
+from public upstream metadata, WRS data and the published successful-migrant endpoint.
 
-Use Wolastoq and other independent eel systems to test whether stage × landscape effects transfer across species and water-body types.
+**Boundary:** aggregate outcome counts were already inspected during development. This panel is developmental independent evidence, not outcome-blind confirmation.
+
+## Phase 3 — model
+
+Primary ecological test:
+
+~~~text
+later movement ~ capture Durif stage
+               + landscape resistance
+               + stage × landscape resistance
+               + project/design covariates
+~~~
+
+Project-level leave-one-project-out stability is mandatory.
+
+Only reconstruct the 1.1 GB raw detections if onset/progression metrics unavailable in the public processed migration/speed products require it.
+
+## Phase 4 — replication
+
+Use Wolastoq or another independently accessible eel system to test whether state-dependent landscape resistance transfers across water bodies/species.
