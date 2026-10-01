@@ -20,7 +20,8 @@
 - project heterogeneity is strong.
 
 **Interpretation**
-- internal migratory readiness signal: supported developmentally;
+- internal migratory readiness signal: strong positive control, not a novelty claim because Durif FIII/FIV/FV already encode pre-migrant/migrant biology;
+- project heterogeneity motivates the actual question: external constraint on movement expression;
 - universal stage × landscape-resistance law: not yet confirmed.
 
 **Next decisive input**
