@@ -41,3 +41,12 @@ Because the Europe-wide public outcome was inspected during development:
 - require leave-one-project-out stability;
 - require a later external system for stronger confirmation;
 - do not use a new term or conceptual label alone as the novelty claim.
+
+
+## Critical positive-control boundary
+
+Durif FIII is defined as a pre-migrant female stage, while FIV/FV are migrating female stages. Therefore the strong FIII -> FIV/FV movement association in the Europe-wide panel is a **positive control**, not the novelty claim.
+
+See [Durif stage positive-control boundary](stage_positive_control_boundary.md).
+
+The paper-level novelty target remains **context-dependent translation of migratory readiness into realised movement**, especially interaction with hydrological opportunity and barrier permeability.
