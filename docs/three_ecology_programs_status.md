@@ -11,13 +11,14 @@
 - external within-landscape Dutch barrier confirmation protocol and schema gate implemented.
 
 **Current developmental result**
-- project-fixed ordinal FIII -> FIV -> FV OR: **1.89** per stage;
-- 95% CI: **1.49–2.38**;
-- after project-year + body length + release timing:
-  - OR **1.74**
-  - 95% CI **1.37–2.22**
-  - p approximately **7.2e-6**;
-- project heterogeneity is strong.
+- behavioural migration initiation reconstructed for 575 FIII/FIV/FV individuals from six compatible public project tables;
+- descriptive initiation: FIII 61.7%, FIV 79.4%, FV 87.8%;
+- project-year + body length + release timing adjusted initiation OR per stage: **1.99**;
+- 95% CI: **1.49–2.66**; p approximately **3.2e-6**;
+- leave-one-project-out OR range: **1.67–2.26**, all intervals > 1;
+- among initiators, onset latency exp(beta) per stage: **0.75**, 95% CI **0.60–0.93**, p = **0.0088**;
+- the successful-migrant endpoint independently shows the same broad readiness signal;
+- project heterogeneity in final success remains strong.
 
 **Interpretation**
 - internal migratory readiness signal: strong positive control, not a novelty claim because Durif FIII/FIV/FV already encode pre-migrant/migrant biology;
