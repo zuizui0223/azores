@@ -54,6 +54,25 @@ from public upstream metadata, WRS data and the published successful-migrant end
 
 **Boundary:** aggregate outcome counts were already inspected during development. This panel is developmental independent evidence, not outcome-blind confirmation.
 
+## Phase 2b — behavioural initiation result
+
+Run the complete upstream reconstruction:
+
+~~~bash
+python analysis/09_migration_initiation_stage.py --verify-reference
+~~~
+
+This streams the public migration tables for six compatible projects and reproduces:
+
+- stage-specific migration initiation;
+- project-year + body-length + release-timing adjusted stage effect;
+- leave-one-project-out stability;
+- latency to first movement-classified migration among initiators.
+
+`life4fish` is excluded from this onset reconstruction because the upstream repository contains no compatible distance/residency/speed/migration project products for the classifier. Excluding that entire project, stage-specific table coverage is approximately 95–97%.
+
+The source paper used movement to classify migrant behaviour and then analysed phenology/speed; this phase instead asks whether **capture-time Durif readiness predicts later movement-state expression**.
+
 ## Phase 3 — model
 
 Primary ecological test:
