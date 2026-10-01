@@ -72,3 +72,38 @@ Only reconstruct the 1.1 GB raw detections if onset/progression metrics unavaila
 ## Phase 4 — replication
 
 Use Wolastoq or another independently accessible eel system to test whether state-dependent landscape resistance transfers across water bodies/species.
+
+
+## Interpretation correction — stage effect is a positive control
+
+Durif FIII is a pre-migrant female stage and FIV/FV are migrating female stages. Therefore the strong FIII -> FIV -> FV association with later movement is expected biology and serves as a **positive control** for the readiness axis.
+
+Implemented developmental checks:
+
+~~~bash
+python analysis/05_project_stratified_stage_effect.py
+python analysis/06_project_fixed_ordinal_stage.py
+python analysis/07_stage_effect_body_timing_robustness.py
+~~~
+
+These establish that the readiness variable behaves coherently and survives body-size/release-timing adjustment.
+
+They do **not** constitute the paper's novelty.
+
+## Active confirmation target
+
+The novel target is:
+
+~~~text
+realised movement
+  ~ internal readiness
+  × barrier / hydrological opportunity
+~~~
+
+For the Dutch consecutive-barrier system, after obtaining DANS DOI 10.17026/LS/WTSUNG:
+
+~~~bash
+python analysis/08_dutch_barrier_confirmation_gate.py   --data-dir <downloaded_DANS_directory>
+~~~
+
+If stage and body mass/opportunity cannot be separated, return NON-IDENTIFIABLE rather than rescuing the interaction.
