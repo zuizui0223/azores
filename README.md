@@ -33,13 +33,13 @@ See:
 
 ## Current developmental result
 
-Project-fixed ordinal analysis of the Europe-wide panel shows a strong stage signal:
+Project-fixed ordinal analysis of the Europe-wide panel shows a strong stage signal, used here as a **positive control rather than the novelty claim**:
 
 - FIII -> FIV -> FV: OR **1.89** per stage increment;
 - 95% CI **1.49–2.38**;
 - body-size and release-timing robustness: OR **1.74**, 95% CI **1.37–2.22**.
 
-Project heterogeneity is strong, so this supports **internal-state dependence**, not yet a universal stage × landscape-resistance law.
+Project heterogeneity is strong. Because FIII is biologically pre-migrant and FIV/FV are migratory stages by the Durif framework, this result validates the readiness axis but does not itself constitute the novel ecological finding. The paper target is **why readiness is translated into movement differently among external contexts**.
 
 See:
 - [project-fixed stage result](docs/project_fixed_stage_result.md)
