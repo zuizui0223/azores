@@ -16,14 +16,27 @@ The Europe-wide panel supports the initiation clause. The independent Dutch cons
 
 Azores is the deep-residence anchor.
 
-The main independent test now uses the open Europe-wide European eel panel, where capture-time Durif stages are available independently of later telemetry movement. The primary cohort is FIII/FIV/FV; the focal test is:
+The main developmental test uses the open Europe-wide European eel panel, where capture-time Durif stage is independent of later telemetry movement.
+
+The focal analysis is now phase-specific:
 
 ~~~text
-later movement ~ Durif stage
-               + landscape resistance
-               + Durif stage × landscape resistance
-               + project/design covariates
+Gate 1 — activation
+migration initiation / onset
+  ~ Durif stage
+  + project × release-year
+  + body length
+  + release timing
+
+Gate 2 — progression
+speed / passage / completion
+  ~ route opportunity
+  + barrier / hydrology
+  + route history
+  + residual Durif effect
 ~~~
+
+The paper target is the **change in dominant control across phases**, not one pooled stage × landscape coefficient.
 
 See:
 
@@ -45,23 +58,37 @@ After source-study expert exclusions and adjustment for project × release year,
 - 95% CI **1.56–2.76**;
 - p ≈ **4.2e-7**.
 
-### Completion after initiation
+### Progression after initiation
 
 Among 422 classified initiators:
 
-- adjusted Durif OR **1.15** per stage increment;
+- completion model: adjusted Durif OR **1.15** per stage increment;
 - 95% CI **0.83–1.59**;
 - p = **0.41**.
 
+Using the source paper's overall migration-speed definition on 418 initiated eels:
+
+- Durif speed ratio per stage increment: **0.983**;
+- 95% CI **0.852–1.134**;
+- p = **0.815**.
+
+A direct stacked two-phase model confirms that the stage effect itself attenuates after initiation:
+
+- OR(initiation) / OR(completion) = **1.81**;
+- cluster-robust 95% CI **1.15–2.84**;
+- phase interaction **p = 0.0099**.
+
 Current biological interpretation:
 
-> **internal readiness strongly regulates whether migration is expressed, but does not provide a general advantage for completion once movement has begun.**
+> **internal readiness strongly regulates whether/when migration is expressed, but does not provide a general advantage for speed or completion once movement has begun.**
 
 The downstream filter remains mechanistically unresolved. Barrier/hydrological opportunity is now the direct confirmation target, not an assumed explanation.
 
 See:
 - [migration-initiation result](docs/durif_migration_initiation_result.md)
 - [two-stage mobility decomposition](docs/two_stage_mobility_result.md)
+- [direct phase-interaction result](docs/phase_stage_interaction_result.md)
+- [post-initiation speed result](docs/post_initiation_speed_result.md)
 
 ## Current developmental result
 
