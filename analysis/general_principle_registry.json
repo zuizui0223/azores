@@ -1,8 +1,8 @@
 {
-  "schema": "azores.mobility_gating_program.v2",
+  "schema": "azores.two_stage_mobility_program.v3",
   "publication_endpoint": "independent test of capture-time migratory readiness x landscape resistance on later movement expression",
   "seed_system": "Flores yellow European eel",
-  "core_hypothesis": "movement capacity is gated by internal readiness, and the ecological cost of landscape resistance depends on that readiness",
+  "core_hypothesis": "realised migration has separable initiation and completion stages: internal readiness governs initiation; route-specific ecological context is hypothesized to govern post-initiation fate",
   "primary_cohort": {
     "stages": [
       "FIII",
@@ -17,9 +17,9 @@
     "silver": "coarse stage label; not pooled into ordinal Durif analysis"
   },
   "primary_predictions": [
-    "capture-time Durif stage predicts later migration initiation/progression",
-    "WRS/barrier effects differ among FIII/FIV/FV stages",
-    "stage x landscape interaction is stable to leaving one project out"
+    "capture-time Durif stage strongly predicts whether classified downstream migration begins",
+    "after initiation, the general Durif-stage advantage weakens substantially",
+    "barrier/hydrological opportunity should explain variation in post-initiation completion in an independent within-landscape system"
   ],
   "primary_estimands": {
     "stage_effect": "effect of capture-time Durif stage on later movement expression",
@@ -27,11 +27,30 @@
     "project_robustness": "leave-one-project-out stability"
   },
   "falsification": [
-    "stage effect disappears after project/design covariate control",
-    "landscape resistance does not interact robustly with stage",
-    "interaction is driven by one project",
-    "effect requires post-hoc regrouping of Durif stages"
+    "independent data fail to reproduce the readiness effect on initiation",
+    "post-initiation completion remains equally stage-dominated after barrier/opportunity control",
+    "route-specific opportunity does not explain post-initiation heterogeneity"
   ],
   "evidence_boundary": "aggregate successful-migrant counts by stage were inspected during development; Europe-wide panel is independent developmental evidence, not outcome-blind confirmation",
-  "eog_role": "discovery of an extreme resident anchor only"
+  "eog_role": "discovery of an extreme resident anchor only",
+  "current_results": {
+    "initiation": {
+      "adjusted_or_per_durif_increment": 2.0763,
+      "ci95": [
+        1.5645,
+        2.7556
+      ],
+      "p": 4.22e-7,
+      "n_tracked": 575
+    },
+    "completion_given_initiation": {
+      "adjusted_or_per_durif_increment": 1.1476,
+      "ci95": [
+        0.8261,
+        1.5942
+      ],
+      "p": 0.4118,
+      "n_initiators": 422
+    }
+  }
 }
