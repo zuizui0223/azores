@@ -59,15 +59,21 @@ from public upstream metadata, WRS data and the published successful-migrant end
 Run the complete upstream reconstruction:
 
 ~~~bash
-python analysis/09_migration_initiation_stage.py --verify-reference
+python analysis/09_durif_migration_initiation.py
 ~~~
 
 This streams the public migration tables for six compatible projects and reproduces:
 
-- stage-specific migration initiation;
+- expert-corrected stage-specific migration initiation;
+- algorithm-only sensitivity before the upstream expert correction;
 - project-year + body-length + release-timing adjusted stage effect;
-- leave-one-project-out stability;
-- latency to first movement-classified migration among initiators.
+- leave-one-project-out stability.
+
+For censored onset timing, use:
+
+~~~bash
+python analysis/10_migration_onset_cox.py
+~~~
 
 `life4fish` is excluded from this onset reconstruction because the upstream repository contains no compatible distance/residency/speed/migration project products for the classifier. Excluding that entire project, stage-specific table coverage is approximately 95–97%.
 
@@ -143,3 +149,28 @@ This compares median project WRS impact with two sequential outcomes:
 The script uses all **6! = 720** project permutations for exact Spearman p-values and reports leave-one-project-out completion gradients.
 
 **Boundary:** this is project-level bridge evidence, not causal WRS inference. The Dutch within-route system remains the progression-stage confirmation.
+
+
+## Canonical two-stage pipeline
+
+Use only these files for the current paper mainline:
+
+~~~text
+Gate 1 binary initiation:
+  analysis/09_durif_migration_initiation.py
+
+Gate 1 timing:
+  analysis/10_migration_onset_cox.py
+
+Gate 1 versus Gate 2 direct interaction:
+  analysis/11_phase_stage_interaction.py
+
+Gate 2 completion:
+  analysis/10_two_stage_mobility.py
+
+External-context bridge:
+  analysis/11_project_context_gate.py
+~~~
+
+Older parallel 09/10 scripts that omitted the nine 2015 source expert corrections
+are deprecated and intentionally terminate if executed.
