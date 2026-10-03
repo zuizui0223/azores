@@ -1,4 +1,4 @@
-# Dutch consecutive-barrier confirmation protocol
+# Dutch consecutive-barrier control-handoff protocol
 
 ## Role
 
@@ -30,7 +30,7 @@ All retained fish were classified in advanced Durif stages FIII–FV.
 
 ## Confirmation question
 
-> **Among eels sharing the same source-to-sea route, does internal migratory readiness modify how passage opportunity is translated into barrier passage/delay?**
+> **Among eels already in FIII-FV, does progression through consecutive barriers depend more on route-specific opportunity and prior passage experience than on Durif stage itself?**
 
 This is not a rerun of the source paper's overall barrier-driver analysis.
 
@@ -103,3 +103,18 @@ The general mobility-gating programme strengthens if:
 ## Failure condition
 
 If stage adds no information at either barrier under adequate variation and precision, the Europe-wide stage association should be treated as a context-dependent predictor rather than a general movement-gating mechanism.
+
+
+## Published result already constrains the hypothesis
+
+The paper itself supplies a critical independent result before any reanalysis:
+
+- pumping-station global individual model included Durif stage, but Durif was dropped during model selection;
+- tidal-sluice analysis excluded Durif because FIV body mass was too confounded with stage to separate;
+- pumping-station passage was associated with discharge duration and wind;
+- tidal-sluice passage was associated with moon illumination;
+- prior pumping-station passage experience predicted faster subsequent tidal-sluice passage.
+
+Therefore a reanalysis is **not authorized to hunt for a rescued Durif coefficient**.
+
+The raw-data objective is instead variance/control decomposition across movement phases.
