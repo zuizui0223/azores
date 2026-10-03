@@ -126,15 +126,19 @@ Per one-stage Durif increment:
 
 Interpretation:
 
-> conditional on later entering the behavioural migratory state, more advanced capture-time silvering stage is associated with a shorter waiting time to behavioural migration.
+> in the pooled adjusted model, more advanced capture-time silvering stage is associated with shorter waiting time to behavioural migration.
 
-This does not imply a literal 25% decrease in raw days in every system because the model is on log(1 + days) and onset can occur immediately after release.
+However, this latency effect is **not project-robust**. Leave-one-project-out analysis shows that removing the 2015 Scheldt project changes the stage multiplier to approximately **1.01** (95% CI **0.81–1.27**), eliminating the apparent acceleration. The other leave-one-project-out fits remain mostly below 1.
+
+Therefore the latency result is treated as **heterogeneous secondary evidence**, not a general timing law.
 
 ## Ecological result
 
 The strongest current independent developmental statement is:
 
-> **morphological migratory readiness predicts both the probability and timing of subsequent behavioural migration.**
+> **morphological migratory readiness robustly predicts the probability that subsequent behavioural migration is expressed.**
+
+The timing of that expression varies strongly among systems and is not promoted to the main claim.
 
 This supports a biologically meaningful separation between:
 
