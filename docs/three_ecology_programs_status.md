@@ -51,12 +51,6 @@ Barrier/hydrological opportunity is now the confirmation target, not an assumed 
 - run `analysis/08_dutch_barrier_confirmation_gate.py` after download;
 - test whether passage opportunity/barrier identity explains post-initiation fate and whether that effect depends on Durif stage.
 
-### DANS access state
-- DOI resolves to the DANS Life Sciences dataset;
-- the current execution environment is stopped by the provider's Anubis proof-of-work anti-bot layer before file listing/download;
-- therefore the confirmation design is scientifically ready but **data-access HOLD** in this environment;
-- do not weaken or replace the frozen confirmation test because of this access barrier.
-
 ---
 
 ## 2. Louisiana — within-home-range micro-niche tracking
@@ -125,7 +119,10 @@ Parallel generality:
 - collection manifest added;
 - fail-closed baseline validator added;
 - actual 41-node historical field-planning registry generated and committed;
-- reproducible registry exporter and registry validator added.
+- reproducible registry exporter and registry validator added;
+- raw pilot-record schemas added for HPLC QC, tissue class, core geometry, preservation latency and transect offset;
+- raw-pilot -> candidate-summary builder added;
+- existing fail-closed method-pilot validator strengthened to require calibration identity and all matrix spikes within 85–115%.
 
 ### Historical four-bay candidate registry
 
@@ -173,7 +170,10 @@ The fail-closed validator intentionally returns STOP until response-independent 
 - assay-batch randomization rule.
 
 ### Next decisive input
-- response-independent Thalassia tissue/HPLC pilot;
+- populate the raw pilot-record schemas with response-independent Thalassia tissue/HPLC/field-pilot measurements;
+- run `validation/build_tnc_v2_method_pilot_summary.py`;
+- require `PASS_METHOD_PILOT` from `validation/validate_tnc_v2_method_pilot.py`;
+- then copy the accepted method fields once into the authoritative precollection freeze;
 - complete `field/tnc_v2_precollection_freeze.json`;
 - contemporaneously recheck all 41 historical candidates before coring.
 
