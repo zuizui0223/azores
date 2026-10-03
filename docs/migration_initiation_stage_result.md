@@ -1,14 +1,30 @@
 # Durif readiness predicts behavioural migration initiation
 
+## Correction to the onset definition
+
+An earlier development pass used the arrival time of the first row with `migration=TRUE` as the onset clock.
+
+That is not the correct biological timing variable.
+
+The upstream classifier in `src/identify_migration_functions.R` first identifies rows with `downstream_migration=TRUE`, then labels the whole interval from the first qualifying row to the maximum-distance row as `migration=TRUE`.
+
+Therefore:
+
+- **initiation-positive** = at least one row with `downstream_migration=TRUE`;
+- **threshold-crossing time** = `time_first_dist_to_use` from the first qualifying downstream-migration row;
+- the arrival time of the first `migration=TRUE` row is not treated as onset.
+
+The source processing also identifies nine 2015 Scheldt tags as classifier-positive but non-migratory by expert judgement. The primary result follows that source correction; the algorithm-only result is retained as sensitivity.
+
 ## Question
 
-Does capture-time morphological migratory readiness predict whether and when a tracked eel later enters the movement-based migratory state?
+> **Does capture-time morphological migratory readiness predict whether a tracked eel later expresses behavioural migration?**
 
-This is different from the source meta-analysis, which used movement to classify migratory eels and then analysed arrival timing, migration speed, geography and water-regulating structures. The public source analysis code carries `life_stage` as metadata but does not use it in the principal arrival/speed model formulas.
+This is distinct from asking whether stage predicts only final successful escapement.
 
 ## Data scope
 
-The public repository contains compatible project-level migration-classification tables for six Durif-rich projects:
+Compatible project-level migration tables are available for six Durif-rich projects:
 
 - Warnow;
 - Leopold Canal;
@@ -17,36 +33,31 @@ The public repository contains compatible project-level migration-classification
 - Grote Nete;
 - ESGL.
 
-The life4fish project cannot be reconstructed with the same onset pipeline from the public repository because it has no project-level:
+Life4fish has stage metadata but no compatible public project-level migration table in the source repository and is therefore outside the onset analysis.
 
-- distance matrix;
-- residency table;
-- speed table;
-- migration table.
-
-Among the six-project eligible stage-coded cohort, migration-table coverage is high and similar among stages:
-
-- FIII: **261/274 = 95.3%**;
-- FIV: **68/70 = 97.1%**;
-- FV: **246/259 = 95.0%**.
-
-Thus missing onset data are primarily project-structured rather than stage-selective.
+Joined FIII/FIV/FV individuals: **575**.
 
 ## Descriptive initiation pattern
 
-Among 575 exact-stage individuals with migration tables:
+After applying the source expert correction:
 
-| stage | n | later migration initiated | proportion | median days to first migration flag among initiators |
+| stage | n | initiated | proportion | median days to distance-threshold crossing among initiators |
 |---|---:|---:|---:|---:|
-| FIII | 261 | 161 | 0.617 | 4.86 |
-| FIV | 68 | 54 | 0.794 | 0.22 |
-| FV | 246 | 216 | 0.878 | 0.69 |
+| FIII | 261 | 154 | **0.590** | **7.21** |
+| FIV | 68 | 53 | **0.779** | **2.14** |
+| FV | 246 | 215 | **0.874** | **2.15** |
 
-These raw values are descriptive because stage, project and tagging season differ.
+Algorithm-only sensitivity before the nine source expert corrections was:
+
+- FIII: 161/261 = 0.617;
+- FIV: 54/68 = 0.794;
+- FV: 216/246 = 0.878.
+
+Thus the source correction does not create the stage gradient.
 
 ## Adjusted initiation model
 
-Primary robustness model:
+Primary developmental model:
 
 ~~~text
 migration_initiated
@@ -65,97 +76,100 @@ FV   = 2
 ~~~
 
 Model cohort:
-- 525 individuals;
-- 11 informative project-year strata.
+- **525 individuals**;
+- **11 informative project-year strata**.
 
 ### Durif effect
 
 Per one-stage increment:
 
-- OR = **1.99**
-- 95% CI = **1.49–2.66**
-- p = **3.2e-6**
+- OR = **2.08**
+- 95% CI = **1.56–2.76**
+- p = **4.2e-7**
 
 ### Body length
 
 Per 100 mm:
-- OR = **1.37**
-- 95% CI = **1.00–1.89**
-- p = 0.053
+
+- OR = **1.29**
+- 95% CI = **0.95–1.76**
+- p = **0.107**
 
 ### Release timing
 
-Per 100 days:
+Per 100 days later within project-year:
+
 - OR = **1.30**
 - 95% CI = **0.68–2.50**
-- p = 0.426
+- p = **0.426**
+
+The initiation-stage effect therefore does not reduce to body size or broad release timing.
 
 ## Leave-one-project-out stability
 
 Durif OR after excluding each project:
 
-- remove Warnow: **2.26**
-- remove Leopold Canal: **1.89**
-- remove Albert Canal: **2.25**
-- remove Scheldt: **1.67**
-- remove Grote Nete: **1.82**
-- remove ESGL: **2.11**
+- remove Warnow: **2.34** [1.69, 3.24]
+- remove Leopold Canal: **2.01** [1.47, 2.75]
+- remove Albert Canal: **2.35** [1.73, 3.19]
+- remove Scheldt: **1.67** [1.19, 2.32]
+- remove Grote Nete: **1.92** [1.44, 2.56]
+- remove ESGL: **2.21** [1.62, 3.01]
 
-Every leave-one-project-out 95% interval remains above 1.
+Every leave-one-project-out interval remains above 1.
 
-Thus the initiation result is not generated by a single project.
+The strongest current conclusion is therefore robust to deleting any single project.
 
-## Initiation latency among behavioural migrants
+## Threshold-crossing latency among initiators
 
-Among initiators, a project-year fixed-effects model of:
+Among expert-corrected initiators, a secondary project-year fixed-effects model used:
 
 ~~~text
-log(1 + days from release to first migration flag)
+log(1 + days to first threshold crossing)
   ~ body length
   + release timing
   + ordinal Durif stage
 ~~~
 
-used 427 individuals across 13 strata.
+Full model:
+- n = **418**
+- multiplicative change per stage increment = **0.715**
+- 95% CI = **0.585–0.872**
+- p = **0.0010**
 
-Per one-stage Durif increment:
+On average, advanced-stage eels cross the migration distance threshold sooner.
 
-- exp(beta) = **0.75**
-- 95% CI = **0.60–0.93**
-- p = **0.0088**
+However this timing effect is **not fully project-robust**:
 
-Interpretation:
+- removing Scheldt gives multiplier **0.98** [0.80, 1.20], p = 0.84;
+- the other project deletions remain mostly below 1.
 
-> in the pooled adjusted model, more advanced capture-time silvering stage is associated with shorter waiting time to behavioural migration.
-
-However, this latency effect is **not project-robust**. Leave-one-project-out analysis shows that removing the 2015 Scheldt project changes the stage multiplier to approximately **1.01** (95% CI **0.81–1.27**), eliminating the apparent acceleration. The other leave-one-project-out fits remain mostly below 1.
-
-Therefore the latency result is treated as **heterogeneous secondary evidence**, not a general timing law.
+Therefore latency is secondary, system-dependent evidence rather than the main general claim.
 
 ## Ecological result
 
-The strongest current independent developmental statement is:
+The strongest developmental statement is:
 
-> **morphological migratory readiness robustly predicts the probability that subsequent behavioural migration is expressed.**
+> **Morphological migratory readiness robustly predicts whether later behavioural migration is expressed.**
 
-The timing of that expression varies strongly among systems and is not promoted to the main claim.
+This moves the evidence upstream from final successful escapement to the initiation of the movement process itself.
 
-This supports a biologically meaningful separation between:
+It supports a real biological distinction between:
 
-- latent/internal readiness;
-- realised movement.
+- **internal readiness**;
+- **realised movement expression**.
 
-## Why this is not the final mobility-gating law
+## What remains unresolved
 
-The result concerns **internal-state expression**.
+This still does not establish the stronger mobility-gating law:
 
-It does not yet establish that landscape resistance modifies that expression.
+> **landscape resistance changes how internal readiness is translated into movement.**
 
-That stronger interaction remains the independent-confirmation target.
+The initiation probability is robust; the timing varies substantially among systems. That heterogeneity is exactly what the independent within-landscape barrier test is intended to explain.
 
 ## Evidence boundary
 
-- The outcome was inspected while the hypothesis was refined.
+- The migration outcome was inspected during hypothesis development.
 - This is developmental independent evidence, not preregistered confirmation.
-- The movement classifier is a later behavioural outcome, not the predictor.
-- Life4fish is excluded from onset analysis because compatible migration-classification products are unavailable, not because of its outcome.
+- The movement thresholds and nine expert corrections are inherited from the source workflow and are not retuned.
+- Life4fish is excluded because compatible migration products are unavailable, not because of its outcome.
