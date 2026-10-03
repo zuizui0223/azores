@@ -59,6 +59,44 @@ The corresponding adjusted effect on **whether migration began at all** was:
 
 Thus the same internal-state predictor behaves very differently across two sequential movement stages.
 
+## Independent progression metric — migration speed
+
+The same internal-state gradient was also tested against the source meta-analysis's
+continuous migration-speed definition.
+
+Among **418** initiated eels in informative project-year strata:
+
+- FIII median speed: **0.0229 m/s**
+- FIV median speed: **0.0232 m/s**
+- FV median speed: **0.0245 m/s**
+
+Adjusted log-speed model:
+
+- Durif multiplicative speed ratio per stage increment: **0.983**
+- 95% CI: **0.852–1.134**
+- p = **0.815**
+
+Thus the attenuation of the stage effect is not specific to the binary completion
+endpoint. Advanced stage strongly predicts **activation**, but not a general
+increase in post-activation migration speed.
+
+See [post-initiation speed result](post_initiation_speed_result.md).
+
+## Direct phase-interaction test
+
+A stacked continuation-ratio model directly compares the stage coefficient
+between initiation and completion while clustering uncertainty by individual.
+
+- initiation OR per stage: **2.08**
+- completion OR per stage: **1.15**
+- ratio of ORs: **1.81**
+- 95% CI: **1.15–2.84**
+- phase interaction p = **0.0099**
+
+This directly supports attenuation of internal-state control after activation.
+
+See [phase interaction result](phase_stage_interaction_result.md).
+
 ## Ecological interpretation
 
 The strongest current interpretation is:
