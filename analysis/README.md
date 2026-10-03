@@ -126,3 +126,20 @@ python analysis/08_dutch_barrier_confirmation_gate.py   --data-dir <downloaded_D
 ~~~
 
 If stage and body mass/opportunity cannot be separated, return NON-IDENTIFIABLE rather than rescuing the interaction.
+
+## Phase 2d — project-context gate audit
+
+Run:
+
+~~~bash
+python analysis/11_project_context_gate.py
+~~~
+
+This compares median project WRS impact with two sequential outcomes:
+
+1. migration initiation rate;
+2. successful completion conditional on initiation.
+
+The script uses all **6! = 720** project permutations for exact Spearman p-values and reports leave-one-project-out completion gradients.
+
+**Boundary:** this is project-level bridge evidence, not causal WRS inference. The Dutch within-route system remains the progression-stage confirmation.
