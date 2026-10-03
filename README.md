@@ -77,21 +77,23 @@ See:
 - [project-fixed stage result](docs/project_fixed_stage_result.md)
 - [body/timing robustness](docs/stage_effect_body_timing_robustness.md)
 
-## Movement initiation result
+## Canonical migration-initiation result
 
-The public migration classifier separates movement initiation from final successful migration.
+The expert-corrected six-project reconstruction gives:
 
-Across six projects and **575** tracked FIII/FIV/FV eels:
+- FIII: **154/261 = 59.0%** initiated;
+- FIV: **53/68 = 77.9%**;
+- FV: **215/246 = 87.4%**;
+- adjusted initiation OR per FIII -> FIV -> FV increment: **2.08**;
+- 95% CI **1.56–2.76**;
+- p ≈ **4.2e-7**.
 
-- descriptive classified-migration initiation: FIII **61.7%**, FIV **79.4%**, FV **87.8%**;
-- after project×release-year, body length and release timing adjustment:
-  - OR **1.99** per Durif-stage increment;
-  - 95% CI **1.49–2.66**;
-- among 382 initiators, each Durif-stage increment was associated with a **0.72×** factor in `1 + days to detected migration` (95% CI **0.57–0.91**).
+The older 161/54/216 counts are retained only as an explicitly labelled
+**algorithm-only sensitivity** before the nine upstream expert corrections.
 
-Thus the developmental evidence now supports **state-dependent movement initiation**, not only a final successful-migrant endpoint.
-
-See [migration initiation result](docs/migration_initiation_result.md).
+See:
+- [expert-corrected initiation result](docs/durif_migration_initiation_result.md)
+- [direct phase-interaction result](docs/phase_stage_interaction_result.md)
 
 ## Migration-onset result
 
