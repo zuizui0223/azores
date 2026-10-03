@@ -51,6 +51,12 @@ Barrier/hydrological opportunity is now the confirmation target, not an assumed 
 - run `analysis/08_dutch_barrier_confirmation_gate.py` after download;
 - test whether passage opportunity/barrier identity explains post-initiation fate and whether that effect depends on Durif stage.
 
+### DANS access state
+- DOI resolves to the DANS Life Sciences dataset;
+- the current execution environment is stopped by the provider's Anubis proof-of-work anti-bot layer before file listing/download;
+- therefore the confirmation design is scientifically ready but **data-access HOLD** in this environment;
+- do not weaken or replace the frozen confirmation test because of this access barrier.
+
 ---
 
 ## 2. Louisiana — within-home-range micro-niche tracking
