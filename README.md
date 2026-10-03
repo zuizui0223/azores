@@ -129,6 +129,21 @@ This is compatible with a **control handoff** from internal readiness at migrati
 
 See [independent Dutch control-handoff result](docs/dutch_control_handoff_result.md).
 
+
+## Gate-specific project-context bridge
+
+Across the six Europe-wide projects with compatible migration tables, median WRS impact behaves differently across the two sequential gates:
+
+- WRS vs migration initiation: Spearman rho **+0.029**, exact 6-project permutation p **0.983**;
+- WRS vs completion after initiation: rho **-0.928**, exact p **0.022**;
+- leave-one-project-out completion rho remains approximately **-0.97 to -0.87**.
+
+The same pattern survives standardization to a common FIII/FIV/FV composition.
+
+This is **not causal WRS evidence** because resistance is strongly project-confounded. Its role is bridge evidence: the external context descriptor aligns with Gate 2 but not Gate 1, matching the initiation–progression control-handoff hypothesis.
+
+See [project-context gate result](docs/project_context_gate_result.md).
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
