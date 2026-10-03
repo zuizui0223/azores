@@ -604,9 +604,9 @@ def main() -> None:
         "leave_one_project_out": loo,
         "latency_among_initiators": latency,
         "interpretation": (
-            "More advanced capture-time Durif stage predicts a higher probability "
-            "of later behavioural migration and shorter waiting time to onset, "
-            "after project-year, body length and release timing adjustment."
+            "More advanced capture-time Durif stage robustly predicts a higher probability "
+            "of later behavioural migration after project-year, body length and release timing adjustment. "
+            "The pooled latency association is secondary and project-heterogeneous, not a general timing claim."
         ),
         "claim_boundary": (
             "This supports internal-state dependence of movement expression. "
