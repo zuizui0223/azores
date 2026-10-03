@@ -93,6 +93,26 @@ Thus the developmental evidence now supports **state-dependent movement initiati
 
 See [migration initiation result](docs/migration_initiation_result.md).
 
+## Migration-onset result
+
+The internal-state signal also appears in **movement onset itself**, not only in final migration success.
+
+A stratified Cox analysis of 570 exact-stage individuals and 418 migration-onset events used project × release-year strata and adjusted for body length and release timing.
+
+Per FIII -> FIV -> FV stage increment:
+
+- migration-onset hazard ratio: **1.28**
+- 95% CI: **1.12–1.45**
+- p = **0.00022**
+
+Leave-one-project-out stage HRs remained positive (**1.10–1.47**), although removing the 2015 project widened uncertainty enough for the interval to include 1.
+
+This is the cleanest current developmental evidence that internal silvering state is associated with earlier expression of the movement phenotype.
+
+See:
+- [migration-onset Cox result](docs/migration_onset_cox_result.md)
+- [reproducible Cox analysis](analysis/10_migration_onset_cox.py)
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
