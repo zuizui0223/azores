@@ -73,6 +73,31 @@ Direct interaction test:
 
 **p = 0.0099**
 
+## Leave-one-project-out interaction stability
+
+The direct attenuation test was repeated after omitting each project.
+
+| omitted project | OR ratio initiation/completion | 95% CI | p |
+|---|---:|---:|---:|
+| Warnow | **2.13** | 1.26–3.59 | 0.0048 |
+| Leopoldkanaal | **1.74** | 1.06–2.84 | 0.028 |
+| Albertkanaal | **2.04** | 1.19–3.51 | 0.010 |
+| 2015 phd_verhelst_eel | **1.55** | 0.94–2.56 | 0.083 |
+| Grotenete | **1.67** | 1.06–2.63 | 0.026 |
+| ESGL | **1.82** | 1.12–2.94 | 0.015 |
+
+All six leave-one-project-out estimates retain the same direction:
+
+> **the Durif-stage effect is stronger at initiation than after initiation.**
+
+Five of six remain conventionally supported at p < 0.05. Removing the 2015
+project widens the interval through 1.
+
+Therefore the phase attenuation is **directionally robust but not fully
+project-independent in precision**. The 2015 system contributes meaningful
+information to the formal interaction significance and this dependence should be
+reported rather than hidden.
+
 ## Ecological meaning
 
 This is stronger than saying one model was significant and the other was not.
