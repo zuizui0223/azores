@@ -15,12 +15,14 @@ This project does not claim novelty for:
 
 The stronger ecological proposition is:
 
-> **Landscape resistance is not a fixed property of the landscape alone; its realised effect depends on the animal's internal migratory readiness.**
+> **The dominant control of movement changes across phases: internal readiness governs migration activation, whereas local opportunity and route history increasingly govern progression after activation.**
 
 The primary test therefore targets a biological interaction:
 
 ~~~text
-internal state × landscape resistance -> realised movement
+internal state -> migration activation
+
+external opportunity + route history -> post-activation progression
 ~~~
 
 rather than another marginal barrier effect.
@@ -49,4 +51,4 @@ Durif FIII is defined as a pre-migrant female stage, while FIV/FV are migrating 
 
 See [Durif stage positive-control boundary](stage_positive_control_boundary.md).
 
-The paper-level novelty target remains **context-dependent translation of migratory readiness into realised movement**, especially interaction with hydrological opportunity and barrier permeability.
+The paper-level novelty target is now **phase-specific control of realised movement**: a readiness effect at activation followed by weaker stage dependence and stronger route-specific control during progression.
