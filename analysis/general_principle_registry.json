@@ -1,8 +1,8 @@
 {
-  "schema": "azores.two_stage_mobility_program.v3",
-  "publication_endpoint": "independent test of capture-time migratory readiness x landscape resistance on later movement expression",
+  "schema": "azores.two_stage_mobility_program.v4",
+  "publication_endpoint": "test of phase-dependent control handoff: internal readiness at migration activation versus external route opportunity during progression",
   "seed_system": "Flores yellow European eel",
-  "core_hypothesis": "realised migration has separable initiation and completion stages: internal readiness governs initiation; route-specific ecological context is hypothesized to govern post-initiation fate",
+  "core_hypothesis": "realised migration has separable control stages: internal readiness governs activation; after initiation, external route resistance/opportunity increasingly governs progression and completion",
   "primary_cohort": {
     "stages": [
       "FIII",
@@ -19,17 +19,20 @@
   "primary_predictions": [
     "capture-time Durif stage strongly predicts whether classified downstream migration begins",
     "after initiation, the general Durif-stage advantage weakens substantially",
-    "barrier/hydrological opportunity should explain variation in post-initiation completion in an independent within-landscape system"
+    "project-level resistance aligns with completion but not initiation",
+    "independent within-route passage opportunity predicts post-initiation delay/completion better than a universal Durif effect"
   ],
   "primary_estimands": {
-    "stage_effect": "effect of capture-time Durif stage on later movement expression",
-    "state_dependent_resistance": "Durif stage x WRS/landscape interaction",
-    "project_robustness": "leave-one-project-out stability"
+    "initiation_readiness": "Durif-stage effect on migration initiation",
+    "post_initiation_stage": "Durif-stage effect on completion conditional on initiation",
+    "gate_specific_context": "contrast between WRS association with initiation versus completion",
+    "independent_progression": "barrier/opportunity effects on passage delay and completion in the Dutch consecutive-barrier system"
   },
   "falsification": [
-    "independent data fail to reproduce the readiness effect on initiation",
-    "post-initiation completion remains equally stage-dominated after barrier/opportunity control",
-    "route-specific opportunity does not explain post-initiation heterogeneity"
+    "independent data fail to reproduce readiness control of migration activation",
+    "post-initiation completion remains strongly Durif-dominated after external opportunity is represented",
+    "independent barrier/hydrological opportunity contributes little to progression",
+    "the apparent WRS completion gradient disappears in within-route data once project confounding is removed"
   ],
   "evidence_boundary": "aggregate successful-migrant counts by stage were inspected during development; Europe-wide panel is independent developmental evidence, not outcome-blind confirmation",
   "eog_role": "discovery of an extreme resident anchor only",
@@ -51,6 +54,18 @@
       ],
       "p": 0.4118,
       "n_initiators": 422
+    },
+    "project_context_gate": {
+      "n_projects": 6,
+      "median_wrs_vs_initiation_rho": 0.028988551782622423,
+      "initiation_exact_p": 0.9833333333333333,
+      "median_wrs_vs_completion_rho": -0.9276336570439175,
+      "completion_exact_p": 0.022222222222222223,
+      "completion_loo_rho_range": [
+        -0.9746794344808964,
+        -0.8720815992723809
+      ],
+      "boundary": "project-level context evidence only; WRS is strongly confounded with system identity"
     }
   }
 }
