@@ -1,0 +1,84 @@
+{
+  "schema": "azores.project_context_gate_v1.canonical_summary",
+  "evidence_class": "developmental_posthoc_context_diagnostic",
+  "projects": [
+    {
+      "project": "2011_Warnow",
+      "median_wrs": 1,
+      "tracked": 141,
+      "initiators": 107,
+      "successful": 87,
+      "initiation_rate": 0.7588652482269503,
+      "completion_given_initiation": 0.8130841121495327
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "median_wrs": 5,
+      "tracked": 80,
+      "initiators": 52,
+      "successful": 36,
+      "initiation_rate": 0.65,
+      "completion_given_initiation": 0.6923076923076923
+    },
+    {
+      "project": "2013_albertkanaal",
+      "median_wrs": 14,
+      "tracked": 144,
+      "initiators": 132,
+      "successful": 25,
+      "initiation_rate": 0.9166666666666666,
+      "completion_given_initiation": 0.1893939393939394
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "median_wrs": 0,
+      "tracked": 126,
+      "initiators": 86,
+      "successful": 76,
+      "initiation_rate": 0.6825396825396826,
+      "completion_given_initiation": 0.8837209302325582
+    },
+    {
+      "project": "2019_Grotenete",
+      "median_wrs": 0,
+      "tracked": 38,
+      "initiators": 33,
+      "successful": 33,
+      "initiation_rate": 0.868421052631579,
+      "completion_given_initiation": 1
+    },
+    {
+      "project": "ESGL",
+      "median_wrs": 3,
+      "tracked": 46,
+      "initiators": 12,
+      "successful": 10,
+      "initiation_rate": 0.2608695652173913,
+      "completion_given_initiation": 0.8333333333333334
+    }
+  ],
+  "exact_project_permutation": {
+    "wrs_vs_initiation": {
+      "spearman_rho": 0.028988551782622423,
+      "two_sided_p": 0.9833333333333333,
+      "n_permutations": 720
+    },
+    "wrs_vs_completion": {
+      "spearman_rho": -0.9276336570439175,
+      "two_sided_p": 0.022222222222222223,
+      "n_permutations": 720
+    }
+  },
+  "completion_leave_one_project_out_rho_range": [
+    -0.9746794344808964,
+    -0.8720815992723809
+  ],
+  "stage_standardization": "Using the same global tracked FIII/FIV/FV reference composition leaves the qualitative rank pattern unchanged.",
+  "interpretation": "Median project WRS is essentially unrelated to Gate-1 initiation but strongly negatively aligned with Gate-2 completion after initiation.",
+  "claim_boundary": [
+    "n=6 project contexts",
+    "WRS is mostly project-level and confounded with system identity, hydrology, barrier type, tracking geometry and observability",
+    "exact permutation p-values describe the six-project rank pattern and are not causal evidence",
+    "Dutch within-route barrier data are the direct progression-stage confirmation target"
+  ]
+}
