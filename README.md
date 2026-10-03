@@ -2,15 +2,17 @@
 
 ## Main ecological question
 
-> **Does internal migratory readiness change how strongly landscape resistance constrains realised movement?**
+> **What controls the two stages of realised migration: the release of movement itself, and the fate of movement after it begins?**
 
 This project began from an extreme Azores yellow-eel system in which 36 tagged individuals showed very strong pool fidelity and zero valid receiver-to-receiver movement.
 
 The goal is **not** to rediscover site fidelity.
 
-The ecological hypothesis is:
+The ecological hypothesis is now two-stage:
 
-> **movement capacity is gated by internal life-history state, and the same landscape barrier can have different realised effects depending on how ready the animal is to move.**
+> **internal life-history state regulates the release of migration; after migration begins, route-specific ecological opportunity determines whether that movement can be completed.**
+
+Only the first clause is currently supported. The second is the external confirmation target.
 
 Azores is the deep-residence anchor.
 
@@ -30,6 +32,36 @@ See:
 - [independent test protocol](docs/independent_test_protocol.md)
 - [data feasibility audit](docs/data_feasibility_audit.md)
 - [analysis programme](analysis/README.md)
+
+## Two-stage mobility result
+
+The Europe-wide panel now separates two sequential movement stages.
+
+### Migration initiation
+
+After source-study expert exclusions and adjustment for project × release year, body length and release timing:
+
+- Durif FIII -> FIV -> FV: OR **2.08** per stage increment;
+- 95% CI **1.56–2.76**;
+- p ≈ **4.2e-7**.
+
+### Completion after initiation
+
+Among 422 classified initiators:
+
+- adjusted Durif OR **1.15** per stage increment;
+- 95% CI **0.83–1.59**;
+- p = **0.41**.
+
+Current biological interpretation:
+
+> **internal readiness strongly regulates whether migration is expressed, but does not provide a general advantage for completion once movement has begun.**
+
+The downstream filter remains mechanistically unresolved. Barrier/hydrological opportunity is now the direct confirmation target, not an assumed explanation.
+
+See:
+- [migration-initiation result](docs/durif_migration_initiation_result.md)
+- [two-stage mobility decomposition](docs/two_stage_mobility_result.md)
 
 ## Current developmental result
 
