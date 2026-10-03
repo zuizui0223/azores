@@ -1,5 +1,5 @@
 {
-  "schema": "azores.two_stage_mobility_program.v4",
+  "schema": "azores.two_stage_mobility_program.v5",
   "publication_endpoint": "test of phase-dependent control handoff: internal readiness at migration activation versus external route opportunity during progression",
   "seed_system": "Flores yellow European eel",
   "core_hypothesis": "realised migration has separable control stages: internal readiness governs activation; after initiation, external route resistance/opportunity increasingly governs progression and completion",
@@ -17,8 +17,9 @@
     "silver": "coarse stage label; not pooled into ordinal Durif analysis"
   },
   "primary_predictions": [
-    "capture-time Durif stage strongly predicts whether classified downstream migration begins",
-    "after initiation, the general Durif-stage advantage weakens substantially",
+    "capture-time Durif stage strongly predicts whether and when classified downstream migration begins",
+    "after initiation, the general Durif-stage effect attenuates for both migration speed and successful completion",
+    "the stage coefficient is directly stronger at initiation than completion in a clustered phase-interaction model",
     "project-level resistance aligns with completion but not initiation",
     "independent within-route passage opportunity predicts post-initiation delay/completion better than a universal Durif effect"
   ],
@@ -66,6 +67,27 @@
         -0.8720815992723809
       ],
       "boundary": "project-level context evidence only; WRS is strongly confounded with system identity"
+    },
+    "post_initiation_speed": {
+      "n_modelled": 418,
+      "adjusted_speed_ratio_per_durif_increment": 0.9831088158963496,
+      "ci95": [
+        0.8524016313969962,
+        1.1338586275452411
+      ],
+      "p": 0.8149491122926786,
+      "boundary": "source-paper overall migration-speed definition; developmental result"
+    },
+    "direct_phase_interaction": {
+      "initiation_or_per_stage": 2.08,
+      "completion_or_per_stage": 1.15,
+      "or_ratio": 1.81,
+      "ci95_or_ratio": [
+        1.15,
+        2.84
+      ],
+      "p": 0.0099,
+      "boundary": "cluster-robust stacked two-phase model; developmental evidence"
     }
   }
 }
