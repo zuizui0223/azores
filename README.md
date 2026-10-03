@@ -2,7 +2,7 @@
 
 ## Main ecological question
 
-> **What controls the two stages of realised migration: the release of movement itself, and the fate of movement after it begins?**
+> **Does control of movement shift from internal migratory readiness at initiation to external ecological opportunity during progression?**
 
 This project began from an extreme Azores yellow-eel system in which 36 tagged individuals showed very strong pool fidelity and zero valid receiver-to-receiver movement.
 
@@ -10,9 +10,9 @@ The goal is **not** to rediscover site fidelity.
 
 The ecological hypothesis is now two-stage:
 
-> **internal life-history state regulates the release of migration; after migration begins, route-specific ecological opportunity determines whether that movement can be completed.**
+> **internal life-history state regulates the release of migration; after migration begins, route-specific ecological opportunity and prior route experience increasingly govern progression.**
 
-Only the first clause is currently supported. The second is the external confirmation target.
+The Europe-wide panel supports the initiation clause. The independent Dutch consecutive-barrier study provides compatible external evidence for the progression clause: Durif stage did not persist as a generic barrier predictor, whereas discharge, wind, moon and prior passage experience did.
 
 Azores is the deep-residence anchor.
 
@@ -112,6 +112,22 @@ This is the cleanest current developmental evidence that internal silvering stat
 See:
 - [migration-onset Cox result](docs/migration_onset_cox_result.md)
 - [reproducible Cox analysis](analysis/10_migration_onset_cox.py)
+
+## Independent Dutch control-handoff result
+
+The 2026 Dutch consecutive-barrier study provides an external progression-stage constraint:
+
+- 40 eels, all Durif FIII-FV;
+- 35 passed the pumping station;
+- 27 completed the tidal-sluice passage;
+- mean cumulative barrier delay about 34 days;
+- Durif was dropped from the pumping-station individual model;
+- Durif was non-identifiable at the tidal sluice because stage and body mass were confounded;
+- passage instead depended on barrier-specific opportunity, including discharge duration, wind, lunar condition and prior barrier experience.
+
+This is compatible with a **control handoff** from internal readiness at migration activation to external opportunity during migration progression.
+
+See [independent Dutch control-handoff result](docs/dutch_control_handoff_result.md).
 
 ## Evidence boundary
 
