@@ -15,7 +15,7 @@
 - raw initiation: FIII 61.7%, FIV 79.4%, FV 87.8%;
 - adjusted initiation OR per stage = **1.99**, 95% CI **1.49–2.66**, p ≈ **3.2e-6**;
 - leave-one-project-out OR range **1.67–2.26**, all 95% intervals >1;
-- among 427 initiators, onset latency multiplier per stage = **0.75**, 95% CI **0.60–0.93**, p = **0.0088**;
+- pooled initiator-only latency multiplier per stage = **0.75**, 95% CI **0.60–0.93**, p = **0.0088**, but this is **not project-robust**: removing the 2015 Scheldt project gives ≈1.01 and removes the timing effect;
 - final successful-migrant endpoint also shows a robust stage signal after project/year/body-length/release-timing adjustment.
 
 **Interpretation**
