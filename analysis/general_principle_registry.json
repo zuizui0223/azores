@@ -1,5 +1,5 @@
 {
-  "schema": "azores.two_stage_mobility_program.v5",
+  "schema": "azores.two_stage_mobility_program.v6",
   "publication_endpoint": "test of phase-dependent control handoff: internal readiness at migration activation versus external route opportunity during progression",
   "seed_system": "Flores yellow European eel",
   "core_hypothesis": "realised migration has separable control stages: internal readiness governs activation; after initiation, external route resistance/opportunity increasingly governs progression and completion",
@@ -87,7 +87,25 @@
         2.84
       ],
       "p": 0.0099,
-      "boundary": "cluster-robust stacked two-phase model; developmental evidence"
+      "boundary": "cluster-robust stacked two-phase model; developmental evidence",
+      "leave_one_project_out": {
+        "direction_consistent": "6/6 OR-ratio estimates > 1",
+        "or_ratio_range": [
+          1.5549804155791378,
+          2.126967712851475
+        ],
+        "supported_p_lt_0_05": "5/6",
+        "weakest_case": {
+          "omitted_project": "2015_phd_verhelst_eel",
+          "or_ratio": 1.5549804155791378,
+          "ci95": [
+            0.9444737500143077,
+            2.560117835776843
+          ],
+          "p": 0.0826650344239741
+        },
+        "boundary": "direction is project-robust; formal interaction precision depends partly on the 2015 project"
+      }
     }
   }
 }
