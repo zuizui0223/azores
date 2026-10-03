@@ -45,6 +45,22 @@ See:
 - [project-fixed stage result](docs/project_fixed_stage_result.md)
 - [body/timing robustness](docs/stage_effect_body_timing_robustness.md)
 
+## Movement initiation result
+
+The public migration classifier separates movement initiation from final successful migration.
+
+Across six projects and **575** tracked FIII/FIV/FV eels:
+
+- descriptive classified-migration initiation: FIII **61.7%**, FIV **79.4%**, FV **87.8%**;
+- after project×release-year, body length and release timing adjustment:
+  - OR **1.99** per Durif-stage increment;
+  - 95% CI **1.49–2.66**;
+- among 382 initiators, each Durif-stage increment was associated with a **0.72×** factor in `1 + days to detected migration` (95% CI **0.57–0.91**).
+
+Thus the developmental evidence now supports **state-dependent movement initiation**, not only a final successful-migrant endpoint.
+
+See [migration initiation result](docs/migration_initiation_result.md).
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
