@@ -1,4 +1,4 @@
-# General ecological programme: state-dependent mobility gating
+# General ecological programme: initiation–progression control handoff
 
 ## Publication target
 
@@ -6,7 +6,7 @@ This project is not a re-analysis of the Flores yellow-eel study and is not a ge
 
 The target is a movement-ecology question:
 
-> **How does a high-mobility organism switch between local residence and long-distance movement as internal life-history state changes, and how strongly can landscape opportunity constrain that switch?**
+> **Does the dominant controller of realised movement change across phases—from internal life-history state at migration initiation to external opportunity during migration progression?**
 
 ## Literature boundary
 
@@ -26,14 +26,25 @@ The specific empirical target is their interaction within one unusually plastic 
 
 ## Core hypothesis
 
-### Mobility-gating hypothesis
+### Two-stage mobility hypothesis
 
-Realised mobility is a behavioural phenotype produced by internal movement state × landscape opportunity × local refuge value, not a fixed species-level property.
+Realised migration is decomposed into two biologically distinct control stages.
 
-For anguillid eels, the strongest state contrast is:
+**Stage 1 — activation**
 
-- yellow/growth phase: local growth, refuge use and optional exploration;
-- silver/migratory phase: directed seaward movement.
+Internal silvering/readiness regulates whether and when directed migration is expressed.
+
+**Stage 2 — progression**
+
+Once active migration is underway, local hydrological opportunity, barrier operation, route geometry and prior passage experience increasingly govern whether movement proceeds efficiently.
+
+Thus the key prediction is not a universal Durif × barrier interaction. It is a **change in the dominant source of control across movement phases**.
+
+For anguillid eels:
+
+- yellow/pre-migrant state -> movement often remains latent;
+- advanced silvering -> migration is more likely to activate;
+- after activation -> progression can still be slowed or filtered by route-specific external conditions.
 
 ## Primary quantities
 
@@ -59,17 +70,17 @@ Movement metrics must be harmonised within each telemetry design before cross-sy
 
 Within individuals observed across the transition, movement should increase sharply after migratory state onset even though taxonomy and much of the landscape are unchanged.
 
-### A2 — landscape gating of the state switch
+### A2 — control handoff after activation
 
-The magnitude and timing of mobility release should interact with landscape opportunity. Barriers should delay or compress the realised silver-stage response, while high-flow/connectivity windows should permit stronger expression of the migratory state.
+Once migration has activated, the marginal effect of Durif stage should weaken relative to hydrological opportunity, barrier operation, route geometry and prior passage experience.
 
 ### A3 — local refuge value matters mainly before release
 
 During the yellow stage, stable/high-value refuges should suppress exploratory movement. After silvering, the effect of local refuge quality should weaken relative to directional connectivity toward the sea.
 
-### A4 — stage × landscape interaction beats a single movement rule
+### A4 — phase-specific models beat one movement rule
 
-A model with stage-specific landscape effects should predict movement better across systems than a taxon-only mobility score, system size alone, barrier count alone, or a single landscape effect assumed constant across life stages.
+A model that allows different predictors for activation and progression should outperform a single pooled movement rule that assumes internal state and external opportunity act identically throughout migration.
 
 ## What would falsify the programme
 
@@ -108,6 +119,6 @@ movement_it ~ pre/post_migratory_state * hydrological_opportunity_t + individual
 
 ## Strong ecological conclusion if supported
 
-> **Mobility is a gated phenotype: internal life-history state determines the motivation to move, while landscape opportunity determines how completely that latent mobility can be expressed.**
+> **Realised migration is controlled sequentially: internal state governs activation, then external opportunity and route history increasingly govern progression.**
 
 This is the ecological endpoint. EOG is only the route that exposed the extreme resident anchor.
