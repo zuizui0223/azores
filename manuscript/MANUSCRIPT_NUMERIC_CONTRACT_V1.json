@@ -1,0 +1,100 @@
+{
+  "schema": "azores.manuscript_numeric_contract.v1",
+  "primary_cohort": {
+    "stage_coded_metadata_six_projects": 603,
+    "cleaned_evaluable_tracks": 575,
+    "absent_from_cleaned_tracks": 28,
+    "upstream_cleaning_excluded": 27,
+    "release_only_no_postrelease_detection": 1,
+    "expert_corrected_initiators": 422,
+    "stage_initiation": {
+      "FIII": {
+        "initiated": 154,
+        "tracked": 261,
+        "rate": 0.59
+      },
+      "FIV": {
+        "initiated": 53,
+        "tracked": 68,
+        "rate": 0.779
+      },
+      "FV": {
+        "initiated": 215,
+        "tracked": 246,
+        "rate": 0.874
+      }
+    }
+  },
+  "initiation": {
+    "or_per_stage": 2.08,
+    "ci95": [
+      1.56,
+      2.76
+    ],
+    "p": 4.2e-7
+  },
+  "onset_cox": {
+    "n": 570,
+    "events": 418,
+    "hr_per_stage": 1.28,
+    "ci95": [
+      1.12,
+      1.45
+    ],
+    "p": 0.00022
+  },
+  "completion_given_initiation": {
+    "or_per_stage": 1.15,
+    "ci95": [
+      0.83,
+      1.59
+    ],
+    "p": 0.412
+  },
+  "post_initiation_speed": {
+    "n": 418,
+    "ratio_per_stage": 0.983,
+    "ci95": [
+      0.852,
+      1.134
+    ],
+    "p": 0.815,
+    "medians_ms": {
+      "FIII": 0.0229,
+      "FIV": 0.0232,
+      "FV": 0.0245
+    }
+  },
+  "phase_interaction": {
+    "individuals": 575,
+    "stacked_rows": 910,
+    "informative_strata": 22,
+    "initiation_or": 2.08,
+    "completion_or": 1.15,
+    "or_ratio": 1.81,
+    "ci95": [
+      1.15,
+      2.84
+    ],
+    "p": 0.0099,
+    "lopo_or_ratio_range": [
+      1.55,
+      2.13
+    ],
+    "lopo_direction_consistent": "6/6",
+    "lopo_p_lt_0_05": "5/6"
+  },
+  "project_context": {
+    "n_projects": 6,
+    "wrs_vs_initiation_rho": 0.029,
+    "wrs_vs_initiation_exact_p": 0.983,
+    "wrs_vs_completion_rho": -0.928,
+    "wrs_vs_completion_exact_p": 0.022
+  },
+  "dutch_constraint": {
+    "n_tagged": 40,
+    "pump_passed": 35,
+    "sea_completed": 27,
+    "mean_cumulative_barrier_delay_days": 34
+  }
+}
