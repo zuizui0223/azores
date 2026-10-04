@@ -9,7 +9,7 @@
 ## Figure 2. Advanced Durif stage predicts entry into migration
 
 **(A)** Expert-corrected stage-specific migration-initiation fractions across the primary six-project cohort: FIII, 154/261 (59.0%); FIV, 53/68 (77.9%); FV, 215/246 (87.4%). Fractions are descriptive; adjusted inference accounts for project × release-year context, body length and release timing.  
-**(B)** Hazard ratio for migration onset per one-stage FIII → FIV → FV increment from the stratified Cox analysis. The primary hazard ratio was **1.28** (95% CI **1.12–1.45**, *p* = **0.00022**). Leave-one-project-out estimates are shown as robustness diagnostics. Positive direction was retained across all six deletions, although precision weakened when the 2015 project was excluded.
+**(B)** Hazard ratio for migration onset per one-stage FIII → FIV → FV increment from the stratified Cox analysis. The primary hazard ratio was **1.29** (95% CI **1.13–1.47**, *p* = **0.00016**). Leave-one-project-out estimates are shown as robustness diagnostics. Positive direction was retained across all six deletions, although precision weakened when the 2015 project was excluded.
 
 ## Figure 3. The predictive effect of internal readiness attenuates after migration has begun
 
