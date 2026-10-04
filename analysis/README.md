@@ -174,3 +174,31 @@ External-context bridge:
 
 Older parallel 09/10 scripts that omitted the nine 2015 source expert corrections
 are deprecated and intentionally terminate if executed.
+
+
+## Phase 3 — departure gate versus completion filter
+
+Run:
+
+~~~bash
+python analysis/09_departure_gate_completion_filter.py
+~~~
+
+This reconstructs the published behavioural migration flag from all six primary-stage projects, including the large migration tables pinned by Git blob SHA.
+
+Current developmental result:
+
+- initiation OR per Durif stage: **1.99** (95% CI **1.49–2.66**);
+- completion among initiators OR: **1.29** (95% CI **0.94–1.77**).
+
+Interpretation:
+
+> internal readiness is concentrated at the departure transition; successful post-departure progression is more weakly related to the same readiness measure.
+
+This phase decomposition supersedes treating the successful-migrant endpoint as one indivisible movement outcome.
+
+## Phase 4 — external progression filter
+
+Use the Dutch consecutive-barrier system to test the second phase inside one shared movement landscape.
+
+See [Dutch confirmation protocol](../docs/dutch_barrier_confirmation_protocol.md).
