@@ -2,113 +2,102 @@
 
 ## What is already established
 
-This project does **not** claim novelty for any of the following:
+This project does **not** claim novelty for:
 
-- Durif silvering stages;
-- FIII as a pre-migrant stage and FIV/FV as migrating stages;
-- internal physiological state as a driver of movement decisions;
-- discharge, rainfall, darkness/moonlight and other environmental cues associated with eel migration;
-- migration barriers reducing passage or creating delay;
-- the general movement-ecology framework in which movement results from internal state interacting with motion/navigation capacity and the external environment.
+- migration being controlled by both internal and external state;
+- physiological readiness providing a cue for departure;
+- European eel silvering;
+- Durif stages FIII/FIV/FV representing premigrant/migrating morphologies;
+- river flow, tides and other environmental conditions affecting eel migration timing;
+- barriers, pumping stations, sluices or regulated waterways delaying or reducing eel migration success;
+- morphologically silver eels sometimes failing to migrate immediately.
 
-Those ideas are established.
+These points are already well established in the animal-migration and eel literature.
 
-## The paper-level novelty target
+Key anchors include:
 
-The new empirical target is narrower and stronger:
+- Durif et al. 2005: FIII as premigrant and FIV/FV as migrating silvering stages;
+- Chapman et al./Fryxell migration decision framework: internal readiness and external cues jointly determine departure;
+- Lennox et al. 2015 / movement-physiology frameworks: movement arises from internal state interacting with external conditions;
+- Verhelst et al. 2025: morphometric silvering alone does not guarantee observed migratory behaviour in telemetry;
+- multiple eel barrier studies: passage success and delay depend strongly on flow, route and barrier context.
 
-> **the same internal-state predictor has measurably different effects at sequential movement phases.**
+## Developmental empirical contribution
 
-The Europe-wide data separate:
+The open Europe-wide telemetry panel allows the movement sequence to be split into two biologically distinct transitions:
 
 ~~~text
-Gate 1
-Does directed migration activate?
-
-Gate 2
-Once activated, does migration progress / complete?
+capture-time silvering readiness
+        |
+        v
+migration initiation
+        |
+        v
+post-departure progression / completion
 ~~~
 
-The direct stacked model shows:
+The present analysis finds:
 
-- Durif-stage OR at initiation: **2.08** per stage increment;
-- Durif-stage OR at completion after initiation: **1.15**;
-- ratio of those ORs: **1.81**;
-- cluster-robust 95% CI: **1.15–2.84**;
-- direct phase interaction: **p = 0.0099**.
+### Initiation
 
-Thus the result is not merely:
+After project × release-year control plus body length and release timing:
 
-> internal state matters, and environment matters.
+- Durif stage OR per FIII -> FIV -> FV increment: **1.99**
+- 95% CI: **1.49–2.66**
+- p ≈ **3.2e-6**
 
-It is:
+### Completion conditional on initiation
 
-> **the relative control exerted by internal readiness declines after migration has been activated.**
+Under the same adjustment structure among initiators:
 
-That phase attenuation is the empirical novelty candidate.
+- Durif stage OR per increment: **1.29**
+- 95% CI: **0.94–1.77**
+- p = **0.12**
 
-## Independent ecological constraint
+## Novelty candidate
 
-The 2026 Dutch consecutive-barrier system supplies a complementary post-activation case.
+The novelty candidate is therefore **not**:
 
-Among already migration-ready FIII–FV eels:
+> internal state matters for migration.
 
-- Durif stage did not remain a generic passage predictor at the pumping station;
-- it was non-identifiable at the tidal sluice because stage and mass were confounded;
-- passage/delay instead tracked barrier-specific variables including discharge opportunity, wind, lunar condition and prior passage experience.
+It is the empirical partition:
 
-This does not independently prove the handoff, but it is compatible with the phase-specific result and constrains its interpretation.
+> **morphological migratory readiness contains much stronger information about whether migration is initiated than about whether an initiated migration is successfully completed.**
 
-## Why this is different from comparing two significant models
+That suggests a phase-specific control structure:
 
-The key evidence is the **direct interaction**.
+- **departure:** strongly associated with internal readiness;
+- **post-departure fate:** increasingly filtered by route, barriers, hydrology and other external context.
 
-The claim does not rely on:
+## Why this is ecologically useful
 
-- initiation being significant;
-- completion being non-significant;
-- comparing two p-values.
+Many migration studies analyse one endpoint such as migration success or escapement.
 
-Instead, the difference in the Durif coefficient across phases is directly estimated with individual-clustered uncertainty.
+A single endpoint mixes:
 
-## Strongest defensible ecological statement
+1. failure to enter the migratory behavioural state;
+2. failure after movement has begun.
 
-> **Silvering state primarily predicts entry into the migratory movement state; after entry, its general predictive advantage attenuates and route-specific opportunity becomes increasingly important.**
+Those failures have different biology and different conservation responses.
 
-"Becomes increasingly important" is supported by:
+For eel management:
 
-- weak residual Durif effect on completion;
-- no general Durif effect on post-initiation speed;
-- project-context WRS aligning with completion but not initiation;
-- independent Dutch barrier-specific opportunity results.
+- improving passage cannot make an unready eel initiate migration;
+- high readiness cannot guarantee escapement through a poor migration landscape;
+- interventions should distinguish **departure limitation** from **progression limitation**.
 
-Do not phrase this as a complete switch from internal to external control.
+## What still requires confirmation
 
-## What is not yet identified
+The present panel does not identify which external variable causes post-departure filtering because project, barrier configuration, hydrology and telemetry geometry are entangled.
 
-The Europe-wide phase interaction does not identify a single external mechanism that replaces Durif control.
+The next independent confirmation must ask:
 
-Candidate Gate-2 controls include:
+> **among eels that have already initiated migration in the same route, what barrier/opportunity conditions determine progression, and does residual internal readiness still matter?**
 
-- barrier structure;
-- discharge opportunity;
-- hydrodynamics;
-- route history;
-- monitoring geometry.
+The Dutch consecutive-barrier dataset is the current candidate.
 
-Project-level WRS is bridge evidence only because it is confounded with project.
+## Evidence boundary
 
-## Novelty failure conditions
+The Europe-wide successful-migrant outcome was inspected during hypothesis development, and the present initiation/completion decomposition is therefore developmental rather than preregistered confirmation.
 
-The novelty claim weakens if:
-
-1. the phase interaction is not stable under reasonable source-defined exclusions;
-2. an independent within-route dataset shows Durif remains equally dominant after activation;
-3. external opportunity adds little to post-activation progression;
-4. the effect is specific to one project rather than a transferable phase distinction.
-
-## Evidence class
-
-The Europe-wide analyses are developmental independent evidence, not preregistered confirmation.
-
-The novelty is **phase-specific empirical decomposition**, not a new label such as "control handoff".
+Do not claim a universal two-stage law until the phase-specific pattern is reproduced in an independent system.
