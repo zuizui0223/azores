@@ -64,7 +64,7 @@ def main() -> None:
     c = json.loads(CONTRACT.read_text(encoding="utf-8"))
 
     checks = {}
-    checks["no_eog_in_main_manuscript"] = "eog" not in low
+    checks["no_eog_in_main_manuscript"] = re.search(r"\\bEOG\\b", text, flags=re.IGNORECASE) is None
     checks["no_forbidden_overclaims"] = not any(x in low for x in FORBIDDEN)
 
     # Expert-corrected primary counts.
