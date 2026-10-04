@@ -21,9 +21,9 @@ Gate 1 — activation:
 - adjusted initiation OR per FIII -> FIV -> FV increment: **2.08**
 - 95% CI **1.56–2.76**
 - p approximately **4.2e-7**
-- censored onset HR per stage: **1.28**
-- 95% CI **1.12–1.45**
-- p = **0.00022**
+- threshold-defined onset HR per stage: **1.29**
+- 95% CI **1.13–1.47**
+- p = **0.00016**
 
 Gate 2 — progression after activation:
 
