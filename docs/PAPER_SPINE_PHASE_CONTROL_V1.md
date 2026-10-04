@@ -90,11 +90,11 @@ Stratified Cox model:
 
 - n = **570**
 - onset events = **418**
-- Durif HR per stage = **1.28**
-- 95% CI **1.12–1.45**
-- p = **0.00022**
+- Durif HR per stage = **1.29**
+- 95% CI **1.13–1.47**
+- p = **0.00016**
 
-Leave-one-project-out HR remains above 1 in all six omissions.
+Leave-one-project-out HR remains above 1 in all six omissions, but removing the 2015 Scheldt project gives HR 1.09 [0.94–1.27], so onset timing is positive on average but not fully project-independent in precision.
 
 ### Result 3 — completion after initiation
 
