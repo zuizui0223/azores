@@ -105,7 +105,7 @@ The time-to-event dataset contained 570 individuals and 418 onset events across 
 
 ### Gate 2: completion conditional on initiation
 
-To isolate progression from activation, the Gate-2 analysis included only eels classified as having initiated migration under the expert-corrected source definition. The endpoint was membership in the source study's published successful-migrant set.
+To isolate progression from activation, the Gate-2 analysis included only the **422 eels classified as having initiated migration under the expert-corrected source definition**. The endpoint was membership in the source study's published successful-migrant set.
 
 We used the same project × release-year structure, within-stratum body-length adjustment, within-stratum release-timing adjustment and ordinal Durif coding as in Gate 1. This analysis therefore asked whether silvering stage continued to provide a general advantage **after the animal had already entered the migratory state**.
 
