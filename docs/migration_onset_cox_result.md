@@ -1,116 +1,99 @@
-# Time-to-event result: Durif stage predicts migration onset
+# Time-to-event result: Durif stage predicts earlier threshold-defined migration onset
 
-## Why this replaces the 30-day threshold as the cleaner developmental result
+## Correction
 
-The 30-day onset endpoint is intuitive but the threshold was chosen during developmental analysis.
+This analysis now uses the same onset clock as the canonical initiation analysis.
 
-A stratified time-to-event analysis removes that arbitrary cutoff.
+Event time is:
+
+> **time from release to `time_first_dist_to_use` attached to the first row with `downstream_migration = TRUE`.**
+
+It does not use the first arrival time of the broader `migration = TRUE` interval label.
+
+The nine source-study 2015 expert non-migrant corrections are retained unchanged.
 
 ## Cohort
 
-Public per-project migration files were reconstructed for:
+Six compatible exact-stage projects:
 
-- 2011 Warnow;
-- 2012 Leopoldkanaal;
-- 2013 Albertkanaal;
-- 2015 phd_verhelst_eel;
-- 2019 Grotenete;
+- Warnow;
+- Leopold Canal;
+- Albert Canal;
+- Scheldt / phd_verhelst_eel;
+- Grote Nete;
 - ESGL.
 
-The published 2015 expert exclusions were preserved.
+After restricting the Cox model to project × release-year strata with migration events and at least two Durif stages:
 
-Exact FIII/FIV/FV individuals were followed from release until:
-
-- first row meeting the published migration criterion; or
-- last available telemetry row if migration was not initiated.
-
-Life4Fish is not included because an equivalent public per-project migration file is absent from the source migration directory used here.
-
-Final time-to-event dataset:
-
-- **570 individuals**
-- **418 migration-onset events**
-- **13 project × release-year strata**
+- **n = 570**
+- **418 threshold-defined onset events**
+- **13 strata**
 
 ## Model
 
-Stratified Cox model with a separate baseline hazard for each project × release year.
+Stratified Cox model with Breslow ties.
 
 Covariates:
 
-- body length centered within stratum, per 100 mm;
-- release timing centered within stratum, per 100 days;
-- ordinal Durif stage: FIII=0, FIV=1, FV=2.
+- within-stratum body length / 100 mm;
+- within-stratum release timing / 100 days;
+- ordinal Durif stage FIII=0, FIV=1, FV=2.
 
-## Result
+## Corrected result
 
 ### Durif stage
 
 Per one-stage increment:
 
-- hazard ratio = **1.28**
-- 95% CI = **1.12–1.45**
-- p = **0.00022**
-
-Interpretation:
-
-> at a given project-year baseline hazard and after body-size/timing adjustment, more advanced Durif stage is associated with earlier expression of the migration phenotype.
+- HR = **1.29**
+- 95% CI **1.13–1.47**
+- p = **0.00016**
 
 ### Body length
 
-Per 100 mm:
+Per +100 mm:
 
 - HR = **1.08**
-- 95% CI = **0.95–1.23**
-- p = **0.244**
+- 95% CI **0.95–1.23**
+- p = **0.222**
 
 ### Release timing
 
-Per 100 days:
+Per +100 days:
 
-- HR = **1.31**
-- 95% CI = **0.95–1.79**
-- p = **0.094**
+- HR = **1.40**
+- 95% CI **1.02–1.92**
+- p = **0.039**
 
-## Leave-one-project-out stability
+## Leave-one-project-out stage effect
 
-Durif-stage HR after excluding each project:
+| omitted project | HR | 95% CI | p |
+|---|---:|---:|---:|
+| Warnow | **1.43** | 1.22–1.69 | 0.000013 |
+| Leopold Canal | **1.20** | 1.04–1.39 | 0.012 |
+| Albert Canal | **1.52** | 1.32–1.76 | <1e-7 |
+| Scheldt / 2015 | **1.09** | 0.94–1.27 | 0.252 |
+| Grote Nete | **1.29** | 1.12–1.48 | 0.00029 |
+| ESGL | **1.29** | 1.12–1.47 | 0.00025 |
 
-| omitted project | HR |
-|---|---:|
-| Warnow | 1.41 |
-| Leopoldkanaal | 1.22 |
-| Albertkanaal | 1.47 |
-| 2015 phd_verhelst_eel | 1.10 |
-| Grotenete | 1.26 |
-| ESGL | 1.27 |
+The average onset-hazard effect is positive, but its formal precision depends meaningfully on the Scheldt system.
 
-All leave-one-project-out estimates remain above 1.
+## Ecological interpretation
 
-However, after excluding the 2015 project, the 95% interval includes 1.
+The time-to-event analysis supports:
 
-Thus the most defensible interpretation is:
+> **advanced morphological readiness is associated with earlier expression of directed downstream migration.**
 
-> **a positive average internal-state effect with meaningful project dependence.**
+But timing is more system dependent than the binary initiation probability.
 
-## How this changes the Azores paper
+Therefore the hierarchy of evidence is:
 
-The Europe-wide evidence now supports the internal-state half of mobility gating at three levels:
+1. **strongest:** stage predicts whether migration is activated;
+2. **secondary:** stage predicts earlier threshold-defined activation on average;
+3. **not supported generally after activation:** stage does not provide a general speed or completion advantage.
 
-1. advanced Durif stage predicts the final successful-migrant endpoint;
-2. advanced stage predicts migration onset within a developmental 30-day window;
-3. without any arbitrary onset threshold, advanced stage predicts a higher instantaneous migration-onset hazard.
+## Boundary
 
-The unresolved ecological question is no longer whether internal state matters.
+The Cox result does not establish a stage × landscape interaction.
 
-It is:
-
-> **why does the strength of that internal-state effect differ among systems, and does landscape resistance/hydrological opportunity explain the heterogeneity?**
-
-That is the target of the independent barrier-confirmation line.
-
-## Evidence boundary
-
-The source outcome and timing distributions were inspected during development.
-
-This remains developmental independent evidence, not preregistered confirmation.
+Its project dependence strengthens the motivation for phase-specific external-opportunity tests rather than justifying a universal onset-rate constant.
