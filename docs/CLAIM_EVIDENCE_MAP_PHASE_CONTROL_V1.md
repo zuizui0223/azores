@@ -3,7 +3,7 @@
 | Claim | Evidence | Strength | Boundary |
 |---|---|---|---|
 | Advanced Durif stage predicts migration initiation | Adjusted six-project initiation OR 2.08, CI 1.56–2.76 | Strong developmental | Durif stages already encode migratory readiness; positive control, not novelty alone |
-| Advanced stage predicts earlier migration onset | Stratified Cox HR 1.28, CI 1.12–1.45 | Strong developmental | LOPO remains positive but 2015 omission reduces precision |
+| Advanced stage predicts earlier migration onset | Threshold-defined stratified Cox HR 1.29, CI 1.13–1.47 | Strong developmental | LOPO remains positive but 2015 omission reduces precision |
 | Stage is not a general post-initiation speed predictor | Adjusted speed ratio 0.983, CI 0.852–1.134 | Strong null-compatible | Does not prove zero individual-state effect |
 | Stage gives weak general completion advantage after initiation | Conditional OR 1.15, CI 0.83–1.59 | Moderate | Project heterogeneity remains |
 | Stage effect attenuates after initiation | Direct clustered phase interaction OR ratio 1.81, CI 1.15–2.84, p=0.0099 | **Primary novel evidence** | Developmental, not preregistered |
