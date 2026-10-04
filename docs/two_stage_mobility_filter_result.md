@@ -132,3 +132,39 @@ Do not call the six-project WRS correlation causal.
 With only six project-level contexts, the WRS result is a strong pattern generator, not a landscape-effect estimate.
 
 The causal/general confirmation still requires within-landscape variation in passage opportunity and resistance.
+
+
+## Within-project WRS identifiability audit
+
+The strongest project-level resistance contrast occurs in Albertkanaal, so the first attempt to reduce project confounding was to inspect WRS variation **within that one project** among migration initiators.
+
+Result:
+
+| WRS impact | initiators | successful | conditional success |
+|---|---:|---:|---:|
+| 10 | 4 | 0 | 0.000 |
+| 12 | 5 | 4 | 0.800 |
+| 14 | 123 | 21 | 0.171 |
+
+This is not a usable monotonic resistance gradient:
+
+- 123/132 initiators are concentrated at WRS=14;
+- the lower-WRS cells contain only 4 and 5 individuals;
+- success is non-monotonic across 10/12/14.
+
+Therefore the Europe-wide panel **cannot identify the stage-independent landscape filter cleanly within project**.
+
+This is an important negative gate. Do not fit a continuous WRS coefficient in Albertkanaal and present it as confirmation.
+
+The six-project WRS–completion correlation remains hypothesis-generating only.
+
+### Consequence
+
+The next landscape test must come from a different design with:
+
+- the same route or population;
+- individual variation in independently measured internal state;
+- repeated/continuous passage opportunity;
+- enough observations at each barrier/opportunity state.
+
+The Dutch pump + tidal-sluice system remains the preferred confirmation candidate.
