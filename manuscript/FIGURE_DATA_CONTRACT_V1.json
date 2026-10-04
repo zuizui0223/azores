@@ -148,42 +148,54 @@
       {
         "project": "2015 Scheldt",
         "median_wrs": 0,
+        "tracked": 126,
         "initiators": 86,
+        "initiation_rate": 0.68254,
         "successful": 76,
         "completion": 0.884
       },
       {
         "project": "Grote Nete",
         "median_wrs": 0,
+        "tracked": 38,
         "initiators": 33,
+        "initiation_rate": 0.868421,
         "successful": 33,
         "completion": 1
       },
       {
         "project": "Warnow",
         "median_wrs": 1,
+        "tracked": 141,
         "initiators": 107,
+        "initiation_rate": 0.758865,
         "successful": 87,
         "completion": 0.813
       },
       {
         "project": "ESGL",
         "median_wrs": 3,
+        "tracked": 46,
         "initiators": 12,
+        "initiation_rate": 0.26087,
         "successful": 10,
         "completion": 0.833
       },
       {
         "project": "Leopold Canal",
         "median_wrs": 5,
+        "tracked": 80,
         "initiators": 52,
+        "initiation_rate": 0.65,
         "successful": 36,
         "completion": 0.692
       },
       {
         "project": "Albert Canal",
         "median_wrs": 14,
+        "tracked": 144,
         "initiators": 132,
+        "initiation_rate": 0.916667,
         "successful": 25,
         "completion": 0.189
       }
