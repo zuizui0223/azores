@@ -1,77 +1,147 @@
-# Ecological mainline for Azores: mobility is gated, not continuously expressed
+# Ecological mainline for Azores: movement control changes across phases
 
-## Biological puzzle
+## Starting biological puzzle
 
-European eels are capable of extraordinary movement across their life cycle, yet the yellow eels in the Azorean stream were effectively pool-resident at the monitored scale.
+The Flores yellow-eel system supplied an extreme resident endpoint:
 
-The ecological question is not whether site fidelity exists. That is already known.
+- 36 tagged yellow European eels;
+- strong pool fidelity;
+- zero valid receiver-to-receiver movement.
+
+That result motivated a broader question about how a species capable of extreme lifetime migration can occupy radically different movement states.
+
+The paper no longer asks simply:
+
+> why do some eels stay while others move?
 
 The stronger question is:
 
-> **Why does a high-mobility organism suppress movement during one life-history phase and remain anchored to a local refuge?**
+> **Does the biological control of movement change once migration has been activated?**
 
-## Candidate mechanism: refuge anchoring
+## Two sequential ecological gates
 
-The working idea is that realised movement reflects a balance among:
+### Gate 1 — activation
 
-- quality and predictability of the current refuge;
-- uncertainty about alternative refuges;
-- energetic and predation costs of relocation;
-- barriers and hydrological connectivity;
-- internal life-history state.
+The animal must enter a directed migratory movement state.
 
-If a pool provides persistent refuge/food and alternatives are uncertain or costly to reach, remaining local can be adaptive even for an intrinsically mobile species.
+Candidate control:
+- internal silvering / migratory readiness.
 
-This gives a more biological interpretation of the EOG clue: the system had predictive temporal structure without observed between-pool movement because the dominant process may be **persistent use of familiar refuges**, not dispersal.
+Developmental evidence:
 
-## General principle candidate
+- FIII initiation: **59.0%**;
+- FIV initiation: **77.9%**;
+- FV initiation: **87.4%**;
+- adjusted OR per stage increment: **2.08**;
+- stratified onset HR per stage increment: **1.28**.
 
-> **Movement capacity and movement expression are different ecological traits. Resource predictability, relocation cost and internal state determine when latent mobility is expressed.**
+Interpretation:
 
-This is an ecological gating hypothesis rather than a statement about monitoring.
+> internal readiness strongly regulates whether and when the migration phenotype is expressed.
 
-## Key predictions
+### Gate 2 — progression
 
-1. **Predictable refuges -> stronger fidelity.**  
-   Yellow-stage movement should be lowest where local food/refuge quality is temporally predictable.
+After migration has begun, the animal must traverse a real route containing hydrological windows, barriers and delays.
 
-2. **Unpredictability -> exploration.**  
-   Movement should increase when local conditions become unreliable through drying, disturbance, resource depletion or density-dependent competition.
+Developmental evidence:
 
-3. **Hydrological connectivity opens a gate.**  
-   Rare relocations should be concentrated in periods when barriers become passable or disconnected pools become connected.
+- adjusted Durif completion OR after initiation: **1.15**, 95% CI **0.83–1.59**;
+- adjusted post-initiation speed ratio per stage: **0.983**, 95% CI **0.852–1.134**.
 
-4. **Ontogeny changes the gate.**  
-   The same taxon should express radically different movement regimes across life-history state, especially yellow versus silver stages.
+Direct phase comparison:
 
-5. **Landscape size alone is insufficient.**  
-   Two streams of similar size can differ strongly in realised mobility if refuge predictability, barrier structure or local resource renewal differ.
+- OR(initiation) / OR(completion): **1.81**;
+- 95% CI **1.15–2.84**;
+- phase interaction **p = 0.0099**.
 
-## Comparative design
+Interpretation:
 
-The main paper should not reanalyse only Azores. It should compare independent yellow-eel/anguillid telemetry systems spanning:
+> the general effect of internal readiness attenuates after movement is activated.
 
-- small island streams;
-- larger continental streams;
-- large rivers;
-- lakes;
-- estuaries.
+## External-context bridge
 
-For each system quantify:
+Across six Europe-wide projects:
 
-- realised home-range / longitudinal movement;
-- accessible network length;
-- barrier structure;
-- refuge spacing and persistence;
-- hydrological variability;
-- resource predictability proxies;
-- density/competition where available;
-- life-history stage.
+- median WRS vs initiation: rho **+0.029**, exact p **0.983**;
+- median WRS vs completion after initiation: rho **-0.928**, exact p **0.022**.
 
-The primary test is whether ecological state and refuge predictability explain realised mobility better than simple system size or taxonomic mobility labels.
+This is not causal WRS evidence because resistance is project-confounded.
 
-## Ecological meaning
+Its biological value is that the same external context descriptor aligns with Gate 2 but not Gate 1.
 
-The broader target is a movement-ecology principle:
+## Independent Dutch constraint
 
-> **high mobility does not imply high movement; stable profitable refuges can convert a mobile organism into a resident one until environmental or ontogenetic state changes reopen the movement gate.**
+A 2026 Dutch system followed FIII–FV eels through a pumping station and tidal sluice.
+
+Post-activation passage depended on:
+
+- discharge-event duration;
+- wind;
+- lunar illumination;
+- prior passage experience;
+- movement speed/body condition at specific steps.
+
+Durif did not survive as a generic pumping-station predictor and was non-identifiable at the sluice because of body-mass confounding.
+
+This is compatible with the Europe-wide phase attenuation.
+
+## Current ecological model
+
+~~~text
+silvering / internal readiness
+            |
+            v
+      migration activation
+            |
+            v
+ hydrological opportunity
+ barrier-specific passage
+      route experience
+            |
+            v
+ migration progression
+~~~
+
+Internal and external controls can operate at both phases.
+
+The supported claim is about a **shift in relative control**, not exclusive control.
+
+## General ecological relevance
+
+Many migration studies ask separately:
+
+- what triggers departure?
+- what determines route success?
+
+This programme links them as sequential filters and tests whether the **same predictor changes importance across those filters**.
+
+That distinction matters because conservation actions aimed at Gate 2 cannot be evaluated from Gate-1 readiness alone.
+
+An animal can be physiologically ready to migrate yet still fail because the route does not provide passage opportunity.
+
+## Conservation consequence
+
+For European eel management:
+
+> increasing the number of migration-ready silver eels is not equivalent to increasing escapement.
+
+If Gate 2 is externally constrained, management must preserve or create:
+
+- usable discharge windows;
+- barrier passage routes;
+- low-delay source-to-sea connectivity.
+
+The Dutch consecutive-barrier result illustrates how delays accumulate and how passage drivers differ between barriers.
+
+## What remains to test
+
+The strongest remaining confirmation is an individual-resolved within-route dataset in which:
+
+- internal readiness varies independently of body size;
+- multiple external passage opportunities are observed;
+- initiation and progression can both be separated;
+- external drivers are measured before passage outcome.
+
+The target is no longer a generic Durif × WRS interaction.
+
+It is the **phase-specific transfer of predictive control from internal readiness toward route opportunity**.
