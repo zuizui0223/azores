@@ -2,8 +2,10 @@
 """Stratified Cox model for Durif stage and migration onset.
 
 Endpoint:
-  time from release to first row meeting the published migration criterion,
-  censored at the last telemetry row.
+  time from release to the distance-threshold crossing associated with the
+  first row where downstream_migration is TRUE, censored at the last telemetry
+  row. This follows the upstream classifier rather than using the first arrival
+  row of the broader migration interval label.
 
 Strata:
   project x release year.
@@ -31,7 +33,8 @@ import urllib.request
 
 import numpy as np
 
-BASE = "https://raw.githubusercontent.com/PieterjanVerhelst/eel-meta-analysis/master"
+UPSTREAM_COMMIT = "59578cb622dddbbba5174b4c51bff0807787385a"
+BASE = f"https://raw.githubusercontent.com/PieterjanVerhelst/eel-meta-analysis/{UPSTREAM_COMMIT}"
 META_URL = f"{BASE}/data/interim/eel_meta_data.csv"
 MIGRATION_BASE = f"{BASE}/data/interim/migration"
 MIGRATION_FILES = {
@@ -175,10 +178,11 @@ def build_rows() -> list[dict]:
                 if outcomes[tag]["last"] is None or when > outcomes[tag]["last"]:
                     outcomes[tag]["last"] = when
 
-            migration = (r.get("migration") or "").strip().lower() == "true"
-            if migration and when is not None:
-                if outcomes[tag]["onset"] is None or when < outcomes[tag]["onset"]:
-                    outcomes[tag]["onset"] = when
+            downstream = (r.get("downstream_migration") or "").strip().lower() == "true"
+            if downstream and outcomes[tag]["onset"] is None:
+                crossing = parse_dt(r.get("time_first_dist_to_use", ""))
+                if crossing is not None:
+                    outcomes[tag]["onset"] = crossing
 
     for tag in EXPERT_NON_MIGRANTS_2015:
         if tag in outcomes:
@@ -262,8 +266,9 @@ def main() -> None:
         s["event_rate"] = s["events"] / s["n"]
 
     result = {
-        "schema": "azores.migration_onset_cox.v1",
-        "endpoint": "time from release to first classified migration, censored at last telemetry row",
+        "schema": "azores.migration_onset_cox.v2",
+        "upstream_commit": UPSTREAM_COMMIT,
+        "endpoint": "time from release to first distance-threshold crossing attached to the first downstream_migration TRUE row, censored at last telemetry row",
         "n": len(rows),
         "events": sum(r["event"] for r in rows),
         "n_strata": len({r["stratum"] for r in rows}),
