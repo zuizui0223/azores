@@ -1,0 +1,29 @@
+name: manuscript qc
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "manuscript/**"
+      - "docs/PAPER_SPINE_PHASE_CONTROL_V1.md"
+      - "docs/CLAIM_EVIDENCE_MAP_PHASE_CONTROL_V1.md"
+      - "validation/validate_manuscript_v2.py"
+      - ".github/workflows/manuscript-qc.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  manuscript-qc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate canonical manuscript
+        run: python validation/validate_manuscript_v2.py
+      - name: Show QC result
+        run: cat manuscript/MANUSCRIPT_QC_V1.json
