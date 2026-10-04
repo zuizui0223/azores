@@ -85,7 +85,7 @@ def main() -> None:
         "cox_n_570": c["onset_cox"]["n"],
         "cox_events_418": c["onset_cox"]["events"],
         "initiation_or_2_08": c["initiation"]["or_per_stage"],
-        "cox_hr_1_28": c["onset_cox"]["hr_per_stage"],
+        "cox_hr_1_29": c["onset_cox"]["hr_per_stage"],
         "completion_or_1_15": c["completion_given_initiation"]["or_per_stage"],
         "speed_ratio_0_983": c["post_initiation_speed"]["ratio_per_stage"],
         "phase_or_ratio_1_81": c["phase_interaction"]["or_ratio"],
@@ -107,6 +107,16 @@ def main() -> None:
         checks[f"text_citation_present::{key}"] = key in text
 
     # Core distinction must be explicit.
+    checks["cox_clock_threshold_defined"] = (
+        "time_first_dist_to_use" in text
+        and "downstream_migration" in text
+        and c["onset_cox"].get("clock") == "time_first_dist_to_use from first downstream_migration TRUE row"
+    )
+    checks["old_cox_values_absent"] = not (
+        "HR 1.28, 95% CI 1.12–1.45" in text
+        or "hazard ratio 1.28, 95% CI 1.12–1.45" in text
+    )
+
     checks["phase_claim_present"] = (
         "predictive strength of the same internal-state axis is **phase dependent**" in text
         or "phase dependent" in low
