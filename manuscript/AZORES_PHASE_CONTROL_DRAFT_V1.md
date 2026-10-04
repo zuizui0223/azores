@@ -1,3 +1,7 @@
+# Deprecated draft
+
+This file is retained for provenance. `AZORES_PHASE_CONTROL_MANUSCRIPT_V2.md` is the canonical manuscript.
+
 # Manuscript draft v1 — phase-specific control of European eel migration
 
 ## Working title
@@ -8,7 +12,7 @@
 
 Migration emerges from the interaction between internal state and external opportunity, but whether their relative influence changes across sequential phases of a migration is rarely tested directly. European eel (*Anguilla anguilla*) provides an unusually tractable system because silvering stage offers an independently measured axis of migratory readiness, while telemetry resolves migration activation, timing and subsequent progression through heterogeneous routes.
 
-We analysed public telemetry products from six European eel projects in which female Durif stages FIII–FV were available together with a common migration classifier. After preserving the source study's expert corrections, migration initiation increased from 59.0% in FIII to 77.9% in FIV and 87.4% in FV individuals. In models stratified by project and release year and adjusted for body length and release timing, the odds of migration initiation increased 2.08-fold per Durif-stage increment (95% CI 1.56–2.76). A stratified Cox analysis similarly showed earlier migration onset at more advanced stages (hazard ratio 1.28, 95% CI 1.12–1.45).
+We analysed public telemetry products from six European eel projects in which female Durif stages FIII–FV were available together with a common migration classifier. After preserving the source study's expert corrections, migration initiation increased from 59.0% in FIII to 77.9% in FIV and 87.4% in FV individuals. In models stratified by project and release year and adjusted for body length and release timing, the odds of migration initiation increased 2.08-fold per Durif-stage increment (95% CI 1.56–2.76). A stratified Cox analysis similarly showed earlier migration onset at more advanced stages (hazard ratio 1.29, 95% CI 1.13–1.47).
 
 The same internal-state gradient weakened after migration had begun. Among initiators, Durif stage did not provide a general advantage for migration completion (OR 1.15, 95% CI 0.83–1.59) or post-initiation migration speed (ratio 0.983, 95% CI 0.852–1.134). A direct stacked two-phase model confirmed that the Durif-stage effect was stronger at initiation than at completion (ratio of odds ratios 1.81, 95% CI 1.15–2.84; phase interaction p=0.0099). Across projects, a coarse resistance score was unrelated to initiation but strongly negatively associated with completion after initiation, although this comparison is project-confounded. An independent 2026 Dutch consecutive-barrier study provides compatible evidence that post-activation progression depends on barrier-specific discharge opportunity, wind, lunar conditions and prior passage experience.
 
@@ -46,7 +50,7 @@ After controlling for project × release year, within-stratum body length and wi
 
 A stratified Cox model followed 570 individuals from release to first classified migration onset or censoring at the last telemetry observation. There were 418 migration-onset events across 13 project × release-year strata.
 
-Each Durif-stage increment increased the migration-onset hazard by 28% (HR 1.28, 95% CI 1.12–1.45; p=0.00022). Leave-one-project-out estimates remained positive in all cases (HR 1.10–1.47), although omission of the 2015 project widened the confidence interval through one.
+Each Durif-stage increment increased the migration-onset hazard by 28% (HR 1.29, 95% CI 1.13–1.47; p=0.00016). Leave-one-project-out estimates remained positive in all cases (HR 1.09–1.52), although omission of the 2015 project widened the confidence interval through one.
 
 ### The Durif-stage advantage weakened after migration began
 
