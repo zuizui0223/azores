@@ -1,120 +1,200 @@
-# Dutch consecutive-barrier control-handoff protocol
+# Dutch consecutive-barrier confirmation protocol v2
 
 ## Role
 
-The Europe-wide eel panel established a robust developmental **internal-state signal** but could not cleanly confirm a general state × landscape interaction because WRS is strongly project-confounded.
+The Europe-wide eel panel now supports two developmental internal-state signals:
 
-The Dutch source-to-sea system is therefore used as a **within-landscape confirmation candidate**.
+- later successful migration;
+- earlier detected migration onset.
+
+The unresolved question is no longer whether Durif stage matters on average.
+
+It is:
+
+> **Does internal migratory readiness alter which passage opportunities an eel can exploit?**
 
 Source:
 - van Rijn et al. 2026
-- paper DOI: 10.1139/cjfas-2025-0359
-- data DOI: 10.17026/LS/WTSUNG
+- DOI 10.1139/cjfas-2025-0359
+- DANS data DOI 10.17026/LS/WTSUNG
 
-## Why this system is useful
+## Why the original paper does not already answer this question
 
-The published study followed 40 tagged European eels through:
+The source paper followed 40 eels through a pumping station (PS) and a tidal sluice (TS).
 
-1. a pumping station;
-2. a lake;
-3. a tidal sluice.
+Durif composition was approximately:
 
-Published outcomes:
-- 35/40 passed the pumping station;
-- 27/40 completed seaward passage through the tidal sluice;
-- mean cumulative barrier delay about 34 days.
+- FIII pre-migrant: **11**
+- FIV: **6**
+- FV: **23**
 
-The same route therefore exposes individuals to **two different barrier/opportunity regimes**.
+The source analysis:
 
-All retained fish were classified in advanced Durif stages FIII–FV.
+- included Durif stage as a candidate individual predictor at the PS, where it was dropped during model selection;
+- excluded Durif stage from the TS individual model because FIV body mass and stage could not be separated adequately;
+- modelled event-level population passage probabilities after aggregating individual attempts.
 
-## Confirmation question
+Therefore a simple re-test of the Durif main effect would be redundant.
 
-> **Among eels already in FIII-FV, does progression through consecutive barriers depend more on route-specific opportunity and prior passage experience than on Durif stage itself?**
+## New ecological estimand: opportunity exploitation
 
-This is not a rerun of the source paper's overall barrier-driver analysis.
+For every eel that eventually passes a barrier, reconstruct its **choice set**:
 
-## Primary variables required
+~~~text
+missed opportunity 1
+missed opportunity 2
+...
+successful opportunity
+~~~
 
-Per individual:
+The individual eel is its own matched stratum.
 
-- Durif stage FIII/FIV/FV;
-- body mass and/or body condition;
-- barrier identity;
-- passage success;
-- passage delay/opportunities;
-- discharge/opportunity characteristics;
-- timing.
+The question is:
 
-## Model hierarchy
+> **does FIII versus FIV/FV readiness change the environmental strength of the opportunity that is sufficient to trigger passage?**
 
-### D0 — source-paper covariates
+This is a case-crossover / conditional-choice question.
 
-```text
-passage / delay
-  ~ body condition
-  + body mass
-  + discharge/opportunity
-  + weather/lunar covariates
-```
+## Primary readiness definition
 
-### D1 — internal readiness
+Freeze:
 
-```text
-D0 + Durif stage
-```
+~~~text
+pre-migrant = FIII
+migrant-ready = FIV or FV
+~~~
 
-### D2 — state-dependent opportunity
+This grouping follows the biological interpretation in the source paper and is fixed before opening the DANS attempt-level data.
 
-```text
-D1 + Durif stage × passage opportunity
-```
+Do not split FIV/FV after seeing results.
 
-The interaction is the confirmation target.
+## Primary opportunity variable
 
-## Hard confounding boundary
+### Discharge-event duration
 
-The source paper reports that at the tidal sluice, Durif stage and body mass could not be separated among successful individuals.
+Use the source-defined duration of each passage opportunity as the primary continuous opportunity-strength axis.
 
-Therefore:
+Reason:
 
-- pump and sluice analyses must be reported separately;
-- an interaction is confirmatory only where stage has enough independent variation from mass/condition;
-- do not drop body mass merely to make Durif stage significant;
-- if the stage effect is not identifiable at the sluice, report **non-identifiable**, not null.
+- a passage opportunity only exists during an operational discharge/opening window;
+- duration is defined independently of whether a specific eel uses it;
+- it is available at both barriers;
+- it has direct biological meaning as the length of time an eel has to exploit a passage window.
 
-## Cross-barrier biological prediction
+Primary interaction:
 
-A stronger biological prediction is:
+~~~text
+passage_this_opportunity
+  ~ log(discharge_duration)
+  + migrant_ready × log(discharge_duration)
+  | matched within eel
+~~~
 
-> eels with greater migratory readiness should exploit available passage windows more efficiently, but the expression of that readiness should differ between the mechanically controlled pump and tidal sluice.
+Because readiness is constant within eel, its main effect is conditioned out. The estimand is the **difference in opportunity-response slope** between FIII and FIV/FV.
 
-This predicts **barrier-specific state dependence**, not a universal fixed effect of stage.
+## Biological prediction
 
-## Success condition
+The directional hypothesis is:
 
-The general mobility-gating programme strengthens if:
+> **migrant-ready FIV/FV eels should require less extreme/long passage windows than FIII pre-migrants.**
 
-1. stage or stage × opportunity has a stable effect at at least one barrier after body condition/mass control;
-2. the effect does not require post-hoc regrouping of FIII/FIV/FV;
-3. the direction is compatible with the Europe-wide internal-state signal;
-4. uncertainty and non-identifiability at the second barrier are reported rather than rescued.
+Under the conditional-logit parameterization above, this predicts a weaker positive dependence on long duration for FIV/FV than for FIII.
+
+If advanced fish instead wait for stronger opportunities, the interaction will point in the opposite direction and the gating hypothesis must be revised.
+
+## Barrier-specific analysis
+
+Fit the matched model separately at:
+
+1. pumping station;
+2. tidal sluice.
+
+Do not pool barriers as interchangeable.
+
+The ecological test is whether the readiness × opportunity relationship itself changes between the two barrier mechanisms.
+
+## Secondary event variables
+
+Only after the primary duration interaction is reported:
+
+### Pumping station
+- wind speed in the frozen source window;
+- discharge volume.
+
+### Tidal sluice
+- moon illumination;
+- discharge volume.
+
+These are secondary because the original paper identified barrier-specific associations after outcome modelling.
+
+They cannot rescue a null primary duration interaction.
+
+## Body-size confounding
+
+The source paper found stage/body-mass confounding at the tidal sluice.
+
+A matched choice model removes the constant main effects of both stage and body mass, but it does **not** automatically remove confounding of:
+
+~~~text
+stage × opportunity
+versus
+body mass × opportunity.
+~~~
+
+Therefore freeze one sensitivity model:
+
+~~~text
+passage
+  ~ duration
+  + migrant_ready × duration
+  + body_mass × duration
+  | eel
+~~~
+
+If the readiness interaction becomes unidentified or unstable, report **non-identifiable** rather than dropping body mass.
+
+## Why matched choice sets help
+
+This design avoids treating hundreds of attempts as independent animals.
+
+Each eel contributes one matched choice set, and the inference asks which event within that individual's available set was used.
+
+Fish with only one available opportunity contain no within-eel choice information and do not contribute to the primary conditional likelihood.
+
+Fish that never pass have no chosen event and are reported separately; they do not enter the primary matched-choice model.
+
+## Primary support rule
+
+For each barrier report:
+
+- number of informative eel choice sets;
+- FIII versus FIV/FV representation;
+- coefficient and interval for log duration;
+- coefficient and interval for readiness × log duration;
+- fish-level leave-one-out stability.
+
+The readiness interaction is considered supported only if:
+
+1. its two-sided 95% interval excludes zero;
+2. its sign is stable under fish-level leave-one-out;
+3. it remains directionally stable in the body-mass × duration sensitivity where estimable.
+
+## Cross-barrier interpretation
+
+The strongest result is not necessarily the same interaction at both barriers.
+
+A biologically interesting outcome is:
+
+> **internal readiness changes opportunity exploitation at one barrier type but not the other.**
+
+That would directly support the emerging hypothesis that landscape infrastructure changes how internal migratory state is translated into realized movement.
 
 ## Failure condition
 
-If stage adds no information at either barrier under adequate variation and precision, the Europe-wide stage association should be treated as a context-dependent predictor rather than a general movement-gating mechanism.
+If readiness × opportunity is unsupported at both barriers under adequate information, the Europe-wide stage effect remains real as a predictor but the proposed **passage-opportunity gating mechanism** is weakened.
 
+## Evidence boundary
 
-## Published result already constrains the hypothesis
+This is an independent dataset, but the source paper and its published results were read before this v2 protocol.
 
-The paper itself supplies a critical independent result before any reanalysis:
-
-- pumping-station global individual model included Durif stage, but Durif was dropped during model selection;
-- tidal-sluice analysis excluded Durif because FIV body mass was too confounded with stage to separate;
-- pumping-station passage was associated with discharge duration and wind;
-- tidal-sluice passage was associated with moon illumination;
-- prior pumping-station passage experience predicted faster subsequent tidal-sluice passage.
-
-Therefore a reanalysis is **not authorized to hunt for a rescued Durif coefficient**.
-
-The raw-data objective is instead variance/control decomposition across movement phases.
+The new **matched within-eel interaction estimand** is frozen before opening the DANS attempt-level data in this project.
