@@ -195,6 +195,33 @@ The current hypothesis is therefore:
 
 See [stage × passage-opportunity hypothesis](docs/stage_passage_opportunity_hypothesis.md).
 
+## Movement-gate decomposition
+
+The Europe-wide processed telemetry now separates **migration initiation** from **post-initiation completion**.
+
+After project × release-year, body-length and release-timing control, Durif stage predicts migration initiation consistently across fixed windows:
+
+- 7 d: OR **1.51** per FIII -> FIV -> FV increment;
+- 30 d: OR **1.50**;
+- 60 d: OR **1.70**;
+- 90 d: OR **1.89**.
+
+By contrast, among eels that had already initiated migration, the adjusted stage association with the final successful-migrant endpoint was strongly attenuated:
+
+- OR **1.15**
+- 95% CI **0.83–1.59**
+- p = **0.41**.
+
+Current biological interpretation:
+
+> **internal migratory readiness is associated primarily with opening the movement gate; once movement is initiated, landscape/barrier context becomes the unresolved control on progression.**
+
+This is descriptive process decomposition, not formal causal mediation.
+
+See:
+- [migration-onset window result](docs/migration_onset_window_result.md)
+- [movement-gate decomposition](docs/movement_gate_decomposition.md)
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
