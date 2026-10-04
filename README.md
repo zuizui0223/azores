@@ -183,6 +183,18 @@ This is **not causal WRS evidence** because resistance is strongly project-confo
 
 See [project-context gate result](docs/project_context_gate_result.md).
 
+## Refined passage-opportunity hypothesis
+
+Across six telemetry projects, the advanced-stage advantage at **detected migration onset** closely tracks the advanced-stage advantage at **successful migration** (project log-OR correlation ≈ **0.94**).
+
+But that advantage is not monotonic in scalar WRS resistance. For example, the Leopold pumping-station/sluice system retains a strong stage advantage despite relatively high WRS, whereas the Albertkanaal shipping-lock system does not.
+
+The current hypothesis is therefore:
+
+> **internal readiness matters, but its translation into realised movement depends on the kind and timing of passage opportunity provided by the landscape.**
+
+See [stage × passage-opportunity hypothesis](docs/stage_passage_opportunity_hypothesis.md).
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
