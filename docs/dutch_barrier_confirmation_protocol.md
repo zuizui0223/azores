@@ -198,3 +198,25 @@ If readiness × opportunity is unsupported at both barriers under adequate infor
 This is an independent dataset, but the source paper and its published results were read before this v2 protocol.
 
 The new **matched within-eel interaction estimand** is frozen before opening the DANS attempt-level data in this project.
+
+
+## Updated target after departure/completion decomposition
+
+The Europe-wide analysis now separates two stages:
+
+1. **departure gate** — Durif readiness strongly predicts whether migration begins;
+2. **post-departure filter** — among initiators, ordinal Durif stage does not show a comparably strong supported effect on successful completion.
+
+Therefore the Dutch barrier system is primarily a test of the **second stage**.
+
+The decisive question is:
+
+> **Among eels whose migration has begun, which barrier-specific passage opportunities determine successful progression or delay, and does residual Durif readiness still modify that response?**
+
+Priority outcomes:
+- pump passage/delay among initiated migrants;
+- tidal-sluice passage/delay among migrants reaching that barrier;
+- opportunity/discharge dependence of passage;
+- residual stage × opportunity interaction only where stage and body mass are identifiable.
+
+Do not use a failure of residual Durif stage at a barrier to reject the departure-gate result. These are different biological transitions.
