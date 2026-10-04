@@ -43,9 +43,10 @@ from pathlib import Path
 import numpy as np
 
 REPO = "PieterjanVerhelst/eel-meta-analysis"
-BRANCH = "master"
+UPSTREAM_COMMIT = "59578cb622dddbbba5174b4c51bff0807787385a"
+REF = UPSTREAM_COMMIT
 API = f"https://api.github.com/repos/{REPO}"
-RAW = f"https://raw.githubusercontent.com/{REPO}/{BRANCH}"
+RAW = f"https://raw.githubusercontent.com/{REPO}/{REF}"
 
 MIGRATION_FILES = [
     "migration_2011_warnow.csv",
@@ -206,7 +207,7 @@ def load_individuals() -> dict[str, dict]:
         }
 
     directory = get_json(
-        f"{API}/contents/data/interim/migration?ref={BRANCH}"
+        f"{API}/contents/data/interim/migration?ref={REF}"
     )
     sha_by_name = {
         x["name"]: x["sha"]
@@ -450,7 +451,8 @@ def main() -> None:
     }
 
     result = {
-        "schema": "azores.durif_migration_initiation.v2",
+        "schema": "azores.durif_migration_initiation.v3",
+        "upstream_commit": UPSTREAM_COMMIT,
         "definition": {
             "positive": "any downstream_migration == TRUE",
             "threshold_clock": (
