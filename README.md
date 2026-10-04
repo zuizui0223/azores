@@ -38,7 +38,17 @@ speed / passage / completion
 
 The paper target is the **change in dominant control across phases**, not one pooled stage × landscape coefficient.
 
+Detected migration onset provides a second, upstream line of evidence:
+
+- Cox model stratified by project × release year;
+- 525 FIII/FIV/FV individuals in 11 informative strata;
+- Durif HR **1.30 per stage increment** after body-length and release-timing adjustment;
+- 95% CI **1.14–1.48**, p approximately **9.5e-5**.
+
+This result is explicitly a **detected-onset** result because non-onset individuals are censored at final detection.
+
 See:
+- [detected migration onset result](docs/detected_migration_onset_result.md)
 
 - [Azores-specific ecological principle](docs/specific_general_principle.md)
 - [stay in place versus stay in state](docs/azores_louisiana_contrast.md)
