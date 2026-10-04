@@ -222,6 +222,27 @@ See:
 - [migration-onset window result](docs/migration_onset_window_result.md)
 - [movement-gate decomposition](docs/movement_gate_decomposition.md)
 
+## Departure gate result
+
+Using all six public migration projects with FIII/FIV/FV data, capture-time Durif stage strongly predicts whether migration begins:
+
+- FIII initiation: **61.7%**
+- FIV initiation: **79.4%**
+- FV initiation: **87.8%**
+- adjusted OR per stage increment: **1.99** (95% CI **1.49–2.66**)
+
+Among individuals that already initiated migration, the adjusted stage effect on successful completion is much weaker:
+
+- OR **1.29**
+- 95% CI **0.94–1.77**
+- p = **0.12**
+
+The current biological interpretation is therefore:
+
+> **internal state opens the departure gate; post-departure fate is increasingly filtered by the external movement landscape.**
+
+See [departure gate versus completion filter](docs/departure_gate_vs_completion_filter.md).
+
 ## Evidence boundary
 
 The Europe-wide outcome was partially inspected while refining the hypothesis, so it is independent-data developmental evidence rather than an outcome-blind validation.
