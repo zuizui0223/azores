@@ -1,0 +1,215 @@
+{
+  "schema": "azores.phase_control_figure_data.v1",
+  "figure2": {
+    "panel_a_initiation_by_stage": [
+      {
+        "stage": "FIII",
+        "tracked": 261,
+        "initiated": 154,
+        "rate": 0.59
+      },
+      {
+        "stage": "FIV",
+        "tracked": 68,
+        "initiated": 53,
+        "rate": 0.779
+      },
+      {
+        "stage": "FV",
+        "tracked": 246,
+        "initiated": 215,
+        "rate": 0.874
+      }
+    ],
+    "panel_b_cox": [
+      {
+        "omitted": "none",
+        "hr": 1.28,
+        "lo": 1.12,
+        "hi": 1.45,
+        "p": 0.00022
+      },
+      {
+        "omitted": "Warnow",
+        "hr": 1.41
+      },
+      {
+        "omitted": "Leopoldkanaal",
+        "hr": 1.22
+      },
+      {
+        "omitted": "Albertkanaal",
+        "hr": 1.47
+      },
+      {
+        "omitted": "2015_phd_verhelst_eel",
+        "hr": 1.1
+      },
+      {
+        "omitted": "Grotenete",
+        "hr": 1.26
+      },
+      {
+        "omitted": "ESGL",
+        "hr": 1.27
+      }
+    ]
+  },
+  "figure3": {
+    "phase_effects": [
+      {
+        "phase": "initiation",
+        "or": 2.08,
+        "lo": 1.55,
+        "hi": 2.77,
+        "p": 7.3e-7
+      },
+      {
+        "phase": "completion_given_initiation",
+        "or": 1.15,
+        "lo": 0.81,
+        "hi": 1.62,
+        "p": 0.431
+      }
+    ],
+    "direct_attenuation": {
+      "or_ratio": 1.81,
+      "lo": 1.15,
+      "hi": 2.84,
+      "p": 0.0099
+    },
+    "lopo": [
+      {
+        "omitted": "Warnow",
+        "or_ratio": 2.13,
+        "lo": 1.26,
+        "hi": 3.59,
+        "p": 0.0048
+      },
+      {
+        "omitted": "Leopoldkanaal",
+        "or_ratio": 1.74,
+        "lo": 1.06,
+        "hi": 2.84,
+        "p": 0.028
+      },
+      {
+        "omitted": "Albertkanaal",
+        "or_ratio": 2.04,
+        "lo": 1.19,
+        "hi": 3.51,
+        "p": 0.01
+      },
+      {
+        "omitted": "2015_phd_verhelst_eel",
+        "or_ratio": 1.55,
+        "lo": 0.94,
+        "hi": 2.56,
+        "p": 0.083
+      },
+      {
+        "omitted": "Grotenete",
+        "or_ratio": 1.67,
+        "lo": 1.06,
+        "hi": 2.63,
+        "p": 0.026
+      },
+      {
+        "omitted": "ESGL",
+        "or_ratio": 1.82,
+        "lo": 1.12,
+        "hi": 2.94,
+        "p": 0.015
+      }
+    ],
+    "post_initiation_speed": [
+      {
+        "stage": "FIII",
+        "median_ms": 0.0229
+      },
+      {
+        "stage": "FIV",
+        "median_ms": 0.0232
+      },
+      {
+        "stage": "FV",
+        "median_ms": 0.0245
+      }
+    ],
+    "speed_stage_effect": {
+      "ratio": 0.983,
+      "lo": 0.852,
+      "hi": 1.134,
+      "p": 0.815
+    }
+  },
+  "figure4": {
+    "project_context": [
+      {
+        "project": "2015 Scheldt",
+        "median_wrs": 0,
+        "initiators": 86,
+        "successful": 76,
+        "completion": 0.884
+      },
+      {
+        "project": "Grote Nete",
+        "median_wrs": 0,
+        "initiators": 33,
+        "successful": 33,
+        "completion": 1
+      },
+      {
+        "project": "Warnow",
+        "median_wrs": 1,
+        "initiators": 107,
+        "successful": 87,
+        "completion": 0.813
+      },
+      {
+        "project": "ESGL",
+        "median_wrs": 3,
+        "initiators": 12,
+        "successful": 10,
+        "completion": 0.833
+      },
+      {
+        "project": "Leopold Canal",
+        "median_wrs": 5,
+        "initiators": 52,
+        "successful": 36,
+        "completion": 0.692
+      },
+      {
+        "project": "Albert Canal",
+        "median_wrs": 14,
+        "initiators": 132,
+        "successful": 25,
+        "completion": 0.189
+      }
+    ],
+    "associations": {
+      "wrs_vs_initiation": {
+        "rho": 0.029,
+        "p_exact": 0.983
+      },
+      "wrs_vs_completion": {
+        "rho": -0.928,
+        "p_exact": 0.0222
+      }
+    }
+  },
+  "figure5_dutch": {
+    "tagged": 40,
+    "pump_passed": 35,
+    "sea_completed": 27,
+    "mean_cumulative_delay_days": 34,
+    "role": "independent published progression constraint; not direct phase-interaction replication"
+  },
+  "reporting_boundary": [
+    "Do not show the WRS panel without n=6/project-confounded label.",
+    "Do not convert the completion CI crossing 1 into evidence of zero effect.",
+    "The primary visual claim is the direct phase contrast, not two separate p-values.",
+    "Dutch panel is ecological corroboration, not a replication of the Europe-wide interaction."
+  ]
+}
