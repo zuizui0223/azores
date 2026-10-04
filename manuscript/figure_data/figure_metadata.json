@@ -1,0 +1,38 @@
+{
+  "schema": "azores.phase_control_figure_data.v1",
+  "figure3_direct_attenuation": {
+    "or_ratio": 1.81,
+    "lo": 1.15,
+    "hi": 2.84,
+    "p": 0.0099
+  },
+  "figure3_speed_stage_effect": {
+    "ratio": 0.983,
+    "lo": 0.852,
+    "hi": 1.134,
+    "p": 0.815
+  },
+  "figure4_associations": {
+    "wrs_vs_initiation": {
+      "rho": 0.029,
+      "p_exact": 0.983
+    },
+    "wrs_vs_completion": {
+      "rho": -0.928,
+      "p_exact": 0.0222
+    }
+  },
+  "figure5_dutch": {
+    "tagged": 40,
+    "pump_passed": 35,
+    "sea_completed": 27,
+    "mean_cumulative_delay_days": 34,
+    "role": "independent published progression constraint; not direct phase-interaction replication"
+  },
+  "reporting_boundary": [
+    "Do not show the WRS panel without n=6/project-confounded label.",
+    "Do not convert the completion CI crossing 1 into evidence of zero effect.",
+    "The primary visual claim is the direct phase contrast, not two separate p-values.",
+    "Dutch panel is ecological corroboration, not a replication of the Europe-wide interaction."
+  ]
+}
