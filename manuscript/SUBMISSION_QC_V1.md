@@ -69,3 +69,20 @@ Do not submit if the manuscript says or implies:
 - the Dutch study directly replicates the Europe-wide phase interaction.
 
 The evidence supports attenuation and phase-specific relative control, not mutually exclusive mechanisms.
+
+
+## Threshold-defined onset clock
+
+The canonical Cox onset clock is:
+
+`time_first_dist_to_use` attached to the first row with `downstream_migration = TRUE`.
+
+Do not use the first-arrival time of the broader `migration = TRUE` interval label.
+
+Canonical onset Cox numbers:
+
+- n = 570;
+- events = 418;
+- HR/stage = 1.29;
+- 95% CI = 1.13–1.47;
+- p = 0.00016.
