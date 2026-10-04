@@ -10,7 +10,7 @@
 
 Animal migration requires both readiness to leave and opportunity to progress, yet these components are often analysed as if they were a single movement phenotype. We tested whether the predictive importance of internal migratory state changes across sequential phases of seaward migration in European eel (*Anguilla anguilla*). We analysed public telemetry products from six European projects in which female Durif stages FIII–FV were available together with a common movement-based migration classification. The primary cohort contained 575 individuals after retaining the source processing and expert corrections.
 
-Migration initiation increased from 59.0% in FIII to 77.9% in FIV and 87.4% in FV eels. With project × release-year effects and adjustment for body length and release timing, the odds of initiating migration increased 2.08-fold per Durif-stage increment (95% CI 1.56–2.76). A stratified Cox analysis likewise showed earlier migration onset at more advanced stages (hazard ratio 1.28, 95% CI 1.12–1.45). In contrast, among eels that had initiated migration, Durif stage provided little general predictive information for subsequent completion (odds ratio 1.15, 95% CI 0.83–1.59) or migration speed (multiplicative ratio 0.983, 95% CI 0.852–1.134). A direct stacked two-phase model confirmed that the stage effect was stronger at initiation than at completion (ratio of odds ratios 1.81, 95% CI 1.15–2.84; interaction p = 0.0099). The direction of this attenuation remained unchanged in all leave-one-project-out analyses.
+Migration initiation increased from 59.0% in FIII to 77.9% in FIV and 87.4% in FV eels. With project × release-year effects and adjustment for body length and release timing, the odds of initiating migration increased 2.08-fold per Durif-stage increment (95% CI 1.56–2.76). A stratified Cox analysis likewise showed earlier migration onset at more advanced stages (hazard ratio 1.29, 95% CI 1.13–1.47). In contrast, among eels that had initiated migration, Durif stage provided little general predictive information for subsequent completion (odds ratio 1.15, 95% CI 0.83–1.59) or migration speed (multiplicative ratio 0.983, 95% CI 0.852–1.134). A direct stacked two-phase model confirmed that the stage effect was stronger at initiation than at completion (ratio of odds ratios 1.81, 95% CI 1.15–2.84; interaction p = 0.0099). The direction of this attenuation remained unchanged in all leave-one-project-out analyses.
 
 Across the six projects, a coarse water-regulating-structure impact score was unrelated to initiation but negatively aligned with completion after initiation; this project-level comparison is contextual rather than causal. An independent Dutch study of 40 FIII–FV eels crossing a pumping station and tidal sluice provides complementary evidence that post-activation progression is shaped by barrier-specific discharge opportunity, wind, lunar conditions and prior passage experience.
 
@@ -97,7 +97,7 @@ Only strata containing outcome variation and at least two Durif stages contribut
 
 ### Time to migration onset
 
-To avoid reducing activation timing to an arbitrary fixed-day threshold, we also fitted a stratified Cox proportional-hazards model. Individuals were followed from release to the first source-classified migration onset; non-initiators were censored at their last available telemetry observation.
+To avoid reducing activation timing to an arbitrary fixed-day threshold, we also fitted a stratified Cox proportional-hazards model. Individuals were followed from release to the distance-threshold crossing time (time_first_dist_to_use) attached to the first row with downstream_migration = TRUE; non-initiators were censored at their last available telemetry observation. We did not use the arrival time of the first broader migration = TRUE interval row as the onset clock.
 
 The Cox model used separate baseline hazards for project × release-year strata and the same covariates as the initiation model: within-stratum body length per 100 mm, within-stratum release timing per 100 days and ordinal Durif stage. Tied event times were handled with the Breslow approximation.
 
@@ -184,9 +184,9 @@ After project × release-year adjustment and control for within-stratum body len
 
 ### More advanced stage predicted earlier migration onset
 
-The time-to-event analysis contained 570 individuals and 418 migration-onset events. Each FIII→FIV→FV increment increased the instantaneous migration-onset rate by 28% (HR 1.28, 95% CI 1.12–1.45; p = 0.00022).
+The time-to-event analysis contained 570 individuals and 418 migration-onset events. Each FIII→FIV→FV increment increased the instantaneous migration-onset rate by 28% (HR 1.29, 95% CI 1.13–1.47; p = 0.00016).
 
-The stage HR remained above one in every leave-one-project-out analysis, ranging from 1.10 to 1.47. Omitting the 2015 project produced the weakest and least precise estimate, with the 95% interval crossing one. Thus, the average onset association was positive but not fully project-independent in precision.
+The stage HR remained above one in every leave-one-project-out analysis, ranging from 1.09 to 1.52. Omitting the 2015 project produced the weakest and least precise estimate, with the 95% interval crossing one. Thus, the average onset association was positive but not fully project-independent in precision.
 
 ### Durif stage provided little general completion advantage after initiation
 
