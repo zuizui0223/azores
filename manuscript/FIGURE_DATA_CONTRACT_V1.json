@@ -1,5 +1,5 @@
 {
-  "schema": "azores.phase_control_figure_data.v1",
+  "schema": "azores.phase_control_figure_data.v2",
   "figure2": {
     "panel_a_initiation_by_stage": [
       {
@@ -24,34 +24,52 @@
     "panel_b_cox": [
       {
         "omitted": "none",
-        "hr": 1.28,
-        "lo": 1.12,
-        "hi": 1.45,
-        "p": 0.00022
+        "hr": 1.29,
+        "lo": 1.13,
+        "hi": 1.47,
+        "p": 0.00016
       },
       {
         "omitted": "Warnow",
-        "hr": 1.41
+        "hr": 1.43,
+        "lo": 1.22,
+        "hi": 1.69,
+        "p": 0.000013
       },
       {
         "omitted": "Leopoldkanaal",
-        "hr": 1.22
+        "hr": 1.2,
+        "lo": 1.04,
+        "hi": 1.39,
+        "p": 0.012
       },
       {
         "omitted": "Albertkanaal",
-        "hr": 1.47
+        "hr": 1.52,
+        "lo": 1.32,
+        "hi": 1.76,
+        "p": 1.11e-8
       },
       {
         "omitted": "2015_phd_verhelst_eel",
-        "hr": 1.1
+        "hr": 1.09,
+        "lo": 0.94,
+        "hi": 1.27,
+        "p": 0.252
       },
       {
         "omitted": "Grotenete",
-        "hr": 1.26
+        "hr": 1.29,
+        "lo": 1.12,
+        "hi": 1.48,
+        "p": 0.00029
       },
       {
         "omitted": "ESGL",
-        "hr": 1.27
+        "hr": 1.29,
+        "lo": 1.12,
+        "hi": 1.47,
+        "p": 0.00025
       }
     ]
   },
