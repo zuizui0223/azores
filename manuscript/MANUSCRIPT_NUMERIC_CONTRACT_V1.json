@@ -1,5 +1,5 @@
 {
-  "schema": "azores.manuscript_numeric_contract.v1",
+  "schema": "azores.manuscript_numeric_contract.v2",
   "primary_cohort": {
     "stage_coded_metadata_six_projects": 603,
     "cleaned_evaluable_tracks": 575,
@@ -36,12 +36,23 @@
   "onset_cox": {
     "n": 570,
     "events": 418,
-    "hr_per_stage": 1.28,
+    "clock": "time_first_dist_to_use from first downstream_migration TRUE row",
+    "hr_per_stage": 1.29,
     "ci95": [
-      1.12,
-      1.45
+      1.13,
+      1.47
     ],
-    "p": 0.00022
+    "p": 0.00016,
+    "leave_one_project_out_hr_range": [
+      1.09,
+      1.52
+    ],
+    "weakest_omission": "2015_phd_verhelst_eel",
+    "weakest_hr": 1.09,
+    "weakest_ci95": [
+      0.94,
+      1.27
+    ]
   },
   "completion_given_initiation": {
     "or_per_stage": 1.15,
