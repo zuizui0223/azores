@@ -130,11 +130,11 @@ A stratified Cox analysis of 570 exact-stage individuals and 418 migration-onset
 
 Per FIII -> FIV -> FV stage increment:
 
-- migration-onset hazard ratio: **1.28**
-- 95% CI: **1.12–1.45**
-- p = **0.00022**
+- threshold-defined migration-onset hazard ratio: **1.29**
+- 95% CI: **1.13–1.47**
+- p = **0.00016**
 
-Leave-one-project-out stage HRs remained positive (**1.10–1.47**), although removing the 2015 project widened uncertainty enough for the interval to include 1.
+Leave-one-project-out stage HRs remained positive (**1.09–1.52**), although removing the 2015 project gave HR **1.09 [0.94–1.27]** and therefore crossed 1.
 
 This is the cleanest current developmental evidence that internal silvering state is associated with earlier expression of the movement phenotype.
 
