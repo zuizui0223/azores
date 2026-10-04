@@ -1,8 +1,8 @@
 {
-  "schema": "azores.two_stage_mobility_program.v6",
+  "schema": "azores.mobility_gating_program.v3",
   "publication_endpoint": "test of phase-dependent control handoff: internal readiness at migration activation versus external route opportunity during progression",
   "seed_system": "Flores yellow European eel",
-  "core_hypothesis": "realised migration has separable control stages: internal readiness governs activation; after initiation, external route resistance/opportunity increasingly governs progression and completion",
+  "core_hypothesis": "internal migratory readiness primarily gates movement initiation; once movement begins, landscape/barrier opportunity may dominate progression and completion",
   "primary_cohort": {
     "stages": [
       "FIII",
@@ -17,17 +17,16 @@
     "silver": "coarse stage label; not pooled into ordinal Durif analysis"
   },
   "primary_predictions": [
-    "capture-time Durif stage strongly predicts whether and when classified downstream migration begins",
-    "after initiation, the general Durif-stage effect attenuates for both migration speed and successful completion",
-    "the stage coefficient is directly stronger at initiation than completion in a clustered phase-interaction model",
-    "project-level resistance aligns with completion but not initiation",
-    "independent within-route passage opportunity predicts post-initiation delay/completion better than a universal Durif effect"
+    "capture-time Durif stage predicts migration initiation across fixed post-release windows",
+    "the marginal Durif association with final success is substantially attenuated after conditioning descriptively on initiation",
+    "barrier/hydrological context explains heterogeneity in post-initiation progression better than a universal stage effect",
+    "an independent same-landscape barrier system reproduces external control after gate opening"
   ],
   "primary_estimands": {
-    "initiation_readiness": "Durif-stage effect on migration initiation",
-    "post_initiation_stage": "Durif-stage effect on completion conditional on initiation",
-    "gate_specific_context": "contrast between WRS association with initiation versus completion",
-    "independent_progression": "barrier/opportunity effects on passage delay and completion in the Dutch consecutive-barrier system"
+    "initiation": "Durif-stage effect on migration initiation at fixed post-release windows",
+    "completion": "Durif-stage association with final success among observed initiators, interpreted descriptively",
+    "external_control": "barrier/opportunity effects on post-initiation progression",
+    "confirmation": "state x opportunity effects in an independent within-landscape system"
   },
   "falsification": [
     "independent data fail to reproduce readiness control of migration activation",
@@ -35,7 +34,7 @@
     "independent barrier/hydrological opportunity contributes little to progression",
     "the apparent WRS completion gradient disappears in within-route data once project confounding is removed"
   ],
-  "evidence_boundary": "aggregate successful-migrant counts by stage were inspected during development; Europe-wide panel is independent developmental evidence, not outcome-blind confirmation",
+  "evidence_boundary": "Europe-wide outcome and window series are developmental/opened evidence; completion conditioning is not causal mediation; independent barrier/opportunity confirmation remains required.",
   "eog_role": "discovery of an extreme resident anchor only",
   "current_results": {
     "initiation": {
@@ -106,6 +105,32 @@
         },
         "boundary": "direction is project-robust; formal interaction precision depends partly on the 2015 project"
       }
+    }
+  },
+  "current_developmental_result": {
+    "initiation": {
+      "fixed_windows_days": [
+        7,
+        30,
+        60,
+        90
+      ],
+      "odds_ratio_per_durif_increment": [
+        1.51,
+        1.5,
+        1.7,
+        1.89
+      ],
+      "interpretation": "advanced Durif state predicts higher probability of opening the movement gate from the first week through three months"
+    },
+    "completion_given_initiation": {
+      "adjusted_or_per_durif_increment": 1.15,
+      "ci95": [
+        0.83,
+        1.59
+      ],
+      "p": 0.41,
+      "interpretation": "stage association is strongly attenuated among eels that have already initiated migration; descriptive only, not causal mediation"
     }
   }
 }
