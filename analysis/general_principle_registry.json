@@ -1,6 +1,6 @@
 {
-  "schema": "azores.mobility_gating_program.v3",
-  "publication_endpoint": "test of phase-dependent control handoff: internal readiness at migration activation versus external route opportunity during progression",
+  "schema": "azores.mobility_gating_program.v4",
+  "publication_endpoint": "phase-dependent control of migration: internal readiness at activation, attenuated internal-state effect during progression",
   "seed_system": "Flores yellow European eel",
   "core_hypothesis": "internal migratory readiness primarily gates movement initiation; once movement begins, landscape/barrier opportunity may dominate progression and completion",
   "primary_cohort": {
@@ -9,7 +9,9 @@
       "FIV",
       "FV"
     ],
-    "rationale": "each stage has >=98 individuals across 7 projects with complete WRS-table coverage"
+    "tracked_individuals": 575,
+    "expert_corrected_initiators": 422,
+    "boundary": "inference is conditional on evaluable processed migration tracks"
   },
   "boundary_groups": {
     "FII": "n=17; 16/17 from one project, descriptive boundary only",
@@ -17,16 +19,16 @@
     "silver": "coarse stage label; not pooled into ordinal Durif analysis"
   },
   "primary_predictions": [
-    "capture-time Durif stage predicts migration initiation across fixed post-release windows",
-    "the marginal Durif association with final success is substantially attenuated after conditioning descriptively on initiation",
-    "barrier/hydrological context explains heterogeneity in post-initiation progression better than a universal stage effect",
-    "an independent same-landscape barrier system reproduces external control after gate opening"
+    "advanced capture-time Durif state increases probability and rate of migration activation",
+    "the Durif-stage effect is significantly weaker after activation than at activation",
+    "post-activation progression varies strongly among route/system contexts",
+    "within-route barrier opportunity should explain post-activation progression in an independent system"
   ],
   "primary_estimands": {
-    "initiation": "Durif-stage effect on migration initiation at fixed post-release windows",
-    "completion": "Durif-stage association with final success among observed initiators, interpreted descriptively",
-    "external_control": "barrier/opportunity effects on post-initiation progression",
-    "confirmation": "state x opportunity effects in an independent within-landscape system"
+    "activation": "expert-corrected Durif effect on binary initiation and time-to-onset",
+    "phase_attenuation": "direct clustered difference between activation and completion Durif coefficients",
+    "progression": "completion and migration speed among activated eels",
+    "external_confirmation": "barrier/opportunity effects within one route after activation"
   },
   "falsification": [
     "independent data fail to reproduce readiness control of migration activation",
@@ -34,7 +36,7 @@
     "independent barrier/hydrological opportunity contributes little to progression",
     "the apparent WRS completion gradient disappears in within-route data once project confounding is removed"
   ],
-  "evidence_boundary": "Europe-wide outcome and window series are developmental/opened evidence; completion conditioning is not causal mediation; independent barrier/opportunity confirmation remains required.",
+  "evidence_boundary": "Canonical numbers come from results/phase_control_canonical_v1.json. Older metadata-denominator success analyses and pre-expert-correction onset analyses are superseded/sensitivity only.",
   "eog_role": "discovery of an extreme resident anchor only",
   "current_results": {
     "initiation": {
