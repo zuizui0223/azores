@@ -4,79 +4,167 @@
 
 This project does **not** claim novelty for:
 
-- European eel silvering;
-- FIII as premigrant and FIV/FV as migrant silvering stages;
-- internal state affecting migration readiness;
-- discharge, darkness, lunar phase and other external cues affecting downstream migration;
-- barriers, pumping stations, locks and regulated waterways delaying or reducing escapement;
-- silver-stage eels sometimes failing to migrate;
-- the general distinction between departure decisions and later migratory success.
+- internal state and external environment jointly shaping movement;
+- physiology contributing to the decision to move and later movement;
+- European eel silvering and FIII/FIV/FV biology;
+- discharge, darkness, lunar phase or other cues affecting downstream migration;
+- barriers lowering passage or increasing delay;
+- phenotype-dependent fishway passage;
+- barriers acting as selective filters;
+- cumulative effects of multiple barriers;
+- decomposing migration into sequential stages.
 
-Durif et al. established the silvering-stage biology, and a large literature already separates physiological readiness, environmental triggers and barrier passage.
+Mechanistic migration frameworks already distinguish an early decision-to-move phase from later realized movement. Fish-passage work already shows that barriers can filter morphology, timing and behavior and can create contemporary selection.
 
-## Developmental empirical contribution
+Therefore neither "two-stage migration" nor "selective barrier passage" is a sufficient novelty claim.
 
-Using the same open continental telemetry panel and a movement definition pinned to the source code, the present analysis separates:
+## Developmental result motivating a narrower question
 
-~~~text
-capture-time Durif state
-        |
-        v
-migration initiation
-        |
-        v
-sea escapement
-~~~
+The current canonical Europe-wide result is phase dependent.
 
-### Initiation
+### Activation
 
-Expert-corrected, project-year/body-size/release-timing adjusted:
+- Durif OR per FIII -> FIV -> FV increment: **2.08**
+- cluster 95% CI: **1.55–2.77**
 
-- OR **2.08** per stage
-- 95% CI **1.56–2.76**
-- p ≈ **4.2e-7**
+### Completion conditional on activation
 
-The result survives:
-- classifying migration-table missingness as failure: OR **1.92**;
-- deleting any one project: OR **1.67–2.35**.
-
-Among initiators, advanced stage also predicts shorter onset delay:
-- multiplicative effect on (1 + delay): **0.73**
-- 95% CI **0.58–0.91**.
-
-### Sea escapement conditional on initiation
-
-Under the same adjustment structure:
-
-- OR **1.15** per stage
-- 95% CI **0.83–1.59**
+- Durif OR per stage: **1.15**
+- cluster 95% CI: **0.81–1.62**
 - p ≈ **0.41**
 
-## Novelty candidate
+### Direct phase difference
 
-The novelty candidate is the **phase-specific empirical dissociation**:
+- activation/completion OR-ratio: **1.81**
+- 95% CI: **1.15–2.84**
+- p = **0.0099**
+- leave-one-project-out direction: **6/6** OR-ratios > 1.
 
-> **morphological migratory readiness is strongly informative about departure, but carries much less information about sea escapement once departure has occurred.**
+The phenotype-performance association therefore weakens after migration activation.
 
-This suggests that "migration success" should not be treated as one biological response when asking why individuals fail to reach the sea.
+At project level, median WRS is almost unrelated to activation but strongly negatively aligned with completion after activation. That alignment is contextual only because route, hydrology, telemetry geometry and system identity are confounded.
 
-## Why this matters ecologically
+## Refined novelty candidate
 
-A final escapement endpoint conflates at least two biologically different failures:
+> **Do fragmented migration routes decouple an organism's pre-movement migratory phenotype from realized migration performance?**
 
-1. **departure limitation** — the animal never enters the migratory movement state;
-2. **progression limitation** — the animal starts migrating but does not reach the sea endpoint.
+The focal object is the **change in the same trait-performance relationship across sequential movement gates**.
 
-Those failures imply different biology and different conservation actions.
+Let beta_g be the effect of response-independent migratory readiness at gate g:
 
-## What remains unresolved
+~~~text
+beta_activation
+beta_barrier_1
+beta_barrier_2
+beta_completion
+~~~
 
-The present panel cannot identify which external feature causes progression limitation because project, route length, receiver geometry, WRS configuration and hydrology are entangled.
+Define the gate-to-gate change:
 
-The next independent test must operate within a shared landscape/barrier sequence.
+~~~text
+Delta_beta(g1,g2) = beta_g1 - beta_g2
+~~~
+
+The target is not the name "selection-gradient turnover". The target is an empirical, replicated change in beta.
+
+## Fragmentation-decoupling prediction
+
+### Permeable route
+
+~~~text
+beta_activation ~= beta_completion
+~~~
+
+More-ready animals should be able to translate readiness into route completion.
+
+### Resistant route
+
+~~~text
+beta_activation > beta_completion
+~~~
+
+After movement activation, hydrological opportunity and barrier performance increasingly determine fate.
+
+The stronger comparative prediction is:
+
+~~~text
+phase attenuation
+  increases with
+route resistance
+~~~
+
+## Evolutionary meaning if supported
+
+Anthropogenic fragmentation would not simply lower migration success.
+
+It could alter the mapping:
+
+~~~text
+natural migratory phenotype
+        ->
+successful downstream / spawning contribution
+~~~
+
+A barrier can therefore impose a filter that differs from the natural filter governing migration activation.
+
+Possible consequences include:
+
+- attenuation of naturally adaptive readiness-performance coupling;
+- enrichment of different morphological or behavioral traits downstream of barriers;
+- sequential change in phenotype composition along a route;
+- altered contemporary selection on migratory phenotypes.
+
+These are future-test hypotheses, not conclusions from the current continental panel.
+
+## Required independent evidence
+
+A decisive study requires the same individuals to be observed across ordered gates with traits measured before movement outcome.
+
+Required:
+
+1. pre-movement readiness phenotype;
+2. explicit activation/departure state;
+3. independently characterized barrier/opportunity states;
+4. final route completion;
+5. enough readiness variation at each gate.
+
+Preferred:
+
+- permeable and fragmented routes;
+- multiple barrier types;
+- multiple route-years;
+- hydrology measured independently of animal passage outcome.
+
+## Primary future model
+
+Long-form individual × gate data:
+
+~~~text
+passed_gate
+  ~ readiness
+  * gate
+  * route_resistance
+  + body_size
+  + season
+  + route/year effects
+~~~
+
+Primary evidence:
+
+1. readiness × gate interaction;
+2. readiness × gate × resistance interaction;
+3. gate-specific readiness coefficients.
+
+## Falsification
+
+The refined hypothesis fails if:
+
+- readiness effects remain constant across gates;
+- route resistance does not predict attenuation;
+- permeable and fragmented routes show the same gate-specific trait slopes;
+- phase differences vanish after body size, timing and observability controls;
+- gate-specific slopes do not replicate across route-years.
 
 ## Evidence boundary
 
-The source outcome was inspected while the hypothesis was developed. Treat the current result as developmental independent evidence, not untouched validation.
-
-Do not claim novelty from the label "two-gate movement"; claim only the observed phase-specific dissociation if it replicates.
+The Europe-wide open panel is developmental and outcome-opened. It motivates this independent study but cannot confirm fragmentation-induced phenotype-performance decoupling.
