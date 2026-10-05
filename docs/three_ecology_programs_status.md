@@ -8,7 +8,7 @@ These are three separate ecological papers. EOG is provenance/discovery only.
 
 ### Scientific status
 
-**Scientific analysis and endpoint audit closed. Manuscript V3 QC PASS. Figure contract V2 QC PASS.**
+**Scientific analysis and endpoint audit closed. Manuscript V3 QC PASS. Figure contract V2 QC PASS. Reference SVG render QC PASS.**
 
 Primary evidence:
 
@@ -56,6 +56,8 @@ Figures:
 - `manuscript/FIGURE_DATA_CONTRACT_V2.json`
 - `manuscript/FIGURE_QC_V2.json` — **PASS**
 - `manuscript/figure_data_v2/`
+- `manuscript/rendered_figures_v2/Figure1.svg` through `Figure4.svg`
+- `manuscript/RENDERED_FIGURE_QC_V2.json` — **PASS_REFERENCE_RENDER**
 
 Older V1 completion-centred figure specifications and simplified initiation scripts are explicitly superseded/fail-closed.
 
@@ -63,7 +65,6 @@ Older V1 completion-centred figure specifications and simplified initiation scri
 
 - author/affiliation/contribution fields;
 - target-journal formatting;
-- final graphical rendering from the V2 plotting tables;
 - source-study ethics wording check;
 - release/archive.
 
