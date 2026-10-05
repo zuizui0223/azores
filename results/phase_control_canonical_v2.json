@@ -1,0 +1,114 @@
+{
+  "schema": "azores.phase_control_canonical_v2",
+  "supersedes": "results/phase_control_canonical_v1.json for manuscript interpretation",
+  "evidence_class": "developmental_independent_not_outcome_blind",
+  "source": {
+    "repository": "PieterjanVerhelst/eel-meta-analysis",
+    "commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "primary_stages": [
+      "FIII",
+      "FIV",
+      "FV"
+    ],
+    "tracked_individuals": 575,
+    "expert_corrected_initiators": 422,
+    "expert_nonmigrant_overrides_n": 9
+  },
+  "primary_activation": {
+    "raw": {
+      "FIII": {
+        "initiated": 154,
+        "tracked": 261,
+        "rate": 0.5900383141762452
+      },
+      "FIV": {
+        "initiated": 53,
+        "tracked": 68,
+        "rate": 0.7794117647058824
+      },
+      "FV": {
+        "initiated": 215,
+        "tracked": 246,
+        "rate": 0.8739837398373984
+      }
+    },
+    "adjusted_or_per_stage": 2.0763093040556564,
+    "cluster_or_ci95": [
+      1.554938985820719,
+      2.7724948473348903
+    ],
+    "standard_adjusted_ci95": [
+      1.5644523505090615,
+      2.755635430318653
+    ],
+    "p": 4.223283127657851e-7
+  },
+  "primary_onset": {
+    "model": "stratified Cox, threshold-defined first downstream-migration crossing",
+    "n": 570,
+    "events": 418,
+    "hr_per_stage": 1.29,
+    "ci95": [
+      1.13,
+      1.47
+    ],
+    "p": 0.00016,
+    "lopo_hr_range": [
+      1.09,
+      1.52
+    ]
+  },
+  "primary_post_activation_speed": {
+    "n": 418,
+    "speed_ratio_per_stage": 0.9831088158963496,
+    "ci95": [
+      0.8524016313969962,
+      1.1338586275452411
+    ],
+    "p": 0.8149491122926786
+  },
+  "secondary_terminal_endpoint_membership": {
+    "source_positive_set_definition": "project-specific terminal station/distance rules in upstream identify_escapement_success.R",
+    "adjusted_or_per_stage": 1.1475775340581498,
+    "ci95": [
+      0.8260854081150285,
+      1.594186489360714
+    ],
+    "p": 0.4117689605153705,
+    "boundary": "The source meta-analysis explicitly did not analyse escapement success rate because non-membership in the terminal positive set can reflect fishing, detection loss, release geometry and other assumptions. Therefore the complement is not treated as validated biological failure."
+  },
+  "secondary_phase_or_ratio_sensitivity": {
+    "delta_beta": 0.5929387161219458,
+    "ratio_of_stage_odds_ratios": 1.8092976225434247,
+    "ci95": [
+      1.1528508836726459,
+      2.8395327906699355
+    ],
+    "p": 0.009921316278296732,
+    "lopo_or_ratio_range": [
+      1.5549804155791378,
+      2.126967712851475
+    ],
+    "lopo_direction_consistent": "6/6",
+    "lopo_p_lt_0_05": "5/6",
+    "boundary": "Retained as a sensitivity contrast only because phase 2 uses terminal positive-set membership whose complement is not a validated failure endpoint."
+  },
+  "contextual_external_evidence": {
+    "source_meta_analysis": "Migration speed differs by tidal/non-tidal habitat and WRS context; local hydrology is water-body specific.",
+    "dutch_confirmation_target": "Within-route pump -> tidal-sluice study for barrier/opportunity effects after activation."
+  },
+  "primary_claim": "Capture-time Durif readiness strongly predicts whether and when behavioral migration activates, while the same stage gradient is absent from the source-defined post-activation migration-speed response.",
+  "not_claimed": [
+    "non-membership in successful_migrants_final_detection.csv is biological migration failure",
+    "escapement probability is estimated from this reanalysis",
+    "external context wholly replaces internal control after activation",
+    "Durif stage has exactly zero post-activation effect",
+    "the two-phase concept itself is novel"
+  ],
+  "interpretation_priority": [
+    "activation OR and onset HR are primary internal-state results",
+    "post-activation speed is the primary progression result",
+    "terminal endpoint membership and stacked phase OR ratio are secondary sensitivity analyses only"
+  ],
+  "next_confirmation": "Within-route Dutch pump-to-tidal-sluice data: test barrier/opportunity effects on progression among activated eels without recoding unobserved terminal outcomes as failure."
+}
