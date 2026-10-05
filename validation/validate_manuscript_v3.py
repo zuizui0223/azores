@@ -29,6 +29,7 @@ REQUIRED_REFERENCE_KEYS = [
     "Verhelst, P.",
     "Huisman, J. B. J.",
     "van Rijn, J.",
+    "Moyo, S.",
 ]
 
 FORBIDDEN_AFFIRMATIVE_PATTERNS = [
@@ -95,6 +96,12 @@ def main() -> None:
         and ("does not translate into a generic speed advantage" in low
              or "no general durif gradient" in low
              or "absent from generic post-activation migration speed" in low)
+    )
+    checks["scale_context_boundary_present"] = (
+        "whole-migration" in low
+        and "scale" in low
+        and "context" in low
+        and "moyo et al. (2026)" in low
     )
 
     # Endpoint audit boundaries are mandatory.
