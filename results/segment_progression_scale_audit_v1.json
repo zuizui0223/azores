@@ -1,0 +1,128 @@
+{
+  "schema": "azores.segment_progression_scale_audit_v1",
+  "contract": "results/segment_progression_scale_audit_v1_contract.json",
+  "n_modelled": 411,
+  "eligible_strata": [
+    "2011_Warnow::2011",
+    "2012_leopoldkanaal::2012",
+    "2013_albertkanaal::2014",
+    "2013_albertkanaal::2015",
+    "2013_albertkanaal::2016",
+    "2013_albertkanaal::2017",
+    "2015_phd_verhelst_eel::2015",
+    "2015_phd_verhelst_eel::2016",
+    "2015_phd_verhelst_eel::2017",
+    "2015_phd_verhelst_eel::2018",
+    "2019_Grotenete::2019",
+    "2019_Grotenete::2020",
+    "ESGL::2015"
+  ],
+  "positive_segment_count_range": [
+    2,
+    711
+  ],
+  "descriptive_by_stage": {
+    "FIII": {
+      "n": 152,
+      "median_individual_segment_speed_ms": 0.40394875,
+      "median_positive_segment_count": 9.5
+    },
+    "FIV": {
+      "n": 53,
+      "median_individual_segment_speed_ms": 0.517744,
+      "median_positive_segment_count": 17
+    },
+    "FV": {
+      "n": 206,
+      "median_individual_segment_speed_ms": 0.8973605,
+      "median_positive_segment_count": 27.5
+    }
+  },
+  "primary_adjusted_stage_effect": {
+    "beta": 0.0005544161527070275,
+    "se": 0.09462941195149047,
+    "ratio": 1.0005545698697487,
+    "ci95": [
+      0.8311714137987534,
+      1.2044560612495157
+    ]
+  },
+  "project_specific": {
+    "2011_Warnow": {
+      "n": 106,
+      "effect": {
+        "ratio": 1.0449132296660193,
+        "ci95": [
+          0.7316312763222539,
+          1.4923414196007636
+        ]
+      }
+    },
+    "2012_leopoldkanaal": {
+      "n": 52,
+      "effect": {
+        "ratio": 1.2932907486214185,
+        "ci95": [
+          0.7205673398304046,
+          2.3212278270389257
+        ]
+      }
+    },
+    "2013_albertkanaal": {
+      "n": 123,
+      "effect": {
+        "ratio": 0.8819876020265541,
+        "ci95": [
+          0.5802599595645247,
+          1.340609699680732
+        ]
+      }
+    },
+    "2015_phd_verhelst_eel": {
+      "n": 85,
+      "effect": {
+        "ratio": 1.0815706372109342,
+        "ci95": [
+          0.8887913768271949,
+          1.3161638082637543
+        ]
+      }
+    },
+    "2019_Grotenete": {
+      "n": 33,
+      "effect": {
+        "ratio": 0.9616702098808193,
+        "ci95": [
+          0.8377528631208221,
+          1.1039169584298292
+        ]
+      }
+    },
+    "ESGL": {
+      "n": 12,
+      "effect": {
+        "ratio": 0.7215029588518602,
+        "ci95": [
+          0.20077222556781352,
+          2.592821383335021
+        ]
+      }
+    }
+  },
+  "heterogeneity": {
+    "Q": 2.3171076582631,
+    "df": 5,
+    "p_chi_square": 0.8037509783184298,
+    "tau2_DL": 0,
+    "fixed_effect_ratio": 1.0017042824959377
+  },
+  "canonical_overall_speed_reference": {
+    "ratio": 0.9831088158963496,
+    "ci95": [
+      0.8524016313969962,
+      1.1338586275452411
+    ]
+  },
+  "interpretation": "Raw stage medians increase strongly across the pooled dataset, but after project-year, body length and release timing are represented, ordinal Durif stage provides essentially no general information about individual median positive inter-station transit speed.",
+  "boundary": "Post-hoc scale audit prompted by external 2026 evidence; do not treat row-level speeds as independent replicates or tune another progression endpoint to rescue a stage effect."
+}
