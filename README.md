@@ -17,9 +17,9 @@ The Europe-wide public eel panel now supports the first gate developmentally.
 
 Among FIII/FIV/FV eels represented in processed migration tracks:
 
-- initiation rates: **61.7% / 79.4% / 87.8%**;
-- adjusted initiation OR: **1.99 per Durif-stage increment** (95% CI 1.49–2.66);
-- after conditioning on initiation, the stage effect on the published successful-migrant endpoint weakens to **OR 1.29** (95% CI 0.94–1.77).
+- initiation rates: **59.0% / 77.9% / 87.4%**;
+- adjusted initiation OR: **2.08 per Durif-stage increment** (95% CI 1.56–2.76);
+- after conditioning on initiation, the stage effect on the published successful-migrant endpoint weakens to **OR 1.15** (95% CI 0.83–1.59).
 
 Thus the strongest current result is not simply "advanced eels move more." It is:
 
