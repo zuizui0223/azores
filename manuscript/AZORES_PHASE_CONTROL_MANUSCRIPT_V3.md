@@ -235,19 +235,23 @@ This is consistent with movement-ecology theory in which internal state contribu
 
 ### Internal readiness predicts activation but not generic progression speed
 
-The post-initiation speed result differed sharply from the activation result. Durif stage strongly predicted whether and when migration became active, but showed no general gradient in source-defined migration speed after activation (ratio 0.983 per stage, 95% CI 0.852–1.134).
+The post-initiation speed result differed sharply from the activation result. Durif stage strongly predicted whether and when migration became active, but showed no general gradient in the source-defined **whole-migration** speed response after activation (ratio 0.983 per stage, 95% CI 0.852–1.134).
 
-We therefore interpret the evidence conservatively: **internal migratory readiness is strongly informative at activation, whereas post-activation progression speed is largely decoupled from the same simple stage gradient**.
+A developmental project-level audit did not indicate that this pooled near-null was merely produced by strong opposing water-body effects. Project-specific stage-speed ratios ranged from 0.915 to 1.272, but Cochran's Q was 2.47 with 5 df (p = 0.78). The broad-scale result is therefore compatible with a weak transferable Durif gradient in whole-route speed across these six systems.
 
-This does not demonstrate that external conditions causally replace internal state. Individual traits can still influence movement after departure, and external conditions can also influence activation. The result instead identifies where the transferable Durif signal is strongest and where additional route-specific variables are needed.
+That broad-scale result does **not** imply that internal readiness ceases to matter once movement starts. Moyo et al. (2026) followed silver eels in the River Test after downstream movement had already begun and modelled progression at the river-reach scale. Silvering stage was retained together with temperature, barrier, flow and lunar variables; removing silvering stage worsened model fit. Thus a readiness signal can be detectable for finer-grained progression even when it is weak in a pooled whole-migration metric.
 
-Verhelst et al. (2025) independently reported substantial variation in migration phenology and speed among water bodies, with tidal context and water-regulating structures contributing to that heterogeneity. The independent Dutch consecutive-barrier study provides a more direct route for testing those post-activation opportunity variables within one shared landscape.
+We therefore interpret the evidence as **scale- and context-sensitive persistence of internal-state information**: Durif readiness is strongly and transferably associated with activation, while its post-activation contribution is weak at the whole-route scale used here but can reappear at finer spatial or temporal scales.
+
+This does not demonstrate that external conditions causally replace internal state. Individual traits can still influence movement after departure, and external conditions can also influence activation. The result instead identifies where the transferable Durif signal is strongest and motivates a sharper progression question: at what spatial and temporal scale does internal readiness remain visible, and when is it masked by route opportunity and environmental forcing?
+
+Verhelst et al. (2025) independently reported substantial variation in migration phenology and speed among water bodies, with tidal context and water-regulating structures contributing to that heterogeneity. The independent Dutch consecutive-barrier study provides a direct route for testing barrier-specific opportunity variables within one shared landscape, while the River Test result shows that fine-scale progression need not be independent of silvering state.
 
 ### Route opportunity is the next target after activation
 
 The current Europe-wide reanalysis does not itself identify the external variable that controls post-activation progression.
 
-What it shows is a gap: Durif stage strongly predicts activation, but does not explain generic migration speed after activation. The source meta-analysis independently found that migration speed varies with tidal context, water-regulating structures and water-body-specific hydrology.
+What it shows is a scale-dependent gap: Durif stage strongly predicts activation, but does not provide a general whole-route speed gradient across the six-project analysis. The source meta-analysis independently found that migration speed varies with tidal context, water-regulating structures and water-body-specific hydrology, while Moyo et al. (2026) shows that silvering stage can still contribute to reach-level progression within one river.
 
 Independent barrier studies provide more direct ecological candidates. Passage through tidal sluices can depend on discharge dynamics, and individual eels can experience substantial delay after reaching migration obstacles. At hydropower and pumping structures, route choice and passage performance vary with local flow and operational conditions.
 
@@ -255,7 +259,7 @@ Most directly, van Rijn et al. (2026) followed FIII–FV eels through a pumping 
 
 Together, these findings motivate the next test rather than closing it:
 
-> **once migration is active, which route-specific hydrological and barrier opportunities explain progression that Durif stage no longer predicts generically?**
+> **once migration is active, at what spatial and temporal scales does internal readiness still contribute to progression, and when do route-specific hydrological and barrier opportunities dominate the observed movement rate?**
 
 The project-level WRS-versus-terminal-membership correlation is retained only as sensitivity/context because the terminal response is observability dependent and the six projects are not exchangeable.
 
@@ -272,7 +276,7 @@ Those questions need not have the same answer.
 
 Pooling them can make a readiness variable look like a universal movement driver when it acts mainly at activation, or obscure route effects by mixing animals that never entered the movement state with animals already negotiating the landscape.
 
-The same logic is testable beyond eels wherever internal preparation can be measured independently of movement and individuals are followed across heterogeneous routes.
+The same logic is testable beyond eels wherever internal preparation can be measured independently of movement and individuals are followed across heterogeneous routes. It also suggests that apparently conflicting studies can be biologically compatible when one measures whole-route movement and another resolves reach-level or event-level progression.
 
 ### Conservation implications: readiness and passage opportunity are distinct management targets
 
@@ -296,17 +300,17 @@ Third, the source projects differ in hydrology, barriers, telemetry design and m
 
 Fourth, the terminal positive set is not a validated binary escapement-success variable. The source meta-analysis explicitly avoided estimating escapement success rate because non-observation can reflect fishing, detection loss, release geometry and other study-specific processes. Terminal-set analyses and the former stacked phase OR-ratio are therefore sensitivity results only.
 
-Fifth, a weak general Durif effect on post-activation speed does not prove that internal traits cease to matter. It only shows that this simple stage gradient is not a transferable speed predictor across the analysed systems.
+Fifth, a weak general Durif effect on post-activation whole-migration speed does not prove that internal traits cease to matter. A project-level heterogeneity audit found no evidence that the pooled near-null was simple cancellation among the six source systems, but that audit remains developmental and several project-specific stage contrasts are imprecise. The River Test study further shows that silvering stage can contribute to finer-scale post-activation progression.
 
-Finally, the Dutch consecutive-barrier study constrains the interpretation but is not a formal replication of the Europe-wide model. Its main value is to identify measurable route-opportunity variables for a stronger within-landscape confirmation.
+Finally, the Dutch consecutive-barrier and River Test studies constrain the interpretation but are not formal replications of the Europe-wide model. Their main value is to identify the spatial and temporal scales, and the route-opportunity variables, at which a stronger within-landscape confirmation should be conducted.
 
 ### Conclusion
 
-Capture-time silvering stage strongly predicted whether and when European eels entered classified downstream migration, but the same Durif gradient did not predict generic migration speed after activation.
+Capture-time silvering stage strongly predicted whether and when European eels entered classified downstream migration, but the same Durif gradient did not predict **whole-migration** speed after activation across the six-project analysis.
 
-The most defensible synthesis is therefore phase specific:
+The most defensible synthesis is therefore phase- and scale-specific:
 
-> **internal migratory readiness is highly informative at the gate into migration, whereas post-activation progression requires additional route- and opportunity-specific explanation.**
+> **internal migratory readiness is highly informative at the gate into migration; after activation, its detectable contribution depends on the scale at which progression is measured and on the route and environmental context through which movement is realised.**
 
 This conclusion does not depend on treating every eel absent from a terminal receiver set as a biological failure.
 
@@ -345,6 +349,8 @@ Durif, C., Dufour, S., & Elie, P. (2005). The silvering process of *Anguilla ang
 Huisman, J. B. J., Höhne, L., Hanel, R., Kuipers, H., Schollema, P. P., & Nagelkerke, L. (2023). Factors influencing the downstream passage of European silver eels (*Anguilla anguilla*) through a tidal sluice. *Journal of Fish Biology*, **103**, 347–356. https://doi.org/10.1111/jfb.15398
 
 Nathan, R., Getz, W. M., Revilla, E., Holyoak, M., Kadmon, R., Saltz, D., & Smouse, P. E. (2008). A movement ecology paradigm for unifying organismal movement research. *Proceedings of the National Academy of Sciences USA*, **105**, 19052–19059. https://doi.org/10.1073/pnas.0800375105
+
+Moyo, S., Britton, J. R., Major, T., Wright, R. M., Moore, A., Ives, M., Davies, P., Hall, A. E., Stamp, T., Sheehan, E. V., & Bašić, T. (2026). Initial marine movements of silver European eels *Anguilla anguilla* following their emigration from an English chalk stream. *Hydrobiologia*. https://doi.org/10.1007/s10750-026-06406-6
 
 van Rijn, J., Kuipers, H. J., & Huisman, J. B. J. (2026). Seaward migration of European Eel through consecutive migration barriers: passage at a pumping station and tidal sluice. *Canadian Journal of Fisheries and Aquatic Sciences*, **83**, 1–14. https://doi.org/10.1139/cjfas-2025-0359
 
