@@ -23,7 +23,11 @@ Canonical developmental results:
 
 Thus the strongest current statement is:
 
-> **silvering readiness strongly predicts whether and when migration becomes behaviorally expressed, but does not provide a transferable general speed advantage once migration is active.**
+> **silvering readiness strongly predicts whether and when migration becomes behaviorally expressed, but does not provide a transferable general whole-migration speed advantage once migration is active.**
+
+The canonical post-activation speed result has now been independently replayed exactly (n = **418**; ratio = **0.983**). A six-project heterogeneity audit does not support simple cancellation of large opposing project effects. New 2026 River Test evidence nevertheless shows that silvering stage can contribute to finer reach-level progression, so the active ecological interpretation is **phase- and scale-dependent**, not a complete disappearance of internal-state effects after activation.
+
+See [post-activation speed reproducibility and scale/context audit](docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md).
 
 A direct reproducibility audit now exactly reproduces the canonical post-activation result (n = 418; speed ratio = 0.983). Project-specific adjusted speed ratios range from 0.915 to 1.272, with weak evidence for between-project coefficient heterogeneity (Cochran Q = 2.469, df = 5, p ≈ 0.781). A 2026 River Test study nevertheless retained silvering stage in a progression-rate model, so the pooled null is not interpreted as biological irrelevance of silvering after activation.
 
