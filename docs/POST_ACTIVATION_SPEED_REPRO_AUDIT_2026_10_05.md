@@ -1,87 +1,116 @@
-# Post-activation speed reproducibility audit — resolved 2026-10-05
+# Post-activation speed reproducibility and novelty audit — 2026-10-05
 
-## Resolution
+## Final reproducibility resolution
 
-The apparent discrepancy in the post-activation speed endpoint was caused by the GitHub connector's normal file-content path returning empty content for three very large CSV blobs. Fetching those inputs directly by Git blob SHA recovered their full contents.
+The canonical post-activation speed result is reproducible from the pinned upstream source.
 
-The canonical speed result is reproducible from the pinned upstream source.
+Repository: `PieterjanVerhelst/eel-meta-analysis`  
+Pinned commit: `59578cb622dddbbba5174b4c51bff0807787385a`
 
-Pinned upstream:
+The earlier audit temporarily treated three large migration CSVs as empty because the GitHub contents wrapper returned zero text for oversized files. Direct Git blob retrieval showed that this was a connector-size/display limitation, not missing upstream data.
 
-- repository: `PieterjanVerhelst/eel-meta-analysis`
-- commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+Blob sizes recovered:
 
-Audited repository script:
+- 2012 Leopold Canal: ~5.47 million characters;
+- 2013 Albert Canal: ~29.0 million characters;
+- 2015 Scheldt: ~2.94 million characters.
 
-- `analysis/12_post_initiation_speed.py`
+The earlier zero-byte interpretation is withdrawn.
 
-## Exact reproduction
+## Exact independent replay
 
-Stage-coded expert-corrected migration-positive individuals available by project:
+Using the same six-project universe, expert nonmigrant corrections, speed definition, project-year eligibility rule, within-stratum body-length centering, within-stratum release-timing centering and ordinal FIII/FIV/FV stage coding as `analysis/12_post_initiation_speed.py`:
 
-- 2011 Warnow: 107
-- 2012 Leopold Canal: 52
-- 2013 Albert Canal: 132
-- 2015 Scheldt: 86
-- 2019 Grote Nete: 33
-- ESGL: 12
+- stage-coded metadata records: **603**;
+- expert-corrected speed-bearing initiators before stratum filtering: **422**;
+- informative project-year strata: **13**;
+- modelled individuals: **418**.
 
-Total expert-corrected initiators represented before the project-year model filter: **422**.
+Stage counts among the 418 modelled individuals:
 
-Applying the committed script's informative-stratum rule leaves **418** individuals across **13** project-year strata.
+- FIII: **154**;
+- FIV: **53**;
+- FV: **211**.
 
-The independently reconstructed model exactly reproduces the canonical result:
+Median migration speeds:
 
-- Durif speed ratio per FIII -> FIV -> FV increment: **0.9831088159**
-- 95% CI: **0.8524016314–1.1338586275**
-- canonical n: **418**
+- FIII: **0.0228976 m/s**;
+- FIV: **0.0232434 m/s**;
+- FV: **0.0244765 m/s**.
 
-Stage medians also reproduce:
+Adjusted ordinal Durif effect:
 
-- FIII: n=154, median **0.02290 m/s**
-- FIV: n=53, median **0.02324 m/s**
-- FV: n=211, median **0.02448 m/s**
+- beta: **-0.01703547**;
+- speed ratio per stage: **0.98310882**;
+- 95% CI: **0.85240163–1.13385863**.
 
-Therefore the canonical post-activation speed endpoint is **reproducible and submission-safe with respect to this audit**.
+These match the canonical manuscript values to numerical precision.
 
-## Project-specific diagnostic
+## Reproducibility status
 
-The same model form was fit separately within each project where estimable.
+**PASS_POST_ACTIVATION_SPEED_REPRO**
 
-| Project | n | speed ratio / Durif stage | 95% CI |
+The canonical n=418 / ratio=0.983 result is submission-reproducible from the pinned source.
+
+## New project-level heterogeneity audit
+
+The same speed-bearing cohort was then split by source project and the same within-project model form was fitted, retaining project-year fixed effects where multiple informative years occurred.
+
+Adjusted speed ratio per FIII -> FIV -> FV increment:
+
+| Project | n | Speed ratio | 95% CI |
 |---|---:|---:|---:|
-| Warnow | 107 | 0.915 | 0.682–1.228 |
-| Leopold Canal | 52 | 0.981 | 0.678–1.420 |
-| Albert Canal | 128 | 1.272 | 0.899–1.799 |
-| Scheldt | 86 | 1.011 | 0.856–1.193 |
-| Grote Nete | 33 | 1.035 | 0.731–1.465 |
+| 2011 Warnow | 107 | 0.915 | 0.682–1.228 |
+| 2012 Leopold Canal | 52 | 0.981 | 0.678–1.420 |
+| 2013 Albert Canal | 128 | 1.272 | 0.899–1.799 |
+| 2015 Scheldt | 86 | 1.011 | 0.856–1.193 |
+| 2019 Grote Nete | 33 | 1.035 | 0.731–1.465 |
 | ESGL | 12 | 1.219 | 0.675–2.201 |
 
-A fixed-effect Cochran heterogeneity diagnostic on the six log-speed stage coefficients gives:
+Inverse-variance heterogeneity audit:
 
-- Q = **2.469**
-- df = **5**
-- p = **0.781**
-- I² = **0%**
+- Cochran Q = **2.469**;
+- df = **5**;
+- p ≈ **0.781**.
 
-Thus the current six-project dataset does **not** support detectable between-system heterogeneity in the Durif effect on this generic post-activation speed endpoint.
+Thus the pooled near-null result is **not** readily explained by strong opposing project-specific stage effects cancelling one another. Within these six projects, the available stage-speed effects are statistically compatible with a shared weak average effect.
 
-## Ecological interpretation
+This is a developmental heterogeneity audit, not a preregistered confirmatory test.
 
-The stronger supported statement is:
+## Important new external result
 
-> **Capture-time silvering readiness strongly predicts migration activation and onset, but provides little transferable information about generic post-activation migration speed across the six analysed systems.**
+A newly published River Test study (Moyo et al., 2026, *Hydrobiologia*, DOI 10.1007/s10750-026-06406-6) tracked 25 silver European eels. The tagged fish had already initiated downstream movement before capture. In a reach-level mixed model of downstream progression rate, silvering stage remained in the selected model together with temperature, barriers, flow and lunar illumination; removing silvering stage worsened model fit.
 
-The result should not be upgraded to:
+This provides a useful external boundary condition:
 
-- Durif state has exactly zero post-activation effect;
-- external context universally replaces internal control;
-- all progression metrics are stage-independent.
+> a weak Europe-wide individual-level stage gradient in overall post-activation speed does **not** imply that silvering state is irrelevant to progression at finer reach/time scales or under a particular hydrological context.
 
-A context-specific study can still detect a stage effect on a different progression endpoint without contradicting this pooled result.
+## Revised ecological hypothesis
+
+Do **not** frame the result as:
+
+> internal state controls activation, then stops mattering after activation.
+
+The stronger and safer formulation is:
+
+> **Migratory readiness has a strong and transferable association with activation, whereas its contribution to progression is scale- and context-sensitive: it is weak in the pooled whole-migration speed metric but can reappear in finer-grained reach-level progression under particular environmental conditions.**
+
+This changes the next question from a pooled-null question to a mechanistic scale question:
+
+> **At what spatial and temporal scale does internal migratory state remain visible once movement has begun, and when is its signal masked by route opportunity and environmental forcing?**
+
+## Next valid analysis
+
+Priority order:
+
+1. keep the canonical pooled overall-speed analysis as the broad-scale progression result;
+2. retain the six-project heterogeneity audit as evidence that the pooled null is not simple cancellation;
+3. compare whole-route speed with finer reach/barrier progression metrics where open data permit;
+4. test stage × independently defined hydrological/opportunity variables only where the measurement structure supports it;
+5. do not tune route classes or temporal windows against stage-effect estimates.
 
 ## Status
 
-**RESOLVED_REPRO_AUDIT**
+The reproducibility stop is cleared.
 
-The previous STOP caused by the apparent n=418 mismatch is removed.
+The scientific programme is **reopened only for scale/context decomposition**, because new external evidence reveals that "no general post-activation stage gradient" and "stage can matter for reach-level progression" can both be true.
