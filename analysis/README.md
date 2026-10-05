@@ -1,204 +1,153 @@
 # Analysis programme
 
-## Publication target
+## Canonical ecological mainline
 
-This repository does **not** aim to publish a re-analysis of the Flores eel paper.
+The current Azores paper is **not** a site-fidelity re-analysis and not an EOG validation paper.
 
-The primary ecological programme is **state-dependent mobility gating**:
+The primary ecological result is phase specific:
 
-> internal migratory readiness may change how strongly landscape resistance constrains realised movement.
+> **Capture-time silvering readiness strongly predicts migration activation, but its predictive effect is significantly attenuated after migration has begun.**
 
-See [general-principle programme](../docs/general_principle_program.md) and [independent test protocol](../docs/independent_test_protocol.md).
+The current source of truth is pinned to:
 
-## Phase 0 — Flores seed diagnosis only
+- upstream repository: `PieterjanVerhelst/eel-meta-analysis`
+- upstream commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+- primary stages: FIII/FIV/FV
 
-~~~bash
-python analysis/01_receiver_state_diagnostic.py
-~~~
+## Canonical pipeline
 
-Flores is the extreme resident anchor. It is not the evidence base for the general claim.
-
-## Phase 1 — lightweight independent preflight
-
-Do **not** download 1.1 GB first.
-
-Run:
-
-~~~bash
-python analysis/03_stage_landscape_preflight.py
-~~~
-
-This audits the public processed Europe-wide eel products and tests whether exact capture-time Durif stages have enough cross-project/WRS overlap.
-
-Current design target:
-
-~~~text
-FIII / FIV / FV × landscape resistance
-~~~
-
-FII and MII remain boundary groups.
-
-## Phase 2 — standardized individual table
-
-~~~bash
-python analysis/04_build_stage_landscape_table.py
-~~~
-
-This creates:
-
-~~~text
-analysis/derived/eel_stage_landscape.csv
-~~~
-
-from public upstream metadata, WRS data and the published successful-migrant endpoint.
-
-**Boundary:** aggregate outcome counts were already inspected during development. This panel is developmental independent evidence, not outcome-blind confirmation.
-
-## Phase 2b — behavioural initiation result
-
-Run the complete upstream reconstruction:
+### 1. Gate 1 — binary migration activation
 
 ~~~bash
 python analysis/09_durif_migration_initiation.py
 ~~~
 
-This streams the public migration tables for six compatible projects and reproduces:
+Expert-corrected primary result:
 
-- expert-corrected stage-specific migration initiation;
-- algorithm-only sensitivity before the upstream expert correction;
-- project-year + body-length + release-timing adjusted stage effect;
-- leave-one-project-out stability.
+- FIII: **154/261 = 59.0%**
+- FIV: **53/68 = 77.9%**
+- FV: **215/246 = 87.4%**
+- adjusted OR per stage: **2.08**
+- 95% CI: **1.56–2.76**
+- p ≈ **4.2e-7**
 
-For censored onset timing, use:
+The source-study nine 2015 expert non-migrant corrections are inherited unchanged.
+
+### 2. Gate 1 timing — threshold-defined onset
 
 ~~~bash
 python analysis/10_migration_onset_cox.py
 ~~~
 
-`life4fish` is excluded from this onset reconstruction because the upstream repository contains no compatible distance/residency/speed/migration project products for the classifier. Excluding that entire project, stage-specific table coverage is approximately 95–97%.
+The canonical clock is `time_first_dist_to_use` on the first `downstream_migration = TRUE` row.
 
-The source paper used movement to classify migrant behaviour and then analysed phenology/speed; this phase instead asks whether **capture-time Durif readiness predicts later movement-state expression**.
+Current result:
 
-## Phase 3 — model
+- HR per stage: **1.29**
+- 95% CI: **1.13–1.47**
+- p = **0.00016**
 
-Primary ecological test:
+This is supportive timing evidence, not the main novelty.
 
-~~~text
-later movement ~ capture Durif stage
-               + landscape resistance
-               + stage × landscape resistance
-               + project/design covariates
-~~~
-
-Project-level leave-one-project-out stability is mandatory.
-
-Only reconstruct the 1.1 GB raw detections if onset/progression metrics unavailable in the public processed migration/speed products require it.
-
-## Phase 4 — replication
-
-Use Wolastoq or another independently accessible eel system to test whether state-dependent landscape resistance transfers across water bodies/species.
-
-
-## Interpretation correction — stage effect is a positive control
-
-Durif FIII is a pre-migrant female stage and FIV/FV are migrating female stages. Therefore the strong FIII -> FIV -> FV association with later movement is expected biology and serves as a **positive control** for the readiness axis.
-
-Implemented developmental checks:
+### 3. Direct phase interaction
 
 ~~~bash
-python analysis/05_project_stratified_stage_effect.py
-python analysis/06_project_fixed_ordinal_stage.py
-python analysis/07_stage_effect_body_timing_robustness.py
+python analysis/11_phase_stage_interaction.py
+python analysis/13_phase_interaction_lopo.py
 ~~~
 
-These establish that the readiness variable behaves coherently and survives body-size/release-timing adjustment.
+Clustered stacked continuation-ratio result:
 
-They do **not** constitute the paper's novelty.
+- initiation OR/stage: **2.08**
+- completion OR/stage: **1.15**
+- ratio of stage ORs: **1.81**
+- 95% CI: **1.15–2.84**
+- direct phase interaction p = **0.0099**
 
-## Active confirmation target
+LOPO:
 
-The novel target is:
+- direction preserved in **6/6** project deletions;
+- OR-ratio range **1.55–2.13**;
+- **5/6** deletions remain p < 0.05.
 
-~~~text
-realised movement
-  ~ internal readiness
-  × barrier / hydrological opportunity
-~~~
+This is the primary developmental evidence.
 
-For the Dutch consecutive-barrier system, after obtaining DANS DOI 10.17026/LS/WTSUNG:
+### 4. Gate 2 — sea escapement conditional on activation
 
 ~~~bash
-python analysis/08_dutch_barrier_confirmation_gate.py   --data-dir <downloaded_DANS_directory>
+python analysis/10_two_stage_mobility.py
 ~~~
 
-If stage and body mass/opportunity cannot be separated, return NON-IDENTIFIABLE rather than rescuing the interaction.
+The upstream `identify_escapement_success.R` defines success as **successful escapement to the sea** with project-specific terminal station/distance rules.
 
-## Phase 2d — project-context gate audit
+Among initiators:
 
-Run:
+- adjusted OR/stage: **1.15**
+- 95% CI: **0.83–1.59**
+- p = **0.412**
+
+Do not call this "no internal effect"; call it attenuation relative to Gate 1.
+
+### 5. Independent post-activation response — migration speed
+
+~~~bash
+python analysis/12_post_initiation_speed.py
+~~~
+
+- adjusted speed ratio/stage: **0.983**
+- 95% CI: **0.852–1.134**
+- p = **0.815**
+
+Thus the post-activation attenuation is not unique to the binary escapement endpoint.
+
+### 6. External-context bridge
 
 ~~~bash
 python analysis/11_project_context_gate.py
 ~~~
 
-This compares median project WRS impact with two sequential outcomes:
+Across six project contexts:
 
-1. migration initiation rate;
-2. successful completion conditional on initiation.
+- WRS vs initiation: rho **0.029**, exact p **0.983**
+- WRS vs completion: rho **-0.928**, exact p **0.022**
 
-The script uses all **6! = 720** project permutations for exact Spearman p-values and reports leave-one-project-out completion gradients.
+This is **context evidence only**, because WRS, project, route, hydrology, telemetry geometry and observability are confounded.
 
-**Boundary:** this is project-level bridge evidence, not causal WRS inference. The Dutch within-route system remains the progression-stage confirmation.
+### 7. Independent confirmation target
 
+The Dutch pump -> tidal-sluice system is the active within-route confirmation target.
 
-## Canonical two-stage pipeline
-
-Use only these files for the current paper mainline:
-
-~~~text
-Gate 1 binary initiation:
-  analysis/09_durif_migration_initiation.py
-
-Gate 1 timing:
-  analysis/10_migration_onset_cox.py
-
-Gate 1 versus Gate 2 direct interaction:
-  analysis/11_phase_stage_interaction.py
-
-Gate 2 completion:
-  analysis/10_two_stage_mobility.py
-
-External-context bridge:
-  analysis/11_project_context_gate.py
-~~~
-
-Older parallel 09/10 scripts that omitted the nine 2015 source expert corrections
-are deprecated and intentionally terminate if executed.
-
-
-## Phase 3 — departure gate versus completion filter
-
-Run:
+After obtaining DANS DOI `10.17026/LS/WTSUNG`:
 
 ~~~bash
-python analysis/09_departure_gate_completion_filter.py
+python analysis/08_dutch_barrier_confirmation_gate.py --data-dir <downloaded_DANS_directory>
 ~~~
 
-This reconstructs the published behavioural migration flag from all six primary-stage projects, including the large migration tables pinned by Git blob SHA.
+The confirmation question is:
 
-Current developmental result:
+> once migration has activated, do barrier-specific passage opportunities explain progression better than residual Durif-stage differences?
 
-- initiation OR per Durif stage: **1.99** (95% CI **1.49–2.66**);
-- completion among initiators OR: **1.29** (95% CI **0.94–1.77**).
+Return NON-IDENTIFIABLE rather than dropping body mass or regrouping Durif stages if the predictor structure is confounded.
 
-Interpretation:
+## Interpretation boundary
 
-> internal readiness is concentrated at the departure transition; successful post-departure progression is more weakly related to the same readiness measure.
+The paper may claim:
 
-This phase decomposition supersedes treating the successful-migrant endpoint as one indivisible movement outcome.
+> **the predictive association of internal migratory readiness is phase dependent and significantly weaker after migration activation.**
 
-## Phase 4 — external progression filter
+It may not yet claim:
 
-Use the Dutch consecutive-barrier system to test the second phase inside one shared movement landscape.
+- WRS causally causes the attenuation;
+- external factors wholly replace internal control;
+- Durif stage has zero post-initiation effect;
+- the Dutch study directly replicates the Europe-wide interaction.
 
-See [Dutch confirmation protocol](../docs/dutch_barrier_confirmation_protocol.md).
+## Historical analyses
+
+Older stage-effect, fixed-window and exploratory files remain for audit trail. They are not the numeric source of truth.
+
+Use:
+- `manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V1.json`
+- `docs/phase_stage_interaction_result.md`
+- `docs/CLAIM_EVIDENCE_MAP_PHASE_CONTROL_V1.md`
+for current manuscript numbers and claims.
