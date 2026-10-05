@@ -1,0 +1,151 @@
+{
+  "schema": "azores.phase_control_figure_data.v3",
+  "manuscript": "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md",
+  "canonical_result": "results/phase_control_canonical_v2.json",
+  "main_figures": {
+    "figure2": {
+      "activation_by_stage": [
+        {
+          "stage": "FIII",
+          "tracked": 261,
+          "initiated": 154,
+          "rate": 0.59
+        },
+        {
+          "stage": "FIV",
+          "tracked": 68,
+          "initiated": 53,
+          "rate": 0.779
+        },
+        {
+          "stage": "FV",
+          "tracked": 246,
+          "initiated": 215,
+          "rate": 0.874
+        }
+      ],
+      "activation_effect": {
+        "or": 2.08,
+        "lo": 1.56,
+        "hi": 2.76,
+        "p": 4.2e-7
+      },
+      "onset_cox": [
+        {
+          "omitted": "none",
+          "hr": 1.29,
+          "lo": 1.13,
+          "hi": 1.47,
+          "p": 0.00016
+        },
+        {
+          "omitted": "Warnow",
+          "hr": 1.43,
+          "lo": 1.22,
+          "hi": 1.69,
+          "p": 0.000013
+        },
+        {
+          "omitted": "Leopoldkanaal",
+          "hr": 1.2,
+          "lo": 1.04,
+          "hi": 1.39,
+          "p": 0.012
+        },
+        {
+          "omitted": "Albertkanaal",
+          "hr": 1.52,
+          "lo": 1.32,
+          "hi": 1.76,
+          "p": 1.11e-8
+        },
+        {
+          "omitted": "2015_phd_verhelst_eel",
+          "hr": 1.09,
+          "lo": 0.94,
+          "hi": 1.27,
+          "p": 0.252
+        },
+        {
+          "omitted": "Grotenete",
+          "hr": 1.29,
+          "lo": 1.12,
+          "hi": 1.48,
+          "p": 0.00029
+        },
+        {
+          "omitted": "ESGL",
+          "hr": 1.29,
+          "lo": 1.12,
+          "hi": 1.47,
+          "p": 0.00025
+        }
+      ]
+    },
+    "figure3": {
+      "speed_by_stage": [
+        {
+          "stage": "FIII",
+          "median_ms": 0.0229
+        },
+        {
+          "stage": "FIV",
+          "median_ms": 0.0232
+        },
+        {
+          "stage": "FV",
+          "median_ms": 0.0245
+        }
+      ],
+      "adjusted_speed_effect": {
+        "ratio": 0.983,
+        "lo": 0.852,
+        "hi": 1.134,
+        "p": 0.815,
+        "n": 418
+      }
+    },
+    "figure4_dutch": {
+      "tagged": 40,
+      "pump_passed": 35,
+      "terminal_sea_positive": 27,
+      "mean_cumulative_delay_days": 34,
+      "role": "independent route-opportunity context; not direct replication"
+    }
+  },
+  "supplementary_sensitivity": {
+    "figureS1_terminal_positive_set": {
+      "terminal_membership_effect": {
+        "or": 1.15,
+        "lo": 0.83,
+        "hi": 1.59,
+        "p": 0.412
+      },
+      "former_phase_or_ratio": {
+        "ratio": 1.81,
+        "lo": 1.15,
+        "hi": 2.84,
+        "p": 0.0099
+      },
+      "boundary": "non-membership is not a validated biological failure state"
+    },
+    "figureS2_project_context": {
+      "n_projects": 6,
+      "wrs_vs_activation": {
+        "rho": 0.029,
+        "p_exact": 0.983
+      },
+      "wrs_vs_terminal_membership": {
+        "rho": -0.928,
+        "p_exact": 0.022
+      },
+      "boundary": "project-confounded and terminal endpoint observability dependent"
+    }
+  },
+  "reporting_boundary": [
+    "Main figures must not present terminal positive-set membership as biological success/failure probability.",
+    "Main progression evidence is post-activation migration speed.",
+    "Terminal positive-set and WRS-terminal analyses are supplementary sensitivity/context only.",
+    "Dutch route schematic is independent ecological context, not direct phase-model replication."
+  ]
+}
