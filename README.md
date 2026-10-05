@@ -99,3 +99,18 @@ See [three independent ecology programmes](docs/three_ecology_programs.md).
 
 
 - [three-programme current status](docs/three_ecology_programs_status.md)
+
+
+## Submission figures
+
+Endpoint-audited reference renders are now committed:
+
+- `manuscript/rendered_figures_v2/Figure1.svg`
+- `manuscript/rendered_figures_v2/Figure2.svg`
+- `manuscript/rendered_figures_v2/Figure3.svg`
+- `manuscript/rendered_figures_v2/Figure4.svg`
+
+Render QC:
+- `manuscript/RENDERED_FIGURE_QC_V2.json` — **PASS_REFERENCE_RENDER**
+
+Numeric content is locked to `FIGURE_DATA_CONTRACT_V2.json`; terminal positive-set sensitivity remains supplementary only.
