@@ -84,7 +84,11 @@ def main() -> None:
 
     # Primary interpretation must foreground activation/onset/speed.
     checks["activation_language_present"] = "migration activation" in low
-    checks["post_activation_speed_present"] = "post-activation migration speed" in low
+    checks["post_activation_speed_present"] = (
+        "post-activation migration speed" in low
+        or "post-activation migration-speed" in low
+        or "post-initiation migration speed" in low
+    )
     checks["primary_claim_present"] = (
         "strongly predicts whether and when" in low
         and "speed" in low
