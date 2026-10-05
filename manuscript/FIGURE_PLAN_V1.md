@@ -1,5 +1,19 @@
 # Final figure plan — Azores phase-control manuscript
 
+## Superseded after endpoint audit
+
+This V1 figure specification is retained for provenance only.
+
+It promoted terminal positive-set membership and the initiation/terminal OR-ratio to main-figure status. After auditing the upstream escapement endpoint, those analyses are secondary sensitivity only because terminal non-membership is not a validated biological failure state.
+
+Use instead:
+
+- `manuscript/FIGURE_PLAN_V2.md`
+- `manuscript/FIGURE_CAPTIONS_V2.md`
+- `manuscript/FIGURE_DATA_CONTRACT_V2.json`
+- `manuscript/FIGURE_QC_V2.json`
+
+
 ## Figure 1 — Biological hypothesis and study design
 
 **Purpose:** establish the question without showing a result twice.
