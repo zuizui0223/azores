@@ -1,5 +1,19 @@
 # Figure captions — Azores phase-control manuscript
 
+## Superseded after endpoint audit
+
+This V1 caption set is retained for provenance only.
+
+It treats terminal positive-set membership as a co-primary progression endpoint. After the endpoint audit, that binary analysis is sensitivity only.
+
+Use instead:
+
+- `manuscript/FIGURE_CAPTIONS_V2.md`
+- `manuscript/FIGURE_PLAN_V2.md`
+- `manuscript/FIGURE_DATA_CONTRACT_V2.json`
+- `manuscript/FIGURE_QC_V2.json`
+
+
 ## Figure 1. Internal migratory readiness is evaluated at sequential movement phases
 
 **(A)** Capture-time Durif silvering stage provides the ordinal internal-readiness axis used in the primary analysis (FIII → FIV → FV).  
