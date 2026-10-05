@@ -1,128 +1,165 @@
-# Developmental result: Durif stage predicts migration initiation and latency
+# Developmental result: Durif stage predicts migratory trajectory classification and earlier direct downstream detection
 
-## Data reconstruction
+## Correction to the first latency interpretation
 
-All six large/small public per-project migration tables were read through the Git blob API and joined to the public capture metadata.
+The public migration tables contain two related but distinct indicators:
 
-Primary female stages:
+- `downstream_migration`: row-level evidence that a sufficiently fast downstream displacement is supported from that row;
+- `migration`: the broader migration segment running from the first `downstream_migration=TRUE` row to the farthest downstream point.
 
-- FIII
-- FIV
-- FV
+Because the row-level classifier can legitimately classify the **release row itself** as the first migration row when subsequent movement satisfies the distance/speed rule, "days from release to first `migration=TRUE` row" is **not** a clean natural migration-onset time.
 
-Across the six projects, **575** exact-stage individuals were represented in the migration tables.
+Therefore the earlier provisional latency interpretation is withdrawn.
 
-Coverage relative to the corresponding primary-stage metadata was high but not complete:
+## A. Probability that the later trajectory is classified as migratory
 
-- 575/603 primary-stage metadata individuals represented;
-- 28 missing from migration files;
-- missing by stage: FIII 13, FIV 2, FV 13.
+Across the six projects:
 
-## Raw initiation pattern
+- exact-stage metadata individuals: **603**
+- represented in migration tables: **575**
+- missing from migration tables: **28**
 
-Among individuals represented in the migration files:
+Raw proportions among represented individuals:
 
-| Stage | n | Initiated migration | Proportion | Median days to first migration among initiators |
-|---|---:|---:|---:|---:|
-| FIII | 261 | 161 | 0.617 | 4.86 d |
-| FIV | 68 | 54 | 0.794 | 0.22 d |
-| FV | 246 | 216 | 0.878 | 0.69 d |
+| Stage | n | Any migratory trajectory | Proportion |
+|---|---:|---:|---:|
+| FIII | 261 | 161 | 0.617 |
+| FIV | 68 | 54 | 0.794 |
+| FV | 246 | 216 | 0.878 |
 
-These raw values are descriptive only because projects, years, body size and release timing differ among stages.
+Adjusted model:
 
-## Adjusted initiation model
-
-The initiation model used:
-
-- project × release-year fixed effects;
-- body length centered within project-year, per 100 mm;
-- release timing centered within project-year, per 100 days;
-- ordinal Durif stage FIII=0, FIV=1, FV=2.
+~~~text
+trajectory classified migratory
+  ~ project × release-year fixed effects
+  + within-stratum body length
+  + within-stratum release timing
+  + ordinal Durif stage
+~~~
 
 Eleven informative project-year strata contributed **525** individuals.
 
-### Durif stage
-
-Per one-stage increment:
+Per one-stage FIII -> FIV -> FV increment:
 
 - OR = **1.99**
 - 95% CI = **1.49–2.66**
 - p = **3.2e-6**
 
-### Body length
-
-Per 100 mm:
+Body length per 100 mm:
 
 - OR = **1.37**
 - 95% CI = **1.00–1.89**
 - p = **0.053**
 
-### Release timing
-
-Per 100 days later:
+Release timing per 100 days:
 
 - OR = **1.30**
 - 95% CI = **0.68–2.50**
 - p = **0.426**
 
-Thus advanced capture-time silvering stage predicts whether movement begins even after major design/timing covariates are represented.
+Thus independently measured silvering state predicts whether the later observed trajectory satisfies the published migration criterion.
 
-## Latency among initiators
+## B. Adversarial missingness sensitivity
 
-Among **431** individuals with a detected migration onset, log(1 + days to first migration) was modelled with project fixed effects plus body length, release timing and ordinal Durif stage.
+Missing by stage:
 
-Per one-stage increment:
+- FIII: 13
+- FIV: 2
+- FV: 13
 
-- multiplicative factor on 1+latency = **0.656**
-- 95% CI = **0.524–0.821**
-- p = **0.00023**
+To bias maximally against a positive stage effect:
 
-Thus advanced stage is associated not only with a higher probability of beginning migration, but with shorter delay before movement.
+- every missing FIII individual was forced to migratory;
+- every missing FIV/FV individual was forced to non-migratory.
 
-## Adversarial missingness test
-
-Twenty-eight primary-stage metadata individuals were absent from the migration tables.
-
-To bias maximally **against** a positive stage effect, all missing FIII individuals were forced to "initiated" and all missing FIV/FV individuals were forced to "not initiated".
-
-Under the same project-year/body-size/release-timing model:
+Under the same project-year/body-size/release-timing structure:
 
 - OR per stage = **1.74**
 - 95% CI = **1.32–2.28**
 
-The positive stage gradient therefore survives this deliberately hostile missing-outcome assignment.
+The positive stage gradient survives this deliberately hostile assignment.
+
+## C. First directly detected downstream movement away from release
+
+To avoid the release-row issue, a second endpoint was constructed.
+
+For each individual, define:
+
+> the first row with `downstream_migration=TRUE` at a non-release receiver with non-zero distance from the release source.
+
+This is a directly detected downstream movement step.
+
+It is still constrained by receiver spacing and detection geometry, so it is **not** interpreted as the exact physiological onset of migration.
+
+Among individuals with such a direct downstream detection:
+
+| Stage | n | Median days from release | Q25 | Q75 |
+|---|---:|---:|---:|---:|
+| FIII | 156 | **7.10** | 1.50 | 83.61 |
+| FIV | 53 | **2.08** | 0.67 | 52.73 |
+| FV | 209 | **5.76** | 0.75 | 49.10 |
+
+Adjusted latency model:
+
+~~~text
+log(1 + days to first direct non-release downstream detection)
+  ~ project fixed effects
+  + within-project body length
+  + within-project release timing
+  + ordinal Durif stage
+~~~
+
+Among **418** individuals:
+
+Per one-stage increment:
+
+- multiplicative factor = **0.696**
+- 95% CI = **0.562–0.863**
+- p = **0.00093**
+
+Body length per 100 mm:
+
+- factor = **1.11**
+- 95% CI = **0.87–1.42**
+- p = **0.402**
+
+Release timing per 100 days later:
+
+- factor = **0.900**
+- 95% CI = **0.840–0.963**
+- p = **0.0024**
+
+Thus more advanced Durif stage is associated with earlier **directly detected downstream movement away from the release station**.
 
 ## Ecological interpretation
 
-The Europe-wide evidence now supports a stronger internal-state statement:
+The Europe-wide evidence now supports three sequential internal-state associations:
 
-> **Silvering stage predicts multiple sequential components of realised migration: initiation probability, delay to initiation, and eventual successful-migrant status.**
+1. movement classification — advanced stage is more likely to produce a trajectory meeting the published migration criterion;
+2. direct movement timing — advanced stage reaches a downstream migration detection sooner after release;
+3. successful progression — advanced stage has higher odds of the published successful-migrant endpoint.
 
-This is more informative than a single final success endpoint.
+The strongest defensible statement is:
 
-## External gating clue from project-specific latency
+> **Internal migratory readiness is expressed across multiple components of realised movement, not only in final migration success.**
 
-The raw project patterns also show that high readiness does not produce the same timing everywhere.
+## Why this still points to environmental gating
 
-Examples:
+The stage effect is not homogeneous across projects.
 
-- Leopoldkanaal: median onset FIII ≈ 71 d, FIV/FV ≈ 0 d;
-- 2015 phd_verhelst_eel: FIII ≈ 322 d, FIV/FV ≈ 0.1 d;
-- Warnow: all stages relatively fast, advanced stages <1 d;
-- Grotenete: even FIV/FV individuals waited roughly 30–37 d;
-- ESGL: onset remained slow and initiation uncommon across stages.
+Some systems show a very large advanced-stage advantage; others show little or reversed contrast.
 
-This heterogeneity is biologically important.
+Likewise, even highly advanced individuals can wait much longer in some projects than in others.
 
-It is compatible with:
+This motivates—but does not itself prove—the next mechanism:
 
-> **internal state sets readiness to move, while hydrological/landscape opportunity determines when that readiness can be expressed.**
-
-It does not by itself identify which external variable caused the project differences.
+> **internal state determines readiness, while landscape/hydrological opportunity determines how readily that state is translated into realised movement.**
 
 ## Claim boundary
 
-- The published migration classifier is used as the **outcome**, not the Durif predictor.
-- This analysis is developmental independent evidence because the public endpoint was inspected during hypothesis refinement.
-- Project-specific delay differences cannot be attributed to WRS, discharge or barrier type without direct within-system tests.
-- The general state × landscape-opportunity law still requires independent confirmation.
+- Capture-time Durif stage is independent of the later movement outcome.
+- The published migration classifier is an outcome, not the predictor.
+- First `migration=TRUE` row is not called natural migration onset.
+- First non-release `downstream_migration=TRUE` detection is a detection-based timing endpoint, not exact departure time.
+- Project differences cannot be causally attributed to WRS, hydrology or barrier type without an independent within-system test.
+- The general state × opportunity law still requires external confirmation.
