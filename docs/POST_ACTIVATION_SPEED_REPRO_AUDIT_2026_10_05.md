@@ -1,79 +1,87 @@
-# Post-activation speed reproducibility and novelty audit — 2026-10-05
+# Post-activation speed reproducibility audit — resolved 2026-10-05
 
-## Status
+## Resolution
 
-**RESOLVED_REPRODUCIBLE**
+The apparent discrepancy in the post-activation speed endpoint was caused by the GitHub connector's normal file-content path returning empty content for three very large CSV blobs. Fetching those inputs directly by Git blob SHA recovered their full contents.
 
-The apparent discrepancy reported earlier in this audit was caused by the GitHub connector omitting the body of very large CSV files in normal file-content retrieval. Direct blob retrieval confirmed that the three apparently blank migration files are large, non-empty source files:
+The canonical speed result is reproducible from the pinned upstream source.
 
-- `migration_2012_leopoldkanaal.csv`: about 5.5 MB
-- `migration_2013_albertkanaal.csv`: about 29 MB
-- `migration_2015_phd_verhelst_eel.csv`: about 2.9 MB
+Pinned upstream:
 
-The pinned upstream source itself is not missing these inputs.
+- repository: `PieterjanVerhelst/eel-meta-analysis`
+- commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+
+Audited repository script:
+
+- `analysis/12_post_initiation_speed.py`
 
 ## Exact reproduction
 
-Repository: `PieterjanVerhelst/eel-meta-analysis`  
-Pinned commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+Stage-coded expert-corrected migration-positive individuals available by project:
 
-Using the six migration files named in `analysis/12_post_initiation_speed.py`, direct blob retrieval, the source expert-nonmigrant exclusions, the same project-year eligibility rule, and the same regression specification reproduces the canonical result exactly:
+- 2011 Warnow: 107
+- 2012 Leopold Canal: 52
+- 2013 Albert Canal: 132
+- 2015 Scheldt: 86
+- 2019 Grote Nete: 33
+- ESGL: 12
 
-- valid speed-bearing stage-coded initiators before project-year eligibility: **422**
-- informative project-year strata: **13**
-- modelled eels: **418**
-- Durif coefficient on log migration speed: **-0.01703547**
-- speed ratio per FIII -> FIV -> FV increment: **0.98310882**
-- 95% CI: **0.85240163–1.13385863**
+Total expert-corrected initiators represented before the project-year model filter: **422**.
 
-Thus the canonical n=418 / ratio=0.983 result is submission-reproducible from the pinned upstream source.
+Applying the committed script's informative-stratum rule leaves **418** individuals across **13** project-year strata.
 
-## Project-level diagnostic
+The independently reconstructed model exactly reproduces the canonical result:
 
-The same model was fitted separately within each project, preserving release-year fixed effects and within-stratum body length/release-timing adjustment.
+- Durif speed ratio per FIII -> FIV -> FV increment: **0.9831088159**
+- 95% CI: **0.8524016314–1.1338586275**
+- canonical n: **418**
 
-| Project | n | speed ratio / stage | 95% CI |
+Stage medians also reproduce:
+
+- FIII: n=154, median **0.02290 m/s**
+- FIV: n=53, median **0.02324 m/s**
+- FV: n=211, median **0.02448 m/s**
+
+Therefore the canonical post-activation speed endpoint is **reproducible and submission-safe with respect to this audit**.
+
+## Project-specific diagnostic
+
+The same model form was fit separately within each project where estimable.
+
+| Project | n | speed ratio / Durif stage | 95% CI |
 |---|---:|---:|---:|
-| 2011 Warnow | 107 | 0.915 | 0.682–1.228 |
-| 2012 Leopold Canal | 52 | 0.981 | 0.678–1.420 |
-| 2013 Albert Canal | 128 | 1.272 | 0.899–1.799 |
-| 2015 Scheldt | 86 | 1.011 | 0.856–1.193 |
-| 2019 Grote Nete | 33 | 1.035 | 0.731–1.465 |
+| Warnow | 107 | 0.915 | 0.682–1.228 |
+| Leopold Canal | 52 | 0.981 | 0.678–1.420 |
+| Albert Canal | 128 | 1.272 | 0.899–1.799 |
+| Scheldt | 86 | 1.011 | 0.856–1.193 |
+| Grote Nete | 33 | 1.035 | 0.731–1.465 |
 | ESGL | 12 | 1.219 | 0.675–2.201 |
 
-A fixed-effect heterogeneity diagnostic gives:
+A fixed-effect Cochran heterogeneity diagnostic on the six log-speed stage coefficients gives:
 
-- Cochran Q = **2.469**
+- Q = **2.469**
 - df = **5**
-- p ≈ **0.781**
+- p = **0.781**
+- I² = **0%**
 
-Therefore the six-project dataset does not support strong between-project heterogeneity in the post-activation Durif coefficient.
+Thus the current six-project dataset does **not** support detectable between-system heterogeneity in the Durif effect on this generic post-activation speed endpoint.
 
-Leave-one-project-out pooled ratios remain close to one (**0.953–1.029**).
+## Ecological interpretation
 
-## Novelty update from 2026 external evidence
+The stronger supported statement is:
 
-Moyo et al. (2026, *Hydrobiologia*, DOI 10.1007/s10750-026-06406-6) reported a detectable silvering-stage contribution to downstream progression rate in the River Test.
+> **Capture-time silvering readiness strongly predicts migration activation and onset, but provides little transferable information about generic post-activation migration speed across the six analysed systems.**
 
-That result should not be described as contradicting the present six-project analysis. A stage effect may be detectable in a particular system even when there is no transferable pooled effect across multiple systems.
+The result should not be upgraded to:
 
-The safe ecological interpretation is:
+- Durif state has exactly zero post-activation effect;
+- external context universally replaces internal control;
+- all progression metrics are stage-independent.
 
-> **Silvering readiness has a strong and transferable association with migration activation, but it does not provide a general Europe-wide post-activation speed advantage. Context-specific post-activation effects remain biologically possible.**
+A context-specific study can still detect a stage effect on a different progression endpoint without contradicting this pooled result.
 
-Do not strengthen this to:
+## Status
 
-- silvering is irrelevant after activation;
-- all route systems erase internal-state effects;
-- post-activation control is purely external;
-- project heterogeneity has been demonstrated in the present six-project data.
+**RESOLVED_REPRO_AUDIT**
 
-## Consequence for the paper
-
-The speed endpoint can remain primary progression evidence.
-
-The paper should frame the contribution as **phase-specific transferability of an internal-state signal**, not a universal switch from internal to external control.
-
-## Audit resolution
-
-The temporary `STOP_POST_ACTIVATION_SPEED_REPRO_AUDIT` is lifted.
+The previous STOP caused by the apparent n=418 mismatch is removed.
