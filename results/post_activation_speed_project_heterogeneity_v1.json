@@ -1,79 +1,85 @@
 {
   "schema": "azores.post_activation_speed_project_heterogeneity.v1",
-  "evidence_class": "posthoc_external-evidence-motivated developmental audit",
+  "evidence_class": "developmental_diagnostic_exact_replay_of_canonical_speed_cohort",
   "source": {
     "upstream_repository": "PieterjanVerhelst/eel-meta-analysis",
     "pinned_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
-    "speed_definition": "same as analysis/12_post_initiation_speed.py",
-    "model": "within each project: log(speed_ms) ~ release-year fixed effects + within-project-year body length + within-project-year release timing + ordinal Durif stage"
+    "canonical_analysis": "analysis/12_post_initiation_speed.py",
+    "n_speed_bearing_before_stratum_filter": 422,
+    "n_modelled": 418,
+    "informative_project_year_strata": 13
   },
-  "project_effects": [
-    {
-      "project": "2011_Warnow",
+  "pooled": {
+    "speed_ratio_per_durif_stage": 0.9831088158963527,
+    "ci95": [
+      0.852401631396999,
+      1.1338586275452445
+    ]
+  },
+  "project_specific": {
+    "2011_Warnow": {
       "n": 107,
-      "speed_ratio_per_stage": 0.9147660278,
+      "ratio": 0.9147660278029264,
       "ci95": [
-        0.6815351702,
-        1.2278117435
+        0.6815351702468087,
+        1.2278117434780509
       ]
     },
-    {
-      "project": "2012_leopoldkanaal",
+    "2012_leopoldkanaal": {
       "n": 52,
-      "speed_ratio_per_stage": 0.9814994403,
+      "ratio": 0.9814994403188833,
       "ci95": [
-        0.678257741,
-        1.4203172233
+        0.6782577409649942,
+        1.420317223325285
       ]
     },
-    {
-      "project": "2013_albertkanaal",
+    "2013_albertkanaal": {
       "n": 128,
-      "speed_ratio_per_stage": 1.2716277635,
+      "ratio": 1.271627763523026,
       "ci95": [
-        0.8989808488,
-        1.7987448467
+        0.8989808487699655,
+        1.7987448466506168
       ]
     },
-    {
-      "project": "2015_phd_verhelst_eel",
+    "2015_phd_verhelst_eel": {
       "n": 86,
-      "speed_ratio_per_stage": 1.0108574796,
+      "ratio": 1.0108574795544605,
       "ci95": [
-        0.8562231399,
-        1.1934188606
+        0.8562231398512844,
+        1.1934188605889304
       ]
     },
-    {
-      "project": "2019_Grotenete",
+    "2019_Grotenete": {
       "n": 33,
-      "speed_ratio_per_stage": 1.0349691486,
+      "ratio": 1.034969148605493,
       "ci95": [
-        0.7310661246,
-        1.4652041758
+        0.7310661245968955,
+        1.4652041758271999
       ]
     },
-    {
-      "project": "ESGL",
+    "ESGL": {
       "n": 12,
-      "speed_ratio_per_stage": 1.2189548652,
+      "ratio": 1.2189548652451223,
       "ci95": [
-        0.6751436119,
-        2.2007924496
+        0.6751436119142086,
+        2.200792449612281
       ]
     }
-  ],
-  "heterogeneity": {
-    "cochran_Q": 2.4694836624,
-    "df": 5,
-    "p": 0.7810837153,
-    "fixed_effect_summary_ratio": 1.0282235372
   },
-  "interpretation": "No evidence that the post-activation Durif-speed coefficient differs strongly among the six analysed projects. The pooled near-null is therefore not obviously produced by cancellation of large opposite project-specific effects.",
-  "boundary": [
-    "This is a post-hoc heterogeneity audit motivated by new external evidence, not preregistered confirmation.",
-    "A non-significant heterogeneity test does not prove identical stage effects across all European eel systems.",
-    "The 2026 River Test progression endpoint and covariate structure are not identical to the Europe-wide overall-speed endpoint.",
-    "Do not infer that external route context causally replaces internal state from this result."
-  ]
+  "heterogeneity": {
+    "cochran_Q": 2.469483662401891,
+    "df": 5,
+    "p": 0.7810837153111443,
+    "fixed_effect_ratio": 1.0282235372160302
+  },
+  "leave_one_project_out_ratio_range": [
+    0.9531845283177094,
+    1.0292988613755456
+  ],
+  "interpretation": "The six-project data do not show a transferable post-activation speed advantage of advanced Durif stage, nor strong evidence that the stage coefficient differs among these six projects. Context-specific post-activation stage effects remain possible in other systems.",
+  "external_update": {
+    "source": "Moyo et al. 2026 Hydrobiologia DOI 10.1007/s10750-026-06406-6",
+    "role": "External counterexample/context: silvering stage contributed to downstream progression-rate model selection in the River Test.",
+    "boundary": "Do not infer from the six-project pooled null that silvering is biologically irrelevant after activation."
+  }
 }
