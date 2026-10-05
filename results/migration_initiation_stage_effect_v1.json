@@ -1,0 +1,91 @@
+{
+  "schema": "azores.migration_initiation_stage_effect.v1",
+  "evidence_class": "developmental_independent_reanalysis_of_open_processed_telemetry",
+  "source": {
+    "repository": "PieterjanVerhelst/eel-meta-analysis",
+    "pinned_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "primary_stages": [
+      "FIII",
+      "FIV",
+      "FV"
+    ],
+    "migration_files": [
+      "migration_2011_warnow.csv",
+      "migration_2012_leopoldkanaal.csv",
+      "migration_2013_albertkanaal.csv",
+      "migration_2015_phd_verhelst_eel.csv",
+      "migration_2019_grotenete.csv",
+      "migration_esgl.csv"
+    ]
+  },
+  "coverage": {
+    "FIII": {
+      "metadata_n": 274,
+      "table_present_n": 261,
+      "coverage": 0.9525547445,
+      "initiated_n": 161,
+      "initiation_rate": 0.6168582375,
+      "median_onset_days": 4.8585416667
+    },
+    "FIV": {
+      "metadata_n": 70,
+      "table_present_n": 68,
+      "coverage": 0.9714285714,
+      "initiated_n": 54,
+      "initiation_rate": 0.7941176471,
+      "median_onset_days": 0.2151446759
+    },
+    "FV": {
+      "metadata_n": 259,
+      "table_present_n": 246,
+      "coverage": 0.9498069498,
+      "initiated_n": 216,
+      "initiation_rate": 0.8780487805,
+      "median_onset_days": 0.6902256944
+    }
+  },
+  "adjusted_model": {
+    "endpoint": "whether frozen published migration classifier ever becomes TRUE for a stage-tagged individual present in a project migration table",
+    "n_individuals": 525,
+    "n_informative_project_year_strata": 11,
+    "fixed_effects": "project x release year",
+    "covariates": [
+      "within-stratum body length per 100 mm",
+      "within-stratum release timing per 100 days",
+      "ordinal Durif stage FIII=0,FIV=1,FV=2"
+    ],
+    "effects": {
+      "body_length_per_100mm": {
+        "or": 1.3736093253,
+        "ci95": [
+          0.9965612721,
+          1.8933131673
+        ],
+        "p": 0.0525060989
+      },
+      "release_timing_per_100days": {
+        "or": 1.302653504,
+        "ci95": [
+          0.6792934529,
+          2.4980457922
+        ],
+        "p": 0.4260759706
+      },
+      "durif_per_stage_increment": {
+        "or": 1.9894168895,
+        "ci95": [
+          1.4896939383,
+          2.6567736219
+        ],
+        "p": 0.0000031567
+      }
+    }
+  },
+  "interpretation": "Capture-time Durif readiness predicts whether later telemetry enters the frozen migratory state, independently of broad project-year, body-length, and release-timing differences.",
+  "boundary": [
+    "The migration flag is the outcome, never the state predictor.",
+    "Migration tables cover about 95-97% of stage-tagged metadata individuals; missing table individuals are not recoded as non-initiators.",
+    "Project heterogeneity remains strong and the result does not establish a universal stage x landscape-resistance interaction.",
+    "Outcome information was inspected during hypothesis development; this is developmental evidence, not preregistered confirmation."
+  ]
+}
