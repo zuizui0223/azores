@@ -1,0 +1,19 @@
+{
+  "schema": "azores.figure_qc.v2",
+  "contract": "manuscript/FIGURE_DATA_CONTRACT_V2.json",
+  "manuscript": "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md",
+  "status": "PASS",
+  "checks": {
+    "schema": true,
+    "manuscript_v3": true,
+    "canonical_v2": true,
+    "activation_or": true,
+    "activation_matches_canonical": true,
+    "onset_hr": true,
+    "speed_ratio": true,
+    "main_figures_no_terminal": true,
+    "sensitivity_has_terminal": true,
+    "boundary_present": true
+  },
+  "failed": []
+}
