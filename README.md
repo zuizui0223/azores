@@ -21,15 +21,24 @@ Among FIII/FIV/FV eels represented in processed migration tracks:
 - adjusted initiation OR: **2.08 per Durif-stage increment** (95% CI 1.56–2.76);
 - after conditioning on initiation, the stage effect on the published successful-migrant endpoint weakens to **OR 1.15** (95% CI 0.83–1.59).
 
-Thus the strongest current result is not simply "advanced eels move more." It is:
+The direct phase test is stronger than comparing separate p-values:
 
-> **internal state strongly structures movement initiation, whereas post-initiation outcome is much more system dependent.**
+- initiation/completion stage-OR ratio: **1.81**
+- 95% CI: **1.15–2.84**
+- p = **0.0099**
+- LOPO direction: **6/6** projects.
+
+Thus the strongest current result is:
+
+> **the predictive association of internal migratory readiness is significantly attenuated after migration activation.**
 
 The source inputs are pinned to upstream commit `59578cb622dddbbba5174b4c51bff0807787385a`.
 
 See:
 
 - [two-gate movement hypothesis](docs/two_gate_movement_hypothesis.md)
+- [canonical phase-control result](results/phase_control_canonical_v1.json)
+- [direct phase interaction](docs/phase_stage_interaction_result.md)
 - [canonical developmental result](results/two_gate_movement_developmental_v1.json)
 - [migration initiation analysis](analysis/09_migration_initiation_by_durif.py)
 - [post-initiation analysis](analysis/10_post_initiation_success_by_durif.py)
