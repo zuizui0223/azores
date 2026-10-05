@@ -75,6 +75,22 @@ Thus capture-time Durif readiness predicts both **whether downstream movement is
 
 See [first migration episode result](docs/first_migration_episode_result.md).
 
+## Post-activation project heterogeneity audit
+
+The pooled near-null Durif effect on post-activation speed is not explained by obvious cancellation of strong opposing project effects.
+
+Using the same speed definition and covariate structure within each of the six projects, stage-specific speed ratios ranged from approximately **0.915 to 1.272**. A Cochran heterogeneity audit gave **Q = 2.47**, **df = 5**, **p = 0.781**.
+
+Thus the current data do not support a strong Durif-stage × water-body interaction in overall migration speed.
+
+The supported interpretation is narrower:
+
+> **silvering readiness has a strong general predictive signal for activation/onset, whereas its general predictive signal for already-active overall migration speed is weak.**
+
+This does not imply that internal state becomes biologically irrelevant after activation, and it does not demonstrate that route opportunity causally replaces internal control. A recent River Test study uses a different reach-level progression endpoint and shows that silvering stage can still contribute within a particular route context.
+
+See [post-activation project heterogeneity audit](docs/post_activation_speed_project_heterogeneity.md).
+
 ## Evidence boundary
 
 These are developmental independent results, not outcome-blind confirmation.
