@@ -1,0 +1,115 @@
+{
+  "schema": "azores.post_initiation_speed_heterogeneity.v1",
+  "evidence_class": "posthoc_scope_audit_prompted_by_new_external_2026_evidence",
+  "canonical_speed_population": {
+    "n": 418,
+    "projects": 6,
+    "endpoint": "log overall post-initiation migration speed using the same expert-corrected migration==TRUE definition as analysis/12_post_initiation_speed.py"
+  },
+  "project_effects": [
+    {
+      "project": "2011_Warnow",
+      "n": 107,
+      "stage_counts": {
+        "FIII": 61,
+        "FIV": 23,
+        "FV": 23
+      },
+      "speed_ratio_per_stage": 0.9147660278,
+      "ci95": [
+        0.6815351702,
+        1.2278117435
+      ]
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "n": 52,
+      "stage_counts": {
+        "FIII": 21,
+        "FIV": 7,
+        "FV": 24
+      },
+      "speed_ratio_per_stage": 0.9814994403,
+      "ci95": [
+        0.678257741,
+        1.4203172233
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "n": 128,
+      "stage_counts": {
+        "FIII": 26,
+        "FIV": 1,
+        "FV": 101
+      },
+      "speed_ratio_per_stage": 1.2716277635,
+      "ci95": [
+        0.8989808488,
+        1.7987448467
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "n": 86,
+      "stage_counts": {
+        "FIII": 34,
+        "FIV": 19,
+        "FV": 33
+      },
+      "speed_ratio_per_stage": 1.0108574796,
+      "ci95": [
+        0.8562231399,
+        1.1934188606
+      ]
+    },
+    {
+      "project": "2019_Grotenete",
+      "n": 33,
+      "stage_counts": {
+        "FIII": 6,
+        "FIV": 2,
+        "FV": 25
+      },
+      "speed_ratio_per_stage": 1.0349691486,
+      "ci95": [
+        0.7310661246,
+        1.4652041758
+      ]
+    },
+    {
+      "project": "ESGL",
+      "n": 12,
+      "stage_counts": {
+        "FIII": 6,
+        "FIV": 1,
+        "FV": 5
+      },
+      "speed_ratio_per_stage": 1.2189548652,
+      "ci95": [
+        0.6751436119,
+        2.2007924496
+      ]
+    }
+  ],
+  "heterogeneity": {
+    "method": "inverse-variance Cochran Q on project-specific ordinal Durif log-speed coefficients",
+    "Q": 2.4694836624,
+    "df": 5,
+    "p": 0.7810837153,
+    "tau2_DL": 0,
+    "fixed_effect_speed_ratio": 1.0282235372,
+    "random_effect_speed_ratio_DL": 1.0282235372
+  },
+  "interpretation": [
+    "There is no evidence in these six projects that the Durif-stage effect on post-initiation overall speed differs more among projects than expected from sampling error.",
+    "The pooled near-null stage effect is therefore not explained by strong detectable sign-changing project heterogeneity within this analysis universe.",
+    "This does not establish that stage is irrelevant to all progression metrics or all rivers."
+  ],
+  "external_boundary": {
+    "source": "Moyo et al. 2026 Hydrobiologia, River Test",
+    "doi": "10.1007/s10750-026-06406-6",
+    "note": "A separate reach-level mixed model retained silvering stage during model selection for downstream progression rate. Its endpoint, design and stage coding differ from the six-project overall-speed analysis, so it is a boundary case rather than a direct contradiction."
+  },
+  "claim_boundary": "Supported: strong transferable activation association plus weak general effect on this six-project overall-speed endpoint. Not supported: universal disappearance of silvering effects after activation, or a demonstrated project-context interaction in the six-project data."
+}
