@@ -8,7 +8,7 @@ These are three separate ecological papers. EOG is provenance/discovery only.
 
 ### Scientific status
 
-**Scientific analysis and endpoint audit closed. Manuscript V3 QC PASS. Figure contract V2 QC PASS. Reference SVG render QC PASS.**
+**Activation/onset analyses remain supported, but submission status is REOPENED pending a post-activation speed reproducibility audit.**
 
 Primary evidence:
 
@@ -68,7 +68,7 @@ Older V1 completion-centred figure specifications and simplified initiation scri
 - source-study ethics wording check;
 - release/archive.
 
-**No new exploratory Azores analysis is required.**
+**STOP_POST_ACTIVATION_SPEED_REPRO_AUDIT:** the committed speed script currently does not reproduce the canonical n=418 sample size from the pinned upstream source. Resolve provenance or regenerate the speed endpoint before submission. See `docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md`.
 
 ---
 
