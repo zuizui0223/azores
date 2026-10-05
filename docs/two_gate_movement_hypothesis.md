@@ -1,136 +1,93 @@
-# Two-gate movement hypothesis
+# Two-gate movement hypothesis — expert-corrected v2
 
-## Main result
+## Result
 
-The Europe-wide eel panel now separates two biologically distinct stages of movement:
+The Europe-wide eel panel separates two biological phases:
 
-1. **initiation** — does the eel enter the published migratory movement state?
-2. **completion / successful endpoint** — among initiators, does the eel reach the published successful-migrant endpoint?
+1. **migration initiation** — whether a tracked eel enters the published migratory movement state;
+2. **sea escapement after initiation** — whether an initiator reaches the project-specific successful-sea-escapement endpoint.
 
-This separation is more informative than a single "movement success" response.
+The source definition now exactly follows the upstream processing code, including nine 2015 individuals that the authors removed from the migratory set by expert judgement.
 
-## Gate 1 — internal state controls initiation
+## Gate 1 — silvering readiness strongly structures departure
 
-Among FIII/FIV/FV individuals actually represented in the processed migration tables:
+Among FIII/FIV/FV individuals represented in the processed migration tables:
 
-- FIII initiation: **161 / 261 = 61.7%**
-- FIV initiation: **54 / 68 = 79.4%**
-- FV initiation: **216 / 246 = 87.8%**
+- FIII: **154/261 = 59.0%**
+- FIV: **53/68 = 77.9%**
+- FV: **215/246 = 87.4%**
 
-Coverage of exact-stage metadata in the processed migration tables is approximately 95% overall.
+Project × release-year fixed effects plus within-stratum body length and release timing:
 
-A project × release-year fixed-effect logistic model, controlling for within-stratum body length and release timing, gives:
+> **OR = 2.08 per FIII -> FIV -> FV increment**  
+> 95% CI **1.56–2.76**  
+> p ≈ **4.2e-7**
 
-> **OR = 1.99 per one Durif-stage increment**
->
-> 95% CI **1.49–2.66**
->
-> p ≈ **3.2e-6**
+A deliberately harsh sensitivity that counts all 28 stage-coded individuals missing from the migration tables as non-initiators still gives:
 
-Thus independently measured migratory readiness strongly predicts whether later movement is initiated.
+> **OR = 1.92**  
+> 95% CI **1.47–2.52**
 
-## Gate 2 — stage is much weaker after initiation
+Leave-one-project-out estimates remain positive in all six deletions:
 
-Among individuals that entered the published migratory movement state, the published successful-migrant endpoint rates were:
+> **OR range 1.67–2.35**, with every 95% CI above 1.
 
-- FIII: **106 / 161 = 65.8%**
-- FIV: **45 / 54 = 83.3%**
-- FV: **116 / 216 = 53.7%**
+### Timing among initiators
 
-After project × release-year fixed effects, body length and release timing:
+Among observed initiators, advanced stage is also associated with shorter release-to-first-migration delay.
 
-> **OR = 1.29 per Durif-stage increment**
->
-> 95% CI **0.94–1.77**
->
-> p ≈ **0.12**
+After the same project-year/body-size/release-timing adjustment:
 
-The strong stage gradient therefore does **not** persist clearly into the second gate.
+> multiplicative effect on (1 + delay) = **0.73 per stage**  
+> 95% CI **0.58–0.91**  
+> p ≈ **0.0048**
 
-## Strong system dependence after initiation
+This timing analysis conditions on initiation and is therefore secondary.
 
-Completion rates among initiators vary strongly among projects:
+## Gate 2 — stage gradient largely disappears after departure
 
-| project | dominant WRS impact | successful / initiated | rate |
-|---|---:|---:|---:|
-| 2015 phd_verhelst_eel | 0 | 76 / 95 | 0.80 |
-| 2019 Grotenete | 0 | 33 / 33 | 1.00 |
-| 2011 Warnow | 1 | 87 / 107 | 0.81 |
-| ESGL | 3 | 10 / 12 | 0.83 |
-| 2012 Leopoldkanaal | 5 | 36 / 52 | 0.69 |
-| 2013 Albertkanaal | mostly 14 | 25 / 132 | 0.19 |
+The upstream code defines successful migration as **successful escapement to the sea**, using project-specific terminal station/distance rules.
 
-At the six-project level, representative WRS impact and completion rate have:
+Among expert-corrected initiators:
 
-- Spearman rho ≈ **-0.70**
-- exact two-sided permutation p ≈ **0.14**
+- FIII: **106/154 = 68.8%**
+- FIV: **45/53 = 84.9%**
+- FV: **116/215 = 54.0%**
 
-This is descriptive only. WRS is substantially confounded with project/system identity.
+With project × release-year fixed effects, body length and release timing:
+
+> **OR = 1.15 per Durif stage**  
+> 95% CI **0.83–1.59**  
+> p ≈ **0.41**
+
+Thus the strong stage gradient at departure is not retained clearly for sea escapement after departure.
 
 ## Ecological interpretation
 
-The strongest current hypothesis is:
+The supported developmental pattern is:
 
-> **Internal state opens the movement gate; landscape and system context determine how successfully that movement can be completed.**
+> **internal migratory readiness strongly structures whether and how quickly movement begins; after movement has begun, the fate of that migration becomes much more context dependent.**
 
-This is different from saying that advanced-stage eels simply "move more."
+This does not prove that barriers or WRS cause Gate 2. Project-specific receiver geometry, hydrology, route length and barrier configuration remain entangled.
 
-Conceptually:
+## What is already known
 
-```text
-internal readiness
-      |
-      v
-migration initiation
-      |
-      v
-landscape / barrier / hydrological filter
-      |
-      v
-successful progression / escapement
-```
+The components are established:
 
-## Why this matters
+- FIII is premigrant and FIV/FV are migrant silvering stages;
+- external cues such as discharge and lunar conditions trigger downstream movement;
+- barriers can delay, redirect or prevent sea escapement.
 
-A single movement endpoint mixes two different ecological processes:
+The novelty candidate is therefore not the existence of two influences.
 
-- motivation / readiness to leave;
-- external opportunity / resistance after leaving.
+It is the **continental-scale empirical partition of the same individuals' movement process**, showing a strong morphological-stage gradient for initiation but a much weaker one for conditional sea escapement.
 
-The current results suggest these may be governed by different controls.
+## Next confirmation
 
-That distinction can explain why advanced Durif stage has a strong average association with migration, yet project-specific successful-migrant effects are highly heterogeneous.
+The Dutch pump -> tidal-sluice dataset should test Gate 2 within one shared route:
 
-## Testable predictions
-
-### G1 — initiation prediction
-
-Within the same landscape and season, advanced independently measured migratory state should increase the probability or hazard of migration initiation.
-
-### G2 — context filtering
-
-Conditional on initiation, variation in passage/escapement should be more strongly structured by barrier and hydrological opportunity than by Durif stage alone.
-
-### G3 — interaction at difficult barriers
-
-Internal readiness may matter most when passage opportunities are intermittent rather than impossible.
-
-This predicts a state × opportunity interaction, not necessarily a monotonic stage effect on final success.
-
-## Confirmation target
-
-The Dutch pump -> tidal-sluice system is useful because the same individuals encounter two different passage regimes.
-
-The key test is not simply whether FV eels succeed more often.
-
-It is whether:
-
-> **Durif state changes how efficiently individuals exploit available passage windows at each barrier.**
+> once eels are ready and moving, do barrier-specific passage opportunities explain progression better than residual Durif-stage differences?
 
 ## Claim boundary
 
-- processed migration-table absence is not treated as failure to initiate;
-- initiation analyses use only tags represented in the migration tables;
-- project/system effects are not relabelled as WRS causation;
-- the six-project WRS correlation is descriptive;
-- the published endpoint was inspected during hypothesis development, so these are developmental independent results.
+These results are developmental rather than preregistered confirmation. Do not claim a universal two-gate law until the phase-specific pattern is reproduced independently.
