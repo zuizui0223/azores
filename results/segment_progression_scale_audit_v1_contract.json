@@ -1,0 +1,47 @@
+{
+  "schema": "azores.segment_progression_scale_audit_v1.contract",
+  "frozen_on": "2026-10-05",
+  "status": "FROZEN_BEFORE_STAGE_RESULT_INSPECTION",
+  "evidence_class": "posthoc_external-boundary_scale_audit",
+  "motivation": "A 2026 River Test study retained silvering stage in a repeated reach-level downstream-progression model, whereas the six-project canonical overall-trajectory speed analysis showed little general Durif-stage effect. This audit tests one pre-specified finer-scale progression endpoint to distinguish aggregation-scale from true phase attenuation.",
+  "source": {
+    "repository": "PieterjanVerhelst/eel-meta-analysis",
+    "pinned_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "row_speed_origin": "src/calculate_speed.R movementSpeeds(..., 'last to first', distance_matrix)",
+    "migration_window": "rows with migration == TRUE after upstream migration classification and expert nonmigrant corrections"
+  },
+  "primary_endpoint": {
+    "unit": "eel",
+    "definition": "median of finite positive row-level speed_m_s values across migration==TRUE rows for each expert-corrected activated eel",
+    "rationale": "Uses consecutive-station transit-speed information and is not the classifier migration_speed variable. The median is fixed before stage inspection to reduce sensitivity to occasional extreme inter-station values without introducing an outcome-tuned upper-speed threshold.",
+    "minimum_positive_segments_per_eel": 2,
+    "no_upper_speed_trimming": true,
+    "no_alternative_summary_rescue": true
+  },
+  "primary_model": {
+    "response": "log(individual_median_positive_speed_m_s)",
+    "predictors": [
+      "project x release-year fixed effects",
+      "within-stratum body length per 100 mm",
+      "within-stratum release timing per 100 days",
+      "ordinal Durif stage FIII=0,FIV=1,FV=2"
+    ],
+    "informative_stratum_rule": "n >= 8 eligible eels and >=2 Durif stages",
+    "coefficient_of_interest": "Durif stage",
+    "interpretation": {
+      "ratio_gt_1_supported": "More advanced silvering predicts faster active inter-station transit even though canonical overall trajectory speed shows little general stage effect.",
+      "near_null": "The weak stage signal extends from overall elapsed migration speed to a finer-scale inter-station transit endpoint.",
+      "ratio_lt_1_supported": "Advanced stage is associated with slower inter-station transit; do not reinterpret without an independently motivated mechanism."
+    }
+  },
+  "secondary": [
+    "Report project-specific primary endpoint stage coefficients only as scope diagnostics, with no subgroup rescue.",
+    "Report correlation between individual median segment speed and canonical overall speed descriptively if exact individual linkage is available."
+  ],
+  "prohibited": [
+    "Do not use row-level observations as independent biological replicates.",
+    "Do not use the classifier-derived migration_speed column as the progression endpoint.",
+    "Do not tune minimum segment count, upper-speed cutoff, median/mean choice, project inclusion, or covariates after stage-result inspection.",
+    "Do not promote a significant segment-speed effect into migration success or barrier-passage causation."
+  ]
+}
