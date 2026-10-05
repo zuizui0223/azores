@@ -1,0 +1,170 @@
+{
+  "schema": "azores.two_gate_movement_developmental_v1",
+  "evidence_class": "developmental_independent_not_outcome_blind",
+  "upstream": {
+    "repository": "PieterjanVerhelst/eel-meta-analysis",
+    "commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "projects": [
+      "2011_Warnow",
+      "2012_leopoldkanaal",
+      "2013_albertkanaal",
+      "2015_phd_verhelst_eel",
+      "2019_Grotenete",
+      "ESGL"
+    ],
+    "stage_coded_metadata_n": 603,
+    "migration_table_seen_n": 575,
+    "coverage": 0.9535655058043118
+  },
+  "gate1_initiation": {
+    "raw": {
+      "FIII": {
+        "initiated": 161,
+        "seen": 261,
+        "rate": 0.6168582375478927
+      },
+      "FIV": {
+        "initiated": 54,
+        "seen": 68,
+        "rate": 0.7941176470588235
+      },
+      "FV": {
+        "initiated": 216,
+        "seen": 246,
+        "rate": 0.8780487804878049
+      }
+    },
+    "adjusted": {
+      "model": "project x release-year fixed effects + within-stratum length + release timing + ordinal Durif stage",
+      "n": 525,
+      "n_informative_project_year_strata": 11,
+      "durif_per_stage": {
+        "OR": 1.989416889464891,
+        "CI95": [
+          1.4896939383461336,
+          2.6567736218904874
+        ],
+        "p": 0.000003156728258790764
+      },
+      "body_length_per_100mm": {
+        "OR": 1.3736093252596915,
+        "CI95": [
+          0.9965612720783019,
+          1.8933131672932748
+        ],
+        "p": 0.052506098943386315
+      },
+      "release_timing_per_100days": {
+        "OR": 1.302653504034425,
+        "CI95": [
+          0.679293452867778,
+          2.498045792152603
+        ],
+        "p": 0.4260759705523043
+      }
+    },
+    "median_release_to_onset_days": {
+      "FIII": 4.8585416666666665,
+      "FIV": 0.21514467592592593,
+      "FV": 0.6902256944444445
+    }
+  },
+  "gate2_success_given_initiation": {
+    "raw": {
+      "FIII": {
+        "success": 106,
+        "initiated": 161,
+        "rate": 0.6583850931677019
+      },
+      "FIV": {
+        "success": 45,
+        "initiated": 54,
+        "rate": 0.8333333333333334
+      },
+      "FV": {
+        "success": 116,
+        "initiated": 216,
+        "rate": 0.5370370370370371
+      }
+    },
+    "adjusted": {
+      "model": "project x release-year fixed effects + within-stratum length + release timing + ordinal Durif stage",
+      "n": 394,
+      "n_informative_project_year_strata": 11,
+      "durif_per_stage": {
+        "OR": 1.2854427463704412,
+        "CI95": [
+          0.9356999642215703,
+          1.7659112080559076
+        ],
+        "p": 0.1211878931874204
+      },
+      "body_length_per_100mm": {
+        "OR": 1.0103739048271814,
+        "CI95": [
+          0.7140154101247339,
+          1.4297386486061825
+        ],
+        "p": 0.9535369904514317
+      },
+      "release_timing_per_100days": {
+        "OR": 1.5149463887537549,
+        "CI95": [
+          0.7044814682166941,
+          3.2578040223083575
+        ],
+        "p": 0.28764334060461505
+      }
+    },
+    "project_rates": {
+      "2011_Warnow": {
+        "wrs_impact": "1",
+        "success": 87,
+        "initiated": 107,
+        "rate": 0.8130841121495327
+      },
+      "2012_leopoldkanaal": {
+        "wrs_impact": "mostly 5",
+        "success": 36,
+        "initiated": 52,
+        "rate": 0.6923076923076923
+      },
+      "2013_albertkanaal": {
+        "wrs_impact": "mostly 14",
+        "success": 25,
+        "initiated": 132,
+        "rate": 0.1893939393939394
+      },
+      "2015_phd_verhelst_eel": {
+        "wrs_impact": "0",
+        "success": 76,
+        "initiated": 95,
+        "rate": 0.8
+      },
+      "2019_Grotenete": {
+        "wrs_impact": "0",
+        "success": 33,
+        "initiated": 33,
+        "rate": 1
+      },
+      "ESGL": {
+        "wrs_impact": "3",
+        "success": 10,
+        "initiated": 12,
+        "rate": 0.8333333333333334
+      }
+    },
+    "project_level_wrs_rank_association": {
+      "spearman_rho": -0.6957252427829381,
+      "exact_permutations": 720,
+      "two_sided_p": 0.14444444444444443,
+      "note": "descriptive only; WRS is strongly confounded with project/system identity"
+    }
+  },
+  "interpretation": "Internal migratory readiness strongly predicts movement initiation, while the stage gradient weakens after initiation and post-initiation success varies strongly among systems. This supports a two-gate hypothesis: internal state opens the movement gate; landscape/system context filters completion.",
+  "claim_boundary": [
+    "Tags absent from processed migration tables are not classified as non-initiators.",
+    "WRS/project association is descriptive, not causal.",
+    "Published outcomes were inspected during hypothesis development."
+  ]
+}
