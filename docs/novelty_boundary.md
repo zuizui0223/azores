@@ -1,103 +1,82 @@
-# Novelty boundary
+# Novelty boundary — Azores / eel programme
 
-## What is already established
+## Already established
 
 This project does **not** claim novelty for:
 
-- migration being controlled by both internal and external state;
-- physiological readiness providing a cue for departure;
 - European eel silvering;
-- Durif stages FIII/FIV/FV representing premigrant/migrating morphologies;
-- river flow, tides and other environmental conditions affecting eel migration timing;
-- barriers, pumping stations, sluices or regulated waterways delaying or reducing eel migration success;
-- morphologically silver eels sometimes failing to migrate immediately.
+- FIII as premigrant and FIV/FV as migrant silvering stages;
+- internal state affecting migration readiness;
+- discharge, darkness, lunar phase and other external cues affecting downstream migration;
+- barriers, pumping stations, locks and regulated waterways delaying or reducing escapement;
+- silver-stage eels sometimes failing to migrate;
+- the general distinction between departure decisions and later migratory success.
 
-These points are already well established in the animal-migration and eel literature.
-
-Key anchors include:
-
-- Durif et al. 2005: FIII as premigrant and FIV/FV as migrating silvering stages;
-- Chapman et al./Fryxell migration decision framework: internal readiness and external cues jointly determine departure;
-- Lennox et al. 2015 / movement-physiology frameworks: movement arises from internal state interacting with external conditions;
-- Verhelst et al. 2025: morphometric silvering alone does not guarantee observed migratory behaviour in telemetry;
-- multiple eel barrier studies: passage success and delay depend strongly on flow, route and barrier context.
+Durif et al. established the silvering-stage biology, and a large literature already separates physiological readiness, environmental triggers and barrier passage.
 
 ## Developmental empirical contribution
 
-The open Europe-wide telemetry panel allows the movement sequence to be split into two biologically distinct transitions:
+Using the same open continental telemetry panel and a movement definition pinned to the source code, the present analysis separates:
 
 ~~~text
-capture-time silvering readiness
+capture-time Durif state
         |
         v
 migration initiation
         |
         v
-post-departure progression / completion
+sea escapement
 ~~~
-
-The present analysis finds:
 
 ### Initiation
 
-After project × release-year control plus body length and release timing:
+Expert-corrected, project-year/body-size/release-timing adjusted:
 
-- Durif stage OR per FIII -> FIV -> FV increment: **1.99**
-- 95% CI: **1.49–2.66**
-- p ≈ **3.2e-6**
+- OR **2.08** per stage
+- 95% CI **1.56–2.76**
+- p ≈ **4.2e-7**
 
-### Completion conditional on initiation
+The result survives:
+- classifying migration-table missingness as failure: OR **1.92**;
+- deleting any one project: OR **1.67–2.35**.
 
-Under the same adjustment structure among initiators:
+Among initiators, advanced stage also predicts shorter onset delay:
+- multiplicative effect on (1 + delay): **0.73**
+- 95% CI **0.58–0.91**.
 
-- Durif stage OR per increment: **1.29**
-- 95% CI: **0.94–1.77**
-- p = **0.12**
+### Sea escapement conditional on initiation
+
+Under the same adjustment structure:
+
+- OR **1.15** per stage
+- 95% CI **0.83–1.59**
+- p ≈ **0.41**
 
 ## Novelty candidate
 
-The novelty candidate is therefore **not**:
+The novelty candidate is the **phase-specific empirical dissociation**:
 
-> internal state matters for migration.
+> **morphological migratory readiness is strongly informative about departure, but carries much less information about sea escapement once departure has occurred.**
 
-It is the empirical partition:
+This suggests that "migration success" should not be treated as one biological response when asking why individuals fail to reach the sea.
 
-> **morphological migratory readiness contains much stronger information about whether migration is initiated than about whether an initiated migration is successfully completed.**
+## Why this matters ecologically
 
-That suggests a phase-specific control structure:
+A final escapement endpoint conflates at least two biologically different failures:
 
-- **departure:** strongly associated with internal readiness;
-- **post-departure fate:** increasingly filtered by route, barriers, hydrology and other external context.
+1. **departure limitation** — the animal never enters the migratory movement state;
+2. **progression limitation** — the animal starts migrating but does not reach the sea endpoint.
 
-## Why this is ecologically useful
+Those failures imply different biology and different conservation actions.
 
-Many migration studies analyse one endpoint such as migration success or escapement.
+## What remains unresolved
 
-A single endpoint mixes:
+The present panel cannot identify which external feature causes progression limitation because project, route length, receiver geometry, WRS configuration and hydrology are entangled.
 
-1. failure to enter the migratory behavioural state;
-2. failure after movement has begun.
-
-Those failures have different biology and different conservation responses.
-
-For eel management:
-
-- improving passage cannot make an unready eel initiate migration;
-- high readiness cannot guarantee escapement through a poor migration landscape;
-- interventions should distinguish **departure limitation** from **progression limitation**.
-
-## What still requires confirmation
-
-The present panel does not identify which external variable causes post-departure filtering because project, barrier configuration, hydrology and telemetry geometry are entangled.
-
-The next independent confirmation must ask:
-
-> **among eels that have already initiated migration in the same route, what barrier/opportunity conditions determine progression, and does residual internal readiness still matter?**
-
-The Dutch consecutive-barrier dataset is the current candidate.
+The next independent test must operate within a shared landscape/barrier sequence.
 
 ## Evidence boundary
 
-The Europe-wide successful-migrant outcome was inspected during hypothesis development, and the present initiation/completion decomposition is therefore developmental rather than preregistered confirmation.
+The source outcome was inspected while the hypothesis was developed. Treat the current result as developmental independent evidence, not untouched validation.
 
-Do not claim a universal two-stage law until the phase-specific pattern is reproduced in an independent system.
+Do not claim novelty from the label "two-gate movement"; claim only the observed phase-specific dissociation if it replicates.
