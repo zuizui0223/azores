@@ -4,50 +4,65 @@
   "source": {
     "repository": "PieterjanVerhelst/eel-meta-analysis",
     "pinned_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "classifier_definition": "initiation-positive if downstream_migration=TRUE; threshold-crossing time from time_first_dist_to_use on first qualifying row",
     "primary_stages": [
       "FIII",
       "FIV",
       "FV"
     ],
-    "migration_files": [
-      "migration_2011_warnow.csv",
-      "migration_2012_leopoldkanaal.csv",
-      "migration_2013_albertkanaal.csv",
-      "migration_2015_phd_verhelst_eel.csv",
-      "migration_2019_grotenete.csv",
-      "migration_esgl.csv"
+    "expert_correction_project": "2015_phd_verhelst_eel",
+    "expert_nonmigrant_tags": [
+      "A69-1601-52624",
+      "A69-1601-57478",
+      "A69-1601-52630",
+      "A69-1601-52658",
+      "A69-1601-52650",
+      "A69-1601-52652",
+      "A69-1601-57465",
+      "A69-1601-52665",
+      "A69-1602-30335"
     ]
   },
-  "coverage": {
+  "corrected_aggregate": {
     "FIII": {
-      "metadata_n": 274,
-      "table_present_n": 261,
-      "coverage": 0.9525547445,
-      "initiated_n": 161,
-      "initiation_rate": 0.6168582375,
-      "median_onset_days": 4.8585416667
+      "n": 261,
+      "initiated": 154,
+      "rate": 0.5900383142,
+      "median_threshold_days": 7.2105034722
     },
     "FIV": {
-      "metadata_n": 70,
-      "table_present_n": 68,
-      "coverage": 0.9714285714,
-      "initiated_n": 54,
-      "initiation_rate": 0.7941176471,
-      "median_onset_days": 0.2151446759
+      "n": 68,
+      "initiated": 53,
+      "rate": 0.7794117647,
+      "median_threshold_days": 2.142025463
     },
     "FV": {
-      "metadata_n": 259,
-      "table_present_n": 246,
-      "coverage": 0.9498069498,
-      "initiated_n": 216,
-      "initiation_rate": 0.8780487805,
-      "median_onset_days": 0.6902256944
+      "n": 246,
+      "initiated": 215,
+      "rate": 0.8739837398,
+      "median_threshold_days": 2.145162037
     }
   },
-  "adjusted_model": {
-    "endpoint": "whether frozen published migration classifier ever becomes TRUE for a stage-tagged individual present in a project migration table",
-    "n_individuals": 525,
-    "n_informative_project_year_strata": 11,
+  "algorithm_only_sensitivity": {
+    "FIII": {
+      "initiated": 161,
+      "n": 261,
+      "rate": 0.6168582375
+    },
+    "FIV": {
+      "initiated": 54,
+      "n": 68,
+      "rate": 0.7941176471
+    },
+    "FV": {
+      "initiated": 216,
+      "n": 246,
+      "rate": 0.8780487805
+    }
+  },
+  "adjusted_initiation_model": {
+    "n": 525,
+    "informative_project_year_strata": 11,
     "fixed_effects": "project x release year",
     "covariates": [
       "within-stratum body length per 100 mm",
@@ -56,36 +71,150 @@
     ],
     "effects": {
       "body_length_per_100mm": {
-        "or": 1.3736093253,
+        "or": 1.2891424805,
         "ci95": [
-          0.9965612721,
-          1.8933131673
+          0.94688718,
+          1.7551070183
         ],
-        "p": 0.0525060989
+        "p": 0.1066740322
       },
       "release_timing_per_100days": {
-        "or": 1.302653504,
+        "or": 1.3028230221,
         "ci95": [
-          0.6792934529,
-          2.4980457922
+          0.6795561066,
+          2.4977302246
         ],
-        "p": 0.4260759706
+        "p": 0.4256660076
       },
       "durif_per_stage_increment": {
-        "or": 1.9894168895,
+        "or": 2.0763093041,
         "ci95": [
-          1.4896939383,
-          2.6567736219
+          1.5644523505,
+          2.7556354303
         ],
-        "p": 0.0000031567
+        "p": 4.2232831277e-7
       }
     }
   },
-  "interpretation": "Capture-time Durif readiness predicts whether later telemetry enters the frozen migratory state, independently of broad project-year, body-length, and release-timing differences.",
+  "leave_one_project_out_durif": {
+    "2011_Warnow": {
+      "or": 2.3399478545,
+      "ci95": [
+        1.690108435,
+        3.2396477339
+      ],
+      "p": 3.0343507573e-7
+    },
+    "2012_leopoldkanaal": {
+      "or": 2.0069817699,
+      "ci95": [
+        1.4652091473,
+        2.7490790869
+      ],
+      "p": 0.000014282306204
+    },
+    "2013_albertkanaal": {
+      "or": 2.3473454805,
+      "ci95": [
+        1.7257250313,
+        3.1928787638
+      ],
+      "p": 5.4498616509e-8
+    },
+    "2015_phd_verhelst_eel": {
+      "or": 1.6658444601,
+      "ci95": [
+        1.1947623863,
+        2.3226691744
+      ],
+      "p": 0.0026185044
+    },
+    "2019_Grotenete": {
+      "or": 1.9169628563,
+      "ci95": [
+        1.4365409403,
+        2.5580521163
+      ],
+      "p": 0.0000098361480738
+    },
+    "ESGL": {
+      "or": 2.2126616674,
+      "ci95": [
+        1.6243765212,
+        3.0140005044
+      ],
+      "p": 4.7503571388e-7
+    }
+  },
+  "threshold_crossing_latency": {
+    "n": 418,
+    "model": "log(1 + days to first time_first_dist_to_use) ~ project-year fixed effects + within-stratum body length + within-stratum release timing + ordinal Durif stage",
+    "durif_per_stage_increment": {
+      "multiplier": 0.7146143456,
+      "ci95": [
+        0.5853502765,
+        0.8724240568
+      ],
+      "p": 0.0009647835
+    },
+    "leave_one_project_out": {
+      "2011_Warnow": {
+        "multiplier": 0.6263909941,
+        "ci95": [
+          0.4920171656,
+          0.7974633914
+        ],
+        "p": 0.0001464537
+      },
+      "2012_leopoldkanaal": {
+        "multiplier": 0.8018939058,
+        "ci95": [
+          0.6533713768,
+          0.9841781549
+        ],
+        "p": 0.0346342248
+      },
+      "2013_albertkanaal": {
+        "multiplier": 0.5504491776,
+        "ci95": [
+          0.4342694927,
+          0.697710298
+        ],
+        "p": 7.9883327908e-7
+      },
+      "2015_phd_verhelst_eel": {
+        "multiplier": 0.9792181478,
+        "ci95": [
+          0.7984365223,
+          1.2009322647
+        ],
+        "p": 0.8401709606
+      },
+      "2019_Grotenete": {
+        "multiplier": 0.6854010378,
+        "ci95": [
+          0.5539341978,
+          0.8480692915
+        ],
+        "p": 0.0005077138
+      },
+      "ESGL": {
+        "multiplier": 0.7062521862,
+        "ci95": [
+          0.5747597749,
+          0.8678271729
+        ],
+        "p": 0.0009374922
+      }
+    },
+    "interpretation": "Advanced-stage eels cross the classifier distance threshold sooner on average, but this timing effect is not fully project-robust because it disappears when the Scheldt project is removed."
+  },
+  "interpretation": "Capture-time morphological migratory readiness robustly predicts whether later behavioural migration is expressed. This moves the evidence upstream from final successful escapement to movement initiation itself.",
   "boundary": [
-    "The migration flag is the outcome, never the state predictor.",
-    "Migration tables cover about 95-97% of stage-tagged metadata individuals; missing table individuals are not recoded as non-initiators.",
-    "Project heterogeneity remains strong and the result does not establish a universal stage x landscape-resistance interaction.",
+    "The first migration=TRUE row arrival is not treated as onset; the source downstream_migration/time_first_dist_to_use definition is used.",
+    "Nine source-specified 2015 classifier-positive tags are treated as expert nonmigrants in the primary analysis; algorithm-only counts are retained as sensitivity.",
+    "Missing project migration-table individuals are not recoded as non-initiators.",
+    "The result does not establish a stage x landscape-resistance interaction.",
     "Outcome information was inspected during hypothesis development; this is developmental evidence, not preregistered confirmation."
   ]
 }
