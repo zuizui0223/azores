@@ -84,6 +84,29 @@ def fit(rows):
     cov=np.linalg.inv(X.T@X)*sigma2
     return effect(beta,cov,X.shape[1]-1)
 
+def chi2_sf(x,df):
+    # Regularized upper incomplete gamma Q(df/2, x/2), stdlib-only.
+    a=df/2.0; xx=x/2.0
+    if xx < 0 or a <= 0: return float("nan")
+    eps=3e-12; fpmin=1e-300; itmax=300
+    if xx < a+1.0:
+        ap=a; term=1.0/a; summ=term
+        for _ in range(itmax):
+            ap+=1.0; term*=xx/ap; summ+=term
+            if abs(term) < abs(summ)*eps: break
+        p=summ*math.exp(-xx+a*math.log(xx)-math.lgamma(a)) if xx>0 else 0.0
+        return 1.0-p
+    b=xx+1.0-a; c=1.0/fpmin; d=1.0/b; h=d
+    for i in range(1,itmax+1):
+        an=-i*(i-a); b+=2.0
+        d=an*d+b
+        if abs(d)<fpmin: d=fpmin
+        c=b+an/c
+        if abs(c)<fpmin: c=fpmin
+        d=1.0/d; delta=d*c; h*=delta
+        if abs(delta-1.0)<eps: break
+    return math.exp(-xx+a*math.log(xx)-math.lgamma(a))*h
+
 def main():
     meta={}
     for r in csv.DictReader(io.StringIO(fetch_text(META_PATH))):
@@ -164,8 +187,8 @@ def main():
         "descriptive_by_stage":desc,
         "primary_adjusted_stage_effect":primary,
         "project_specific":project_effects,
-        "heterogeneity":{"Q":Q,"df":len(bs)-1,"tau2_DL":tau2,
-                         "fixed_effect_ratio":math.exp(mu)},
+        "heterogeneity":{"Q":Q,"df":len(bs)-1,"p_chi_square":chi2_sf(Q,len(bs)-1),
+                         "tau2_DL":tau2,"fixed_effect_ratio":math.exp(mu)},
         "canonical_overall_speed_reference":{"ratio":0.9831088158963496,
                                             "ci95":[0.8524016313969962,1.1338586275452411]},
         "interpretation":"Raw stage medians increase strongly across the pooled dataset, but after project-year, body length and release timing are represented, ordinal Durif stage provides essentially no general information about individual median positive inter-station transit speed.",
