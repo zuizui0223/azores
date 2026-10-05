@@ -1,5 +1,16 @@
 #!/usr/bin/env python3
-"""Directly test attenuation of the Durif-stage effect after migration begins.
+"""SECONDARY SENSITIVITY after terminal-endpoint audit.
+
+Directly contrast the Durif-stage coefficient at activation with coefficient for
+membership in the source terminal positive set. The source meta-analysis did not
+estimate escapement success rate, so terminal non-membership is not a validated
+biological failure state. This computation is retained for reproducibility and
+must not be used as the primary phase-control result.
+
+Current primary endpoints: activation, threshold-defined onset, post-activation
+migration speed. Canonical interpretation: results/phase_control_canonical_v2.json.
+
+Former analysis description:
 
 Stacked continuation-ratio representation:
 
