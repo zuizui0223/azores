@@ -1,0 +1,44 @@
+{
+  "schema": "azores.selection_gradient_turnover_contract.v1",
+  "evidence_class": "prospective_independent_target",
+  "question": "Does route resistance change the effect of pre-movement migratory readiness across sequential movement gates?",
+  "primary_predictor": {
+    "name": "pre_movement_readiness",
+    "preferred_measure": "Durif stage FIII/FIV/FV",
+    "timing": "before movement outcomes"
+  },
+  "analysis_unit": "individual x ordered gate",
+  "required_fields": [
+    "route_id",
+    "year",
+    "individual_id",
+    "readiness",
+    "body_size",
+    "gate_order",
+    "gate_id",
+    "gate_type",
+    "passed_gate",
+    "opportunity_state",
+    "route_resistance_class"
+  ],
+  "primary_estimands": {
+    "activation_gradient": "readiness effect at activation",
+    "gate_gradient": "readiness effect at each later gate",
+    "completion_gradient": "readiness effect on final completion",
+    "attenuation": "activation coefficient minus later gate coefficient",
+    "resistance_interaction": "readiness x gate x route resistance"
+  },
+  "predictions": [
+    "readiness strongly predicts activation",
+    "coupling is retained more strongly in permeable routes",
+    "coupling attenuates more in resistant routes",
+    "gate opportunity explains additional post-activation performance"
+  ],
+  "falsification": [
+    "readiness effect is constant across gates",
+    "attenuation is unrelated to resistance",
+    "phase differences disappear after body-size/timing/observability control",
+    "patterns do not replicate across route-years"
+  ],
+  "boundary": "Current Europe-wide panel is hypothesis-generating only."
+}
