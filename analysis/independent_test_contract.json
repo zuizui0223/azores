@@ -1,45 +1,58 @@
 {
-  "schema": "azores.independent_test_contract.v2",
-  "scientific_question": "Does independently measured capture-time migratory readiness modify how landscape resistance is translated into later realised movement?",
-  "priority_design": "project-aware Durif-stage x landscape-resistance comparison using open Europe-wide eel telemetry products",
-  "eligibility": {
-    "taxon": "Anguilla anguilla primary; other Anguilla spp. for replication",
-    "primary_stages": [
-      "FIII",
-      "FIV",
-      "FV"
+  "schema": "azores.independent_test_contract.v3",
+  "scientific_question": "Does internal migratory readiness primarily control migration activation, with its predictive importance attenuating during post-activation progression?",
+  "priority_design": "two sequential movement gates using independently measured capture-time Durif stage",
+  "primary_stages": [
+    "FIII",
+    "FIV",
+    "FV"
+  ],
+  "primary_cohort": {
+    "tracked_individuals": 575,
+    "expert_corrected_initiators": 422,
+    "rule": "metadata-only individuals absent from processed migration tables are not classified as biological non-migrants"
+  },
+  "gate1": {
+    "endpoint": "expert-corrected classified migration activation",
+    "estimand": "ordinal Durif effect on activation probability and time to onset",
+    "current_or_per_stage": 2.0763,
+    "current_or_ci95": [
+      1.5645,
+      2.7556
     ],
-    "boundary_stages": [
-      "FII",
-      "MII"
-    ],
-    "required": [
-      "individual-resolved capture-time life stage independent of later movement outcome",
-      "later telemetry-derived migration initiation/progression outcome",
-      "response-independent landscape resistance or hydrological-opportunity covariates",
-      "project/study identity",
-      "enough cross-project stage overlap for leave-one-project-out analysis"
-    ],
-    "reject_if": [
-      "movement-derived migration flag is used as predictor of movement",
-      "FII is pooled into FIII to increase power",
-      "MII is pooled with female stages without an explicit sex/stage sensitivity analysis",
-      "landscape categories are redefined after inspecting the stage interaction",
-      "a single project determines the interaction"
+    "current_onset_hr_per_stage": 1.29,
+    "current_onset_hr_ci95": [
+      1.13,
+      1.47
     ]
   },
-  "primary_estimand": "Durif stage x WRS/landscape-resistance interaction on later movement expression",
-  "secondary_estimands": [
-    "capture-time Durif stage effect on migration initiation",
-    "stage x landscape effect on migration progression or successful escapement"
-  ],
-  "primary_cohort_note": "FIII/FIV/FV are the primary cohort because each has >=98 individuals across 7 projects; FII n=17 and MII n=12 are boundary groups.",
-  "outcome_access_note": "Aggregate successful-migrant counts by stage were inspected during development before v2 freeze; this panel is developmental independent evidence, not outcome-blind confirmation.",
-  "stability_requirement": "report project-aware estimates and leave-one-project-out stability",
-  "interpretation": {
-    "stage_only": "internal readiness predicts movement but landscape gating is not established",
-    "stage_by_landscape": "supports state-dependent landscape resistance",
-    "no_robust_interaction": "do not claim the mobility-gating general principle from this panel"
+  "gate2": {
+    "endpoint": "published sea-escapement success among expert-corrected initiators",
+    "estimand": "ordinal Durif effect conditional on activation",
+    "current_or_per_stage": 1.1476,
+    "current_or_ci95": [
+      0.8261,
+      1.5942
+    ]
   },
-  "no_rescue": "do not change stage grouping, WRS definition, or primary interaction after model inspection"
+  "primary_phase_test": {
+    "estimand": "difference between Durif coefficients at activation and completion using individual-clustered stacked model",
+    "ratio_of_stage_odds_ratios": 1.8093,
+    "ci95": [
+      1.1529,
+      2.8395
+    ],
+    "p": 0.0099,
+    "lopo_direction_consistent": "6/6"
+  },
+  "external_confirmation": {
+    "target": "Dutch pump-to-tidal-sluice system",
+    "question": "after activation, do barrier-specific opportunity variables explain progression better than residual Durif differences?",
+    "reject_if": [
+      "Durif grouping is changed after outcome inspection",
+      "body mass is dropped to manufacture an identifiable stage effect",
+      "project-level WRS correlation is presented as causal confirmation"
+    ]
+  },
+  "evidence_boundary": "developmental independent evidence; outcomes inspected during hypothesis development; Dutch within-route confirmation remains required"
 }
