@@ -59,6 +59,22 @@ See:
 - [data feasibility audit](docs/data_feasibility_audit.md)
 - [analysis programme](analysis/README.md)
 
+## Additional movement-onset result
+
+The same internal-state signal appears before the final successful-migrant endpoint.
+
+Across six upstream migration projects, a project-year stratified Cox model of **time to first classified migration episode** included body length and within-year release timing.
+
+- n = **570**
+- classified migration episodes = **418**
+- Durif FIII -> FIV -> FV: hazard ratio **1.28** per stage
+- 95% CI **1.12–1.45**
+- p ≈ **2.2×10⁻⁴**
+
+Thus capture-time Durif readiness predicts both **whether downstream movement is ultimately realized** and **how rapidly the published classifier identifies a migration episode**.
+
+See [first migration episode result](docs/first_migration_episode_result.md).
+
 ## Evidence boundary
 
 These are developmental independent results, not outcome-blind confirmation.
