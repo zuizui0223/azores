@@ -1,125 +1,107 @@
-# Departure gate versus completion filter
+# Departure gate versus progression filter — canonical summary
 
-## Main result
+## Primary biological result
 
-The public Europe-wide eel migration tables were read for all six projects that contain the primary Durif stages FIII/FIV/FV.
+The Europe-wide eel panel supports a **phase-dependent association of internal migratory readiness**.
 
-The large Leopoldkanaal, Albertkanaal and 2015 telemetry tables were retrieved through their pinned Git blobs rather than the GitHub Contents endpoint.
+### Gate 1 — migration activation
 
-Upstream repository:
-- `PieterjanVerhelst/eel-meta-analysis`
-- pinned commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+Expert-corrected tracked stage totals:
 
-## Stage flow
+| Durif stage | tracked | initiated | rate |
+|---|---:|---:|---:|
+| FIII | 261 | 154 | **59.0%** |
+| FIV | 68 | 53 | **77.9%** |
+| FV | 246 | 215 | **87.4%** |
 
-| Capture-time stage | tracked n | initiated migration | initiation rate | successful endpoint | completion among initiators |
-|---|---:|---:|---:|---:|---:|
-| FIII | 261 | 161 | **61.7%** | 106 | **65.8%** |
-| FIV | 68 | 54 | **79.4%** | 45 | **83.3%** |
-| FV | 246 | 216 | **87.8%** | 116 | **53.7%** |
+Adjusted activation model:
 
-Raw initiation probability rises strongly with advanced silvering state.
+- OR/stage = **2.08**
+- 95% CI = **1.56–2.76**
+- p ≈ **4.2e-7**
 
-Completion after initiation does not show the same simple monotonic pattern.
+The effect remains positive after deleting each entire project.
 
-## Adjusted initiation model
+### Gate 2 — sea escapement after activation
 
-Model:
+The upstream source defines successful migration as **successful escapement to the sea**, with project-specific terminal station/distance rules.
 
-~~~text
-migration initiated
-  ~ project × release-year fixed effects
-  + within-stratum body length
-  + within-stratum release timing
-  + ordinal Durif stage
-~~~
+Adjusted among initiators:
 
-Eleven informative project-year strata contributed 525 individuals.
+- OR/stage = **1.15**
+- 95% CI = **0.83–1.59**
+- p = **0.412**
 
-Durif stage:
+### Direct phase test
 
-- OR per FIII -> FIV -> FV increment: **1.99**
-- 95% CI: **1.49–2.66**
-- p ≈ **3.2e-6**
+A stacked continuation-ratio model gives each phase separate:
 
-Leave-one-project-out stage ORs remain above 1:
+- project × release-year baselines;
+- body-length effects;
+- release-timing effects;
+- Durif-stage coefficients.
 
-- minimum ≈ **1.67**
-- maximum ≈ **2.26**
+Because initiators contribute to both phases, uncertainty is clustered by individual tag.
 
-The initiation result is therefore not driven by one project.
+Direct attenuation:
 
-## Adjusted completion model conditional on initiation
+- initiation/completion stage-OR ratio = **1.81**
+- 95% CI = **1.15–2.84**
+- p = **0.0099**
 
-The same model was fitted only to individuals that initiated migration.
+Leave-one-project-out:
 
-Eleven informative project-year strata contributed 394 initiators.
+- direction preserved in **6/6** deletions;
+- OR-ratio range **1.55–2.13**;
+- **5/6** remain p < 0.05.
 
-Durif stage:
+Therefore the main result is not based on comparing one significant p-value with one non-significant p-value.
 
-- OR per stage increment: **1.29**
-- 95% CI: **0.94–1.77**
-- p = **0.12**
+> **The stage effect itself is significantly stronger at activation than after activation.**
 
-This does not support a strong monotonic stage effect on successful completion once migration has begun.
+## Independent post-activation check
+
+Using the source-study migration-speed definition among expert-corrected initiators:
+
+- speed ratio/stage = **0.983**
+- 95% CI = **0.852–1.134**
+- p = **0.815**
+
+The attenuation therefore appears in both sea escapement and generic post-activation speed.
+
+## External-context bridge
+
+Across six project contexts:
+
+- WRS vs activation: rho **0.029**, exact p **0.983**
+- WRS vs completion: rho **-0.928**, exact p **0.022**
+
+This is descriptive bridge evidence only. WRS is strongly confounded with project/system context.
 
 ## Ecological interpretation
 
-The data support a more specific mechanism than the broad phrase “mobility gating”:
+The supported developmental interpretation is:
 
-> **Internal migratory state primarily opens the departure gate. After departure, realised fate becomes much more dependent on the external movement landscape.**
+> **internal silvering state is most informative at the transition into migratory behaviour; after activation, movement outcome becomes substantially more context dependent.**
 
-Conceptually:
+This is a shift in **relative predictive control**, not a switch from purely internal to purely external control.
 
-~~~text
-growth / pre-migrant state
-        |
-        | silvering readiness
-        v
-  DEPARTURE GATE
-        |
-        | movement begins
-        v
-  LANDSCAPE FILTER
-  barriers / flow / route
-  tracking opportunity
-        |
-        v
-  successful progression
-~~~
+## Novelty boundary
 
-This makes the Dutch consecutive-barrier test much more targeted.
+The biology of silvering, environmental migration cues and barrier effects is already established.
 
-The external confirmation question is no longer merely:
+The novelty candidate is the **empirical phase-specific dissociation in one continental telemetry panel**, not the phrase "two-gate migration."
 
-> does Durif stage predict passage?
+## Confirmation target
 
-It is:
+The Dutch pump -> tidal-sluice system should test the unresolved second half:
 
-> **after the departure gate has opened, which barrier and hydrological conditions determine whether latent migratory motivation can be converted into successful progression?**
+> once migration is active, do measured barrier-specific passage opportunities explain progression more strongly than residual Durif differences?
 
-## Important nuance
+## Numeric source of truth
 
-This is not proof that landscape resistance causes the weaker completion-stage association.
+Use:
 
-The post-initiation filter may contain:
-
-- barrier configuration;
-- hydrological opportunity;
-- route structure;
-- tracking geometry;
-- unmeasured physiological state;
-- project-specific handling or release context.
-
-The result tells us **where in the movement sequence internal state is most strongly expressed**, not yet which external factor controls the remaining fate.
-
-## Paper consequence
-
-Azores now has a clearer biological spine:
-
-1. a highly mobile species can remain locally resident during growth;
-2. advancing migratory readiness strongly increases the probability that movement begins;
-3. the same readiness is not enough to guarantee successful completion;
-4. therefore migration is naturally decomposed into **internal departure gating** and **external progression filtering**.
-
-The next paper-level confirmation should directly manipulate or observe the second stage inside one shared landscape, rather than continuing to compare broad project averages.
+- `results/phase_control_canonical_v1.json`
+- `manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V1.json`
+- `docs/phase_stage_interaction_result.md`
