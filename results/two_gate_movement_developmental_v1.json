@@ -1,16 +1,20 @@
 {
-  "schema": "azores.two_gate_movement_developmental_v1",
+  "schema": "azores.two_gate_movement_developmental_v2",
   "evidence_class": "developmental_independent_not_outcome_blind",
   "upstream": {
     "repository": "PieterjanVerhelst/eel-meta-analysis",
     "commit": "59578cb622dddbbba5174b4c51bff0807787385a",
-    "projects": [
-      "2011_Warnow",
-      "2012_leopoldkanaal",
-      "2013_albertkanaal",
-      "2015_phd_verhelst_eel",
-      "2019_Grotenete",
-      "ESGL"
+    "source_definition": "process_migration_data.R expert-corrected migration state; identify_escapement_success.R sea-escapement endpoint",
+    "expert_non_migrant_overrides": [
+      "A69-1601-52624",
+      "A69-1601-57478",
+      "A69-1601-52630",
+      "A69-1601-52658",
+      "A69-1601-52650",
+      "A69-1601-52652",
+      "A69-1601-57465",
+      "A69-1601-52665",
+      "A69-1602-30335"
     ],
     "stage_coded_metadata_n": 603,
     "migration_table_seen_n": 575,
@@ -19,19 +23,19 @@
   "gate1_initiation": {
     "raw": {
       "FIII": {
-        "initiated": 161,
+        "initiated": 154,
         "seen": 261,
-        "rate": 0.6168582375478927
+        "rate": 0.5900383141762452
       },
       "FIV": {
-        "initiated": 54,
+        "initiated": 53,
         "seen": 68,
-        "rate": 0.7941176470588235
+        "rate": 0.7794117647058824
       },
       "FV": {
-        "initiated": 216,
+        "initiated": 215,
         "seen": 246,
-        "rate": 0.8780487804878049
+        "rate": 0.8739837398373984
       }
     },
     "adjusted": {
@@ -39,132 +43,120 @@
       "n": 525,
       "n_informative_project_year_strata": 11,
       "durif_per_stage": {
-        "OR": 1.989416889464891,
+        "OR": 2.076309304055652,
         "CI95": [
-          1.4896939383461336,
-          2.6567736218904874
+          1.5644523505090615,
+          2.755635430318653
         ],
-        "p": 0.000003156728258790764
-      },
-      "body_length_per_100mm": {
-        "OR": 1.3736093252596915,
-        "CI95": [
-          0.9965612720783019,
-          1.8933131672932748
-        ],
-        "p": 0.052506098943386315
-      },
-      "release_timing_per_100days": {
-        "OR": 1.302653504034425,
-        "CI95": [
-          0.679293452867778,
-          2.498045792152603
-        ],
-        "p": 0.4260759705523043
+        "p": 4.223283127657851e-7
       }
     },
-    "median_release_to_onset_days": {
-      "FIII": 4.8585416666666665,
-      "FIV": 0.21514467592592593,
-      "FV": 0.6902256944444445
+    "conservative_missing_as_noninitiation": {
+      "n": 588,
+      "n_strata": 12,
+      "durif_per_stage": {
+        "OR": 1.9238556857953626,
+        "CI95": [
+          1.4672066521691172,
+          2.5226308061616702
+        ],
+        "p": 0.0000022155685406310965
+      }
+    },
+    "delay_among_initiators": {
+      "n": 418,
+      "n_strata": 13,
+      "response": "log1p(release-to-first-migration delay days)",
+      "multiplier_per_stage_on_1plus_delay": 0.7281728941451255,
+      "CI95": [
+        0.584157766799726,
+        0.9076927397072092
+      ],
+      "p": 0.0047815628184901815
+    },
+    "leave_one_project_out": {
+      "drop_2011_Warnow": {
+        "OR": 2.3399478544535284,
+        "CI95": [
+          1.690108435021094,
+          3.239647733900182
+        ]
+      },
+      "drop_2012_leopoldkanaal": {
+        "OR": 2.0069817699371253,
+        "CI95": [
+          1.4652091473091844,
+          2.7490790869393775
+        ]
+      },
+      "drop_2013_albertkanaal": {
+        "OR": 2.34734548045882,
+        "CI95": [
+          1.7257250313004318,
+          3.1928787638192446
+        ]
+      },
+      "drop_2015_phd_verhelst_eel": {
+        "OR": 1.665844460126038,
+        "CI95": [
+          1.1947623862853658,
+          2.3226691743790813
+        ]
+      },
+      "drop_2019_Grotenete": {
+        "OR": 1.9169628563174161,
+        "CI95": [
+          1.4365409402859046,
+          2.558052116335276
+        ]
+      },
+      "drop_ESGL": {
+        "OR": 2.212661667393056,
+        "CI95": [
+          1.6243765212246937,
+          3.0140005044270115
+        ]
+      }
     }
   },
-  "gate2_success_given_initiation": {
+  "gate2_sea_escapement_given_initiation": {
+    "endpoint_definition": "identify_escapement_success.R defines successful migration as successful escapement to the sea using project-specific terminal-distance/station rules",
     "raw": {
       "FIII": {
         "success": 106,
-        "initiated": 161,
-        "rate": 0.6583850931677019
+        "initiated": 154,
+        "rate": 0.6883116883116883
       },
       "FIV": {
         "success": 45,
-        "initiated": 54,
-        "rate": 0.8333333333333334
+        "initiated": 53,
+        "rate": 0.8490566037735849
       },
       "FV": {
         "success": 116,
-        "initiated": 216,
-        "rate": 0.5370370370370371
+        "initiated": 215,
+        "rate": 0.5395348837209303
       }
     },
     "adjusted": {
       "model": "project x release-year fixed effects + within-stratum length + release timing + ordinal Durif stage",
-      "n": 394,
+      "n": 385,
       "n_informative_project_year_strata": 11,
       "durif_per_stage": {
-        "OR": 1.2854427463704412,
+        "OR": 1.147577534058161,
         "CI95": [
-          0.9356999642215703,
-          1.7659112080559076
+          0.8260854081150285,
+          1.594186489360714
         ],
-        "p": 0.1211878931874204
-      },
-      "body_length_per_100mm": {
-        "OR": 1.0103739048271814,
-        "CI95": [
-          0.7140154101247339,
-          1.4297386486061825
-        ],
-        "p": 0.9535369904514317
-      },
-      "release_timing_per_100days": {
-        "OR": 1.5149463887537549,
-        "CI95": [
-          0.7044814682166941,
-          3.2578040223083575
-        ],
-        "p": 0.28764334060461505
+        "p": 0.4117689605153705
       }
-    },
-    "project_rates": {
-      "2011_Warnow": {
-        "wrs_impact": "1",
-        "success": 87,
-        "initiated": 107,
-        "rate": 0.8130841121495327
-      },
-      "2012_leopoldkanaal": {
-        "wrs_impact": "mostly 5",
-        "success": 36,
-        "initiated": 52,
-        "rate": 0.6923076923076923
-      },
-      "2013_albertkanaal": {
-        "wrs_impact": "mostly 14",
-        "success": 25,
-        "initiated": 132,
-        "rate": 0.1893939393939394
-      },
-      "2015_phd_verhelst_eel": {
-        "wrs_impact": "0",
-        "success": 76,
-        "initiated": 95,
-        "rate": 0.8
-      },
-      "2019_Grotenete": {
-        "wrs_impact": "0",
-        "success": 33,
-        "initiated": 33,
-        "rate": 1
-      },
-      "ESGL": {
-        "wrs_impact": "3",
-        "success": 10,
-        "initiated": 12,
-        "rate": 0.8333333333333334
-      }
-    },
-    "project_level_wrs_rank_association": {
-      "spearman_rho": -0.6957252427829381,
-      "exact_permutations": 720,
-      "two_sided_p": 0.14444444444444443,
-      "note": "descriptive only; WRS is strongly confounded with project/system identity"
     }
   },
-  "interpretation": "Internal migratory readiness strongly predicts movement initiation, while the stage gradient weakens after initiation and post-initiation success varies strongly among systems. This supports a two-gate hypothesis: internal state opens the movement gate; landscape/system context filters completion.",
+  "interpretation": "Capture-time silvering readiness robustly predicts migration initiation and shorter initiation delay, but its gradient largely disappears for sea escapement after initiation. This supports a phase-specific control hypothesis: internal readiness structures departure, while post-departure fate is more strongly filtered by external system context.",
   "claim_boundary": [
-    "Tags absent from processed migration tables are not classified as non-initiators.",
-    "WRS/project association is descriptive, not causal.",
-    "Published outcomes were inspected during hypothesis development."
+    "The two-gate framing itself is not claimed as a new migration concept.",
+    "WRS/project heterogeneity is not causal evidence for resistance.",
+    "Sea-escapement rules differ by project and may differ in observability.",
+    "Outcomes were inspected during hypothesis development."
   ]
 }
