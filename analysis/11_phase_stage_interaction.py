@@ -32,7 +32,8 @@ import urllib.request
 import numpy as np
 
 REPO = "PieterjanVerhelst/eel-meta-analysis"
-RAW = f"https://raw.githubusercontent.com/{REPO}/master"
+UPSTREAM_COMMIT = "59578cb622dddbbba5174b4c51bff0807787385a"
+RAW = f"https://raw.githubusercontent.com/{REPO}/{UPSTREAM_COMMIT}"
 META_URL = f"{RAW}/data/interim/eel_meta_data.csv"
 SUCCESS_URL = f"{RAW}/data/interim/successful_migrants_final_detection.csv"
 MIGRATION_FILES = [
@@ -285,6 +286,7 @@ def main() -> None:
 
     result = {
         "schema": "azores.phase_stage_interaction.v1",
+        "upstream_commit": UPSTREAM_COMMIT,
         "n_individuals": len(individuals),
         "n_stacked_rows": len(model),
         "n_informative_phase_project_year_strata": len(informative),
