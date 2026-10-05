@@ -50,6 +50,9 @@ The open biological question is now:
 The Dutch pump -> lake -> tidal-sluice system is the active within-route confirmation target.
 
 See:
+- [submission-canonical manuscript V3](manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md)
+- [V3 numeric contract](manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V2.json)
+- [V3 QC PASS](manuscript/MANUSCRIPT_QC_V2.json)
 - [canonical activation/onset/progression evidence](results/phase_control_canonical_v2.json)
 - [post-initiation speed result](docs/post_initiation_speed_result.md)
 - [Dutch barrier confirmation protocol](docs/dutch_barrier_confirmation_protocol.md)
