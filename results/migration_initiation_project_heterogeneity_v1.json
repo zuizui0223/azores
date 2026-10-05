@@ -1,0 +1,146 @@
+{
+  "schema": "azores.migration_initiation_project_heterogeneity_v1",
+  "evidence_class": "posthoc_scope_audit",
+  "primary_pooled_reference": {
+    "adjusted_or_per_stage": 2.0763093041,
+    "ci95": [
+      1.5644523505,
+      2.7556354303
+    ]
+  },
+  "project_models": [
+    {
+      "project": "2011_Warnow",
+      "n": 141,
+      "initiated": 107,
+      "stage_counts": {
+        "FIII": 86,
+        "FIV": 27,
+        "FV": 28
+      },
+      "stage_initiated": {
+        "FIII": 61,
+        "FIV": 23,
+        "FV": 23
+      },
+      "or_per_stage": 1.5276923536,
+      "ci95": [
+        0.8398680335,
+        2.7788221887
+      ],
+      "stable": true
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "n": 80,
+      "initiated": 52,
+      "stage_counts": {
+        "FIII": 45,
+        "FIV": 7,
+        "FV": 28
+      },
+      "stage_initiated": {
+        "FIII": 21,
+        "FIV": 7,
+        "FV": 24
+      },
+      "or_per_stage": 2.1584602389,
+      "ci95": [
+        1.0156118193,
+        4.5873339741
+      ],
+      "stable": true
+    },
+    {
+      "project": "2013_albertkanaal",
+      "n": 94,
+      "initiated": 83,
+      "stage_counts": {
+        "FIII": 20,
+        "FIV": 0,
+        "FV": 74
+      },
+      "stage_initiated": {
+        "FIII": 20,
+        "FIV": 0,
+        "FV": 63
+      },
+      "stable": false,
+      "reason": "quasi/separation; project-specific ordinal coefficient not interpretable"
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "n": 126,
+      "initiated": 86,
+      "stage_counts": {
+        "FIII": 67,
+        "FIV": 23,
+        "FV": 36
+      },
+      "stage_initiated": {
+        "FIII": 34,
+        "FIV": 19,
+        "FV": 33
+      },
+      "or_per_stage": 3.5037179139,
+      "ci95": [
+        1.8387607811,
+        6.6762568282
+      ],
+      "stable": true
+    },
+    {
+      "project": "2019_Grotenete",
+      "n": 38,
+      "initiated": 33,
+      "stage_counts": {
+        "FIII": 11,
+        "FIV": 2,
+        "FV": 25
+      },
+      "stage_initiated": {
+        "FIII": 6,
+        "FIV": 2,
+        "FV": 25
+      },
+      "stable": false,
+      "reason": "quasi/separation; project-specific ordinal coefficient not interpretable"
+    },
+    {
+      "project": "ESGL",
+      "n": 46,
+      "initiated": 12,
+      "stage_counts": {
+        "FIII": 26,
+        "FIV": 8,
+        "FV": 12
+      },
+      "stage_initiated": {
+        "FIII": 6,
+        "FIV": 1,
+        "FV": 5
+      },
+      "or_per_stage": 1.5320207437,
+      "ci95": [
+        0.7065449542,
+        3.3219224697
+      ],
+      "stable": true
+    }
+  ],
+  "heterogeneity_stable_projects": {
+    "k": 4,
+    "Q": 4.1428494131,
+    "df": 3,
+    "p": 0.2464463934,
+    "tau2_DL": 0.0466929745,
+    "fixed_effect_or": 2.0672428684
+  },
+  "interpretation": [
+    "All four stably estimable project-specific adjusted initiation coefficients are positive.",
+    "No strong between-project heterogeneity is detected among those four projects.",
+    "Two projects cannot support a stable standalone ordinal effect because initiation is close to perfectly predicted in sparse stage cells.",
+    "This supports a broadly positive activation-stage association but does not justify claiming an identical effect in every water body."
+  ],
+  "boundary": "Post-hoc scope audit; the pooled project-year adjusted model and leave-one-project-out analysis remain primary."
+}
