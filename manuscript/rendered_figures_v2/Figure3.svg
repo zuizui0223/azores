@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="100%" height="100%" fill="white"/>
+  <style>
+    text{font-family:Arial,Helvetica,sans-serif;fill:#111}
+    .title{font-size:28px;font-weight:700}
+    .panel{font-size:22px;font-weight:700}
+    .label{font-size:18px}
+    .small{font-size:15px}
+    .axis{stroke:#222;stroke-width:2}
+    .thin{stroke:#555;stroke-width:1.5}
+    .dash{stroke:#777;stroke-width:1.5;stroke-dasharray:6 6}
+    .bar{fill:#595959}
+    .light{fill:#d9d9d9;stroke:#444;stroke-width:1.2}
+    .point{fill:#111}
+  </style>
+<text x="55" y="55" class="title" text-anchor="start">Figure 3. Readiness gradient is absent from generic post-activation speed</text>
+<text x="55" y="110" class="panel" text-anchor="start">A</text><text x="95" y="110" class="panel" text-anchor="start">Descriptive migration speed among activated eels</text>
+<line x1="95" y1="560" x2="550" y2="560" class="axis"/><line x1="95" y1="220" x2="95" y2="560" class="axis"/>
+<line x1="185" y1="560" x2="185" y2="308.09999999999997" class="thin"/><circle cx="185" cy="308.09999999999997" r="9" class="point"/><text x="185" y="288.09999999999997" class="label" text-anchor="middle">0.0229</text><text x="185" y="595" class="label" text-anchor="middle">FIII</text><line x1="330" y1="560" x2="330" y2="304.8" class="thin"/><circle cx="330" cy="304.8" r="9" class="point"/><text x="330" y="284.8" class="label" text-anchor="middle">0.0232</text><text x="330" y="595" class="label" text-anchor="middle">FIV</text><line x1="475" y1="560" x2="475" y2="290.49999999999994" class="thin"/><circle cx="475" cy="290.49999999999994" r="9" class="point"/><text x="475" y="270.49999999999994" class="label" text-anchor="middle">0.0245</text><text x="475" y="595" class="label" text-anchor="middle">FV</text>
+<text x="320" y="655" class="label" text-anchor="middle">Median source-defined migration speed (m/s)</text>
+<text x="625" y="110" class="panel" text-anchor="start">B</text><text x="665" y="110" class="panel" text-anchor="start">Adjusted stage effect on post-activation speed</text>
+<line x1="925" y1="235" x2="925" y2="440" class="dash"/>
+<line x1="827.3199999999999" y1="330" x2="1013.4399999999999" y2="330" class="thin"/>
+<circle cx="913.78" cy="330" r="9" class="point"/>
+<line x1="760" y1="460" x2="1090" y2="460" class="axis"/><line x1="760" y1="460" x2="760" y2="472" class="thin"/><text x="760" y="500" class="small" text-anchor="middle">0.75</text><line x1="826" y1="460" x2="826" y2="472" class="thin"/><text x="826" y="500" class="small" text-anchor="middle">0.85</text><line x1="892" y1="460" x2="892" y2="472" class="thin"/><text x="892" y="500" class="small" text-anchor="middle">0.95</text><line x1="925" y1="460" x2="925" y2="472" class="thin"/><text x="925" y="500" class="small" text-anchor="middle">1.00</text><line x1="958" y1="460" x2="958" y2="472" class="thin"/><text x="958" y="500" class="small" text-anchor="middle">1.05</text><line x1="1024" y1="460" x2="1024" y2="472" class="thin"/><text x="1024" y="500" class="small" text-anchor="middle">1.15</text><line x1="1090" y1="460" x2="1090" y2="472" class="thin"/><text x="1090" y="500" class="small" text-anchor="middle">1.25</text>
+<text x="925" y="555" class="label" text-anchor="middle">Speed ratio per Durif-stage increment</text>
+<text x="925" y="605" class="label" text-anchor="middle">0.983  [0.852–1.134],  p = 0.815,  n = 418</text>
+<text x="55" y="690" class="small" text-anchor="start">Interpretation: stage strongly predicts activation, but not generic migration speed once active.</text>
+</svg>
