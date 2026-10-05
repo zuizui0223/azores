@@ -1,5 +1,15 @@
 # Direct phase-interaction result: Durif control attenuates after initiation
 
+## Endpoint-audit status
+
+**SECONDARY SENSITIVITY ONLY after the terminal-endpoint audit.**
+
+The phase-2 response is membership in the upstream terminal positive set. The source Europe-wide meta-analysis did not estimate escapement success rate, so non-membership is not a validated biological failure state.
+
+Therefore the OR-ratio result below remains reproducible but is **not manuscript-primary**. Current primary evidence is activation, threshold-defined onset and post-activation migration speed.
+
+Use `results/phase_control_canonical_v2.json` and `docs/escapement_endpoint_audit.md` for current interpretation.
+
 ## Question
 
 Separate models showed:
