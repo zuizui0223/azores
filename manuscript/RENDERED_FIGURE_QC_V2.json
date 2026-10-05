@@ -1,0 +1,22 @@
+{
+  "schema": "azores.rendered_figure_qc.v2",
+  "source_contract": "manuscript/FIGURE_DATA_CONTRACT_V2.json",
+  "source_qc": "manuscript/FIGURE_QC_V2.json",
+  "status": "PASS_REFERENCE_RENDER",
+  "rendered": [
+    "manuscript/rendered_figures_v2/Figure1.svg",
+    "manuscript/rendered_figures_v2/Figure2.svg",
+    "manuscript/rendered_figures_v2/Figure3.svg",
+    "manuscript/rendered_figures_v2/Figure4.svg"
+  ],
+  "checks": {
+    "figure1_no_terminal_failure_claim": true,
+    "figure2_activation_rates_match_contract": true,
+    "figure2_activation_or_matches_contract": true,
+    "figure2_onset_lopo_matches_contract": true,
+    "figure3_speed_medians_match_contract": true,
+    "figure3_speed_ratio_matches_contract": true,
+    "figure4_dutch_context_labeled_context_only": true,
+    "terminal_nonmembership_not_promoted": true
+  }
+}
