@@ -1,82 +1,76 @@
 # Post-activation speed reproducibility and novelty audit — 2026-10-05
 
-## Why this audit was reopened
+## Resolution of the reproducibility check
 
-The post-activation speed result had been treated as scientifically closed. Two new checks require that status to be reopened before submission:
+The initial audit incorrectly interpreted empty content returned by the GitHub file-content connector for three very large CSVs as empty repository files.
 
-1. the current committed analysis script does not reproduce the manuscript sample size from the pinned upstream source;
-2. a newly published 2026 European eel study reports a detectable silvering-stage contribution to downstream progression rate in a specific river context, so a universal "stage disappears after activation" interpretation is not tenable.
+That interpretation was wrong.
 
-## Frozen upstream source inspected
+The files have non-empty Git blob SHAs and can be retrieved directly by blob SHA. Their decoded sizes are approximately:
 
-Repository: `PieterjanVerhelst/eel-meta-analysis`  
-Pinned commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+- `migration_2012_leopoldkanaal.csv`: 5.47 MB;
+- `migration_2013_albertkanaal.csv`: 29.0 MB;
+- `migration_2015_phd_verhelst_eel.csv`: 2.94 MB.
 
-Current repository script audited:
+Using those blobs together with the other three migration files and the pinned metadata source, an independent reimplementation of the committed `analysis/12_post_initiation_speed.py` logic reproduces the canonical result exactly.
 
-- `analysis/12_post_initiation_speed.py`
+## Exact independent reproduction
 
-That script defines post-initiation speed from rows with `migration == TRUE`, using the six named migration CSVs listed in the script.
+Pinned upstream commit:
 
-## Reproducibility discrepancy
+`59578cb622dddbbba5174b4c51bff0807787385a`
 
-At the pinned upstream commit, three of the six migration files named by the current script are zero-byte files:
+After expert corrections and the script's project-year eligibility rule:
 
-- `migration_2012_leopoldkanaal.csv`
-- `migration_2013_albertkanaal.csv`
-- `migration_2015_phd_verhelst_eel.csv`
+- valid speed-bearing initiators before stratum filtering: **422**;
+- modelled eels: **418**;
+- informative project-year strata: **13**.
 
-The three non-empty files contain stage-coded `migration == TRUE` individuals as follows before the script's project-year eligibility filter:
+Stage counts in the model:
 
-- 2011 Warnow: 107
-- 2019 Grotenete: 33
-- ESGL: 12
+- FIII: **154**;
+- FIV: **53**;
+- FV: **211**.
 
-Thus the current script has at most 152 speed-bearing stage-coded individuals from the pinned source, not 418.
+Median speed:
 
-An independent reimplementation of the committed script's stated filtering/model logic gives:
+- FIII: **0.0228976 m/s**;
+- FIV: **0.0232434 m/s**;
+- FV: **0.0244765 m/s**.
 
-- eligible project-year strata: Warnow 2011; Grotenete 2019; Grotenete 2020; ESGL 2015
-- n = 152
-- Durif speed ratio per ordinal stage ≈ 0.968
-- approximate 95% CI ≈ 0.779–1.203
+Adjusted Durif effect:
 
-These numbers are **audit values only**. They do not replace the canonical manuscript result until the provenance of the existing n=418 / ratio=0.983 result is resolved using the exact original input artifact or corrected source path.
+- speed ratio per stage: **0.9831088159**;
+- 95% CI: **0.8524016314–1.1338586275**.
 
-## Immediate scientific consequence
+These match the canonical manuscript values.
 
-The canonical post-activation speed result is currently **not submission-safe**.
+Therefore:
 
-Do not use the speed endpoint as primary evidence for a phase-control handoff until one of the following is established:
+> **the post-activation speed endpoint is reproducible from the pinned upstream source.**
 
-1. the exact historical input files that generated n=418 are recovered and pinned; or
-2. the current script/source route is corrected, rerun and all manuscript contracts are regenerated.
+The earlier STOP based on apparent empty files is withdrawn.
 
-The activation and onset results are separate analyses and are not invalidated by this audit.
+## Why the scientific question is nevertheless reopened
 
-## New external evidence
+A newly published 2026 European eel study reports that silvering stage contributes to downstream progression rate in a specific river context. That evidence makes a universal interpretation of the pooled near-null stage coefficient inappropriate.
 
-Moyo et al. (Hydrobiologia, published 2026-10-01; DOI 10.1007/s10750-026-06406-6) analysed 25 silver European eels in the River Test and found that model selection retained silvering stage as a contributor to downstream progression rate together with environmental/context variables.
+The sharper ecological question is now:
 
-This does not contradict a weak pooled stage effect across heterogeneous systems. It does contradict a strong universal claim that silvering state ceases to matter after activation.
+> **Is the post-activation effect of migratory readiness context dependent across water bodies even though its pooled average is near zero?**
 
-The sharper ecological hypothesis is therefore:
-
-> **The effect of migratory readiness is phase-dependent and context-dependent: readiness consistently predicts activation, while its effect on progression is contingent on route and environmental context rather than universally absent.**
+This does not invalidate the activation/onset result or the pooled speed result. It changes the novelty target from a simple "handoff" to a possible phase-by-context interaction.
 
 ## Next valid analysis
 
-After the speed-input provenance is repaired, the next analysis should be a pre-specified heterogeneity test, not another pooled-null test:
+Estimate post-activation Durif effects by project under the same speed definition and covariate structure, then test between-project heterogeneity without tuning project groupings to the observed effects.
 
-- estimate post-activation stage effects by system/project where estimable;
-- test whether between-system heterogeneity exceeds sampling variation;
-- relate any heterogeneity only to independently defined route classes or environmental opportunity variables;
-- do not tune route classes against the stage-effect estimates.
+If heterogeneity is weak, retain the pooled attenuation interpretation.
 
-A nonzero stage effect in one system and a near-zero pooled mean would then be biologically informative rather than treated as conflict.
+If heterogeneity is substantial, the stronger result is:
+
+> readiness has a transferable activation effect but a context-contingent progression effect.
 
 ## Status
 
-**STOP_POST_ACTIVATION_SPEED_REPRO_AUDIT**
-
-Azores is not scientifically closed for submission until this discrepancy is resolved.
+**PASS_SPEED_REPRODUCTION / OPEN_CONTEXT_HETEROGENEITY_TEST**
