@@ -40,7 +40,8 @@ import urllib.request
 
 import numpy as np
 
-BASE = "https://raw.githubusercontent.com/PieterjanVerhelst/eel-meta-analysis/master"
+UPSTREAM_COMMIT = "59578cb622dddbbba5174b4c51bff0807787385a"
+BASE = f"https://raw.githubusercontent.com/PieterjanVerhelst/eel-meta-analysis/{UPSTREAM_COMMIT}"
 META_URL = f"{BASE}/data/interim/eel_meta_data.csv"
 PROJECT_FILES = {
     "2011_Warnow": f"{BASE}/data/interim/migration/migration_2011_warnow.csv",
@@ -376,6 +377,7 @@ def main() -> None:
 
     result = {
         "schema": "azores.migration_initiation_by_durif.v1",
+        "upstream_commit": UPSTREAM_COMMIT,
         "source_stats": source_stats,
         "stage_coded_metadata_n_six_projects": len(meta),
         "valid_track_n": len(tracked_records),
