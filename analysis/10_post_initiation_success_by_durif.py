@@ -10,6 +10,10 @@ Question:
   endpoint?
 
 This is a developmental decomposition, not a causal landscape test.
+
+The v2 implementation applies the same source-study expert non-migrant overrides
+as the canonical two-phase analysis and prefers downstream_migration when
+available, so reruns match the 422-individual expert-corrected initiator cohort.
 """
 from __future__ import annotations
 
@@ -66,7 +70,10 @@ def main() -> None:
             m = meta.get(tag)
             if m is None or m["project"] != project:
                 continue
-            if (r.get("migration") or "").strip().lower() == "true":
+            is_migrant = (r.get("downstream_migration") or r.get("migration") or "").strip().lower() == "true"
+            if tag in initiation.EXPERT_NON_MIGRANTS:
+                is_migrant = False
+            if is_migrant:
                 initiated.add(tag)
 
     raw = defaultdict(lambda: {"initiated_n": 0, "success_n": 0})
@@ -85,7 +92,7 @@ def main() -> None:
     adjusted = initiation.fit_adjusted_logistic(records)
 
     result = {
-        "schema": "azores.post_initiation_success_by_durif.v1",
+        "schema": "azores.post_initiation_success_by_durif.v2",
         "upstream_commit": initiation.UPSTREAM_COMMIT,
         "source_expert_non_migrant_overrides": sorted(initiation.EXPERT_NON_MIGRANTS),
         "raw_completion_among_initiators": dict(raw),
