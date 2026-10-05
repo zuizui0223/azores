@@ -1,0 +1,79 @@
+{
+  "schema": "azores.post_activation_speed_project_heterogeneity.v1",
+  "evidence_class": "posthoc_external-evidence-motivated developmental audit",
+  "source": {
+    "upstream_repository": "PieterjanVerhelst/eel-meta-analysis",
+    "pinned_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "speed_definition": "same as analysis/12_post_initiation_speed.py",
+    "model": "within each project: log(speed_ms) ~ release-year fixed effects + within-project-year body length + within-project-year release timing + ordinal Durif stage"
+  },
+  "project_effects": [
+    {
+      "project": "2011_Warnow",
+      "n": 107,
+      "speed_ratio_per_stage": 0.9147660278,
+      "ci95": [
+        0.6815351702,
+        1.2278117435
+      ]
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "n": 52,
+      "speed_ratio_per_stage": 0.9814994403,
+      "ci95": [
+        0.678257741,
+        1.4203172233
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "n": 128,
+      "speed_ratio_per_stage": 1.2716277635,
+      "ci95": [
+        0.8989808488,
+        1.7987448467
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "n": 86,
+      "speed_ratio_per_stage": 1.0108574796,
+      "ci95": [
+        0.8562231399,
+        1.1934188606
+      ]
+    },
+    {
+      "project": "2019_Grotenete",
+      "n": 33,
+      "speed_ratio_per_stage": 1.0349691486,
+      "ci95": [
+        0.7310661246,
+        1.4652041758
+      ]
+    },
+    {
+      "project": "ESGL",
+      "n": 12,
+      "speed_ratio_per_stage": 1.2189548652,
+      "ci95": [
+        0.6751436119,
+        2.2007924496
+      ]
+    }
+  ],
+  "heterogeneity": {
+    "cochran_Q": 2.4694836624,
+    "df": 5,
+    "p": 0.7810837153,
+    "fixed_effect_summary_ratio": 1.0282235372
+  },
+  "interpretation": "No evidence that the post-activation Durif-speed coefficient differs strongly among the six analysed projects. The pooled near-null is therefore not obviously produced by cancellation of large opposite project-specific effects.",
+  "boundary": [
+    "This is a post-hoc heterogeneity audit motivated by new external evidence, not preregistered confirmation.",
+    "A non-significant heterogeneity test does not prove identical stage effects across all European eel systems.",
+    "The 2026 River Test progression endpoint and covariate structure are not identical to the Europe-wide overall-speed endpoint.",
+    "Do not infer that external route context causally replaces internal state from this result."
+  ]
+}
