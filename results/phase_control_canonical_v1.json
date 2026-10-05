@@ -1,0 +1,117 @@
+{
+  "schema": "azores.phase_control_canonical_v1",
+  "evidence_class": "developmental_independent_not_outcome_blind",
+  "source": {
+    "repository": "PieterjanVerhelst/eel-meta-analysis",
+    "commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "primary_stages": [
+      "FIII",
+      "FIV",
+      "FV"
+    ],
+    "tracked_individuals": 575,
+    "expert_corrected_initiators": 422,
+    "expert_nonmigrant_overrides_n": 9
+  },
+  "gate1_activation": {
+    "raw": {
+      "FIII": {
+        "initiated": 154,
+        "tracked": 261,
+        "rate": 0.5900383141762452
+      },
+      "FIV": {
+        "initiated": 53,
+        "tracked": 68,
+        "rate": 0.7794117647058824
+      },
+      "FV": {
+        "initiated": 215,
+        "tracked": 246,
+        "rate": 0.8739837398373984
+      }
+    },
+    "adjusted_or_per_stage": 2.0763093040556564,
+    "cluster_or_ci95": [
+      1.554938985820719,
+      2.7724948473348903
+    ],
+    "standard_adjusted_ci95": [
+      1.5644523505090615,
+      2.755635430318653
+    ],
+    "p": 4.223283127657851e-7
+  },
+  "gate1_onset": {
+    "model": "stratified Cox, threshold-defined first downstream-migration crossing",
+    "n": 570,
+    "events": 418,
+    "hr_per_stage": 1.29,
+    "ci95": [
+      1.13,
+      1.47
+    ],
+    "p": 0.00016,
+    "lopo_hr_range": [
+      1.09,
+      1.52
+    ]
+  },
+  "gate2_sea_escapement_given_activation": {
+    "adjusted_or_per_stage": 1.1475775340581498,
+    "cluster_ci95": [
+      0.8144716268706538,
+      1.6169184453175878
+    ],
+    "standard_adjusted_ci95": [
+      0.8260854081150285,
+      1.594186489360714
+    ],
+    "p": 0.4117689605153705
+  },
+  "direct_phase_attenuation": {
+    "delta_beta": 0.5929387161219458,
+    "ratio_of_stage_odds_ratios": 1.8092976225434247,
+    "ci95": [
+      1.1528508836726459,
+      2.8395327906699355
+    ],
+    "p": 0.009921316278296732,
+    "lopo_or_ratio_range": [
+      1.5549804155791378,
+      2.126967712851475
+    ],
+    "lopo_direction_consistent": "6/6",
+    "lopo_p_lt_0_05": "5/6"
+  },
+  "post_activation_speed": {
+    "n": 418,
+    "speed_ratio_per_stage": 0.9831088158963496,
+    "ci95": [
+      0.8524016313969962,
+      1.1338586275452411
+    ],
+    "p": 0.8149491122926786
+  },
+  "project_context_bridge": {
+    "n_projects": 6,
+    "wrs_vs_activation": {
+      "rho": 0.028988551782622423,
+      "exact_two_sided_p": 0.9833333333333333
+    },
+    "wrs_vs_completion": {
+      "rho": -0.9276336570439175,
+      "exact_two_sided_p": 0.022222222222222223
+    },
+    "boundary": "project-level contextual alignment only; WRS is confounded with system identity, route, hydrology, telemetry geometry and observability"
+  },
+  "primary_claim": "The predictive association of internal migratory readiness is phase dependent: it is strong at migration activation and significantly attenuated after activation.",
+  "not_claimed": [
+    "Durif stage causes migration",
+    "external context wholly replaces internal control after activation",
+    "WRS causally explains completion",
+    "Durif stage has exactly zero post-activation effect",
+    "the two-gate concept itself is novel"
+  ],
+  "next_confirmation": "Within-route Dutch pump-to-tidal-sluice data: test whether barrier-specific passage opportunity explains progression once migration is active."
+}
