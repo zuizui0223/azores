@@ -1,147 +1,136 @@
-# Ecological mainline for Azores: movement control changes across phases
+# Azores ecological mainline: readiness to move versus ability to complete movement
 
-## Starting biological puzzle
+## Biological puzzle
 
-The Flores yellow-eel system supplied an extreme resident endpoint:
+European eels possess high migratory capacity, but movement is not expressed continuously.
 
-- 36 tagged yellow European eels;
-- strong pool fidelity;
-- zero valid receiver-to-receiver movement.
+The Flores yellow-eel system provides the deep-residence endpoint: 36 tagged individuals showed no valid receiver-to-receiver movements at the monitored scale.
 
-That result motivated a broader question about how a species capable of extreme lifetime migration can occupy radically different movement states.
+The independent Europe-wide panel then reveals that more advanced capture-time silvering state is strongly associated with later expression of migratory movement.
 
-The paper no longer asks simply:
+The key question is no longer simply:
 
-> why do some eels stay while others move?
+> why are some eels resident and others migratory?
 
-The stronger question is:
+It is:
 
-> **Does the biological control of movement change once migration has been activated?**
+> **At what point in a migration sequence does control shift from the organism's internal state to the external landscape?**
 
-## Two sequential ecological gates
+## Two biological gates
 
-### Gate 1 — activation
+### Gate 1 — movement activation
 
-The animal must enter a directed migratory movement state.
-
-Candidate control:
-- internal silvering / migratory readiness.
+Internal migratory readiness determines whether latent movement capacity is expressed.
 
 Developmental evidence:
 
-- FIII initiation: **59.0%**;
-- FIV initiation: **77.9%**;
-- FV initiation: **87.4%**;
-- adjusted OR per stage increment: **2.08**;
-- stratified onset HR per stage increment: **1.28**.
+- FIII -> FIV -> FV raises the odds of a later migratory trajectory about two-fold per stage;
+- the association persists after project-year, body size and release timing;
+- advanced stage is also associated with earlier directly detected downstream movement away from the release station.
 
-Interpretation:
+Working interpretation:
 
-> internal readiness strongly regulates whether and when the migration phenotype is expressed.
+> **internal state opens the movement gate.**
 
-### Gate 2 — progression
+### Gate 2 — movement realization
 
-After migration has begun, the animal must traverse a real route containing hydrological windows, barriers and delays.
+Once an individual is already expressing migratory movement, it must still traverse the landscape.
 
-Developmental evidence:
+Conditional on a migratory trajectory, the additional Durif signal for final successful migration is weak in the current panel, while completion varies strongly among projects.
 
-- adjusted Durif completion OR after initiation: **1.15**, 95% CI **0.83–1.59**;
-- adjusted post-initiation speed ratio per stage: **0.983**, 95% CI **0.852–1.134**.
+Working interpretation:
 
-Direct phase comparison:
+> **external opportunity determines how completely opened mobility can be realised.**
 
-- OR(initiation) / OR(completion): **1.81**;
-- 95% CI **1.15–2.84**;
-- phase interaction **p = 0.0099**.
+Candidate external controls include:
 
-Interpretation:
+- barrier configuration;
+- discharge and hydrological windows;
+- tidal opportunity;
+- route length;
+- passage structure and delay;
+- other system-specific resistance.
 
-> the general effect of internal readiness attenuates after movement is activated.
+The current Europe-wide data do not identify which of these causes the project heterogeneity.
 
-## External-context bridge
+## General ecological hypothesis
 
-Across six Europe-wide projects:
+> **Movement limitation can shift during a single behavioural sequence: internal state limits entry into movement, whereas external opportunity increasingly limits successful completion after movement begins.**
 
-- median WRS vs initiation: rho **+0.029**, exact p **0.983**;
-- median WRS vs completion after initiation: rho **-0.928**, exact p **0.022**.
+This is stronger than saying that both internal and external factors matter.
 
-This is not causal WRS evidence because resistance is project-confounded.
+It predicts a **change in the dominant limiting process across movement stages**.
 
-Its biological value is that the same external context descriptor aligns with Gate 2 but not Gate 1.
+## Falsifiable predictions
 
-## Independent Dutch constraint
+### A1 — internal-state gradient is strongest before/at movement activation
 
-A 2026 Dutch system followed FIII–FV eels through a pumping station and tidal sluice.
+Independent physiological readiness measured before movement should predict:
 
-Post-activation passage depended on:
+- departure/movement-mode entry;
+- probability of initiating directed movement;
+- timing of first movement expression.
 
-- discharge-event duration;
-- wind;
-- lunar illumination;
-- prior passage experience;
-- movement speed/body condition at specific steps.
+### A2 — internal-state gradient weakens after conditioning on movement entry
 
-Durif did not survive as a generic pumping-station predictor and was non-identifiable at the sluice because of body-mass confounding.
+Among individuals already expressing the migratory mode, internal-state effects on later completion should be smaller than effects on entry.
 
-This is compatible with the Europe-wide phase attenuation.
+### A3 — external opportunity becomes stronger after entry
 
-## Current ecological model
+Barrier, flow, tide or connectivity variables should explain:
 
-~~~text
-silvering / internal readiness
-            |
-            v
-      migration activation
-            |
-            v
- hydrological opportunity
- barrier-specific passage
-      route experience
-            |
-            v
- migration progression
-~~~
+- passage delay;
+- interruption;
+- route completion;
+- survival/escapement;
 
-Internal and external controls can operate at both phases.
+more strongly after migration is expressed than before.
 
-The supported claim is about a **shift in relative control**, not exclusive control.
+### A4 — environmental gating is state dependent before entry
 
-## General ecological relevance
+A favourable opportunity should not produce equivalent movement in individuals with low readiness.
 
-Many migration studies ask separately:
+Thus environmental opportunity can be necessary without being sufficient.
 
-- what triggers departure?
-- what determines route success?
+### A5 — the same state can have different realised outcomes across landscapes
 
-This programme links them as sequential filters and tests whether the **same predictor changes importance across those filters**.
+High-readiness individuals should move successfully in permeable systems but accumulate delay/failure in resistant systems.
 
-That distinction matters because conservation actions aimed at Gate 2 cannot be evaluated from Gate-1 readiness alone.
+## What would falsify the idea
 
-An animal can be physiologically ready to migrate yet still fail because the route does not provide passage opportunity.
+The control-shift hypothesis is weakened if independent data show that:
 
-## Conservation consequence
+- internal state predicts entry and completion equally strongly;
+- external variables do not become more important after movement expression;
+- high-readiness individuals complete migration regardless of passage context;
+- apparent stage effects vanish after independent physiological and seasonal controls.
 
-For European eel management:
+## Evidence boundary
 
-> increasing the number of migration-ready silver eels is not equivalent to increasing escapement.
+The current Europe-wide analysis is hypothesis-generating developmental evidence.
 
-If Gate 2 is externally constrained, management must preserve or create:
+Conditioning on a migratory trajectory is not a causal mediation analysis.
 
-- usable discharge windows;
-- barrier passage routes;
-- low-delay source-to-sea connectivity.
+The paper-level mechanism requires an independent system that measures internal state before movement and independently records both movement entry and passage/completion opportunity.
 
-The Dutch consecutive-barrier result illustrates how delays accumulate and how passage drivers differ between barriers.
+## Preferred confirmation design
 
-## What remains to test
+The strongest confirmation dataset would contain:
 
-The strongest remaining confirmation is an individual-resolved within-route dataset in which:
+1. pre-movement physiological or morphological state;
+2. an explicit movement-entry event;
+3. repeated encounters with known landscape opportunities/barriers;
+4. completion/failure after those encounters;
+5. hydrology or passage opportunity measured independently of movement outcome.
 
-- internal readiness varies independently of body size;
-- multiple external passage opportunities are observed;
-- initiation and progression can both be separated;
-- external drivers are measured before passage outcome.
+The Dutch consecutive pump–sluice system is one candidate, but additional systems should be sought because stage and body mass are partly confounded there.
 
-The target is no longer a generic Durif × WRS interaction.
+## Publication identity
 
-It is the **phase-specific transfer of predictive control from internal readiness toward route opportunity**.
+This is a **movement-ecology / life-history ecology** question about shifting limitation across a movement sequence.
+
+It is not:
+- a site-fidelity reanalysis;
+- an EOG validation;
+- a telemetry-method paper;
+- a claim that Durif stage alone determines migration success.
