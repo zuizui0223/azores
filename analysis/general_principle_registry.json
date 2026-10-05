@@ -1,8 +1,8 @@
 {
-  "schema": "azores.mobility_gating_program.v4",
-  "publication_endpoint": "phase-dependent control of migration: internal readiness at activation, attenuated internal-state effect during progression",
+  "schema": "azores.mobility_gating_program.v5",
+  "publication_endpoint": "activation of migration versus post-activation progression speed",
   "seed_system": "Flores yellow European eel",
-  "core_hypothesis": "internal migratory readiness primarily gates movement initiation; once movement begins, landscape/barrier opportunity may dominate progression and completion",
+  "core_hypothesis": "internal migratory readiness strongly predicts migration activation; after activation, generic movement speed is increasingly decoupled from Durif stage and becomes a target for route/opportunity explanations",
   "primary_cohort": {
     "stages": [
       "FIII",
@@ -20,23 +20,22 @@
   },
   "primary_predictions": [
     "advanced capture-time Durif state increases probability and rate of migration activation",
-    "the Durif-stage effect is significantly weaker after activation than at activation",
-    "post-activation progression varies strongly among route/system contexts",
-    "within-route barrier opportunity should explain post-activation progression in an independent system"
+    "advanced stage predicts earlier threshold-defined behavioral onset",
+    "post-activation migration speed does not show the same general Durif-stage gradient",
+    "within-route barrier/hydrological opportunity should explain progression heterogeneity in independent data"
   ],
   "primary_estimands": {
-    "activation": "expert-corrected Durif effect on binary initiation and time-to-onset",
-    "phase_attenuation": "direct clustered difference between activation and completion Durif coefficients",
-    "progression": "completion and migration speed among activated eels",
+    "activation": "expert-corrected Durif effect on binary initiation",
+    "onset": "stratified time-to-onset Durif hazard ratio",
+    "progression_speed": "Durif effect on source-defined migration speed among activated eels",
     "external_confirmation": "barrier/opportunity effects within one route after activation"
   },
   "falsification": [
     "independent data fail to reproduce readiness control of migration activation",
-    "post-initiation completion remains strongly Durif-dominated after external opportunity is represented",
-    "independent barrier/hydrological opportunity contributes little to progression",
-    "the apparent WRS completion gradient disappears in within-route data once project confounding is removed"
+    "post-activation speed shows a strong reproducible Durif gradient after route/design control",
+    "independent barrier/hydrological opportunity contributes little to progression"
   ],
-  "evidence_boundary": "Canonical numbers come from results/phase_control_canonical_v1.json. Older metadata-denominator success analyses and pre-expert-correction onset analyses are superseded/sensitivity only.",
+  "evidence_boundary": "Canonical interpretation comes from results/phase_control_canonical_v2.json. Terminal endpoint membership is secondary sensitivity because the source meta-analysis did not estimate escapement success rate.",
   "eog_role": "discovery of an extreme resident anchor only",
   "current_results": {
     "initiation": {
@@ -48,26 +47,15 @@
       "p": 4.22e-7,
       "n_tracked": 575
     },
-    "completion_given_initiation": {
-      "adjusted_or_per_durif_increment": 1.1476,
+    "onset": {
+      "hr_per_durif_increment": 1.29,
       "ci95": [
-        0.8261,
-        1.5942
+        1.13,
+        1.47
       ],
-      "p": 0.4118,
-      "n_initiators": 422
-    },
-    "project_context_gate": {
-      "n_projects": 6,
-      "median_wrs_vs_initiation_rho": 0.028988551782622423,
-      "initiation_exact_p": 0.9833333333333333,
-      "median_wrs_vs_completion_rho": -0.9276336570439175,
-      "completion_exact_p": 0.022222222222222223,
-      "completion_loo_rho_range": [
-        -0.9746794344808964,
-        -0.8720815992723809
-      ],
-      "boundary": "project-level context evidence only; WRS is strongly confounded with system identity"
+      "p": 0.00016,
+      "n": 570,
+      "events": 418
     },
     "post_initiation_speed": {
       "n_modelled": 418,
@@ -76,63 +64,20 @@
         0.8524016313969962,
         1.1338586275452411
       ],
-      "p": 0.8149491122926786,
-      "boundary": "source-paper overall migration-speed definition; developmental result"
+      "p": 0.8149491122926786
     },
-    "direct_phase_interaction": {
-      "initiation_or_per_stage": 2.08,
-      "completion_or_per_stage": 1.15,
-      "or_ratio": 1.81,
-      "ci95_or_ratio": [
-        1.15,
-        2.84
+    "terminal_endpoint_membership_sensitivity": {
+      "adjusted_or_per_stage": 1.1476,
+      "ci95": [
+        0.8261,
+        1.5942
       ],
-      "p": 0.0099,
-      "boundary": "cluster-robust stacked two-phase model; developmental evidence",
-      "leave_one_project_out": {
-        "direction_consistent": "6/6 OR-ratio estimates > 1",
-        "or_ratio_range": [
-          1.5549804155791378,
-          2.126967712851475
-        ],
-        "supported_p_lt_0_05": "5/6",
-        "weakest_case": {
-          "omitted_project": "2015_phd_verhelst_eel",
-          "or_ratio": 1.5549804155791378,
-          "ci95": [
-            0.9444737500143077,
-            2.560117835776843
-          ],
-          "p": 0.0826650344239741
-        },
-        "boundary": "direction is project-robust; formal interaction precision depends partly on the 2015 project"
-      }
+      "p": 0.4118,
+      "interpretation": "secondary observability-dependent sensitivity only"
     }
   },
-  "current_developmental_result": {
-    "initiation": {
-      "fixed_windows_days": [
-        7,
-        30,
-        60,
-        90
-      ],
-      "odds_ratio_per_durif_increment": [
-        1.51,
-        1.5,
-        1.7,
-        1.89
-      ],
-      "interpretation": "advanced Durif state predicts higher probability of opening the movement gate from the first week through three months"
-    },
-    "completion_given_initiation": {
-      "adjusted_or_per_durif_increment": 1.15,
-      "ci95": [
-        0.83,
-        1.59
-      ],
-      "p": 0.41,
-      "interpretation": "stage association is strongly attenuated among eels that have already initiated migration; descriptive only, not causal mediation"
-    }
+  "secondary_sensitivity": {
+    "terminal_endpoint_membership": "positive terminal/sea endpoint set only; complement not a validated biological failure state",
+    "direct_phase_or_ratio": "retained for audit/sensitivity only because phase-2 binary endpoint is observability dependent"
   }
 }
