@@ -1,0 +1,102 @@
+{
+  "schema": "azores.manuscript_numeric_contract.v3",
+  "manuscript": "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md",
+  "canonical_result": "results/phase_control_canonical_v2.json",
+  "primary_cohort": {
+    "stage_coded_metadata_six_projects": 603,
+    "cleaned_evaluable_tracks": 575,
+    "absent_from_cleaned_tracks": 28,
+    "upstream_cleaning_excluded": 27,
+    "release_only_no_postrelease_detection": 1,
+    "expert_corrected_initiators": 422,
+    "stage_initiation": {
+      "FIII": {
+        "initiated": 154,
+        "tracked": 261,
+        "rate": 0.59
+      },
+      "FIV": {
+        "initiated": 53,
+        "tracked": 68,
+        "rate": 0.779
+      },
+      "FV": {
+        "initiated": 215,
+        "tracked": 246,
+        "rate": 0.874
+      }
+    }
+  },
+  "primary_activation": {
+    "or_per_stage": 2.08,
+    "ci95": [
+      1.56,
+      2.76
+    ],
+    "p": 4.2e-7
+  },
+  "primary_onset": {
+    "n": 570,
+    "events": 418,
+    "clock": "time_first_dist_to_use from first downstream_migration TRUE row",
+    "hr_per_stage": 1.29,
+    "ci95": [
+      1.13,
+      1.47
+    ],
+    "p": 0.00016,
+    "lopo_hr_range": [
+      1.09,
+      1.52
+    ]
+  },
+  "primary_post_activation_speed": {
+    "n": 418,
+    "ratio_per_stage": 0.983,
+    "ci95": [
+      0.852,
+      1.134
+    ],
+    "p": 0.815,
+    "medians_ms": {
+      "FIII": 0.0229,
+      "FIV": 0.0232,
+      "FV": 0.0245
+    }
+  },
+  "secondary_sensitivity": {
+    "terminal_positive_set": {
+      "or_per_stage": 1.15,
+      "ci95": [
+        0.83,
+        1.59
+      ],
+      "p": 0.412,
+      "role": "secondary sensitivity only",
+      "complement_boundary": "non-membership is not a validated biological failure state"
+    },
+    "stacked_phase_or_ratio": {
+      "or_ratio": 1.81,
+      "ci95": [
+        1.15,
+        2.84
+      ],
+      "p": 0.0099,
+      "role": "secondary sensitivity only because phase 2 uses terminal positive-set membership"
+    }
+  },
+  "dutch_context": {
+    "n_tagged": 40,
+    "pump_passed": 35,
+    "sea_positive": 27,
+    "mean_cumulative_barrier_delay_days": 34,
+    "role": "independent ecological context / confirmation target, not direct phase-model replication"
+  },
+  "primary_claim": "Capture-time migratory readiness strongly predicts whether and when seaward migration becomes behaviorally active, whereas the same Durif-stage gradient is absent from generic post-activation migration speed.",
+  "prohibited_interpretations": [
+    "terminal non-membership equals migration failure",
+    "escapement probability is estimated in this reanalysis",
+    "WRS causally replaces internal state after activation",
+    "Durif stage has exactly zero post-activation effect"
+  ]
+}
