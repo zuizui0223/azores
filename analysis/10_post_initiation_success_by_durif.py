@@ -87,6 +87,7 @@ def main() -> None:
     result = {
         "schema": "azores.post_initiation_success_by_durif.v1",
         "upstream_commit": initiation.UPSTREAM_COMMIT,
+        "source_expert_non_migrant_overrides": sorted(initiation.EXPERT_NON_MIGRANTS),
         "raw_completion_among_initiators": dict(raw),
         "adjusted_model": adjusted,
         "interpretation": (
