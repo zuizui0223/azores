@@ -52,6 +52,17 @@ PROJECT_FILES = {
     "ESGL": f"{BASE}/data/interim/migration/migration_esgl.csv",
 }
 STAGE_SCORE = {"FIII": 0.0, "FIV": 1.0, "FV": 2.0}
+EXPERT_NON_MIGRANTS = {
+    "A69-1601-52624",
+    "A69-1601-57478",
+    "A69-1601-52630",
+    "A69-1601-52658",
+    "A69-1601-52650",
+    "A69-1601-52652",
+    "A69-1601-57465",
+    "A69-1601-52665",
+    "A69-1602-30335",
+}
 
 
 def fetch_rows(url: str) -> list[dict[str, str]]:
@@ -317,6 +328,8 @@ def main() -> None:
                     "onset": None,
                 }
             arrival = parse_datetime(r.get("arrival", ""))
+            if tag in EXPERT_NON_MIGRANTS:
+                continue
             if (r.get("migration") or "").strip().lower() == "true" and arrival is not None:
                 track[tag]["y"] = 1
                 if track[tag]["onset"] is None or arrival < track[tag]["onset"]:
@@ -378,6 +391,7 @@ def main() -> None:
     result = {
         "schema": "azores.migration_initiation_by_durif.v1",
         "upstream_commit": UPSTREAM_COMMIT,
+        "source_expert_non_migrant_overrides": sorted(EXPERT_NON_MIGRANTS),
         "source_stats": source_stats,
         "stage_coded_metadata_n_six_projects": len(meta),
         "valid_track_n": len(tracked_records),
