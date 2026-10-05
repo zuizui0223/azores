@@ -27,7 +27,8 @@ from pathlib import Path
 import urllib.request
 
 REPO = "PieterjanVerhelst/eel-meta-analysis"
-RAW = f"https://raw.githubusercontent.com/{REPO}/master"
+UPSTREAM_COMMIT = "59578cb622dddbbba5174b4c51bff0807787385a"
+RAW = f"https://raw.githubusercontent.com/{REPO}/{UPSTREAM_COMMIT}"
 META_URL = f"{RAW}/data/interim/eel_meta_data.csv"
 WRS_URL = f"{RAW}/data/external/eels_wrs.csv"
 SUCCESS_URL = f"{RAW}/data/interim/successful_migrants_final_detection.csv"
@@ -251,6 +252,7 @@ def main() -> None:
 
     result = {
         "schema": "azores.project_context_gate.v1",
+        "upstream_commit": UPSTREAM_COMMIT,
         "n_projects": len(projects),
         "reference_stage_weights": weights,
         "project_table": projects,
