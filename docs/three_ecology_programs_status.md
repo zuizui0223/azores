@@ -8,7 +8,7 @@ These are three separate ecological papers. EOG is provenance/discovery only.
 
 ### Scientific status
 
-**Activation/onset and pooled post-activation speed analyses reproduce exactly. Scientific status is reopened only for a pre-specified context-heterogeneity test motivated by new external evidence.**
+**Activation/onset and pooled post-activation speed analyses reproduce exactly. The post-activation project-heterogeneity audit is also complete and does not support strong between-project variation in the Durif-speed coefficient.**
 
 Primary evidence:
 
@@ -68,7 +68,7 @@ Older V1 completion-centred figure specifications and simplified initiation scri
 - source-study ethics wording check;
 - release/archive.
 
-**PASS_SPEED_REPRODUCTION / OPEN_CONTEXT_HETEROGENEITY_TEST:** pooled speed n=418 and ratio 0.983 reproduce exactly from the pinned source. The remaining scientific question is whether post-activation Durif effects vary among water bodies. See `docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md`.
+**PASS_SPEED_REPRODUCTION / HETEROGENEITY_AUDIT_COMPLETE:** pooled speed n=418 and ratio 0.983 reproduce exactly; project-specific speed ratios show no supported heterogeneity (Q=2.47, df=5, p=0.781). Mechanistic attribution to route opportunity remains unresolved rather than rescued by a stage × water-body interaction.
 
 ---
 
