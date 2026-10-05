@@ -1,49 +1,22 @@
-# Developmental independent result: migratory readiness predicts later movement
+# Superseded developmental analysis
 
-## Result
+This file is retained only for provenance.
 
-Using the public Europe-wide eel processed data, FIV/FV females were contrasted with FIII females for the published successful-migrant endpoint **within project**.
+The earlier analysis treated all FIII/FIV/FV metadata records as the denominator for the published successful-migrant endpoint. Source-code audit showed that the source workflow separates two sequential processes:
 
-Seven project strata contained both FIII and FIV/FV individuals.
+1. migration activation among evaluable processed tracks;
+2. sea escapement among animals that activated migration.
 
-Mantel–Haenszel pooled odds ratio:
+The current canonical result is therefore the two-phase analysis:
 
-**OR = 2.80**
+- activation: OR **2.08** per Durif-stage increment, 95% CI **1.56–2.76**;
+- completion after activation: OR **1.15**, 95% CI **0.83–1.59**;
+- direct initiation/completion OR ratio: **1.81**, 95% CI **1.15–2.84**, p = **0.0099**.
 
-Leave-one-project-out pooled OR range:
+Use:
+- `results/phase_control_canonical_v1.json`
+- `docs/phase_stage_interaction_result.md`
+- `analysis/09_durif_migration_initiation.py`
+- `analysis/11_phase_stage_interaction.py`
 
-**2.09–3.58**
-
-A deterministic project-cluster bootstrap (50,000 resamples, seed 20261001) gave:
-
-- median OR ≈ 2.79;
-- 2.5–97.5% bootstrap range ≈ **1.29–5.74**;
-- ≈99.3% of finite bootstrap replicates had OR > 1.
-
-## Biological reading
-
-This is evidence that **capture-time migratory readiness contains information about later realised movement even after conditioning on project**.
-
-It supports the first half of the mobility-gating programme:
-
-> internal state matters for movement expression.
-
-## What it does not establish
-
-It does **not** establish the stronger claim:
-
-> landscape resistance has different effects at different internal states.
-
-The Europe-wide panel is weak for that interaction because WRS intensity is mostly a project-level characteristic. Only one project has a useful within-project resistance gradient under the current preflight criterion.
-
-Therefore:
-
-- **internal-state effect: GO / observed developmental signal**
-- **stage × resistance: developmental only**
-- **general state-dependent resistance law: HOLD pending external confirmation**
-
-## Evidence boundary
-
-The published outcome was inspected while the hypothesis was being refined, so this result is not preregistered or outcome-blind.
-
-Its role is to justify the next independent test, not to serve as final confirmation.
+Do not cite the former metadata-denominator odds ratios as current evidence.
