@@ -46,6 +46,20 @@ See:
 - [data feasibility audit](docs/data_feasibility_audit.md)
 - [analysis programme](analysis/README.md)
 
+## Migration-classification and direct-detection result
+
+Using all six public migration tables:
+
+- FIII/FIV/FV metadata individuals: **603**
+- represented in migration tables: **575**
+- adjusted odds of a trajectory meeting the published migration criterion: **OR 1.99 per Durif stage** (95% CI 1.49–2.66, p≈3.2×10⁻⁶)
+- adversarial missingness bound: **OR 1.74** (95% CI 1.32–2.28)
+- among 418 individuals with a direct non-release downstream-movement detection, each Durif-stage increment shortened `1+latency` to **0.696×** (95% CI 0.562–0.863, p≈9.3×10⁻⁴).
+
+Important correction: the first `migration=TRUE` row is **not** treated as natural migration onset, because the published classifier can classify the release row itself as migratory. The timing endpoint is therefore the first directly detected downstream-migration row away from the release station.
+
+See [migration classification and direct-detection result](docs/migration_initiation_latency_result.md).
+
 ## Evidence boundary
 
 These are developmental independent results, not outcome-blind confirmation.
