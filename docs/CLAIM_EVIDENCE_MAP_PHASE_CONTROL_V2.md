@@ -8,11 +8,12 @@
 | Terminal positive-set membership shows weak stage gradient after activation | OR **1.15**, CI **0.83–1.59** | Secondary sensitivity | Complement is not a validated biological failure state; source paper did not estimate escapement success rate |
 | Former initiation/completion OR-ratio is directionally >1 | OR ratio **1.81**, CI **1.15–2.84** | Secondary sensitivity | Depends on observability-limited terminal binary endpoint; not manuscript-primary |
 | Route-specific opportunity matters after activation | Source meta-analysis + independent Dutch pump/sluice study | Independent ecological context | Published evidence, not direct replication of a phase interaction |
+| A silvering-stage progression effect can exist within a particular route | Moyo et al. 2026 River Test mixed model retained silvering stage for downstream progression rate | Independent external boundary | Different progression metric/design; does not establish stage × route interaction in the six-project dataset |
 | Migration is sequentially filtered | Activation + onset + speed evidence | Main synthesis | Do not imply mutually exclusive internal/external control |
 
 ## Primary paper claim
 
-> **Capture-time migratory readiness strongly predicts whether and when seaward migration becomes behaviorally active, whereas the same Durif-stage gradient is absent from generic post-activation migration speed.**
+> **Capture-time migratory readiness is a strong transferable predictor of migration activation and onset, whereas the same ordinal stage gradient is not a transferable general predictor of post-activation whole-route speed; system-specific progression effects can still occur.**
 
 ## Explicitly not claimed
 
