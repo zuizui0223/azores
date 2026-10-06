@@ -1,5 +1,18 @@
 # General ecological programme: initiation–progression control handoff
 
+## Current interpretation boundary (2026-10-07)
+
+This file records an earlier **control-handoff hypothesis** and is retained for provenance. It is not the current manuscript-level claim.
+
+The canonical interpretation is the narrower **transferability boundary**:
+
+> **Capture-time silvering readiness is a strong and transferable predictor of migration activation/onset in the six-project cohort, but it provides little general predictive information for pooled whole-route post-activation speed.**
+
+The pooled speed endpoint reproduces exactly (n=418; ratio 0.983, 95% CI 0.852–1.134), and project-specific speed coefficients show no detectable heterogeneity (Q=2.47, df=5, p=0.781). This does **not** establish that internal state becomes irrelevant after activation or that external opportunity universally takes over control. A River Test study published in 2026 provides an explicit external boundary where silvering stage contributes to a route-specific progression metric.
+
+Use `manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md`, `docs/CLAIM_EVIDENCE_MAP_PHASE_CONTROL_V2.md`, and `docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md` for current claims.
+
+
 ## Publication target
 
 This project is not a re-analysis of the Flores yellow-eel study and is not a general paper about predictive memory.
