@@ -1,116 +1,59 @@
-# Post-activation speed reproducibility and novelty audit — 2026-10-05
+# Post-activation speed reproducibility audit — resolved 2026-10-06
 
-## Final reproducibility resolution
+## Resolution
 
-The canonical post-activation speed result is reproducible from the pinned upstream source.
+The apparent reproducibility discrepancy was caused by a GitHub connector retrieval limitation for large CSV files, **not** by missing upstream data.
 
-Repository: `PieterjanVerhelst/eel-meta-analysis`  
-Pinned commit: `59578cb622dddbbba5174b4c51bff0807787385a`
+The ordinary file-content route returned an empty content field for three very large migration CSVs while still returning non-empty Git blob SHAs. Fetching those exact blobs by SHA recovered the full data:
 
-The earlier audit temporarily treated three large migration CSVs as empty because the GitHub contents wrapper returned zero text for oversized files. Direct Git blob retrieval showed that this was a connector-size/display limitation, not missing upstream data.
+- `migration_2012_leopoldkanaal.csv`: ~5.47 million characters;
+- `migration_2013_albertkanaal.csv`: ~29.0 million characters;
+- `migration_2015_phd_verhelst_eel.csv`: ~2.94 million characters.
 
-Blob sizes recovered:
+The pinned upstream source remains:
 
-- 2012 Leopold Canal: ~5.47 million characters;
-- 2013 Albert Canal: ~29.0 million characters;
-- 2015 Scheldt: ~2.94 million characters.
+- repository: `PieterjanVerhelst/eel-meta-analysis`
+- commit: `59578cb622dddbbba5174b4c51bff0807787385a`
 
-The earlier zero-byte interpretation is withdrawn.
+## Independent reconstruction
 
-## Exact independent replay
+The current committed logic in `analysis/12_post_initiation_speed.py` was independently reconstructed from the six pinned migration inputs plus `eel_meta_data.csv`.
 
-Using the same six-project universe, expert nonmigrant corrections, speed definition, project-year eligibility rule, within-stratum body-length centering, within-stratum release-timing centering and ordinal FIII/FIV/FV stage coding as `analysis/12_post_initiation_speed.py`:
+After expert non-migrant exclusions and the script's project-year eligibility rule:
 
-- stage-coded metadata records: **603**;
-- expert-corrected speed-bearing initiators before stratum filtering: **422**;
-- informative project-year strata: **13**;
-- modelled individuals: **418**.
+- valid speed-bearing individuals before the stratum filter: **422**;
+- modelled individuals: **418**;
+- eligible project-year strata: **13**.
 
-Stage counts among the 418 modelled individuals:
+Modelled individuals by project:
 
-- FIII: **154**;
-- FIV: **53**;
-- FV: **211**.
+- 2011 Warnow: **107**;
+- 2012 Leopoldkanaal: **52**;
+- 2013 Albertkanaal: **128**;
+- 2015 phd_verhelst_eel: **86**;
+- 2019 Grotenete: **33**;
+- ESGL: **12**.
 
-Median migration speeds:
+The independently reconstructed primary coefficient is:
 
-- FIII: **0.0228976 m/s**;
-- FIV: **0.0232434 m/s**;
-- FV: **0.0244765 m/s**.
+- Durif-stage beta: **-0.0170354672**;
+- multiplicative speed ratio: **0.9831088159**;
+- 95% CI: **0.8524016314–1.1338586275**.
 
-Adjusted ordinal Durif effect:
+These reproduce the canonical manuscript values to numerical precision.
 
-- beta: **-0.01703547**;
-- speed ratio per stage: **0.98310882**;
-- 95% CI: **0.85240163–1.13385863**.
-
-These match the canonical manuscript values to numerical precision.
-
-## Reproducibility status
+## Conclusion
 
 **PASS_POST_ACTIVATION_SPEED_REPRO**
 
-The canonical n=418 / ratio=0.983 result is submission-reproducible from the pinned source.
+The canonical post-activation speed result is reproducible from the pinned source. The previous temporary STOP was based on mistaking omitted large-file content returned by the connector for zero-byte upstream files.
 
-## New project-level heterogeneity audit
+## Remaining scientific question
 
-The same speed-bearing cohort was then split by source project and the same within-project model form was fitted, retaining project-year fixed effects where multiple informative years occurred.
+Reproducibility is no longer the issue.
 
-Adjusted speed ratio per FIII -> FIV -> FV increment:
+The useful next question is biological heterogeneity:
 
-| Project | n | Speed ratio | 95% CI |
-|---|---:|---:|---:|
-| 2011 Warnow | 107 | 0.915 | 0.682–1.228 |
-| 2012 Leopold Canal | 52 | 0.981 | 0.678–1.420 |
-| 2013 Albert Canal | 128 | 1.272 | 0.899–1.799 |
-| 2015 Scheldt | 86 | 1.011 | 0.856–1.193 |
-| 2019 Grote Nete | 33 | 1.035 | 0.731–1.465 |
-| ESGL | 12 | 1.219 | 0.675–2.201 |
+> **Is the weak pooled Durif-stage gradient a genuinely general post-activation pattern, or can the stage effect vary among route/environmental contexts and average toward zero?**
 
-Inverse-variance heterogeneity audit:
-
-- Cochran Q = **2.469**;
-- df = **5**;
-- p ≈ **0.781**.
-
-Thus the pooled near-null result is **not** readily explained by strong opposing project-specific stage effects cancelling one another. Within these six projects, the available stage-speed effects are statistically compatible with a shared weak average effect.
-
-This is a developmental heterogeneity audit, not a preregistered confirmatory test.
-
-## Important new external result
-
-A newly published River Test study (Moyo et al., 2026, *Hydrobiologia*, DOI 10.1007/s10750-026-06406-6) tracked 25 silver European eels. The tagged fish had already initiated downstream movement before capture. In a reach-level mixed model of downstream progression rate, silvering stage remained in the selected model together with temperature, barriers, flow and lunar illumination; removing silvering stage worsened model fit.
-
-This provides a useful external boundary condition:
-
-> a weak Europe-wide individual-level stage gradient in overall post-activation speed does **not** imply that silvering state is irrelevant to progression at finer reach/time scales or under a particular hydrological context.
-
-## Revised ecological hypothesis
-
-Do **not** frame the result as:
-
-> internal state controls activation, then stops mattering after activation.
-
-The stronger and safer formulation is:
-
-> **Migratory readiness has a strong and transferable association with activation, whereas its contribution to progression is scale- and context-sensitive: it is weak in the pooled whole-migration speed metric but can reappear in finer-grained reach-level progression under particular environmental conditions.**
-
-This changes the next question from a pooled-null question to a mechanistic scale question:
-
-> **At what spatial and temporal scale does internal migratory state remain visible once movement has begun, and when is its signal masked by route opportunity and environmental forcing?**
-
-## Next valid analysis
-
-Priority order:
-
-1. keep the canonical pooled overall-speed analysis as the broad-scale progression result;
-2. retain the six-project heterogeneity audit as evidence that the pooled null is not simple cancellation;
-3. compare whole-route speed with finer reach/barrier progression metrics where open data permit;
-4. test stage × independently defined hydrological/opportunity variables only where the measurement structure supports it;
-5. do not tune route classes or temporal windows against stage-effect estimates.
-
-## Status
-
-The reproducibility stop is cleared.
-
-The scientific programme is **reopened only for scale/context decomposition**, because new external evidence reveals that "no general post-activation stage gradient" and "stage can matter for reach-level progression" can both be true.
+This question is motivated by external evidence that silvering stage can contribute to downstream progression in some systems. It should be tested as a pre-specified project/context heterogeneity analysis rather than by searching for a different pooled endpoint.
