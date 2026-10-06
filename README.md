@@ -35,6 +35,17 @@ See:
 - [post-activation speed reproducibility audit](docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md)
 - [project-level speed diagnostic](results/post_activation_speed_project_heterogeneity_v1.json)
 
+
+## Post-activation transferability audit
+
+The canonical speed endpoint has been independently reproduced from the pinned upstream blobs: **n=418**, Durif-stage speed ratio **0.9831088159** (95% CI **0.8524016–1.1338586**).
+
+Project-specific stage effects ranged from **0.915 to 1.272**, but formal heterogeneity was unsupported (**Q=2.47, df=5, p=0.781; I²=0%**). Therefore the paper does not claim a stage × project interaction.
+
+A 2026 River Test study provides an external boundary case in which silvering stage contributed to downstream progression rate within one river. This supports a careful distinction between a **non-transferable general progression gradient** and the stronger, unsupported claim that silvering stage becomes irrelevant after activation.
+
+See [post-activation speed reproducibility and novelty audit](docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md).
+
 ## Important endpoint correction
 
 The upstream file `successful_migrants_final_detection.csv` identifies positive terminal/sea-endpoint records.
