@@ -23,12 +23,14 @@ Primary evidence:
 - p = **0.00016**
 
 **Post-activation progression**
-- migration-speed ratio per stage: **0.983**
+- whole-route migration-speed ratio per stage: **0.983**
 - 95% CI **0.852–1.134**
 - p = **0.815**
+- frozen median positive inter-station speed audit: ratio **1.001**, 95% CI **0.831–1.204**
+- project heterogeneity is unsupported for both progression scales (whole-route Q=2.47, p=0.781; segment-scale Q=2.32, p=0.804)
 
 Interpretation:
-> capture-time silvering readiness strongly predicts whether and when migration becomes behaviorally active, whereas the same Durif-stage gradient is absent from generic post-activation migration speed.
+> capture-time silvering readiness is a strong transferable predictor of migration activation and onset, but does not provide a transferable general speed advantage at either whole-route or individual median inter-station scale. This is a transferability boundary, not evidence that internal state becomes irrelevant after activation.
 
 Post-activation heterogeneity audit:
 - project-specific speed ratios span approximately **0.915–1.272** among the larger systems;
