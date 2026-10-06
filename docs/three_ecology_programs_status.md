@@ -30,6 +30,15 @@ Primary evidence:
 Interpretation:
 > capture-time silvering readiness strongly predicts whether and when migration becomes behaviorally active, whereas the same Durif-stage gradient is absent from generic post-activation migration speed.
 
+Post-activation heterogeneity audit:
+- project-specific speed ratios span approximately **0.915–1.272** among the larger systems;
+- stage × project interaction: **F(5,397)=1.03, p=0.398**;
+- no supported evidence that the pooled near-zero speed effect is created by strong opposite project-specific effects.
+
+Transferability boundary:
+- leave-one-project-out robustness shows the pooled activation result is not driven by one project;
+- direct project-specific activation fits are not all independently estimable because some project strata approach outcome saturation, so do **not** call this six independent replications.
+
 ### Endpoint boundary
 
 The upstream terminal-positive file is not a validated binary success/failure variable.
