@@ -1,0 +1,77 @@
+{
+  "schema": "azores.post_initiation_stage_heterogeneity.v1",
+  "evidence_class": "developmental_posthoc_external-conflict-motivated",
+  "source": {
+    "repository": "PieterjanVerhelst/eel-meta-analysis",
+    "commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+    "n_modelled": 418
+  },
+  "question": "Does the weak pooled post-activation Durif-stage effect hide strong among-project heterogeneity?",
+  "per_project": {
+    "2011_Warnow": {
+      "n": 107,
+      "ratio": 0.9147660278,
+      "ci95": [
+        0.6815351702,
+        1.227811744
+      ]
+    },
+    "2012_leopoldkanaal": {
+      "n": 52,
+      "ratio": 0.9814994403,
+      "ci95": [
+        0.678257741,
+        1.420317223
+      ]
+    },
+    "2013_albertkanaal": {
+      "n": 128,
+      "ratio": 1.271627764,
+      "ci95": [
+        0.8989808488,
+        1.798744847
+      ]
+    },
+    "2015_phd_verhelst_eel": {
+      "n": 86,
+      "ratio": 1.01085748,
+      "ci95": [
+        0.8562231399,
+        1.193418861
+      ]
+    },
+    "2019_Grotenete": {
+      "n": 33,
+      "ratio": 1.034969149,
+      "ci95": [
+        0.7310661246,
+        1.465204176
+      ]
+    },
+    "ESGL": {
+      "n": 12,
+      "ratio": 1.218954865,
+      "ci95": [
+        0.6751436119,
+        2.20079245
+      ]
+    }
+  },
+  "interaction_test": {
+    "model_comparison": "global stage slope vs project-specific stage slopes, with the same project-year fixed effects and within-stratum length/release-timing covariates",
+    "F": 1.0322838863,
+    "df1": 5,
+    "df2": 397,
+    "p": 0.3981478743
+  },
+  "weighted_heterogeneity": {
+    "Q": 2.4694836624,
+    "df": 5
+  },
+  "interpretation": "The six-project dataset does not support strong project-specific heterogeneity in the post-activation Durif-speed association. Point estimates vary, but the variation is compatible with sampling uncertainty. The pooled weak effect is therefore not explained by a demonstrated mixture of strong positive and negative project-specific effects.",
+  "boundary": [
+    "This is a post-hoc heterogeneity analysis motivated by external evidence, not preregistered confirmation.",
+    "Several project-stage cells are small, so absence of detected heterogeneity is not evidence that context can never modify stage effects.",
+    "Different studies can use different progression definitions and environmental contexts; external positive stage effects are not logically contradicted by this null interaction."
+  ]
+}
