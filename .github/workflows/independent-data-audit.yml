@@ -16,6 +16,7 @@ on:
       - "analysis/20_body_condition_post_activation_speed.py"
       - "analysis/21_body_condition_segment_progression.py"
       - "analysis/23_body_condition_whole_route_decomposition.py"
+      - "analysis/25_body_condition_elapsed_components.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -75,6 +76,10 @@ jobs:
         run: python analysis/23_body_condition_whole_route_decomposition.py
       - name: Show body-condition whole-route decomposition
         run: cat analysis/results/body_condition_whole_route_decomposition.json
+      - name: Decompose body-condition elapsed-time components
+        run: python analysis/25_body_condition_elapsed_components.py
+      - name: Show body-condition elapsed-time components
+        run: cat analysis/results/body_condition_elapsed_components.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -93,3 +98,4 @@ jobs:
             analysis/results/body_condition_post_activation_speed.json
             analysis/results/body_condition_segment_progression.json
             analysis/results/body_condition_whole_route_decomposition.json
+            analysis/results/body_condition_elapsed_components.json
