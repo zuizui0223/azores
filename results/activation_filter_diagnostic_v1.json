@@ -1,0 +1,153 @@
+{
+  "schema": "azores.activation_filter_diagnostic.v1",
+  "evidence_class": "post_hoc_developmental_selection_diagnostic",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "biological_problem": "post-activation speed is observed conditional on a stage-dependent activation gate, so entrants from lower-readiness stages may be a selected subset",
+  "stage_flow": {
+    "FIII": {
+      "tracked": 261,
+      "initiated": 154
+    },
+    "FIV": {
+      "tracked": 68,
+      "initiated": 53
+    },
+    "FV": {
+      "tracked": 246,
+      "initiated": 215
+    }
+  },
+  "observed_capture_trait_selection": {
+    "FIII": {
+      "n_initiator": 154,
+      "n_noninitiator": 107,
+      "length_mm_mean_initiator": 730.5909090909091,
+      "length_mm_mean_noninitiator": 691.1028037383178,
+      "length_smd_initiator_minus_non": 0.5141005789757678,
+      "condition_n_initiator": 154,
+      "condition_n_noninitiator": 107,
+      "weight_for_length_residual_smd_initiator_minus_non": 0.3015559700494509
+    },
+    "FIV": {
+      "n_initiator": 53,
+      "n_noninitiator": 15,
+      "length_mm_mean_initiator": 825.7547169811321,
+      "length_mm_mean_noninitiator": 823.6666666666666,
+      "length_smd_initiator_minus_non": 0.028095917873979793,
+      "condition_n_initiator": 53,
+      "condition_n_noninitiator": 15,
+      "weight_for_length_residual_smd_initiator_minus_non": -0.07831915359364176
+    },
+    "FV": {
+      "n_initiator": 215,
+      "n_noninitiator": 31,
+      "length_mm_mean_initiator": 755.5581395348837,
+      "length_mm_mean_noninitiator": 728.6129032258065,
+      "length_smd_initiator_minus_non": 0.2661752165267353,
+      "condition_n_initiator": 215,
+      "condition_n_noninitiator": 31,
+      "weight_for_length_residual_smd_initiator_minus_non": 0.5654988532048704
+    }
+  },
+  "propensity_model": {
+    "n": 525,
+    "informative_project_year_strata": 11,
+    "formula": "initiation ~ project x release-year fixed effects + within-stratum body length + within-stratum release timing + ordinal Durif stage"
+  },
+  "speed_ipw_diagnostic": {
+    "n": 373,
+    "speed_project_year_strata": 11,
+    "unweighted_same_sample": {
+      "beta": 0.041535867794923576,
+      "se": 0.07404762482086681,
+      "ratio": 1.0424105501487904,
+      "ci95_ratio": [
+        0.9015881344834585,
+        1.2052285444994841
+      ],
+      "p": 0.5748421863794817
+    },
+    "inverse_probability_weighted": {
+      "beta": 0.05981164722989174,
+      "se": 0.07525968929560345,
+      "ratio": 1.0616365655244964,
+      "ci95_ratio": [
+        0.9160380793864449,
+        1.2303770144725343
+      ],
+      "p": 0.4267666010608744
+    },
+    "weight_definition": "1 / fitted P(initiation | canonical measured predictors)",
+    "weight_quantiles": {
+      "min": 1.0076692340127038,
+      "q25": 1.1028442865615928,
+      "median": 1.2132639377938244,
+      "q75": 1.499143363661369,
+      "max": 6.541575020986884
+    },
+    "effective_sample_size": 302.04010689342164,
+    "by_stage": {
+      "FIII": {
+        "n": 148,
+        "p_initiate": {
+          "min": 0.15286838365252542,
+          "q25": 0.5665529279229227,
+          "median": 0.656984496454166,
+          "q75": 0.7116545333167561,
+          "max": 0.9716402469538469
+        },
+        "inverse_probability_weight": {
+          "min": 1.029187503435621,
+          "q25": 1.4051779522911256,
+          "median": 1.5221061350375271,
+          "q75": 1.7650621906999484,
+          "max": 6.541575020986884
+        }
+      },
+      "FIV": {
+        "n": 52,
+        "p_initiate": {
+          "min": 0.2637041460714342,
+          "q25": 0.8001482440770983,
+          "median": 0.8506801851297794,
+          "q75": 0.8794609901548603,
+          "max": 0.9374493610128988
+        },
+        "inverse_probability_weight": {
+          "min": 1.0667242856931667,
+          "q25": 1.1370614712091038,
+          "median": 1.1755346782447322,
+          "q75": 1.2497887403640426,
+          "max": 3.792128470096607
+        }
+      },
+      "FV": {
+        "n": 173,
+        "p_initiate": {
+          "min": 0.4275800858494849,
+          "q25": 0.8259338234526973,
+          "median": 0.8852523285616771,
+          "q75": 0.9338504981302508,
+          "max": 0.9923891354882756
+        },
+        "inverse_probability_weight": {
+          "min": 1.0076692340127038,
+          "q25": 1.070835216131697,
+          "median": 1.1296214285307336,
+          "q75": 1.2107507546060339,
+          "max": 2.338743157350916
+        }
+      }
+    }
+  },
+  "interpretation_rule": "If IPW materially restores a positive Durif-speed gradient, measured activation selection is compatible with explaining part of the null. If it remains near null, measured canonical predictors do not rescue a positive gradient, while latent/unmeasured selection remains unresolved.",
+  "claim_boundary": [
+    "Speed is undefined for non-initiators; this is not a causal effect estimator.",
+    "Inverse-probability weighting assumes selection is captured by measured predictors, which cannot be verified.",
+    "Weight-for-length residual is a descriptive capture-condition proxy, not a physiological readiness measurement.",
+    "Conditioning on activation remains a principal-stratum/selection boundary even if the observed-trait and IPW diagnostics are null.",
+    "Do not interpret a null weighted coefficient as proof that activation does not biologically filter entrants."
+  ],
+  "diagnostic_status": "MEASURED_SELECTION_PRESENT_BUT_DOES_NOT_RESTORE_STAGE_SPEED_GRADIENT",
+  "diagnostic_interpretation": "Initiation is phenotypically selective within capture stage, especially for FIII body length and capture weight-for-length residual, but inverse-probability weighting for the canonical measured activation predictors shifts the same-sample Durif speed ratio only from 1.042 to 1.062 and remains imprecise across 1. Latent readiness selection remains an identification boundary."
+}
