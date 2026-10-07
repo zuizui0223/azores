@@ -1,0 +1,502 @@
+{
+  "schema": "azores.within_link_entry_state_speed.v1",
+  "evidence_class": "post_hoc_frozen_within_link_motion_capacity_audit",
+  "contract": "analysis/contracts/within_link_entry_state_speed_v1.json",
+  "contract_schema": "azores.within_link_entry_state_speed_contract.v1",
+  "question": "Does a project-held-out activation-trained entry-state score predict realized positive transit speed when route geometry is controlled by exact directed station-pair fixed effects?",
+  "raw_candidate_segments": 19607,
+  "raw_candidate_fish": 431,
+  "raw_candidate_pairs": 1114,
+  "primary": {
+    "status": "ESTIMATED",
+    "min_unique_fish_per_pair": 5,
+    "fish_equal_weighting": true,
+    "n_segment_rows": 18012,
+    "n_fish": 426,
+    "n_pairs": 248,
+    "n_strata": 14,
+    "pair_unique_fish_range": [
+      5,
+      97
+    ],
+    "speed_range_m_s": [
+      0.00006,
+      3752.402245
+    ],
+    "score_scaling": {
+      "mean_unique_fish": 0.2828283055708796,
+      "sd_unique_fish": 1.0810956303852675
+    },
+    "entry_state_effect": {
+      "beta": -0.004597935278713106,
+      "cluster_se": 0.04491882221133044,
+      "speed_ratio_per_1sd_score": 0.9954126190434742,
+      "ci95": [
+        0.91152265839465,
+        1.0870232056502485
+      ],
+      "p_normal": 0.9184701434914989
+    },
+    "weighted_partial_r2": 0.000005231061977386488,
+    "weighted_rss_reduction": 0.006135285993877915,
+    "fit_with_score": {
+      "rank": 259,
+      "n_parameters": 264,
+      "n_clusters": 426,
+      "cr1_correction": 1.0169198909215014,
+      "xtwx_condition_number": 11807107354608470000
+    },
+    "fit_without_score": {
+      "rank": 258,
+      "n_parameters": 263,
+      "n_clusters": 426,
+      "cr1_correction": 1.016862612567839,
+      "xtwx_condition_number": 3140483584811582500
+    }
+  },
+  "sensitivities": {
+    "min_3_unique_fish_per_pair": {
+      "status": "ESTIMATED",
+      "min_unique_fish_per_pair": 3,
+      "fish_equal_weighting": true,
+      "n_segment_rows": 18600,
+      "n_fish": 430,
+      "n_pairs": 370,
+      "n_strata": 14,
+      "pair_unique_fish_range": [
+        3,
+        97
+      ],
+      "speed_range_m_s": [
+        0.00006,
+        3752.402245
+      ],
+      "score_scaling": {
+        "mean_unique_fish": 0.27674232663605824,
+        "sd_unique_fish": 1.0795450289061939
+      },
+      "entry_state_effect": {
+        "beta": -0.00895878020336327,
+        "cluster_se": 0.043604797822638826,
+        "speed_ratio_per_1sd_score": 0.9910812300976913,
+        "ci95": [
+          0.9098967167989735,
+          1.0795093404749179
+        ],
+        "p_normal": 0.8372174328189357
+      },
+      "weighted_partial_r2": 0.00001963344285371814,
+      "weighted_rss_reduction": 0.022900778362100027,
+      "fit_with_score": {
+        "rank": 381,
+        "n_parameters": 386,
+        "n_clusters": 430,
+        "cr1_correction": 1.0232369675807844,
+        "xtwx_condition_number": 11306780668785508000
+      },
+      "fit_without_score": {
+        "rank": 380,
+        "n_parameters": 385,
+        "n_clusters": 430,
+        "cr1_correction": 1.0231808074837714,
+        "xtwx_condition_number": 2523426000404889000
+      }
+    },
+    "min_10_unique_fish_per_pair": {
+      "status": "ESTIMATED",
+      "min_unique_fish_per_pair": 10,
+      "fish_equal_weighting": true,
+      "n_segment_rows": 16881,
+      "n_fish": 408,
+      "n_pairs": 143,
+      "n_strata": 13,
+      "pair_unique_fish_range": [
+        10,
+        97
+      ],
+      "speed_range_m_s": [
+        0.000062,
+        3752.402245
+      ],
+      "score_scaling": {
+        "mean_unique_fish": 0.3044590195294187,
+        "sd_unique_fish": 1.0870309893787218
+      },
+      "entry_state_effect": {
+        "beta": 0.031192913850530468,
+        "cluster_se": 0.0513145782322306,
+        "speed_ratio_per_1sd_score": 1.0316845109218333,
+        "ci95": [
+          0.932968669126661,
+          1.140845309491869
+        ],
+        "p_normal": 0.5432695465206913
+      },
+      "weighted_partial_r2": 0.00022480620197475975,
+      "weighted_rss_reduction": 0.27921611198462415,
+      "fit_with_score": {
+        "rank": 154,
+        "n_parameters": 158,
+        "n_clusters": 408,
+        "cr1_correction": 1.0116263646484247,
+        "xtwx_condition_number": 1481511916917842200
+      },
+      "fit_without_score": {
+        "rank": 153,
+        "n_parameters": 157,
+        "n_clusters": 408,
+        "cr1_correction": 1.0115658896146702,
+        "xtwx_condition_number": 9966631505739942000
+      }
+    },
+    "unweighted_segment_rows_min5": {
+      "status": "ESTIMATED",
+      "min_unique_fish_per_pair": 5,
+      "fish_equal_weighting": false,
+      "n_segment_rows": 18012,
+      "n_fish": 426,
+      "n_pairs": 248,
+      "n_strata": 14,
+      "pair_unique_fish_range": [
+        5,
+        97
+      ],
+      "speed_range_m_s": [
+        0.00006,
+        3752.402245
+      ],
+      "score_scaling": {
+        "mean_unique_fish": 0.2828283055708796,
+        "sd_unique_fish": 1.0810956303852675
+      },
+      "entry_state_effect": {
+        "beta": -0.0808976039658201,
+        "cluster_se": 0.055119898272018034,
+        "speed_ratio_per_1sd_score": 0.9222881252560992,
+        "ci95": [
+          0.8278422975948753,
+          1.0275089693528552
+        ],
+        "p_normal": 0.14219495406621435
+      },
+      "weighted_partial_r2": 0.001360489924042497,
+      "weighted_rss_reduction": 76.56854162958189,
+      "fit_with_score": {
+        "rank": 259,
+        "n_parameters": 264,
+        "n_clusters": 426,
+        "cr1_correction": 1.0169198909215014,
+        "xtwx_condition_number": 5431569786329868000
+      },
+      "fit_without_score": {
+        "rank": 258,
+        "n_parameters": 263,
+        "n_clusters": 426,
+        "cr1_correction": 1.016862612567839,
+        "xtwx_condition_number": 39952043555019520000
+      }
+    },
+    "leave_one_project_out_min5": {
+      "by_left_out_project": {
+        "2011_Warnow": {
+          "status": "ESTIMATED",
+          "min_unique_fish_per_pair": 5,
+          "fish_equal_weighting": true,
+          "n_segment_rows": 17578,
+          "n_fish": 319,
+          "n_pairs": 236,
+          "n_strata": 13,
+          "pair_unique_fish_range": [
+            5,
+            87
+          ],
+          "speed_range_m_s": [
+            0.00006,
+            3752.402245
+          ],
+          "score_scaling": {
+            "mean_unique_fish": 0.4896951652968791,
+            "sd_unique_fish": 1.0708199259364148
+          },
+          "entry_state_effect": {
+            "beta": -0.01379074161371352,
+            "cluster_se": 0.04913629454813192,
+            "speed_ratio_per_1sd_score": 0.9863039150353498,
+            "ci95": [
+              0.8957464563026859,
+              1.0860164792941547
+            ],
+            "p_normal": 0.778968862453246
+          },
+          "weighted_partial_r2": 0.000048616566667306845,
+          "weighted_rss_reduction": 0.04544304070122962,
+          "fit_with_score": {
+            "rank": 247,
+            "n_parameters": 251,
+            "n_clusters": 319,
+            "cr1_correction": 1.0173835084476177,
+            "xtwx_condition_number": 1104586559073087500
+          },
+          "fit_without_score": {
+            "rank": 246,
+            "n_parameters": 250,
+            "n_clusters": 319,
+            "cr1_correction": 1.0173248087298443,
+            "xtwx_condition_number": 2087191568671908400
+          }
+        },
+        "2012_leopoldkanaal": {
+          "status": "ESTIMATED",
+          "min_unique_fish_per_pair": 5,
+          "fish_equal_weighting": true,
+          "n_segment_rows": 14716,
+          "n_fish": 375,
+          "n_pairs": 207,
+          "n_strata": 13,
+          "pair_unique_fish_range": [
+            5,
+            97
+          ],
+          "speed_range_m_s": [
+            0.00006,
+            3752.402245
+          ],
+          "score_scaling": {
+            "mean_unique_fish": 0.2849472901610248,
+            "sd_unique_fish": 1.0979791864822899
+          },
+          "entry_state_effect": {
+            "beta": -0.028243258430514118,
+            "cluster_se": 0.0443633134025106,
+            "speed_ratio_per_1sd_score": 0.9721518539013333,
+            "ci95": [
+              0.8911920301317859,
+              1.060466425966629
+            ],
+            "p_normal": 0.5243623220292847
+          },
+          "weighted_partial_r2": 0.0002177453410391403,
+          "weighted_rss_reduction": 0.20423996525914845,
+          "fit_with_score": {
+            "rank": 218,
+            "n_parameters": 222,
+            "n_clusters": 375,
+            "cr1_correction": 1.0176813987988755,
+            "xtwx_condition_number": 1411375938702950100
+          },
+          "fit_without_score": {
+            "rank": 217,
+            "n_parameters": 221,
+            "n_clusters": 375,
+            "cr1_correction": 1.017611209034147,
+            "xtwx_condition_number": 2304055132938710000
+          }
+        },
+        "2013_albertkanaal": {
+          "status": "ESTIMATED",
+          "min_unique_fish_per_pair": 5,
+          "fish_equal_weighting": true,
+          "n_segment_rows": 6377,
+          "n_fish": 294,
+          "n_pairs": 157,
+          "n_strata": 9,
+          "pair_unique_fish_range": [
+            5,
+            97
+          ],
+          "speed_range_m_s": [
+            0.00006,
+            3704.08762
+          ],
+          "score_scaling": {
+            "mean_unique_fish": 0.0072352466955787915,
+            "sd_unique_fish": 1.0310722663597138
+          },
+          "entry_state_effect": {
+            "beta": 0.05750709899344708,
+            "cluster_se": 0.04849362149317547,
+            "speed_ratio_per_1sd_score": 1.0591927898307172,
+            "ci95": [
+              0.9631555062872644,
+              1.1648060554146593
+            ],
+            "p_normal": 0.23567390223278084
+          },
+          "weighted_partial_r2": 0.0009832834338763855,
+          "weighted_rss_reduction": 0.7368606158524926,
+          "fit_with_score": {
+            "rank": 164,
+            "n_parameters": 168,
+            "n_clusters": 294,
+            "cr1_correction": 1.0297378226541398,
+            "xtwx_condition_number": 788570603225681900
+          },
+          "fit_without_score": {
+            "rank": 163,
+            "n_parameters": 167,
+            "n_clusters": 294,
+            "cr1_correction": 1.029572110098193,
+            "xtwx_condition_number": 597331443270478800
+          }
+        },
+        "2015_phd_verhelst_eel": {
+          "status": "ESTIMATED",
+          "min_unique_fish_per_pair": 5,
+          "fish_equal_weighting": true,
+          "n_segment_rows": 16041,
+          "n_fish": 333,
+          "n_pairs": 184,
+          "n_strata": 10,
+          "pair_unique_fish_range": [
+            5,
+            97
+          ],
+          "speed_range_m_s": [
+            0.000062,
+            3752.402245
+          ],
+          "score_scaling": {
+            "mean_unique_fish": 0.3504312840478962,
+            "sd_unique_fish": 1.0445887474658875
+          },
+          "entry_state_effect": {
+            "beta": -0.030972950617345396,
+            "cluster_se": 0.057156188571409174,
+            "speed_ratio_per_1sd_score": 0.9695017971464472,
+            "ci95": [
+              0.866754866121247,
+              1.0844285638411486
+            ],
+            "p_normal": 0.5878872517634232
+          },
+          "weighted_partial_r2": 0.0002144705767635489,
+          "weighted_rss_reduction": 0.20128263083790898,
+          "fit_with_score": {
+            "rank": 192,
+            "n_parameters": 196,
+            "n_clusters": 333,
+            "cr1_correction": 1.0150995806052148,
+            "xtwx_condition_number": 5708579812162247000
+          },
+          "fit_without_score": {
+            "rank": 191,
+            "n_parameters": 195,
+            "n_clusters": 333,
+            "cr1_correction": 1.0150355364676373,
+            "xtwx_condition_number": 1966840862586143200
+          }
+        },
+        "2019_Grotenete": {
+          "status": "ESTIMATED",
+          "min_unique_fish_per_pair": 5,
+          "fish_equal_weighting": true,
+          "n_segment_rows": 17357,
+          "n_fish": 393,
+          "n_pairs": 211,
+          "n_strata": 12,
+          "pair_unique_fish_range": [
+            5,
+            97
+          ],
+          "speed_range_m_s": [
+            0.00006,
+            3752.402245
+          ],
+          "score_scaling": {
+            "mean_unique_fish": 0.2517089823238423,
+            "sd_unique_fish": 1.0919175469732407
+          },
+          "entry_state_effect": {
+            "beta": 0.0025499645875191996,
+            "cluster_se": 0.048510931219807235,
+            "speed_ratio_per_1sd_score": 1.002553218512428,
+            "ci95": [
+              0.9116205303814408,
+              1.102556296674306
+            ],
+            "p_normal": 0.9580787098601701
+          },
+          "weighted_partial_r2": 0.0000015218604582747833,
+          "weighted_rss_reduction": 0.0017164475609661167,
+          "fit_with_score": {
+            "rank": 221,
+            "n_parameters": 225,
+            "n_clusters": 393,
+            "cr1_correction": 1.0154222403247013,
+            "xtwx_condition_number": 493540134824050940
+          },
+          "fit_without_score": {
+            "rank": 220,
+            "n_parameters": 224,
+            "n_clusters": 393,
+            "cr1_correction": 1.015362987115836,
+            "xtwx_condition_number": 629733719203507800
+          }
+        },
+        "ESGL": {
+          "status": "ESTIMATED",
+          "min_unique_fish_per_pair": 5,
+          "fish_equal_weighting": true,
+          "n_segment_rows": 17991,
+          "n_fish": 416,
+          "n_pairs": 245,
+          "n_strata": 13,
+          "pair_unique_fish_range": [
+            5,
+            97
+          ],
+          "speed_range_m_s": [
+            0.00006,
+            3752.402245
+          ],
+          "score_scaling": {
+            "mean_unique_fish": 0.2923410797023203,
+            "sd_unique_fish": 1.085567962210273
+          },
+          "entry_state_effect": {
+            "beta": -0.008313805521379503,
+            "cluster_se": 0.0454624437098004,
+            "speed_ratio_per_1sd_score": 0.9917206585843197,
+            "ci95": [
+              0.9071747355721291,
+              1.0841460041792776
+            ],
+            "p_normal": 0.8548984960369478
+          },
+          "weighted_partial_r2": 0.000016849434785768868,
+          "weighted_rss_reduction": 0.0195980033631713,
+          "fit_with_score": {
+            "rank": 256,
+            "n_parameters": 260,
+            "n_clusters": 416,
+            "cr1_correction": 1.0168226330752954,
+            "xtwx_condition_number": 1382615353771757800
+          },
+          "fit_without_score": {
+            "rank": 255,
+            "n_parameters": 259,
+            "n_clusters": 416,
+            "cr1_correction": 1.0167653020743326,
+            "xtwx_condition_number": 995598260428065900
+          }
+        }
+      },
+      "n_estimated": 6,
+      "ratio_range": [
+        0.9695017971464472,
+        1.0591927898307172
+      ],
+      "all_above_1": false,
+      "all_below_1": false
+    }
+  },
+  "status": "NO_SUPPORTED_WITHIN_LINK_ENTRY_STATE_SPEED_GRADIENT",
+  "claim_boundary": [
+    "Only positive source inter-station speeds during rows classified migration==TRUE on both sides of the link are analyzed.",
+    "Directed station-pair fixed effects control route-link identity but not all time-varying hydrodynamics within a link.",
+    "Each fish contributes total primary weight one and SEs are clustered by fish.",
+    "The project-held-out score excludes held-out-project outcomes from score-weight training, but predictor preprocessing remains panel-derived.",
+    "The analysis is post-hoc even though its endpoint and thresholds were frozen before result inspection.",
+    "A null result would support lack of a transferable within-link realized-speed gradient, not absence of all post-activation physiological effects."
+  ]
+}
