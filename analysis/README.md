@@ -71,21 +71,41 @@ See:
 
 Historical scripts remain reproducible for audit, but their binary completion interpretation is not manuscript-primary.
 
-## 5. External context
+## 5. External context and Dutch progression test
 
 The source meta-analysis independently reports variation in migration speed with tidal context and water-regulating structures, with strong water-body-specific hydrological dependence.
 
-The active independent confirmation target is the Dutch pump -> tidal-sluice route.
+The Dutch pump -> tidal-sluice route remains the active within-route external test, but the analysis design has been corrected.
+
+The source paper's published passage-opportunity definition uses discharge duration when deciding whether an eel could physically reach the barrier. Therefore the old source-defined opportunity table must **not** be the primary risk set for a new readiness × duration mechanism test.
+
+First gate the downloaded archive for the raw components needed to reconstruct an **arrival-defined** risk set:
 
 ~~~bash
-python analysis/08_dutch_barrier_confirmation_gate.py --data-dir <downloaded_DANS_directory>
+python analysis/13_dutch_arrival_riskset_gate.py --data-dir <downloaded_DANS_directory>
 ~~~
 
-Question:
+Primary reconstruction:
 
-> **once migration is active, do barrier-specific passage opportunities explain progression better than residual Durif-stage differences?**
+~~~text
+first direct barrier detection
+    -> subsequent discharge events while still upstream
+    -> confirmed downstream passage
+~~~
 
-Return NON-IDENTIFIABLE rather than dropping body mass or regrouping stages if stage and size are confounded.
+Only after this reconstruction may discharge duration be used as the primary event exposure.
+
+The Dutch data also contain two important confounding boundaries:
+
+- **stage × release cohort:** FIII counts across the three releases are 9/1/1, whereas FIV+FV are 11/8/10; release group must therefore be represented in any readiness × opportunity interpretation;
+- **stage × body mass:** the source study reports non-identifiability at the tidal sluice.
+
+Return CONFOUNDED or NON-IDENTIFIABLE rather than dropping release cohort, body mass, or regrouping stages to manufacture a readiness interaction.
+
+Current protocol:
+- `docs/dutch_barrier_confirmation_protocol.md`
+
+The older `analysis/11_dutch_opportunity_choice.py` represents the superseded source-defined opportunity-set design and is retained only for provenance/sensitivity.
 
 ## Interpretation boundary
 
