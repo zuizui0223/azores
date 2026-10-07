@@ -111,8 +111,9 @@ The frozen primary intentionally retained all positive source values because
 outliers were not excluded after inspecting their relationship with the
 entry-state score.
 
-A post-hoc external-plausibility sensitivity is therefore required before the
-within-link result is promoted to manuscript-primary evidence.
+The registered post-hoc external-plausibility sensitivity is complete and
+supports promotion of the within-link result as robustness evidence while
+retaining the source-speed quality warning.
 
 External context:
 - European silver-eel Ucrit about **0.94 m/s** and Uopt about **0.64 m/s**
@@ -125,9 +126,17 @@ The registered quality sensitivity repeats the exact primary model at
 externally motivated upper screens of 2.5, 5 and 10 m/s. The all-positive-speed
 primary remains frozen regardless of the sensitivity result.
 
+Observed quality-sensitivity result:
+- <=2.5 m/s: ratio **0.978**, 95% CI **0.911–1.049**;
+- <=5 m/s: ratio **0.979**, 95% CI **0.913–1.049**;
+- <=10 m/s: ratio **0.976**, 95% CI **0.910–1.047**.
+
+These screens remove **62.5%**, **58.1%** and **52.5%** of candidate rows,
+respectively, yet all retain the same null-compatible conclusion.
+
 ## Current novelty claim
 
-If the quality sensitivity remains near null, the strongest defensible
+With the quality sensitivity remaining near null, the strongest defensible
 contribution is:
 
 > **Migratory commitment and realized transit speed are distinct prediction
@@ -150,8 +159,9 @@ Do not claim:
 - internal state ceases to matter after activation;
 - route environment causally replaces internal state;
 - the score is a validated latent physiological readiness variable;
-- the within-link null is independent of source timing/distance quality until
-  the registered quality sensitivity is complete.
+- the source-derived link speeds are direct measurements of intrinsic
+  swimming capacity; the quality screen only shows that gross speed artifacts
+  do not create the near-null entry-state coefficient.
 
 Moyo et al. (2026) remains an important scope boundary because silvering stage
 was retained in a finer reach-level progression model. The likely general
