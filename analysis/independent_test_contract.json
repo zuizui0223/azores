@@ -1,5 +1,5 @@
 {
-  "schema": "azores.independent_test_contract.v7",
+  "schema": "azores.independent_test_contract.v8",
   "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
   "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
@@ -166,7 +166,7 @@
     "metric_robustness_status": "ROBUST_TO_CONDITION_METRIC_DEFINITION"
   },
   "condition_phase_reversal_hypothesis": {
-    "status": "CANDIDATE_CROSS_DATASET_HYPOTHESIS",
+    "status": "CANDIDATE_ACTIVATION_TO_DELAY_BODY_STATE_TURNOVER",
     "evidence_ledger": "results/condition_phase_sign_audit_v1.json",
     "synthesis_doc": "docs/CONDITION_PHASE_REVERSAL_HYPOTHESIS_2026_10_07.md",
     "pattern": [
@@ -176,7 +176,40 @@
       "van der Knaap et al. 2025 pumping station: higher condition predicts lower routine acceleration."
     ],
     "candidate_mechanism": "After promoting entry into migration, high body state may increase selectivity for stronger/safer passage opportunities at engineered barriers, consistent with state-dependent stimulus thresholds or asset protection.",
-    "decisive_test": "arrival-defined Dutch barrier risk sets with condition x independently defined opportunity-strength interaction, retaining release-group and stage/body-mass confounding checks",
-    "evidence_boundary": "Cross-dataset directional synthesis only. Different condition metrics and individuals are involved; there is no within-individual sign reversal or causal asset-protection estimate yet."
+    "decisive_test": "arrival-defined Dutch barrier risk sets linking observed barrier arrival to discharge events, then test body condition x opportunity strength while retaining release-group and stage/body-mass confounding checks",
+    "evidence_boundary": "The elapsed-time decomposition is same-cohort but post hoc and conditions on activation. Elapsed time is not a direct stop-duration measure. External Dutch studies provide a candidate passage-delay mechanism, not causal confirmation.",
+    "same_cohort_progression": {
+      "whole_route_speed": {
+        "source": "results/body_condition_post_activation_speed_v1.json",
+        "condition_ratio_range_across_three_metrics": [
+          0.8956927416,
+          0.9250943062
+        ],
+        "all_six_leave_one_project_out_below_1_for_all_three_metrics": true,
+        "interval_support": "all full-cohort 95% intervals include 1"
+      },
+      "frozen_positive_interstation_speed": {
+        "source": "results/body_condition_segment_progression_v1.json",
+        "condition_ratio_range_across_three_metrics": [
+          1.0493062035,
+          1.0504532257
+        ],
+        "interpretation": "no negative active-transit-speed gradient; leave-one-project-out signs are not uniformly negative"
+      },
+      "whole_route_decomposition": {
+        "source": "results/body_condition_whole_route_decomposition_v1.json",
+        "distance_ratio_range_across_three_metrics": [
+          1.0188208074,
+          1.0248105843
+        ],
+        "elapsed_time_ratio_range_across_three_metrics": [
+          1.1077903923,
+          1.1381409584
+        ],
+        "elapsed_time_above_1_all_leave_one_project_out_for_all_metrics": true,
+        "interpretation": "the negative whole-route-speed point estimate is carried mainly by longer elapsed migration time rather than slower positive inter-station transit"
+      }
+    },
+    "revised_candidate_mechanism": "Capture body state may facilitate migration entry yet increase subsequent waiting/staging or selectivity for movement opportunities; positive locomotor transit speed itself is not reduced."
   }
 }
