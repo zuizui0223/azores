@@ -163,7 +163,7 @@ Third, we audited selection induced by conditioning on activation. We compared i
 
 For audit continuity, we retained the previously developed stacked initiation-versus-terminal-membership model with individual-clustered uncertainty.
 
-Because the second binary response is observability dependent, this contrast is not used as the principal test of phase-specific control in V3.
+Because the second binary response is observability dependent, this contrast is not used as the principal test of phase-specific control in V4.
 
 Its role is limited to asking whether the direction of the stage association differs when the same positive terminal-set definition is used across projects. It must not be interpreted as a direct comparison of biological initiation probability with biological failure probability.
 
@@ -271,10 +271,6 @@ Thus the independent Dutch analysis **falsified the specific prediction** that h
 
 ## Discussion
 
----
-
-## Discussion
-
 ### Migration is a sequence of ecological filters, but entry state is not a motor score
 
 Our central result is not simply that more silvered eels migrate. FIII is explicitly a pre-migrant Durif stage and FIV/FV are migrating stages, so that qualitative relationship is built into the biology of silvering.
@@ -313,7 +309,7 @@ We therefore interpret the evidence as a **phase-specific transferability bounda
 
 This does not demonstrate that external conditions causally replace internal state. Individual traits can still influence movement after departure, and external conditions can also influence activation. The result instead identifies where the transferable Durif signal is strongest and motivates a sharper progression question: at what spatial and temporal scale does internal readiness remain visible, and when is it masked by route opportunity and environmental forcing?
 
-Verhelst et al. (2025) independently reported substantial variation in migration phenology and speed among water bodies, with tidal context and water-regulating structures contributing to that heterogeneity. The independent Dutch consecutive-barrier study provides a direct route for testing barrier-specific opportunity variables within one shared landscape, while the River Test result shows that fine-scale progression need not be independent of silvering state.
+Verhelst et al. (2025) independently reported substantial variation in migration phenology and speed among water bodies, with tidal context and water-regulating structures contributing to that heterogeneity. The independent Dutch arrival-defined reanalysis did not support a general condition-dependent passage-selectivity mechanism, while the River Test result shows that fine-scale progression need not be independent of silvering state.
 
 ### Route opportunity remains relevant, but no single barrier mechanism explains the phase boundary
 
@@ -328,8 +324,6 @@ This produces a sharper next question:
 > **what state variables remain informative after migratory commitment at specific reaches or decisions, and which components of route opportunity overwrite or mask the capture-state ranking at broader scales?**
 
 That question is compatible with both positive fine-scale stage effects and weak transferable whole-route effects.
-
-### Why phase-specific analysis changes the ecological question
 
 ### Why phase-specific analysis changes the ecological question
 
@@ -372,7 +366,7 @@ Fifth, a weak general Durif effect on post-activation speed does not prove that 
 
 Sixth, post-activation speed is only defined for animals that entered the classified migratory state. Because activation probability differs strongly among FIII, FIV and FV, conditioning on activation creates a stage-dependent selected population. Observed-trait and inverse-probability diagnostics show that this selection is real but do not recover a strong stage-speed gradient after adjustment for measured activation predictors. They cannot remove selection on unmeasured latent readiness, so the post-activation coefficient is a descriptive ranking among entrants rather than a causal estimate of how a fixed stage effect attenuates in all tagged eels.
 
-Finally, the Dutch consecutive-barrier and River Test studies constrain the interpretation but are not formal replications of the Europe-wide model. Their main value is to test where route-specific progression can retain or lose information from internal readiness. The Dutch extension is therefore treated as a separate independent mechanism analysis rather than as evidence already contained in the core Europe-wide result.
+Finally, the Dutch consecutive-barrier and River Test studies constrain the interpretation but are not formal replications of the Europe-wide model. Their main value is to test where route-specific progression can retain or lose information from internal readiness. The Dutch reanalysis is retained as an independent falsification of one proposed passage-selectivity mechanism rather than as positive evidence for a universal control handoff.
 
 ### Conclusion
 
@@ -392,11 +386,9 @@ For conservation, the implication is straightforward: producing physiologically 
 
 ## Data availability
 
-## Data availability
-
 The primary Europe-wide telemetry products and analysis code are publicly available through the source study repository and associated data release reported by Verhelst et al. (2025). This study uses processed metadata and project-level migration products without modifying the source migration classifier.
 
-The independent Dutch consecutive-barrier evidence is from van Rijn et al. (2026); its associated public data archive is reported under DOI 10.17026/LS/WTSUNG.
+The independent Dutch consecutive-barrier reanalysis uses the public archive associated with van Rijn et al. (2026), DOI 10.17026/LS/WTSUNG.
 
 ## Code availability
 
