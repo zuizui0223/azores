@@ -56,3 +56,4 @@ jobs:
             analysis/results/state_landscape_panel.csv
             analysis/results/state_landscape_panel.csv.summary.json
             analysis/results/stage_staleness_diagnostic.json
+            analysis/results/activation_filter_diagnostic.json
