@@ -172,5 +172,61 @@
     "better-conditioned eels generally wait for longer barrier-opening opportunities",
     "asset protection is supported as the general mechanism for the phase boundary",
     "Dutch results confirm an internal-to-external control handoff"
-  ]
+  ],
+  "cross_project_entry_state_result": "results/cross_project_entry_state_score_v1.json",
+  "cross_project_entry_state": {
+    "design": "leave one project out; train stage/condition activation weights on the other five projects; apply frozen weights to held-out project, then pool cross-fitted scores",
+    "activation": {
+      "n": 525,
+      "or_per_sd": 1.9679124744,
+      "ci95": [
+        1.5304859539,
+        2.5303593915
+      ],
+      "p": 1.3048321801e-7
+    },
+    "onset": {
+      "n": 570,
+      "events": 418,
+      "hr_per_sd": 1.2580689707,
+      "ci95": [
+        1.1179946139,
+        1.4156933453
+      ],
+      "p": 0.0001378519231
+    },
+    "whole_route_speed": {
+      "n": 418,
+      "ratio_per_sd": 0.9483465139,
+      "ci95": [
+        0.836298354,
+        1.0754070077
+      ],
+      "p": 0.4083868273,
+      "partial_r2": 0.0016973432
+    },
+    "frozen_segment_speed": {
+      "n": 411,
+      "ratio_per_sd": 1.0127361487,
+      "ci95": [
+        0.8601029088,
+        1.1924555728
+      ],
+      "p": 0.8793092779,
+      "partial_r2": 0.0000583684
+    },
+    "fold_weight_stability": {
+      "durif_beta_range": [
+        0.5631143308,
+        0.892133909
+      ],
+      "condition_beta_range": [
+        0.2128110444,
+        0.4973471808
+      ],
+      "durif_all_positive": true,
+      "condition_all_positive": true
+    },
+    "boundary": "Only score weights are trained without held-out-project outcomes; predictor preprocessing remains panel-derived. This is a post-hoc cross-project robustness audit, not external prospective validation."
+  }
 }
