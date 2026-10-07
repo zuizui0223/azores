@@ -49,3 +49,28 @@ Stage balance is poor in several systems, most notably Albertkanaal (only one FI
 ## Evidence status
 
 Post-hoc novelty/generalization audit, triggered by external 2026 evidence. It does not replace the canonical pooled speed analysis.
+
+
+## 2026 River Test comparison
+
+Moyo et al. (2026, Hydrobiologia; DOI 10.1007/s10750-026-06406-6) does not estimate the same progression endpoint as the present Europe-wide speed analysis.
+
+Their primary progression model is reach-level:
+
+- progression rate is calculated within river reaches;
+- each eel contributes repeated reach observations;
+- eel ID is a random effect;
+- fixed effects include silvering stage, temperature, barriers, flow and moon illumination;
+- silvering stage is retained by AICc model selection.
+
+By contrast, the present canonical Europe-wide endpoint is one overall migration-speed value per eel, calculated across all migration==TRUE rows before fitting project-year-adjusted stage effects.
+
+Therefore the two results are compatible:
+
+> **silvering stage need not produce a transferable effect on whole-route average speed even if it influences local progression rate within a particular river and environmental context.**
+
+This shifts the ecological interpretation away from "stage stops mattering after activation" and toward a scale-specific statement:
+
+> **the strong cross-system signal of readiness is concentrated at activation; after activation, any remaining readiness effect is more local/process-specific and does not appear as a general whole-route speed gradient across the six-project dataset.**
+
+This is a stronger and safer boundary than claiming a complete internal-to-external control switch.
