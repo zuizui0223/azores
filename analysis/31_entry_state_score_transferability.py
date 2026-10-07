@@ -203,6 +203,8 @@ def load():
     rows=[]
     for o in state.values():
         o["initiated"]=bool(o["algorithm"] and o["tag"] not in EXPERT_NON)
+        if o["tag"] in EXPERT_NON:
+            o["onset"]=None
         o["stratum"]=f"{o['project']}::{o['release'].year}"
         o["speed"]=None
         if o["initiated"] and None not in (o["min_arr"],o["max_dep"],o["min_dist"],o["max_dist"]):
