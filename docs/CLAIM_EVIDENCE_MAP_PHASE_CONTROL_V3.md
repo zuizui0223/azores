@@ -10,6 +10,7 @@ multivariate-entry-state manuscript.
 | Durif and condition act mainly additively at the entry gate | Durif×condition and Durif×length interaction model: LR p **0.931** | Developmental mechanism diagnostic | Does not exclude nonlinear/unmeasured physiological interactions |
 | An activation-trained multivariate score predicts migration entry | Score OR **2.23/SD**, 95% CI **1.70–2.92** | Strong within-panel transferability benchmark | Score trained and evaluated in the same public panel; not prospective validation |
 | The same activation-trained score predicts earlier behavioral onset | HR **1.32/SD**, 95% CI **1.17–1.49**, **418** onset events | Strong cross-endpoint transfer | Behavioral classifier onset, not physiological decision time |
+| Project-held-out score training preserves the phase boundary | Cross-fitted score: activation OR **1.97/SD** (1.53–2.53), onset HR **1.26/SD** (1.12–1.42), whole-route speed **0.948/SD** (0.836–1.075), frozen segment speed **1.013/SD** (0.860–1.192) | Strong cross-project robustness audit | Score weights exclude held-out-project outcomes, but predictor preprocessing is not fully cross-fitted; not external prospective validation |
 | The same entry-state score does not rank generic whole-route speed | Ratio **0.946/SD**, 95% CI **0.832–1.076**, p **0.396**; partial R² **0.18%** | Strong null-compatible transferability boundary | Post-activation population is selected; not proof of zero state effects |
 | The weak speed transfer is not an artifact of the whole-route endpoint | Frozen individual median positive inter-station speed ratio **1.028/SD**, 95% CI **0.869–1.215**, p **0.750**; partial R² **0.026%** | Developmental frozen-endpoint audit | Does not exclude reach/event-specific state effects |
 | Durif alone shows the same phase boundary | Activation OR **2.08**, onset HR **1.29** vs whole-route speed ratio **0.983** and frozen segment ratio **1.001** | Canonical | Multivariate score is the stronger V4 framing |
@@ -47,6 +48,7 @@ Do not claim that:
 - `manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json`
 - `manuscript/MANUSCRIPT_QC_V4.json`
 - `results/entry_state_score_transferability_v1.json`
+- `results/cross_project_entry_state_score_v1.json`
 - `results/phase_control_canonical_v2.json`
 - `results/dutch_condition_choice_test_v1.json`
 - `results/dutch_arrival_waiting_diagnostic_v1.json`
