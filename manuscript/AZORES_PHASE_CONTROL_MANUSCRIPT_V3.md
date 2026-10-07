@@ -131,6 +131,14 @@ As a continuous progression metric independent of the binary completion endpoint
 
 We modelled log migration speed with project × release-year fixed effects, within-stratum body length, within-stratum release timing and ordinal Durif stage. Informative project-year strata were required to contain at least eight initiated individuals and at least two Durif stages.
 
+### Progression falsification and selection diagnostics
+
+Because a weak stage-speed coefficient could arise for several reasons other than a genuine phase difference, we ran three developmental diagnostics after the primary result was known.
+
+First, we tested whether the pooled coefficient concealed strong opposing project effects and repeated progression at the individual median positive inter-station speed scale. Second, we tested a capture-stage-staleness alternative by fitting a Durif × release-to-activation-latency interaction and by re-estimating the stage-speed coefficient among eels activating within 1, 3 and 7 days.
+
+Third, we audited selection induced by conditioning on activation. We compared initiators and non-initiators within capture stage on body length and a descriptive log-weight residual after length, project and stage adjustment. We then fitted the canonical initiation model to obtain individual fitted activation probabilities. Among speed-bearing initiators with estimable propensities, we refitted the same stage-speed model using inverse-probability weights (1/hat p_i). This weighting is a selection diagnostic only: speed is undefined for non-initiators, so the analysis cannot identify counterfactual post-activation speed for animals that never crossed the activation gate.
+
 ### Terminal-endpoint phase contrast — sensitivity only
 
 For audit continuity, we retained the previously developed stacked initiation-versus-terminal-membership model with individual-clustered uncertainty.
@@ -229,7 +237,9 @@ Durif stages were developed to distinguish resident, pre-migrant and migrating e
 
 Instead, the multi-project analysis establishes a robust benchmark: capture-time Durif stage predicts later behavioral migration activation even after project-year, body-length and release-timing adjustment. The time-to-onset analysis provides an independent temporal expression of the same readiness gradient.
 
-That benchmark is useful because the same stage variable then shows little generic association with migration speed among activated eels. The contrast is therefore not created by changing the biological readiness measure; it arises because the response phase changes.
+That benchmark is useful because the same capture-stage variable then shows little generic association with migration speed among activated eels. However, the downstream comparison is conditional on passing the activation gate, and that gate is strongly stage dependent. The contrast therefore changes both the response phase and the population being compared.
+
+A post-hoc selection diagnostic confirmed that activation is phenotypically non-random: among FIII eels, initiators were larger than non-initiators (standardized length difference 0.514) and had a higher weight-for-length residual (0.302). Reweighting speed-bearing initiators by inverse fitted initiation probability changed the same-sample stage-speed ratio only from 1.042 to 1.062 (95% CI 0.916–1.230). Thus selection on the measured canonical activation predictors did not restore a general positive stage-speed gradient, although selection on unmeasured readiness remains unresolved.
 
 This is consistent with movement-ecology theory in which internal state contributes to movement motivation, while leaving open which external and individual factors govern progression after movement is active.
 
@@ -241,9 +251,11 @@ A developmental project-level audit did not indicate that this pooled near-null 
 
 We also examined a biologically plausible predictor-ageing alternative. FIII eels took longer to reach the migration threshold than FIV/FV eels (median 7.21 d versus 2.14–2.15 d), raising the possibility that initially less advanced animals physiologically converged before progression was measured. A post-hoc diagnostic did not support the simple version of that explanation: the Durif × log-latency interaction was not negative (interaction ratio 1.036, p = 0.382), and stage-speed point estimates remained near or below one among animals activating within 1, 3 or 7 d of release (0.942, 0.953 and 0.963, respectively). Because no eel was re-staged at activation, this weakens but cannot exclude physiological convergence.
 
+We separately audited activation-induced selection because post-activation speed is observed only for eels that crossed a stage-dependent entry filter. Measured capture phenotype was indeed selected: for FIII, initiators were on average 39.5 mm longer than non-initiators, with a standardized length difference of 0.514; selection on weight-for-length residual was 0.302. In the 373 speed-bearing initiators for whom canonical initiation propensities were estimable, inverse-probability weighting shifted the stage-speed ratio only from 1.042 (95% CI 0.902–1.205) to 1.062 (0.916–1.230). Measured activation selection therefore did not explain the weak stage-speed gradient, but the principal-stratum problem remains because speed is undefined for non-initiators and unmeasured readiness selection cannot be recovered from these data.
+
 These audits sharpen the boundary rather than converting a null result into proof of no internal effect. Moyo et al. (2026) followed silver eels in the River Test after downstream movement had already begun and retained silvering stage in a reach-level progression model together with temperature, barrier, flow and lunar variables. A post-activation readiness signal can therefore exist in a particular route and endpoint even though a transferable gradient is weak across the six-project panel.
 
-We therefore interpret the evidence as a **phase-specific transferability boundary**: capture-time Durif readiness carries strong, reproducible information about activation and onset across heterogeneous systems, but the same capture-stage gradient does not transfer as a general post-activation speed predictor across either of the two progression summaries tested here.
+We therefore interpret the evidence as a **phase-specific transferability boundary**: capture-time Durif readiness carries strong, reproducible information about activation and onset across heterogeneous systems, but among eels that cross this stage-dependent activation filter the same capture-stage gradient does not transfer as a general post-activation speed ranking across either of the two progression summaries tested here.
 
 This does not demonstrate that external conditions causally replace internal state. Individual traits can still influence movement after departure, and external conditions can also influence activation. The result instead identifies where the transferable Durif signal is strongest and motivates a sharper progression question: at what spatial and temporal scale does internal readiness remain visible, and when is it masked by route opportunity and environmental forcing?
 
@@ -304,6 +316,8 @@ Fourth, the terminal positive set is not a validated binary escapement-success v
 
 Fifth, a weak general Durif effect on post-activation speed does not prove that internal traits cease to matter. Project-specific and finer-scale progression audits did not reveal a hidden transferable stage gradient, and a simple capture-stage-staleness diagnostic was unsupported, but all three are developmental analyses with finite precision. The staleness audit is especially indirect because individuals were staged only at capture rather than repeatedly through migration. The River Test study further shows that silvering stage can contribute to a different, reach-level post-activation progression model.
 
+Sixth, post-activation speed is only defined for animals that entered the classified migratory state. Because activation probability differs strongly among FIII, FIV and FV, conditioning on activation creates a stage-dependent selected population. Observed-trait and inverse-probability diagnostics show that this selection is real but do not recover a strong stage-speed gradient after adjustment for measured activation predictors. They cannot remove selection on unmeasured latent readiness, so the post-activation coefficient is a descriptive ranking among entrants rather than a causal estimate of how a fixed stage effect attenuates in all tagged eels.
+
 Finally, the Dutch consecutive-barrier and River Test studies constrain the interpretation but are not formal replications of the Europe-wide model. Their main value is to test where route-specific progression can retain or lose information from internal readiness. The Dutch extension is therefore treated as a separate independent mechanism analysis rather than as evidence already contained in the core Europe-wide result.
 
 ### Conclusion
@@ -312,7 +326,7 @@ Capture-time silvering stage strongly predicted whether and when European eels e
 
 The most defensible synthesis is therefore a phase-specific transferability result:
 
-> **capture-time migratory readiness is highly informative at the gate into migration, but the same stage gradient is not a transferable general predictor of post-activation speed across the progression summaries tested here; local route-specific effects may still exist.**
+> **capture-time migratory readiness is highly informative at the gate into migration, but among eels that pass that stage-dependent gate the same capture-stage gradient is not a transferable general ranking of post-activation speed across the progression summaries tested here; local route-specific effects may still exist.**
 
 This conclusion does not depend on treating every eel absent from a terminal receiver set as a biological failure.
 
