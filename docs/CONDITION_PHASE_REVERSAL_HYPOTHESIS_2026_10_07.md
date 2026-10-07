@@ -357,3 +357,92 @@ The specific contribution would be the **phase-resolved phenotype-performance tu
 - asset protection exists.
 
 A stronger final paper would need the Dutch arrival-defined event analysis to show that at least part of the additional elapsed time corresponds to condition-dependent selection among externally defined passage opportunities.
+
+
+## 12. Dutch arrival-defined falsification — barrier selectivity not supported
+
+The decisive Dutch extension is now complete enough to reject the specific
+**condition-dependent barrier-selectivity / asset-protection mechanism** as the
+main explanation for the Europe-wide elapsed-time pattern.
+
+### Duration-choice test after observed barrier arrival
+
+Primary risk sets used only:
+- source-derived barrier arrival `SewerArrival`;
+- opening-event start `Firstquarter`;
+- confirmed `PassageTime`.
+
+`OutletTimeTotal` and the source `valid` flag were not used to decide which
+events entered the primary risk set.
+
+Informative matched choice sets:
+- EZ pumping station: **14 fish** (FIII 2; FIV/FV 12);
+- CL tidal sluice: **15 fish** (FIII 4; FIV/FV 11).
+
+The predicted mechanism was:
+> higher condition -> stronger dependence on longer passage windows.
+
+It was not supported.
+
+At CL:
+- condition × duration beta = **−0.095**;
+- Wald p = **0.841**;
+- permutation p = **0.849**.
+
+At EZ the fitted interaction was strongly negative, but the model was
+near-separated/non-converged with enormous uncertainty; it cannot be used as
+evidence for a real negative biological effect. Importantly, it is opposite to
+the preregistered positive asset-protection prediction.
+
+### Arrival-defined waiting test using all eventual passers
+
+A broader test asked whether better-conditioned eels experienced more missed
+opening events or longer delay after first arrival.
+
+EZ (n=35):
+- condition vs missed events: **r = 0.009**, permutation p = **0.960**;
+- condition vs delay: **r = 0.072**, p = **0.677**;
+- adjusted condition vs log1p(missed): partial r = **0.087**, p = **0.615**;
+- adjusted condition vs log1p(delay): partial r = **0.058**, p = **0.741**.
+
+CL (n=27):
+- condition vs missed events: **r = −0.104**, p = **0.592**;
+- condition vs delay: **r = −0.182**, p = **0.350**;
+- adjusted condition vs log1p(missed): partial r = **−0.024**, p = **0.901**;
+- adjusted condition vs log1p(delay): partial r = **−0.044**, p = **0.825**.
+
+Therefore:
+
+> **better body condition does not detectably increase post-arrival barrier
+> waiting, missed opportunities, or preference for longer opening windows in
+> this independent Dutch system.**
+
+### Selection diagnostic in the Europe-wide cohort
+
+Inverse-probability weighting for the measured condition-dependent activation
+process shifts the post-activation condition-speed ratio only from **0.907** to
+**0.920**.
+
+This does not restore a positive motor-performance gradient and does not explain
+the weak negative whole-route point estimate.
+
+### Revised interpretation
+
+The supported result is now narrower:
+
+> **capture body state and Durif stage are both informative about entering the
+> migratory state, but neither behaves as a transferable general
+> motor-performance score after activation.**
+
+The longer whole-route elapsed-time tendency for high-condition fish remains a
+developmental same-cohort pattern, but the Dutch test shows that it should **not**
+be attributed generally to condition-dependent passage selectivity or asset
+protection.
+
+Current status:
+
+**MULTIVARIATE_ENTRY_GATE_SUPPORTED / BARRIER_SELECTIVITY_MECHANISM_UNSUPPORTED**
+
+The next useful analysis is not another barrier mechanism search. It is to test
+the multivariate entry-state vector directly across activation, onset and
+post-activation speed.
