@@ -1,0 +1,187 @@
+{
+  "schema": "azores.figure_data_contract.v4",
+  "manuscript": "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md",
+  "numeric_contract": "manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json",
+  "main_figures": {
+    "figure1": {
+      "evaluable_stage_tracks": 575,
+      "multivariate_activation_n": 525,
+      "onset_n": 570,
+      "onset_events": 418,
+      "whole_route_speed_n": 418,
+      "segment_speed_n": 411
+    },
+    "figure2": {
+      "activation_by_stage": [
+        {
+          "stage": "FIII",
+          "tracked": 261,
+          "initiated": 154,
+          "rate": 0.5900383142
+        },
+        {
+          "stage": "FIV",
+          "tracked": 68,
+          "initiated": 53,
+          "rate": 0.7794117647
+        },
+        {
+          "stage": "FV",
+          "tracked": 246,
+          "initiated": 215,
+          "rate": 0.8739837398
+        }
+      ],
+      "multivariate_activation": [
+        {
+          "term": "Durif stage",
+          "unit": "per stage",
+          "ratio_type": "OR",
+          "estimate": 2.1295901001,
+          "lo": 1.5957596503,
+          "hi": 2.8420031759,
+          "p": 2.8336578506e-7,
+          "beta": 0.7559295199
+        },
+        {
+          "term": "Capture condition",
+          "unit": "per SD",
+          "ratio_type": "OR",
+          "estimate": 1.4603563009,
+          "lo": 1.1643613968,
+          "hi": 1.8315967289,
+          "p": 0.0010500163,
+          "beta": 0.3786804477
+        }
+      ],
+      "joint_lr_chisq_df2": 39.0052677934,
+      "joint_lr_p_df2": 3.3893289103e-9
+    },
+    "figure3": {
+      "entry_state_transfer": [
+        {
+          "phase": "Migration activation",
+          "effect_type": "odds ratio",
+          "estimate": 2.2300541395,
+          "lo": 1.7041449224,
+          "hi": 2.9182620559,
+          "p": 5.0786508332e-9,
+          "n": 525
+        },
+        {
+          "phase": "Behavioral onset",
+          "effect_type": "hazard ratio",
+          "estimate": 1.3173057497,
+          "lo": 1.168198773,
+          "hi": 1.4854444964,
+          "p": 0.0000069056170342,
+          "n": 570,
+          "events": 418
+        },
+        {
+          "phase": "Whole-route speed",
+          "effect_type": "speed ratio",
+          "estimate": 0.9459346481,
+          "lo": 0.8318810455,
+          "hi": 1.0756253712,
+          "p": 0.3964992546,
+          "n": 418,
+          "partial_r2": 0.0017851592
+        },
+        {
+          "phase": "Positive inter-station speed",
+          "effect_type": "speed ratio",
+          "estimate": 1.0275696157,
+          "lo": 0.8692505974,
+          "hi": 1.2147237152,
+          "p": 0.7500445824,
+          "n": 411,
+          "partial_r2": 0.0002568798
+        }
+      ]
+    },
+    "figure4": {
+      "risk_set_rule": "SewerArrival <= Firstquarter <= PassageTime; duration and source valid flag not used for inclusion",
+      "waiting_associations": [
+        {
+          "barrier": "EZ",
+          "response": "missed events",
+          "n": 35,
+          "r": 0.0086145127,
+          "p_permutation": 0.9596040396
+        },
+        {
+          "barrier": "EZ",
+          "response": "delay hours",
+          "n": 35,
+          "r": 0.0718864949,
+          "p_permutation": 0.6773322668
+        },
+        {
+          "barrier": "CL",
+          "response": "missed events",
+          "n": 27,
+          "r": -0.1042445775,
+          "p_permutation": 0.5919408059
+        },
+        {
+          "barrier": "CL",
+          "response": "delay hours",
+          "n": 27,
+          "r": -0.1818865189,
+          "p_permutation": 0.3502649735
+        }
+      ],
+      "matched_choice_CL": {
+        "n": 15,
+        "beta_condition_x_duration": -0.0949232585,
+        "p_wald": 0.8408658728,
+        "p_permutation": 0.8491508492
+      },
+      "matched_choice_EZ": {
+        "n": 14,
+        "status": "near-separated/non-converged; not biologically interpreted"
+      },
+      "fish_level_source": "results/dutch_arrival_waiting_diagnostic_v1.json"
+    }
+  },
+  "supplementary": {
+    "stage_only": {
+      "activation_or": 2.0763093041,
+      "onset_hr": 1.29,
+      "whole_speed_ratio": 0.9831088159,
+      "segment_speed_ratio": 1.001
+    },
+    "falsification_audits": {
+      "whole_Q": 2.469,
+      "whole_Q_p": 0.781,
+      "segment_Q": 2.32,
+      "segment_Q_p": 0.804,
+      "staleness_ratio": 1.036,
+      "staleness_p": 0.382,
+      "stage_speed_unweighted": 1.042,
+      "stage_speed_ipw": 1.062,
+      "condition_speed_unweighted": 0.9073905001,
+      "condition_speed_ipw": 0.9200811159
+    },
+    "terminal_sensitivity": {
+      "terminal_or": 1.1475775341,
+      "terminal_ci95": [
+        0.8260854081,
+        1.5941864894
+      ],
+      "stacked_or_ratio": 1.8092976225,
+      "stacked_ci95": [
+        1.1528508837,
+        2.8395327907
+      ]
+    }
+  },
+  "boundaries": [
+    "OR, HR and speed ratio share null=1 but are not identical effect-size scales.",
+    "Do not interpret capture condition as independent physiology.",
+    "Do not plot the unstable EZ matched-choice coefficient as a reliable effect.",
+    "Dutch barrier analysis is falsification, not handoff confirmation.",
+    "Terminal non-membership is not biological failure."
+  ]
+}
