@@ -321,6 +321,12 @@ def main():
     sensitivity_unweighted = run_model(segments, 5, fish_equal=False)
     lopo = leave_one_project_out(segments, 5)
 
+    expert_non_rows = sum(r["fish"] in B.EXPERT_NON for r in segments)
+    if expert_non_rows:
+        raise RuntimeError(
+            f"fixed expert non-migrants leaked into post-activation segments: {expert_non_rows}"
+        )
+
     result = {
         "schema": "azores.within_link_entry_state_speed.v1",
         "evidence_class": "post_hoc_frozen_within_link_motion_capacity_audit",
@@ -329,6 +335,8 @@ def main():
         "question": contract["scientific_question"],
         "raw_candidate_segments": len(segments),
         "raw_candidate_fish": len({r["fish"] for r in segments}),
+        "expert_non_migrant_segment_rows": expert_non_rows,
+        "canonical_expert_non_migrant_count": len(B.EXPERT_NON),
         "raw_candidate_pairs": len({r["pair"] for r in segments}),
         "primary": primary,
         "sensitivities": {
