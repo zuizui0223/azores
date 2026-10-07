@@ -45,6 +45,34 @@ Transferability boundary:
 - leave-one-project-out robustness shows the pooled activation result is not driven by one project;
 - direct project-specific activation fits are not all independently estimable because some project strata approach outcome saturation, so do **not** call this six independent replications.
 
+### Multivariate entry-state transferability result
+
+An activation-trained score combining ordinal Durif stage and continuous
+weight-for-length condition now provides the clearest phase test.
+
+Activation-trained weights:
+- Durif = **0.756**;
+- condition = **0.379**.
+
+Per 1 SD of this frozen entry-state score:
+- migration activation OR = **2.23** (95% CI **1.70–2.92**);
+- behavioral onset HR = **1.32** (95% CI **1.17–1.49**);
+- post-activation whole-route speed ratio = **0.946** (95% CI **0.832–1.076**), partial R² **0.18%**;
+- frozen median positive inter-station speed ratio = **1.028** (95% CI **0.869–1.215**), partial R² **0.026%**.
+
+Interpretation:
+
+> **the multivariate capture state that predicts entry into migration is not a
+> general motor-performance score after activation.**
+
+This is now stronger than the Durif-only attenuation result because adding a
+second continuous capture-state dimension does not restore a transferable
+generic speed ranking.
+
+Canonical artifact:
+- `results/entry_state_score_transferability_v1.json`
+- `docs/ENTRY_STATE_SCORE_TRANSFERABILITY_2026_10_07.md`
+
 ### Body-state phase-turnover diagnostic
 
 A new post-hoc body-state programme adds a second pre-movement axis beyond the ordinal Durif label.
