@@ -364,24 +364,38 @@ def main() -> None:
     interaction = fit_interaction(rows)
     all_stage = fit_stage(rows)
 
-    if early["le_1_days"]["model"].get("status") == "ESTIMATED":
-        e = early["le_1_days"]["model"]["durif_speed_effect"]
-        early_one_excludes_positive = e["ci95_ratio"][1] <= 1.0
-        early_one_supports_positive = e["ci95_ratio"][0] > 1.0
-    else:
-        early_one_excludes_positive = False
-        early_one_supports_positive = False
+    early_models = [
+        early["le_1_days"]["model"],
+        early["le_3_days"]["model"],
+        early["le_7_days"]["model"],
+    ]
+    early_estimated = all(m.get("status") == "ESTIMATED" for m in early_models)
+    early_point_ratios = (
+        [m["durif_speed_effect"]["ratio"] for m in early_models]
+        if early_estimated else []
+    )
+    early_one_supports_positive = (
+        early["le_1_days"]["model"].get("status") == "ESTIMATED"
+        and early["le_1_days"]["model"]["durif_speed_effect"]["ci95_ratio"][0] > 1.0
+    )
 
     if interaction.get("status") == "ESTIMATED":
         ix = interaction["durif_x_log_latency"]
-        negative_interaction = ix["ci95_beta"][1] < 0
+        negative_interaction_supported = ix["ci95_beta"][1] < 0
+        interaction_point_negative = ix["beta"] < 0
     else:
-        negative_interaction = False
+        negative_interaction_supported = False
+        interaction_point_negative = False
 
-    if early_one_supports_positive and negative_interaction:
+    if early_one_supports_positive and negative_interaction_supported:
         diagnostic = "COMPATIBLE_WITH_CAPTURE_STAGE_STALENESS"
-    elif early_one_excludes_positive:
-        diagnostic = "NO_EVIDENCE_FOR_HIDDEN_EARLY_POSITIVE_STAGE_SPEED_ADVANTAGE"
+    elif (
+        early_estimated
+        and all(r <= 1.0 for r in early_point_ratios)
+        and interaction.get("status") == "ESTIMATED"
+        and not interaction_point_negative
+    ):
+        diagnostic = "NO_SUPPORT_FOR_SIMPLE_STATE_STALENESS_PATTERN"
     else:
         diagnostic = "INCONCLUSIVE"
 
@@ -399,6 +413,15 @@ def main() -> None:
         "continuous_interaction_model": interaction,
         "frozen_short_latency_diagnostics": early,
         "diagnostic_status": diagnostic,
+        "diagnostic_interpretation": (
+            "The simple state-staleness prediction is not supported when all "
+            "short-latency stage-speed point estimates are <=1 and the continuous "
+            "stage x latency point estimate is non-negative. This is directional "
+            "evidence only; wide intervals and lack of repeated Durif measurements "
+            "prevent exclusion of physiological convergence."
+            if diagnostic == "NO_SUPPORT_FOR_SIMPLE_STATE_STALENESS_PATTERN"
+            else "Interpret only within the explicit claim boundaries below."
+        ),
         "claim_boundary": [
             "Durif stage is measured only at capture; no individual is re-staged at activation.",
             "Latency is itself a post-capture movement outcome and is not randomized.",
