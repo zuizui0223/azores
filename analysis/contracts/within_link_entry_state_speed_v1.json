@@ -1,0 +1,53 @@
+{
+  "schema": "azores.within_link_entry_state_speed_contract.v1",
+  "frozen_before_result_inspection": true,
+  "scientific_question": "Does a project-held-out activation-trained entry-state score predict realized positive transit speed when route geometry is controlled by exact directed station-pair fixed effects?",
+  "score": {
+    "source": "analysis/32_cross_project_entry_state_score.py",
+    "type": "project-held-out activation-trained Durif + condition score",
+    "boundary": "score weights exclude held-out-project migration outcomes; predictor preprocessing remains panel-derived"
+  },
+  "segment_definition": {
+    "source_rows": "public source migration_*.csv files for the six focal projects",
+    "include_if": [
+      "current row migration == TRUE",
+      "immediately preceding row for the same fish migration == TRUE",
+      "current speed_m_s is finite and > 0",
+      "previous and current station_name are nonempty and different"
+    ],
+    "pair_id": "project :: previous_station -> current_station",
+    "primary_pair_support": "at least 5 unique fish"
+  },
+  "primary_model": {
+    "outcome": "log(speed_m_s)",
+    "exposure": "project-held-out entry-state score",
+    "fixed_effects": [
+      "directed station pair",
+      "project x release-year"
+    ],
+    "continuous_adjustment": [
+      "body length centered within project-year",
+      "release timing centered within project-year"
+    ],
+    "fish_weighting": "inverse of included segment count per fish so each fish contributes total weight 1",
+    "inference": "cluster-robust sandwich SE by fish with finite-sample CR1 correction",
+    "estimand": "multiplicative transit-speed ratio per 1 SD entry-state score"
+  },
+  "prespecified_sensitivities": [
+    "minimum pair support 3 unique fish",
+    "minimum pair support 10 unique fish",
+    "unweighted segment rows",
+    "leave one project out"
+  ],
+  "interpretation": {
+    "positive_supported": "entry state retains a local realized-transit component that was hidden by individual-level speed aggregation",
+    "null_compatible": "entry state is informative for migratory commitment/onset but not for realized motion speed even within the same route links",
+    "negative_supported": "higher entry state predicts slower realized transit within identical links; do not interpret as lower intrinsic capacity without further mechanism data"
+  },
+  "prohibitions": [
+    "do not retune pair-support thresholds after seeing the primary coefficient",
+    "do not drop extreme positive source speeds after inspecting their association with score",
+    "do not treat segment rows as independent fish",
+    "do not call a null coefficient proof that physiology is irrelevant after activation"
+  ]
+}
