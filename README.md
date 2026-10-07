@@ -2,99 +2,109 @@
 
 ## Main ecological question
 
-> **How strongly does internal migratory readiness control activation of seaward movement, and how much of that stage signal remains once migration is already progressing?**
+> **Does the capture phenotype that makes a European eel ready to enter migration
+> also rank how fast it moves after migration is active?**
 
-This project began from an extreme Azores yellow-eel system in which 36 tagged individuals showed very strong pool fidelity and zero valid receiver-to-receiver movement.
+The project began from an extreme Azores yellow-eel system with strong pool
+fidelity and no valid receiver-to-receiver movement, but the current paper is a
+Europe-wide phase-transferability analysis.
 
-The goal is **not** to rediscover site fidelity.
+The main result is now **multivariate**, not Durif-only.
 
-The current ecological result is phase specific:
+An activation model using the public six-project FIII–FV cohort found independent
+capture-state information in:
 
-1. **capture-time Durif stage strongly predicts migration activation;**
-2. **advanced stage predicts earlier behavioral onset;**
-3. **after activation, there is no general Durif-stage gradient in migration speed.**
+- ordinal Durif stage: OR **2.13 per stage** (95% CI **1.60–2.84**);
+- weight-for-length condition: OR **1.46 per SD** (95% CI **1.16–1.83**).
 
-Canonical developmental results:
+Using those activation coefficients only, the frozen entry-state score is:
 
-- initiation rates FIII / FIV / FV: **59.0% / 77.9% / 87.4%**
-- adjusted initiation OR: **2.08 per stage** (95% CI **1.56–2.76**)
-- onset Cox HR: **1.29 per stage** (95% CI **1.13–1.47**)
-- post-activation migration-speed ratio: **0.983 per stage** (95% CI **0.852–1.134**, p = **0.815**)
+```
+entry-state score
+  = 0.756 × ordinal Durif
+  + 0.379 × capture condition
+```
 
-Thus the strongest current statement is:
+Per 1 SD of that score:
 
-> **silvering readiness strongly predicts whether and when migration becomes behaviorally expressed, but does not provide a transferable general whole-migration speed advantage once migration is active.**
+- migration activation OR = **2.23** (95% CI **1.70–2.92**);
+- behavioral-onset HR = **1.32** (95% CI **1.17–1.49**; **418** events);
+- post-activation whole-route speed ratio = **0.946**
+  (95% CI **0.832–1.076**; partial R² **0.18%**);
+- frozen median positive inter-station speed ratio = **1.028**
+  (95% CI **0.869–1.215**; partial R² **0.026%**).
 
-The canonical post-activation speed result has now been independently replayed exactly (n = **418**; ratio = **0.983**). A six-project heterogeneity audit does not support simple cancellation of large opposing project effects. New 2026 River Test evidence nevertheless shows that silvering stage can contribute to finer reach-level progression, so the active ecological interpretation is **phase- and scale-dependent**, not a complete disappearance of internal-state effects after activation.
+Thus the canonical V4 statement is:
 
-See [post-activation speed reproducibility and scale/context audit](docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md).
+> **the multivariate capture phenotype that predicts migratory commitment is an
+> entry-state indicator, not a transferable general motor-performance score.**
 
-A direct reproducibility audit now exactly reproduces the canonical post-activation result (n = 418; speed ratio = 0.983). Project-specific adjusted speed ratios range from 0.915 to 1.272, with weak evidence for between-project coefficient heterogeneity (Cochran Q = 2.469, df = 5, p ≈ 0.781). A 2026 River Test study nevertheless retained silvering stage in a progression-rate model, so the pooled null is not interpreted as biological irrelevance of silvering after activation.
+Durif alone shows the same boundary: activation OR **2.08**, onset HR **1.29**,
+but post-activation whole-route speed ratio **0.983** and frozen segment-speed
+ratio **1.001**.
 
-See:
-- [post-activation speed reproducibility audit](docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md)
-- [project-level speed diagnostic](results/post_activation_speed_project_heterogeneity_v1.json)
+## Independent Dutch falsification
 
+The full DANS archive associated with van Rijn et al. (2026) was materialized
+and its event schema audited. Source passage validity is partly defined from
+event duration, so the V4 mechanism test reconstructs risk sets independently:
 
-## Post-activation transferability audit
+```
+SewerArrival <= Firstquarter <= PassageTime
+```
 
-The canonical speed endpoint has been independently reproduced from the pinned upstream blobs: **n=418**, Durif-stage speed ratio **0.9831088159** (95% CI **0.8524016–1.1338586**).
+without using event duration or the source `valid` flag for inclusion.
 
-Project-specific stage effects ranged from **0.915 to 1.272**, but formal heterogeneity was unsupported (**Q=2.47, df=5, p=0.781; I²=0%**). Therefore the paper does not claim a stage × project interaction.
+Informative strict-start choice sets:
+- EZ pumping station: **14 fish** (FIII 2; FIV/FV 12);
+- CL tidal sluice: **15 fish** (FIII 4; FIV/FV 11).
 
-A 2026 River Test study provides an external boundary case in which silvering stage contributed to downstream progression rate within one river. This supports a careful distinction between a **non-transferable general progression gradient** and the stronger, unsupported claim that silvering stage becomes irrelevant after activation.
+The proposed mechanism — better-conditioned eels preferentially waiting for
+longer passage windows after barrier arrival — was **not supported**.
 
-See [post-activation speed reproducibility and novelty audit](docs/POST_ACTIVATION_SPEED_REPRO_AUDIT_2026_10_05.md).
+- CL condition × duration: β **−0.095**, p **0.841**,
+  permutation p **0.849**.
+- EZ conditional choice was near-separated/non-converged and opposite the
+  preregistered positive prediction; it is not interpreted biologically.
+- Arrival-defined waiting was null at both barriers:
+  - EZ condition vs missed events r **0.009**, p **0.960**;
+  - CL r **−0.104**, p **0.592**.
 
-## Important endpoint correction
+The Dutch extension is therefore a useful **falsification**, not positive
+confirmation of an internal-to-external control handoff.
 
-The upstream file `successful_migrants_final_detection.csv` identifies positive terminal/sea-endpoint records.
+## Important endpoint boundary
 
-The source Europe-wide paper explicitly did **not** estimate escapement success rate because non-detection at the terminal endpoint can reflect fishing, detection loss, release geometry and other study-specific assumptions.
+The upstream terminal/sea-positive set remains a secondary sensitivity only.
+Its complement is not validated biological failure, and this project does not
+estimate escapement probability.
 
-Therefore:
+## Canonical V4 artifacts
 
-- terminal-endpoint membership is retained only as a **secondary sensitivity endpoint**;
-- its complement is **not** called biological failure;
-- the former initiation/completion OR-ratio is no longer the primary manuscript evidence.
+- [submission manuscript V4](manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md)
+- [V4 numeric contract](manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json)
+- [V4 QC PASS](manuscript/MANUSCRIPT_QC_V4.json)
+- [V4 claim-evidence map](docs/CLAIM_EVIDENCE_MAP_PHASE_CONTROL_V3.md)
+- [activation-trained entry-state result](results/entry_state_score_transferability_v1.json)
+- [canonical stage-only benchmark](results/phase_control_canonical_v2.json)
+- [Dutch condition-choice falsification](results/dutch_condition_choice_test_v1.json)
+- [Dutch arrival-defined waiting falsification](results/dutch_arrival_waiting_diagnostic_v1.json)
+- [condition-specific activation-selection IPW](results/body_condition_activation_selection_ipw_v1.json)
 
-See:
-- [escapement endpoint audit](docs/escapement_endpoint_audit.md)
-- [canonical phase-control v2](results/phase_control_canonical_v2.json)
+## Stage-only benchmark and scale boundary
 
-## Primary post-activation question
+The canonical stage-only post-activation speed endpoint reproduces exactly:
+**n=418**, Durif-stage speed ratio **0.9831088159**
+(95% CI **0.8524016–1.1338586**).
 
-The open biological question is now:
+Project-specific stage effects do not show supported heterogeneity
+(**Q=2.47, df=5, p=0.781**), and the frozen median positive inter-station
+endpoint is likewise near null (**1.001**, 95% CI **0.831–1.204**).
 
-> **once migration is active, which barrier, hydrological and route conditions determine progression?**
-
-The Dutch pump -> lake -> tidal-sluice system is the active within-route confirmation target.
-
-See:
-- [submission-canonical manuscript V3](manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md)
-- [V3 numeric contract](manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V2.json)
-- [V3 QC PASS](manuscript/MANUSCRIPT_QC_V2.json)
-- [canonical activation/onset/progression evidence](results/phase_control_canonical_v2.json)
-- [post-initiation speed result](docs/post_initiation_speed_result.md)
-- [Dutch barrier confirmation protocol](docs/dutch_barrier_confirmation_protocol.md)
-- [data feasibility audit](docs/data_feasibility_audit.md)
-- [analysis programme](analysis/README.md)
-
-## Additional movement-onset result
-
-The same internal-state signal appears before the final successful-migrant endpoint.
-
-Across six upstream migration projects, a project-year stratified Cox model of **time to first classified migration episode** included body length and within-year release timing.
-
-- n = **570**
-- classified migration episodes = **418**
-- Durif FIII -> FIV -> FV: hazard ratio **1.28** per stage
-- 95% CI **1.12–1.45**
-- p ≈ **2.2×10⁻⁴**
-
-Thus capture-time Durif readiness predicts both **whether downstream movement is ultimately realized** and **how rapidly the published classifier identifies a migration episode**.
-
-See [first migration episode result](docs/first_migration_episode_result.md).
+A 2026 River Test study is retained as an external scope boundary showing that
+silvering stage can still contribute at a finer reach scale. The V4 conclusion
+is therefore about **transferability across generic progression summaries**,
+not disappearance of all internal-state effects after activation.
 
 ## Post-activation project heterogeneity audit
 
@@ -116,7 +126,7 @@ See [post-activation project heterogeneity audit](docs/post_activation_speed_pro
 
 These are developmental independent results, not outcome-blind confirmation.
 
-Durif stages already encode migratory readiness, so the initiation association is biologically expected and is not novelty by itself. The stronger contribution is the **phase-resolved decomposition** showing that the same stage gradient that predicts activation is absent from the generic post-activation speed response.
+Durif stages already encode migratory readiness, so the initiation association is biologically expected and is not novelty by itself. The stronger contribution is the **cross-phase transferability test** showing that an activation-trained multivariate capture-state score predicts activation and onset but carries almost no general information about the two generic post-activation speed summaries.
 
 ## Role of EOG
 
@@ -138,9 +148,9 @@ See [three independent ecology programmes](docs/three_ecology_programs.md).
 - [three-programme current status](docs/three_ecology_programs_status.md)
 
 
-## Submission figures
+## Legacy V2 submission figures
 
-Endpoint-audited reference renders are now committed:
+The endpoint-audited V2 reference renders remain committed for provenance, but they predate the V4 multivariate entry-state framing and are **not yet the canonical V4 figure set**:
 
 - `manuscript/rendered_figures_v2/Figure1.svg`
 - `manuscript/rendered_figures_v2/Figure2.svg`
@@ -150,4 +160,4 @@ Endpoint-audited reference renders are now committed:
 Render QC:
 - `manuscript/RENDERED_FIGURE_QC_V2.json` — **PASS_REFERENCE_RENDER**
 
-Numeric content is locked to `FIGURE_DATA_CONTRACT_V2.json`; terminal positive-set sensitivity remains supplementary only.
+V2 numeric content remains locked to `FIGURE_DATA_CONTRACT_V2.json`; terminal positive-set sensitivity remains supplementary only. A V4 figure contract should center the activation-trained entry-state transferability result rather than reuse V2 unchanged.
