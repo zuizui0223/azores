@@ -1,4 +1,4 @@
-# A multivariate entry state predicts migration activation but not generic progression speed in European eel
+# A multivariate entry state predicts migration activation but not realized transit speed in European eel
 
 **Manuscript draft V4 — multivariate entry-state revision**
 
@@ -15,6 +15,8 @@ Ordinal Durif stage strongly predicted migration activation and onset. In a mult
 The same score did not transfer as a general progression-speed ranking after activation. Among 418 activated eels, its whole-route speed ratio was 0.946 per SD (95% CI 0.832–1.076; p=0.396; partial R²=0.18%). For the independently frozen per-eel median positive inter-station speed endpoint (n=411), the ratio was 1.028 (0.869–1.215; p=0.750; partial R²=0.026%). Durif stage alone showed the same boundary: strong activation/onset effects but no transferable whole-route speed gradient.
 
 A project-held-out robustness analysis preserved this boundary. When the Durif and condition weights were re-estimated while withholding each project in turn, the cross-fitted score still predicted activation (OR 1.97 per SD, 95% CI 1.53–2.53) and onset (HR 1.26, 1.12–1.42), but not whole-route speed (ratio 0.948, 0.836–1.075) or frozen inter-station speed (1.013, 0.860–1.192).
+
+An exact-link audit likewise found essentially no realized transit-speed gradient. Comparing 18,012 positive movement segments from 426 eels within 248 identical directed receiver links, while giving each eel equal total weight, yielded a speed ratio of 0.995 per SD of the project-held-out entry-state score (95% CI 0.912–1.087; p=0.918). The source segment-speed field contained grossly implausible values, but post-hoc external-plausibility screens at 2.5, 5 and 10 m s\(^{-1}\) left the ratio at 0.976–0.979 with all intervals spanning one.
 
 We also used an independent Dutch public archive to test a candidate mechanism for the weak post-activation relationship. After reconstructing duration-independent barrier risk sets from observed arrival times and opening-event timestamps, better body condition did not predict more post-arrival missed opportunities, longer barrier delay, or stronger selection for longer opening windows. Thus a general condition-dependent barrier-selectivity mechanism was not supported.
 
@@ -93,6 +95,12 @@ where \(D\) is ordinal Durif stage and \(C\) is within-stratum centered standard
 Because the score is developed from the same source panel, this is a post-hoc cross-phase transferability diagnostic rather than prospective validation. Its purpose is not to estimate a latent physiological variable, but to ask whether an empirically activation-relevant capture-state vector behaves like a general progression-speed score.
 
 As a cross-project robustness audit, we repeated coefficient training six times, each time withholding one entire project from the activation model. The Durif and condition weights estimated from the remaining five projects were then applied without outcome-based re-estimation to individuals in the held-out project. We concatenated these project-held-out scores and repeated the activation, onset and two progression-speed tests. This removes held-out-project outcome information from score-weight estimation, although predictor preprocessing remained panel-derived; it is therefore stronger than same-panel weight fitting but is not prospective external validation.
+
+### Within-link realized transit-speed audit
+
+To test whether the weak progression signal was created by averaging across unlike routes, we preregistered a post-hoc within-link audit before inspecting its coefficient. We used the project-held-out entry-state score and source positive `speed_m_s` values only when both the current and immediately preceding rows for an eel were classified `migration = TRUE` and the station identity changed. Each directed receiver-to-receiver pair was treated as a fixed route link. The primary model required at least five unique eels per directed pair, included directed-pair and project × release-year fixed effects plus body length and release timing, weighted segment rows so that each eel contributed total weight one, and used fish-clustered sandwich standard errors. Pair-support thresholds of three and ten eels, unweighted segment rows and leave-one-project-out fits were frozen sensitivities.
+
+The source `speed_m_s` field is a last-detection-to-first-detection ground-speed calculation and, after the frozen primary was run, was found to contain biologically impossible values. We therefore registered an explicitly post-hoc data-quality sensitivity rather than changing the primary endpoint. European silver eels have experimental Ucrit around 0.94 m s\(^{-1}\) and Uopt around 0.64 m s\(^{-1}\) (Tudorache et al. 2015), while a compiled European-eel swimming-performance database reports values up to approximately 2.26 m s\(^{-1}\) (Katopodis & Gervais 2016). We repeated the identical primary model after externally motivated upper screens of 2.5, 5 and 10 m s\(^{-1}\). These thresholds are plausibility screens, not estimates of a true maximum field speed, and the all-positive-speed analysis remains the frozen primary.
 
 ### Source migration classification
 
@@ -235,7 +243,15 @@ The score did not transfer as a generic speed ranking. Among 418 activated eels,
 
 The same phase boundary survived project-held-out coefficient training. Across the six leave-one-project-out training folds, both activation-derived weights remained positive (Durif beta range 0.563–0.892; condition beta range 0.213–0.497). Pooling scores whose weights were learned without the focal project's outcomes, the cross-fitted score still predicted activation (OR 1.97 per SD, 95% CI 1.53–2.53; p=1.3×10\(^{-7}\)) and earlier onset (HR 1.26, 95% CI 1.12–1.42; p=0.00014), while remaining weak for whole-route speed (ratio 0.948, 95% CI 0.836–1.075; p=0.408; partial R²=0.17%) and frozen inter-station speed (ratio 1.013, 95% CI 0.860–1.192; p=0.879; partial R²=0.006%). Thus the boundary is not explained simply by estimating the entry-state weights using outcomes from the same project to which they are applied.
 
-Thus a capture-state vector optimized only for entry into migration retained information about **when** migration began but essentially no general information about **how fast** activated eels progressed under either generic speed summary.
+### Entry state did not rank realized speed within identical route links
+
+The exact-link audit retained 18,012 positive segment rows from 426 eels across 248 directed station pairs with at least five unique fish per pair. With each eel contributing total weight one, the project-held-out entry-state score had a within-link speed ratio of **0.995 per SD** (95% CI **0.912–1.087**; p=**0.918**) and weighted partial R² of **0.0000052** (approximately **0.00052%**).
+
+The result was insensitive to the prespecified pair-support threshold: ratios were **0.991** for at least three fish per link and **1.032** for at least ten. Leave-one-project-out estimates ranged from **0.970 to 1.059**, crossing both sides of one. Thus the absence of a positive speed ranking is not explained by pooling eels across different receiver-to-receiver geometries.
+
+The raw source segment-speed field nevertheless had a serious quality boundary: the frozen primary candidate rows included values up to **3752 m s\(^{-1}\)**. Externally motivated post-hoc screens therefore removed speeds above 2.5, 5 or 10 m s\(^{-1}\), which removed **62.5%**, **58.1%** and **52.5%** of candidate segment rows, respectively. Despite this large data-quality correction, the fish-equal within-link ratios remained **0.978**, **0.979** and **0.976**, with all 95% intervals spanning one. The within-link null is therefore robust to grossly implausible source-speed artifacts, although the raw segment-speed field should not be treated as a direct physiological swimming measurement.
+
+Thus a capture-state vector optimized only for entry into migration retained information about **when** migration began but essentially no general information about **how fast** activated eels progressed under either generic speed summary or within identical receiver-to-receiver links.
 
 ### Terminal positive-set membership showed a weak general stage gradient
 
@@ -286,6 +302,8 @@ Our central result is not simply that more silvered eels migrate. FIII is explic
 The informative result is the **transferability boundary**. Ordinal Durif stage and continuous weight-for-length state both carried information about entry into migration. When their activation-derived contributions were compressed into one score, that score strongly predicted whether migration became behaviorally expressed and when onset occurred. Yet it explained only 0.18% of residual variation in whole-route speed and 0.026% in the frozen positive inter-station speed summary.
 
 This directly rejects the simple interpretation of capture-time readiness as a universal realized-progression-quality axis. The phenotype that makes an eel more likely to enter the migratory mode is not, in these data, a general ranking of how fast activated animals move through heterogeneous routes.
+
+The exact-link result makes that boundary harder to attribute to route aggregation. Even after conditioning on the same directed receiver-to-receiver link, using project-held-out score weights, giving each fish equal total weight and clustering uncertainty by fish, the speed ratio was 0.995 per SD with effectively zero incremental explanatory power. The result also survived removing the many grossly implausible source segment-speed values using externally motivated thresholds. Accordingly, the observed separation is between **entry-state information** and **realized transit-speed ranking**, not merely between an individual trait and a coarse whole-route average.
 
 That result is not the default prediction from the broad condition–movement literature. Goossens et al. (2020) synthesize many systems in which higher condition is associated with more efficient migration and, when integrated over an entire trajectory, faster travel and earlier arrival. Our eel result instead shows strong condition information at the transition into migration but almost no transferable information in positive inter-station speed. The difference is therefore not simply “condition matters” versus “condition does not matter”; it is **which component of movement the condition signal describes**.
 
@@ -439,6 +457,10 @@ Nathan, R., Getz, W. M., Revilla, E., Holyoak, M., Kadmon, R., Saltz, D., & Smou
 Lennox, R. J., Økland, F., Jonsson, B., Aronsen, T., Austrheim, E., Diserud, O. H., et al. (2018). European eel *Anguilla anguilla* compromise speed for safety in the early marine spawning migration. *ICES Journal of Marine Science*, **75**, 1984–1991. https://doi.org/10.1093/icesjms/fsy104
 
 Moyo, S., Britton, J. R., Major, T., Wright, R. M., Moore, A., Ives, M., Davies, P., Hall, A. E., Stamp, T., Sheehan, E. V., & Bašić, T. (2026). Initial marine movements of silver European eels *Anguilla anguilla* following their emigration from an English chalk stream. *Hydrobiologia*. https://doi.org/10.1007/s10750-026-06406-6
+
+Tudorache, C., Burgerhout, E., Brittijn, S., & van den Thillart, G. (2015). Comparison of swimming capacity and energetics of migratory European eel (*Anguilla anguilla*) and New Zealand short-finned eel (*A. australis*). *Frontiers in Physiology*, **6**, 256. https://doi.org/10.3389/fphys.2015.00256
+
+Katopodis, C., & Gervais, R. (2016). *Fish swimming performance database and analyses*. Canadian Science Advisory Secretariat Research Document 2016/002. Fisheries and Oceans Canada.
 
 van Rijn, J., Kuipers, H. J., & Huisman, J. B. J. (2026). Seaward migration of European Eel through consecutive migration barriers: passage at a pumping station and tidal sluice. *Canadian Journal of Fisheries and Aquatic Sciences*, **83**, 1–14. https://doi.org/10.1139/cjfas-2025-0359
 
