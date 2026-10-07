@@ -74,9 +74,17 @@ def main():
             "primary_model_after_quality_cut": fit,
         }
 
-    primary = json.loads(
-        Path("results/within_link_entry_state_speed_v1.json").read_text(encoding="utf-8")
-    ) if Path("results/within_link_entry_state_speed_v1.json").exists() else None
+    # Prefer the corrected result generated earlier in the same workflow.
+    # Fall back to the canonical frozen file when the sensitivity is run alone.
+    primary_path = (
+        Path("analysis/results/within_link_entry_state_speed.json")
+        if Path("analysis/results/within_link_entry_state_speed.json").exists()
+        else Path("results/within_link_entry_state_speed_v1.json")
+    )
+    primary = (
+        json.loads(primary_path.read_text(encoding="utf-8"))
+        if primary_path.exists() else None
+    )
 
     ratios = []
     intervals_span_one = []
