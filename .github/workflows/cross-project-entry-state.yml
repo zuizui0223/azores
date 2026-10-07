@@ -1,0 +1,30 @@
+name: cross-project-entry-state
+
+on:
+  push:
+    paths:
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/32_cross_project_entry_state_score.py"
+      - ".github/workflows/cross-project-entry-state.yml"
+  workflow_dispatch:
+
+jobs:
+  crossfit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Run leave-one-project-out entry-state training
+        run: python analysis/32_cross_project_entry_state_score.py
+      - name: Show result
+        run: cat analysis/results/cross_project_entry_state_score.json
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-cross-project-entry-state
+          path: analysis/results/cross_project_entry_state_score.json
