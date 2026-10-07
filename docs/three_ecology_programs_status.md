@@ -83,6 +83,26 @@ Older V1 completion-centred figure specifications and simplified initiation scri
 
 **PASS_SPEED_REPRODUCTION / HETEROGENEITY_AUDIT_COMPLETE:** pooled speed n=418 and ratio 0.983 reproduce exactly; project-specific speed ratios show no supported heterogeneity (Q=2.47, df=5, p=0.781). Mechanistic attribution to route opportunity remains unresolved rather than rescued by a stage × water-body interaction.
 
+### Active independent mechanism extension — Dutch consecutive barriers
+
+The Europe-wide core manuscript is scientifically closed and does **not** depend on this extension. The Dutch system is the highest-value remaining route for strengthening the biological mechanism behind phase-specific control.
+
+Public DANS metadata for DOI `10.17026/LS/WTSUNG` confirms an event-resolved archive containing raw-filtered acoustic detections, receiver metadata, biometrics/outcomes, and passage-event tables (462 pumping-station events; 282 tidal-sluice events).
+
+The primary extension has been redesigned around **arrival-defined risk sets**:
+
+> after an eel has actually reached a barrier, does FIV/FV migratory readiness modify dependence on the duration/strength of subsequent discharge opportunities?
+
+This avoids using the source-defined opportunity table as the primary duration analysis, because event duration contributes to the source eligibility rule.
+
+Current gate:
+- retrieve the public DANS files;
+- run `analysis/13_dutch_arrival_riskset_gate.py`;
+- validate eel-ID, receiver, event-time and passage joins;
+- preserve mandatory `release_group × duration` and `body_mass × duration` confounding checks.
+
+Until that gate passes, no Dutch readiness × opportunity effect is estimated.
+
 ---
 
 ## 2. Louisiana — hydrological buffering inside resident home ranges
@@ -245,7 +265,7 @@ Once those values exist, the repository already contains the builder, validator 
 
 # Active order
 
-1. **Azores:** manuscript scientifically QC-passed; submission formatting only.
+1. **Azores:** core manuscript scientifically QC-passed; independent Dutch barrier-mechanism extension remains active pending archive retrieval/schema validation.
 2. **Louisiana:** manuscript scientifically QC-passed; submission formatting only.
 3. **Tampa:** active science blocker is the physical TNC method/field pilot.
 
