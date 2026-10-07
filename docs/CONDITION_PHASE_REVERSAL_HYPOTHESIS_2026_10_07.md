@@ -244,3 +244,95 @@ Canonical evidence ledger:
 
 Primary next test:
 - `analysis/13_dutch_arrival_riskset_gate.py`
+
+
+## 10. Same-cohort progression update — locomotion versus elapsed time
+
+A new same-cohort diagnostic sharpens the candidate mechanism.
+
+### Whole-route speed
+
+Among the canonical **418** activated eels, the capture-condition coefficient on whole-route speed is negative under all three frozen condition definitions:
+
+- stage-adjusted allometric residual: speed ratio **0.925** per SD, 95% CI **0.820–1.044**, p = **0.205**;
+- project-adjusted allometric residual: **0.898**, 95% CI **0.797–1.012**, p = **0.078**;
+- Fulton log K: **0.896**, 95% CI **0.792–1.013**, p = **0.078**.
+
+All six leave-one-project-out estimates are below one under all three definitions.
+
+The intervals nevertheless include one, so this is a **consistent negative point-estimate pattern**, not a supported negative whole-route-speed effect.
+
+### Frozen positive inter-station speed
+
+The result does **not** reproduce for the previously frozen per-eel median positive inter-station speed endpoint.
+
+Across the same three condition definitions:
+
+- adjusted condition ratios are approximately **1.049–1.050** per SD;
+- all 95% intervals include one;
+- leave-one-project-out directions are not uniformly negative.
+
+Thus better-conditioned eels are not detectably slower while making positive inter-station movements.
+
+### Algebraic decomposition of whole-route speed
+
+Because:
+
+```
+whole-route speed = distance range / elapsed migration time
+```
+
+the whole-route association was decomposed using the exact same 418-eel cohort and covariate model.
+
+Across the three condition definitions:
+
+- route-distance ratio per SD condition: **1.019–1.025**;
+- elapsed-time ratio per SD condition: **1.108–1.138**;
+- whole-route speed ratio per SD condition: **0.896–0.925**.
+
+The elapsed-time point estimate is above one in every leave-one-project-out fit under every condition definition.
+
+The distance effect is small and unsupported.
+
+Therefore the negative whole-route-speed pattern is algebraically carried mainly by **longer elapsed migration time**, not by shorter route distance or slower positive inter-station transit.
+
+### Revised ecological interpretation
+
+The strongest current working model is no longer:
+
+> high body state reduces movement performance after activation.
+
+It is:
+
+> **high body state facilitates entry into migration, but after entry it is associated with more elapsed time that is not explained by slower positive transit speed.**
+
+This pattern is compatible with additional waiting, delay, staging, or selective use of movement opportunities.
+
+It does **not** identify which of those processes generated the elapsed time.
+
+This distinction makes the independent Dutch barrier results more relevant: those studies directly observe more missed passage opportunities in better-conditioned eels, offering an external candidate mechanism for a same-cohort elapsed-time pattern that is not visible in positive transit speed.
+
+### Current status after this update
+
+**CANDIDATE_ACTIVATION_TO_DELAY_BODY_STATE_TURNOVER**
+
+What is now supported developmentally:
+
+- better capture body state predicts higher activation probability;
+- better capture body state predicts earlier onset;
+- the positive effect is robust to three condition definitions;
+- positive inter-station transit speed does not show a negative condition gradient;
+- whole-route speed has a consistent negative point estimate;
+- that whole-route pattern is carried primarily by longer elapsed time.
+
+What remains unproven:
+
+- that the extra elapsed time is specifically barrier waiting;
+- a causal within-individual sign reversal;
+- an asset-protection mechanism;
+- generality beyond the available telemetry systems.
+
+Canonical new results:
+- `results/body_condition_post_activation_speed_v1.json`
+- `results/body_condition_segment_progression_v1.json`
+- `results/body_condition_whole_route_decomposition_v1.json`
