@@ -92,11 +92,56 @@
     "mean_cumulative_barrier_delay_days": 34,
     "role": "independent ecological context / confirmation target, not direct phase-model replication"
   },
-  "primary_claim": "Capture-time migratory readiness strongly predicts whether and when seaward migration becomes behaviorally active, whereas the same Durif-stage gradient is absent from generic post-activation migration speed.",
+  "primary_claim": "Capture-time migratory readiness strongly predicts whether and when seaward migration becomes behaviorally active, whereas the same capture-stage gradient is not a transferable general predictor of post-activation speed across the two progression summaries tested; local route-specific effects may still occur.",
   "prohibited_interpretations": [
     "terminal non-membership equals migration failure",
     "escapement probability is estimated in this reanalysis",
     "WRS causally replaces internal state after activation",
     "Durif stage has exactly zero post-activation effect"
-  ]
+  ],
+  "post_activation_transferability_audits": {
+    "segment_scale": {
+      "source": "results/segment_progression_scale_audit_v1.json",
+      "n": 411,
+      "ratio_per_stage": 1.001,
+      "ci95": [
+        0.831,
+        1.204
+      ],
+      "project_heterogeneity_Q": 2.32,
+      "project_heterogeneity_p": 0.804,
+      "role": "pre-frozen finer-scale progression audit; developmental"
+    },
+    "whole_route_project_heterogeneity": {
+      "source": "results/post_initiation_stage_heterogeneity_v1.json",
+      "interaction_F": 1.032,
+      "df": [
+        5,
+        397
+      ],
+      "interaction_p": 0.398,
+      "Q": 2.469,
+      "Q_df": 5,
+      "Q_p": 0.781,
+      "I2_percent": 0,
+      "role": "post-hoc external-conflict-motivated heterogeneity audit"
+    },
+    "capture_stage_staleness": {
+      "source": "results/stage_staleness_diagnostic_v1.json",
+      "median_activation_latency_days": {
+        "FIII": 7.21,
+        "FIV": 2.14,
+        "FV": 2.15
+      },
+      "durif_x_log_latency_ratio": 1.036,
+      "durif_x_log_latency_p": 0.382,
+      "short_latency_ratio_per_stage": {
+        "le_1_day": 0.942,
+        "le_3_days": 0.953,
+        "le_7_days": 0.963
+      },
+      "diagnostic": "NO_SUPPORT_FOR_SIMPLE_STATE_STALENESS_PATTERN",
+      "role": "post-hoc developmental diagnostic; no repeated physiological staging"
+    }
+  }
 }
