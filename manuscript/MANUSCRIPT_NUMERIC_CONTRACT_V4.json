@@ -1,0 +1,176 @@
+{
+  "schema": "azores.manuscript_numeric_contract.v5",
+  "manuscript": "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md",
+  "canonical_stage_result": "results/phase_control_canonical_v2.json",
+  "multivariate_entry_state_result": "results/entry_state_score_transferability_v1.json",
+  "dutch_choice_result": "results/dutch_condition_choice_test_v1.json",
+  "dutch_waiting_result": "results/dutch_arrival_waiting_diagnostic_v1.json",
+  "condition_selection_result": "results/body_condition_activation_selection_ipw_v1.json",
+  "primary_cohort": {
+    "stage_coded_metadata_six_projects": 603,
+    "cleaned_evaluable_tracks": 575,
+    "expert_corrected_initiators": 422,
+    "stage_initiation": {
+      "FIII": {
+        "initiated": 154,
+        "tracked": 261,
+        "rate": 0.5900383142
+      },
+      "FIV": {
+        "initiated": 53,
+        "tracked": 68,
+        "rate": 0.7794117647
+      },
+      "FV": {
+        "initiated": 215,
+        "tracked": 246,
+        "rate": 0.8739837398
+      }
+    }
+  },
+  "multivariate_activation_training": {
+    "n": 525,
+    "n_strata": 11,
+    "durif_beta": 0.7559295199,
+    "durif_or": 2.1295901001,
+    "durif_ci95": [
+      1.5957596503,
+      2.8420031759
+    ],
+    "condition_beta": 0.3786804477,
+    "condition_or": 1.4603563009,
+    "condition_ci95": [
+      1.1643613968,
+      1.8315967289
+    ],
+    "joint_lr_chisq_df2": 39.0052677934,
+    "joint_lr_p_df2": 3.3893289103e-9
+  },
+  "entry_state_score": {
+    "definition": "activation-trained: 0.7559295 x ordinal Durif + 0.3786804 x standardized capture condition",
+    "activation": {
+      "n": 525,
+      "or_per_sd": 2.2300541395,
+      "ci95": [
+        1.7041449224,
+        2.9182620559
+      ],
+      "p": 5.0786508332e-9
+    },
+    "onset": {
+      "n": 570,
+      "events": 418,
+      "hr_per_sd": 1.3173057497,
+      "ci95": [
+        1.168198773,
+        1.4854444964
+      ],
+      "p": 0.0000069056170342
+    },
+    "whole_route_speed": {
+      "n": 418,
+      "ratio_per_sd": 0.9459346481,
+      "ci95": [
+        0.8318810455,
+        1.0756253712
+      ],
+      "p": 0.3964992546,
+      "partial_r2": 0.0017851592
+    },
+    "frozen_segment_speed": {
+      "n": 411,
+      "ratio_per_sd": 1.0275696157,
+      "ci95": [
+        0.8692505974,
+        1.2147237152
+      ],
+      "p": 0.7500445824,
+      "partial_r2": 0.0002568798
+    }
+  },
+  "canonical_durif_boundary": {
+    "activation_or_per_stage": 2.0763093041,
+    "activation_ci95": [
+      1.5549389858,
+      2.7724948473
+    ],
+    "onset_hr_per_stage": 1.29,
+    "onset_ci95": [
+      1.13,
+      1.47
+    ],
+    "whole_route_speed_ratio_per_stage": 0.9831088159,
+    "whole_route_speed_ci95": [
+      0.8524016314,
+      1.1338586275
+    ],
+    "frozen_segment_speed_ratio_per_stage": 1.001,
+    "frozen_segment_speed_ci95": [
+      0.831,
+      1.204
+    ]
+  },
+  "dutch_falsification": {
+    "risk_set": "SewerArrival <= Firstquarter <= PassageTime; duration and source valid not used for inclusion",
+    "EZ": {
+      "passers": 35,
+      "informative_choice_sets": 14,
+      "FIII_informative": 2,
+      "condition_vs_missed_r": 0.0086145127,
+      "condition_vs_missed_p": 0.9596040396,
+      "condition_vs_delay_r": 0.0718864949,
+      "condition_vs_delay_p": 0.6773322668
+    },
+    "CL": {
+      "passers": 27,
+      "informative_choice_sets": 15,
+      "FIII_informative": 4,
+      "condition_x_duration_beta": -0.0949232585,
+      "condition_x_duration_p": 0.8408658728,
+      "condition_x_duration_permutation_p": 0.8491508492,
+      "condition_vs_missed_r": -0.1042445775,
+      "condition_vs_missed_p": 0.5919408059,
+      "condition_vs_delay_r": -0.1818865189,
+      "condition_vs_delay_p": 0.3502649735
+    },
+    "conclusion": "condition-dependent longer-window preference / post-arrival waiting mechanism unsupported"
+  },
+  "measured_activation_selection": {
+    "n": 373,
+    "unweighted_condition_speed_ratio": 0.9073905001,
+    "unweighted_ci95": [
+      0.8126746793,
+      1.0131452852
+    ],
+    "ipw_condition_speed_ratio": 0.9200811159,
+    "ipw_ci95": [
+      0.8205333765,
+      1.0317060634
+    ],
+    "conclusion": "measured condition-dependent activation selection does not explain the post-activation condition-speed pattern"
+  },
+  "secondary_terminal_sensitivity": {
+    "terminal_positive_or_per_stage": 1.1475775341,
+    "terminal_positive_ci95": [
+      0.8260854081,
+      1.5941864894
+    ],
+    "stacked_phase_or_ratio": 1.8092976225,
+    "stacked_ci95": [
+      1.1528508837,
+      2.8395327907
+    ],
+    "role": "secondary sensitivity only; terminal non-membership is not validated biological failure"
+  },
+  "primary_claim": "The multivariate capture phenotype that predicts migration activation and onset is an entry-state indicator, not a transferable general ranking of post-activation motor performance across the tested generic speed summaries.",
+  "prohibited_interpretations": [
+    "Durif predicting migration entry is itself the main novelty",
+    "the entry-state score is a validated latent physiological variable",
+    "post-activation internal state is irrelevant",
+    "terminal non-membership equals biological failure",
+    "escapement probability is estimated",
+    "better-conditioned eels generally wait for longer barrier-opening opportunities",
+    "asset protection is supported as the general mechanism for the phase boundary",
+    "Dutch results confirm an internal-to-external control handoff"
+  ]
+}
