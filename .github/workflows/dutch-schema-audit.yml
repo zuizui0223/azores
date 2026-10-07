@@ -6,6 +6,7 @@ on:
       - "analysis/26_fetch_dutch_schema_only.py"
       - "analysis/24_dutch_schema_provenance_audit.py"
       - "analysis/27_dutch_arrival_riskset_reconstruction.py"
+      - "analysis/28_dutch_condition_choice_test.py"
       - ".github/workflows/dutch-schema-audit.yml"
   workflow_dispatch:
 
@@ -30,6 +31,10 @@ jobs:
         run: python analysis/27_dutch_arrival_riskset_reconstruction.py
       - name: Show arrival risk-set reconstruction
         run: cat analysis/results/dutch_arrival_riskset_reconstruction.json
+      - name: Test condition-dependent passage-window choice
+        run: python analysis/28_dutch_condition_choice_test.py
+      - name: Show condition choice test
+        run: cat analysis/results/dutch_condition_choice_test.json
       - name: Upload schema audit
         uses: actions/upload-artifact@v4
         with:
@@ -38,3 +43,4 @@ jobs:
             analysis/results/dutch_dans_schema_fetch.json
             analysis/results/dutch_schema_provenance_audit.json
             analysis/results/dutch_arrival_riskset_reconstruction.json
+            analysis/results/dutch_condition_choice_test.json
