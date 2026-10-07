@@ -1,0 +1,71 @@
+{
+  "schema": "azores.body_condition_activation_selection_ipw.v1",
+  "evidence_class": "post_hoc_developmental_selection_diagnostic",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "question": "Does weighting for the measured condition-dependent activation process attenuate the negative capture-condition association with post-activation whole-route speed?",
+  "activation_propensity": {
+    "n": 525,
+    "n_strata": 11,
+    "formula": "activation ~ project-year FE + length + release timing + Durif stage + capture condition",
+    "condition_is_in_propensity_model": true
+  },
+  "speed": {
+    "n_unweighted": 373,
+    "n_weighted": 373,
+    "unweighted_condition": {
+      "beta": -0.09718238112892356,
+      "se": 0.05624592693641509,
+      "ratio": 0.9073905001373567,
+      "ci95": [
+        0.812674679343294,
+        1.0131452851525544
+      ],
+      "p": 0.08402195562360948
+    },
+    "ipw_condition": {
+      "beta": -0.08329344341956307,
+      "se": 0.05842206511462139,
+      "ratio": 0.9200811158536871,
+      "ci95": [
+        0.8205333764919056,
+        1.0317060634021837
+      ],
+      "p": 0.1539494937460053
+    },
+    "unweighted_durif": {
+      "beta": 0.041117205734304996,
+      "se": 0.07412558406809651,
+      "ratio": 1.041974223742884,
+      "ci95": [
+        0.9010730581453286,
+        1.2049081626958131
+      ],
+      "p": 0.5791022365116758
+    },
+    "ipw_durif": {
+      "beta": 0.06669062392007952,
+      "se": 0.07669685680392037,
+      "ratio": 1.0689647148990469,
+      "ci95": [
+        0.9197667116245427,
+        1.2423645553348264
+      ],
+      "p": 0.3845544122645659
+    },
+    "ipw_quantiles": {
+      "min": 1.0041092565163687,
+      "q25": 1.0942475585489335,
+      "median": 1.200986818761388,
+      "q75": 1.471600244782696,
+      "max": 7.676575628913915
+    },
+    "effective_sample_size": 296.3376888622157,
+    "condition_ratio_shift": 0.012690615716330456
+  },
+  "interpretation": "MEASURED_ACTIVATION_SELECTION_DOES_NOT_EXPLAIN_CONDITION_SPEED_PATTERN",
+  "claim_boundary": [
+    "Speed is undefined for non-initiators; IPW is a selection diagnostic, not a causal effect estimator.",
+    "Only measured activation predictors are represented; latent readiness/external opportunity selection remains unresolved.",
+    "Capture condition is a weight-for-length biometric proxy, not an independent physiological reserve measurement."
+  ]
+}
