@@ -7,6 +7,7 @@ on:
       - "analysis/24_dutch_schema_provenance_audit.py"
       - "analysis/27_dutch_arrival_riskset_reconstruction.py"
       - "analysis/28_dutch_condition_choice_test.py"
+      - "analysis/29_dutch_arrival_waiting_diagnostic.py"
       - ".github/workflows/dutch-schema-audit.yml"
   workflow_dispatch:
 
@@ -37,6 +38,10 @@ jobs:
         run: python analysis/28_dutch_condition_choice_test.py
       - name: Show condition choice test
         run: cat analysis/results/dutch_condition_choice_test.json
+      - name: Test arrival-defined waiting and missed opportunities
+        run: python analysis/29_dutch_arrival_waiting_diagnostic.py
+      - name: Show arrival waiting diagnostic
+        run: cat analysis/results/dutch_arrival_waiting_diagnostic.json
       - name: Upload schema audit
         uses: actions/upload-artifact@v4
         with:
@@ -46,3 +51,4 @@ jobs:
             analysis/results/dutch_schema_provenance_audit.json
             analysis/results/dutch_arrival_riskset_reconstruction.json
             analysis/results/dutch_condition_choice_test.json
+            analysis/results/dutch_arrival_waiting_diagnostic.json
