@@ -37,7 +37,7 @@ Per 1 SD of that score:
 Thus the canonical V4 statement is:
 
 > **the multivariate capture phenotype that predicts migratory commitment is an
-> entry-state indicator, not a transferable general motor-performance score.**
+> entry-state indicator, not a transferable general progression-speed score.**
 
 Durif alone shows the same boundary: activation OR **2.08**, onset HR **1.29**,
 but post-activation whole-route speed ratio **0.983** and frozen segment-speed
