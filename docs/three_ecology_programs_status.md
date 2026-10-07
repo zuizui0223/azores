@@ -60,6 +60,16 @@ Per 1 SD of this frozen entry-state score:
 - post-activation whole-route speed ratio = **0.946** (95% CI **0.832–1.076**), partial R² **0.18%**;
 - frozen median positive inter-station speed ratio = **1.028** (95% CI **0.869–1.215**), partial R² **0.026%**.
 
+Project-held-out coefficient training gives the same boundary:
+- cross-fitted activation OR **1.97** (95% CI **1.53–2.53**);
+- cross-fitted onset HR **1.26** (95% CI **1.12–1.42**);
+- whole-route speed ratio **0.948** (95% CI **0.836–1.075**);
+- frozen segment-speed ratio **1.013** (95% CI **0.860–1.192**);
+- both Durif and condition weights remain positive in all six training folds.
+
+This removes held-out-project outcomes from score-weight estimation, while
+remaining a post-hoc within-programme robustness test rather than external validation.
+
 Interpretation:
 
 > **the multivariate capture state that predicts entry into migration is not a
@@ -71,6 +81,7 @@ generic speed ranking.
 
 Canonical artifact:
 - `results/entry_state_score_transferability_v1.json`
+- `results/cross_project_entry_state_score_v1.json`
 - `docs/ENTRY_STATE_SCORE_TRANSFERABILITY_2026_10_07.md`
 
 ### Body-state phase-turnover diagnostic
