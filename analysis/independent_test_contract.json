@@ -1,5 +1,5 @@
 {
-  "schema": "azores.independent_test_contract.v5",
+  "schema": "azores.independent_test_contract.v6",
   "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
   "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
@@ -47,7 +47,7 @@
         1.2716277635
       ]
     },
-    "interpretation": "No transferable general Durif-stage advantage is detected in whole-migration speed across the six-project cohort; this does not imply that internal readiness is biologically irrelevant after activation."
+    "interpretation": "Among eels that crossed the stage-dependent activation gate, no transferable general Durif-stage speed ranking is detected. This is a selected post-activation population and not a causal estimate of stage attenuation in all tagged eels."
   },
   "secondary_terminal_endpoint_sensitivity": {
     "endpoint": "membership in the source study's project-specific terminal positive set among activated eels",
@@ -63,7 +63,7 @@
     "source": "Moyo et al. 2026 River Test",
     "implication": "Silvering stage can contribute to finer reach-level progression, so post-activation state effects are phase-, scale- and context-dependent rather than universally absent."
   },
-  "evidence_boundary": "The Europe-wide activation/onset and whole-route speed results are developmental independent analyses of public data. River Test is an external scale boundary, Dutch is a confounded but potentially informative within-route mechanism test requiring arrival-defined risk sets, and Lithuania is a route-bottleneck contrast rather than a readiness-stage replication.",
+  "evidence_boundary": "The Europe-wide results support a transferability boundary in capture-stage information, not a causal proof that internal-state effects weaken after activation. Post-activation speed conditions on a stage-dependent entry filter. River Test is an external scale boundary, Dutch is a confounded event-level mechanism candidate requiring arrival-defined risk sets, and Lithuania is a route-bottleneck contrast.",
   "external_progression_systems": {
     "river_test": {
       "role": "external scale boundary",
@@ -104,6 +104,29 @@
       "result": "published migration success is high through free-flowing rivers but declines during subsequent Curonian Lagoon progression",
       "interpretation": "post-activation limitation can move downstream from river passage to a later route compartment",
       "not_claimed": "readiness-stage replication unless individual stage variation and data access are verified"
+    }
+  },
+  "progression_falsification_audits": {
+    "project_and_scale_heterogeneity": {
+      "conclusion": "No hidden transferable general stage gradient detected across project or the frozen median positive inter-station speed summary."
+    },
+    "capture_stage_staleness": {
+      "source": "results/stage_staleness_diagnostic_v1.json",
+      "status": "NO_SUPPORT_FOR_SIMPLE_STATE_STALENESS_PATTERN",
+      "boundary": "No repeated post-release Durif measurements; physiological convergence is not falsified."
+    },
+    "activation_filter_selection": {
+      "source": "results/activation_filter_diagnostic_v1.json",
+      "status": "MEASURED_SELECTION_PRESENT_BUT_DOES_NOT_RESTORE_STAGE_SPEED_GRADIENT",
+      "FIII_length_smd": 0.514,
+      "FIII_weight_for_length_smd": 0.302,
+      "same_sample_unweighted_speed_ratio": 1.042,
+      "inverse_probability_weighted_speed_ratio": 1.062,
+      "inverse_probability_weighted_ci95": [
+        0.916,
+        1.23
+      ],
+      "boundary": "Activation is a stage-dependent selected principal stratum. Measured-predictor weighting does not restore a general gradient, but latent readiness selection remains unidentifiable."
     }
   }
 }
