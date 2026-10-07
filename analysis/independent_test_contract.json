@@ -210,7 +210,7 @@
         "interpretation": "the negative whole-route-speed point estimate is carried mainly by longer elapsed migration time rather than slower positive inter-station transit"
       }
     },
-    "revised_candidate_mechanism": "Do not assign the Europe-wide elapsed-time tendency to general condition-dependent barrier selectivity. Retain the broader phase-transferability result: capture-state information strongly predicts entry/onset but is weak as a transferable general post-activation motor-performance ranking.",
+    "revised_candidate_mechanism": "Do not assign the Europe-wide elapsed-time tendency to general condition-dependent barrier selectivity. Retain the broader phase-transferability result: capture-state information strongly predicts entry/onset but is weak as a transferable general post-activation progression-speed ranking.",
     "dutch_arrival_defined_falsification": {
       "choice_result": "results/dutch_condition_choice_test_v1.json",
       "waiting_result": "results/dutch_arrival_waiting_diagnostic_v1.json",
@@ -275,7 +275,7 @@
       "p": 0.7500445824,
       "partial_r2": 0.0002568798
     },
-    "interpretation": "The capture-state vector that predicts entry and onset does not transfer as a general post-activation motor-performance ranking.",
+    "interpretation": "The capture-state vector that predicts entry and onset does not transfer as a general post-activation progression-speed ranking.",
     "boundary": "Activation-trained score is post hoc and shares individuals with transfer endpoints; post-activation analyses condition on activation."
   }
 }
