@@ -289,6 +289,12 @@ def fit(rows, drop_project: str | None = None):
     b0, c0, ll0 = logistic_irls(X0, y)
     b1, c1, ll1 = logistic_irls(X1, y)
 
+    # last four terms in X0: timing, stage, length, condition
+    b0_i_timing = X0.shape[1] - 4
+    b0_i_stage = X0.shape[1] - 3
+    b0_i_length = X0.shape[1] - 2
+    b0_i_cond = X0.shape[1] - 1
+
     # last six terms in X1: timing, stage, length, condition, stage*length, stage*condition
     i_timing = X1.shape[1] - 6
     i_stage = X1.shape[1] - 5
@@ -321,6 +327,12 @@ def fit(rows, drop_project: str | None = None):
         "n": len(dat),
         "n_strata": len(strata),
         "base_loglik": ll0,
+        "base_additive_effects": {
+            "release_timing_per_100days": coef_summary(b0, c0, b0_i_timing),
+            "durif_per_stage": coef_summary(b0, c0, b0_i_stage),
+            "length_per_100mm": coef_summary(b0, c0, b0_i_length),
+            "condition_per_1sd": coef_summary(b0, c0, b0_i_cond),
+        },
         "interaction_loglik": ll1,
         "interaction_lr_chisq_df2": lr,
         "interaction_lr_p_df2": lr_p_df2,
@@ -370,7 +382,15 @@ def main():
         "diagnostic_status": (
             "SUPPORTED_SIMPLE_COMPENSATORY_GATE"
             if simple_compensation
-            else "NO_CLEAR_SUPPORT_FOR_SIMPLE_COMPENSATORY_GATE"
+            else (
+                "ADDITIVE_BODY_STATE_SIGNAL_WITHOUT_STAGE_COMPENSATION"
+                if (
+                    primary.get("status") == "ESTIMATED"
+                    and primary["interaction_lr_p_df2"] > 0.05
+                    and primary["base_additive_effects"]["condition_per_1sd"]["ci95_or"][0] > 1.0
+                )
+                else "NO_CLEAR_SUPPORT_FOR_SIMPLE_COMPENSATORY_GATE"
+            )
         ),
         "claim_boundary": [
             "The interaction hypothesis was motivated after seeing stage-specific selection diagnostics.",
