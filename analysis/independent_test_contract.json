@@ -1,5 +1,5 @@
 {
-  "schema": "azores.independent_test_contract.v4",
+  "schema": "azores.independent_test_contract.v5",
   "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
   "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
@@ -63,18 +63,47 @@
     "source": "Moyo et al. 2026 River Test",
     "implication": "Silvering stage can contribute to finer reach-level progression, so post-activation state effects are phase-, scale- and context-dependent rather than universally absent."
   },
-  "external_confirmation": {
-    "target": "Dutch pump-to-tidal-sluice system",
-    "data_doi": "10.17026/LS/WTSUNG",
-    "question": "After activation, does capture-time readiness modify exploitation of independently defined passage opportunities, separately at the pumping station and tidal sluice?",
-    "frozen_readiness_grouping": "FIII versus FIV/FV",
-    "primary_opportunity_axis": "discharge-event duration",
-    "reject_if": [
-      "Durif grouping is changed after outcome inspection",
-      "body mass is dropped to manufacture an identifiable readiness interaction",
-      "barriers are pooled as interchangeable after inspecting results",
-      "terminal non-detection is recoded as biological failure"
-    ]
-  },
-  "evidence_boundary": "Developmental independent evidence; source outcomes were inspected during programme development. The Europe-wide speed result is reproducible, while the Dutch matched opportunity-choice analysis remains an external within-route test."
+  "evidence_boundary": "The Europe-wide activation/onset and whole-route speed results are developmental independent analyses of public data. River Test is an external scale boundary, Dutch is a confounded but potentially informative within-route mechanism test requiring arrival-defined risk sets, and Lithuania is a route-bottleneck contrast rather than a readiness-stage replication.",
+  "external_progression_systems": {
+    "river_test": {
+      "role": "external scale boundary",
+      "source": "Moyo et al. 2026 Hydrobiologia",
+      "design_strength": "all tagged eels released together after capture during an active downstream migration period",
+      "result": "silvering stage was retained in a reach-level progression-rate model together with temperature, barriers, flow and moon illumination",
+      "interpretation": "post-activation readiness information can remain detectable at finer spatial scale even when the six-project whole-route speed effect is near zero",
+      "not_claimed": "formal replication of the Europe-wide phase model"
+    },
+    "dutch_pump_tidal_sluice": {
+      "role": "developmental within-route opportunity-mechanism test",
+      "source": "van Rijn et al. 2026",
+      "data_doi": "10.17026/LS/WTSUNG",
+      "risk_set": "arrival-defined discharge events after first direct barrier detection and before confirmed downstream passage",
+      "frozen_readiness_grouping": "FIII versus FIV/FV",
+      "primary_exposure": "discharge-event duration",
+      "mandatory_confounding_checks": [
+        "release_group x duration",
+        "body_mass x duration"
+      ],
+      "known_design_boundaries": [
+        "source-defined opportunity eligibility itself uses discharge duration and therefore cannot be the primary risk set for a duration mechanism test",
+        "9 of 11 FIII fish were in the first release cohort whereas FIV/FV were spread across all three releases",
+        "Durif stage and body mass were non-identifiable at the tidal sluice in the source study"
+      ],
+      "allowed_outcomes": [
+        "SUPPORTED",
+        "UNSUPPORTED",
+        "CONFOUNDED_STAGE_VS_RELEASE",
+        "NON_IDENTIFIABLE_STAGE_VS_MASS",
+        "STOP_RISKSET_NOT_RECONSTRUCTABLE"
+      ],
+      "not_claimed": "clean independent confirmation of a general internal-to-external control handoff"
+    },
+    "lithuania_river_lagoon": {
+      "role": "external bottleneck-location contrast",
+      "source": "Dainys et al. 2026 Estuarine Coastal and Shelf Science",
+      "result": "published migration success is high through free-flowing rivers but declines during subsequent Curonian Lagoon progression",
+      "interpretation": "post-activation limitation can move downstream from river passage to a later route compartment",
+      "not_claimed": "readiness-stage replication unless individual stage variation and data access are verified"
+    }
+  }
 }
