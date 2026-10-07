@@ -11,12 +11,14 @@ C = Path("manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json")
 R = Path("results/entry_state_score_transferability_v1.json")
 D = Path("results/dutch_condition_choice_test_v1.json")
 W = Path("results/dutch_arrival_waiting_diagnostic_v1.json")
+X = Path("results/cross_project_entry_state_score_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
 score = json.loads(R.read_text())
 dutch = json.loads(D.read_text())
 waiting = json.loads(W.read_text())
+cross = json.loads(X.read_text())
 
 checks = {}
 
@@ -44,6 +46,10 @@ checks["score_whole_speed_0_946"] = has(r"0\.946")
 checks["score_segment_speed_1_028"] = has(r"1\.028")
 checks["score_partial_r2_whole_018pct"] = has(r"0\.18%")
 checks["score_partial_r2_segment_0026pct"] = has(r"0\.026%")
+checks["cross_activation_OR_1_97"] = has(r"1\.97")
+checks["cross_onset_HR_1_26"] = has(r"1\.26")
+checks["cross_whole_speed_0_948"] = has(r"0\.948")
+checks["cross_segment_speed_1_013"] = has(r"1\.013")
 
 # Contract/result identity.
 checks["score_schema"] = score.get("schema") == "azores.entry_state_score_transferability.v1"
@@ -52,6 +58,12 @@ checks["score_activation_exact"] = abs(score["score_transfer"]["activation"]["ef
 checks["score_onset_exact"] = abs(score["score_transfer"]["onset"]["effect"]["hazard_ratio"] - contract["entry_state_score"]["onset"]["hr_per_sd"]) < 1e-9
 checks["score_whole_speed_exact"] = abs(score["score_transfer"]["whole_route_speed"]["effect"]["ratio"] - contract["entry_state_score"]["whole_route_speed"]["ratio_per_sd"]) < 1e-9
 checks["score_segment_speed_exact"] = abs(score["score_transfer"]["frozen_median_positive_interstation_speed"]["effect"]["ratio"] - contract["entry_state_score"]["frozen_segment_speed"]["ratio_per_sd"]) < 1e-9
+checks["cross_schema"] = cross.get("schema") == "azores.cross_project_entry_state_score.v1"
+checks["cross_activation_exact"] = abs(cross["crossfitted_transfer"]["activation"]["effect"]["odds_ratio"] - contract["cross_project_entry_state"]["activation"]["or_per_sd"]) < 1e-9
+checks["cross_onset_exact"] = abs(cross["crossfitted_transfer"]["onset"]["effect"]["hazard_ratio"] - contract["cross_project_entry_state"]["onset"]["hr_per_sd"]) < 1e-9
+checks["cross_whole_speed_exact"] = abs(cross["crossfitted_transfer"]["whole_route_speed"]["effect"]["ratio"] - contract["cross_project_entry_state"]["whole_route_speed"]["ratio_per_sd"]) < 1e-9
+checks["cross_segment_speed_exact"] = abs(cross["crossfitted_transfer"]["frozen_median_positive_interstation_speed"]["effect"]["ratio"] - contract["cross_project_entry_state"]["frozen_segment_speed"]["ratio_per_sd"]) < 1e-9
+checks["cross_weight_signs_positive"] = bool(cross["weight_stability"]["stage_beta_all_positive"] and cross["weight_stability"]["condition_beta_all_positive"])
 
 # Dutch falsification language and numbers.
 checks["dutch_falsification_heading"] = has(r"did not support condition-dependent barrier selectivity|falsified the specific prediction")
