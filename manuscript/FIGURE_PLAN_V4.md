@@ -81,7 +81,7 @@ Message:
 
 > a capture-state vector trained on migratory commitment still ranks when
 > migration starts, but provides essentially no general ranking of post-
-> activation motor performance.
+> activation progression speed.
 
 ## Figure 4 — Independent arrival-defined barrier test falsifies a simple selectivity mechanism
 
