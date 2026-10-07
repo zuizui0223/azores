@@ -67,7 +67,7 @@ checks["dutch_waiting_schema"] = waiting.get("schema") == "azores.dutch_arrival_
 checks["terminal_sensitivity_only"] = has(r"terminal.*sensitivity")
 checks["nonmembership_not_failure"] = has(r"non-membership.*not.*(?:biological )?failure|complement.*not.*validated.*failure")
 checks["no_escapement_claim"] = not has(r"we estimate(?:d)? escapement probability|escapement probability was")
-checks["entry_not_motor_claim"] = has(r"entry-state indicator.*not.*(?:transferable )?general motor-performance score|entry state is not a motor score")
+checks["entry_not_progression_speed_claim"] = has(r"entry-state indicator.*not.*(?:transferable )?general progression-speed score|entry state is not a progression-speed score")
 checks["no_asset_protection_support"] = not has(r"(support(?:s|ed)?|confirm(?:s|ed)?)\s+(?:a\s+)?(?:general\s+)?asset[- ]protection")
 checks["no_dutch_handoff_confirmation"] = not has(r"Dutch.{0,100}(confirm(?:s|ed|ation)|support(?:s|ed)).{0,100}(handoff|internal-to-external)")
 
