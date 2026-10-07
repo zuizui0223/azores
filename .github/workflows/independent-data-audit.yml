@@ -12,6 +12,7 @@ on:
       - "analysis/15_activation_filter_diagnostic.py"
       - "analysis/17_multivariate_readiness_gate_diagnostic.py"
       - "analysis/18_body_condition_onset_diagnostic.py"
+      - "analysis/19_body_condition_metric_robustness.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -55,6 +56,10 @@ jobs:
         run: python analysis/18_body_condition_onset_diagnostic.py
       - name: Show body-condition onset diagnostic
         run: cat analysis/results/body_condition_onset_diagnostic.json
+      - name: Test body-condition metric robustness
+        run: python analysis/19_body_condition_metric_robustness.py
+      - name: Show body-condition metric robustness
+        run: cat analysis/results/body_condition_metric_robustness.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -69,3 +74,4 @@ jobs:
             analysis/results/activation_filter_diagnostic.json
             analysis/results/multivariate_readiness_gate_diagnostic.json
             analysis/results/body_condition_onset_diagnostic.json
+            analysis/results/body_condition_metric_robustness.json
