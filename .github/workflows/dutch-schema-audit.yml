@@ -1,5 +1,9 @@
 name: dutch-schema-audit
 
+concurrency:
+  group: dutch-schema-audit
+  cancel-in-progress: true
+
 on:
   push:
     paths:
