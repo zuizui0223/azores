@@ -1,0 +1,129 @@
+{
+  "schema": "azores.entry_state_score_transferability.v1",
+  "evidence_class": "post_hoc_activation_trained_cross_phase_transferability_diagnostic",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "question": "Does an activation-trained multivariate capture-state score remain a general predictor of post-activation movement performance?",
+  "activation_training": {
+    "n": 525,
+    "n_strata": 11,
+    "stage_weight": 0.7559295199154213,
+    "condition_weight": 0.37868044767279774,
+    "stage_effect": {
+      "beta": 0.7559295199154213,
+      "se": 0.1472345037017719,
+      "odds_ratio": 2.1295901000593034,
+      "ci95": [
+        1.5957596503367502,
+        2.842003175925365
+      ],
+      "p": 2.833657850587201e-7
+    },
+    "condition_effect": {
+      "beta": 0.37868044767279774,
+      "se": 0.11556513682425366,
+      "odds_ratio": 1.4603563009198006,
+      "ci95": [
+        1.1643613968301896,
+        1.83159672885238
+      ],
+      "p": 0.0010500162646982503
+    },
+    "joint_lr_chisq_df2": 39.005267793409985,
+    "joint_lr_p_df2": 3.3893289103320574e-9
+  },
+  "score_transfer": {
+    "activation": {
+      "n": 525,
+      "effect": {
+        "beta": 0.802025862959856,
+        "se": 0.13722570908069875,
+        "odds_ratio": 2.23005413945504,
+        "ci95": [
+          1.7041449224241332,
+          2.9182620559208683
+        ],
+        "p": 5.07865083321235e-9
+      },
+      "lr_chisq_df1": 39.00526779340987,
+      "lr_p_df1": 4.2266351231503197e-10
+    },
+    "onset": {
+      "n": 570,
+      "events": 418,
+      "n_strata": 13,
+      "effect": {
+        "beta": 0.2755885519863939,
+        "se": 0.061288520241760965,
+        "hazard_ratio": 1.317305749674999,
+        "ci95": [
+          1.1681987730267156,
+          1.4854444964282856
+        ],
+        "p": 0.000006905617034203004
+      },
+      "lr_chisq_df1": 20.45071943640778,
+      "lr_p_df1": 0.000006118655158145926
+    },
+    "whole_route_speed": {
+      "n": 418,
+      "n_strata": 13,
+      "effect": {
+        "beta": -0.05558179471470936,
+        "se": 0.06555307541476105,
+        "ratio": 0.9459346480513484,
+        "ci95": [
+          0.831881045511414,
+          1.0756253712139077
+        ],
+        "p": 0.3964992545769235
+      },
+      "partial_r2": 0.0017851592239752842
+    },
+    "frozen_median_positive_interstation_speed": {
+      "n": 411,
+      "n_strata": 13,
+      "effect": {
+        "beta": 0.027196417577210752,
+        "se": 0.08536746860137842,
+        "ratio": 1.0275696156773655,
+        "ci95": [
+          0.8692505973598232,
+          1.2147237151983719
+        ],
+        "p": 0.7500445823536412
+      },
+      "partial_r2": 0.0002568797814782788
+    }
+  },
+  "leave_one_project_out": {
+    "whole_route_speed": {
+      "ratios": {
+        "2011_Warnow": 0.9677415746603004,
+        "2012_leopoldkanaal": 0.9593012239123284,
+        "2013_albertkanaal": 0.9393233251106957,
+        "2015_phd_verhelst_eel": 0.940481109748832,
+        "2019_Grotenete": 0.9402735899417607,
+        "ESGL": 0.9429191696419491
+      },
+      "all_below_1": true
+    },
+    "frozen_median_positive_interstation_speed": {
+      "ratios": {
+        "2011_Warnow": 1.0502111070297317,
+        "2012_leopoldkanaal": 0.9364736548691264,
+        "2013_albertkanaal": 1.1539242385317898,
+        "2015_phd_verhelst_eel": 1.0182358601656398,
+        "2019_Grotenete": 1.0272566023822638,
+        "ESGL": 1.0297137580422986
+      },
+      "all_below_1": false
+    }
+  },
+  "interpretation_status": "ENTRY_STATE_SCORE_NOT_GENERAL_MOTOR_SCORE",
+  "claim_boundary": [
+    "The score weights are estimated from activation outcomes in the same source panel; this is not prospective validation.",
+    "The score combines ordinal Durif stage with a weight-for-length biometric proxy whose ingredients overlap the Durif classification.",
+    "Post-activation analyses condition on having activated and therefore do not identify counterfactual speed for non-initiators.",
+    "A weak whole-route or segment-speed association does not imply that internal state is irrelevant at every reach or event scale."
+  ]
+}
