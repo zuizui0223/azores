@@ -233,7 +233,7 @@ In the activation model with both capture-state terms, the Durif effect remained
 
 The condition effect was robust to three alternative weight-for-length definitions and remained positive in every leave-one-project-out fit. A simple compensatory model was not supported: Durif × condition and Durif × length interactions did not improve activation prediction.
 
-### An activation-trained entry-state score transferred to onset but not generic speed
+### An activation-trained entry-state score transferred to onset but not realized transit speed
 
 The activation-derived score assigned weights 0.756 to ordinal Durif stage and 0.379 to standardized capture condition. Per 1 SD, this frozen score increased migration-activation odds 2.23-fold (95% CI 1.70–2.92; p=5.1×10\(^{-9}\)).
 
@@ -323,7 +323,7 @@ This motivates interpreting capture phenotype as a **multivariate entry gate** r
 
 Selection remains an important boundary because post-activation speed is only observed for entrants. However, inverse-probability weighting that included condition in the measured activation process shifted the condition-speed ratio only from 0.907 to 0.920. Likewise, the earlier Durif-specific selection audit did not restore a general stage-speed gradient. Measured entry selection therefore does not explain the loss of a positive generic speed ranking, although unmeasured readiness selection cannot be removed from these observational data.
 
-### Internal readiness predicts activation but not generic progression speed
+### Internal readiness predicts activation but not transferable realized transit speed
 
 The post-initiation speed result differed sharply from the activation result. Durif stage strongly predicted whether and when migration became active, but showed no general gradient in the source-defined **whole-migration** speed response after activation (ratio 0.983 per stage, 95% CI 0.852–1.134).
 
