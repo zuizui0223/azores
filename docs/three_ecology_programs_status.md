@@ -69,7 +69,14 @@ Interpretation:
 
 This is compatible with additional waiting/staging or passage selectivity, and is directionally consistent with independent Dutch barrier studies in which better-conditioned eels accumulate more missed passage opportunities. It is **not** yet a causal sign reversal: the post-activation cohort is selected, elapsed time is not direct stop time, and the condition proxies reuse morphometrics that also contribute to Durif classification.
 
-Current status: **CANDIDATE_ACTIVATION_TO_DELAY_BODY_STATE_TURNOVER**.
+Current status: **MULTIVARIATE_ENTRY_GATE_SUPPORTED / BARRIER_SELECTIVITY_MECHANISM_UNSUPPORTED**.
+
+The independent Dutch arrival-defined tests do **not** support the specific
+asset-protection/barrier-selectivity mechanism. After first barrier arrival,
+condition is unrelated to missed openings or delay at both EZ and CL, and the
+CL condition × duration interaction is near zero. The Europe-wide elapsed-time
+pattern therefore remains descriptive and should not be interpreted as general
+condition-dependent barrier waiting.
 
 Canonical artifacts:
 - `results/multivariate_readiness_gate_diagnostic_v1.json`
@@ -132,13 +139,17 @@ The primary extension has been redesigned around **arrival-defined risk sets**:
 
 This avoids using the source-defined opportunity table as the primary duration analysis, because event duration contributes to the source eligibility rule.
 
-Current gate:
-- retrieve the public DANS files;
-- run `analysis/13_dutch_arrival_riskset_gate.py`;
-- validate eel-ID, receiver, event-time and passage joins;
-- preserve mandatory `release_group × duration` and `body_mass × duration` confounding checks.
+Current Dutch status:
+- all 15 DANS files were publicly materialized;
+- duration-independent arrival-defined risk sets were reconstructed;
+- informative strict-start choice sets: EZ **14 fish** (FIII 2), CL **15 fish** (FIII 4);
+- condition-dependent preference for longer windows is unsupported;
+- arrival-defined condition vs missed events and barrier delay is unsupported at both barriers;
+- readiness × duration remains low-information because FIII representation is small.
 
-Until that gate passes, no Dutch readiness × opportunity effect is estimated.
+The Dutch extension therefore functions primarily as a **falsification** of the
+specific condition-dependent passage-selectivity mechanism, not as positive
+confirmation of an internal-to-external handoff.
 
 ---
 
