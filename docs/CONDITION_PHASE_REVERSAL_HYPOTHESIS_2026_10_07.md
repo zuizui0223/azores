@@ -336,3 +336,24 @@ Canonical new results:
 - `results/body_condition_post_activation_speed_v1.json`
 - `results/body_condition_segment_progression_v1.json`
 - `results/body_condition_whole_route_decomposition_v1.json`
+
+
+## 11. Novelty boundary after literature re-check
+
+The project must **not** claim that European eels were newly shown to trade migration speed for safety.
+
+Lennox et al. (2018) already reported that silver eels crossing the Hardangerfjord had lower net travel rates over longer reaches, argued that this was unlikely to reflect low physiological swimming capacity, and attributed much of the slower net progression to nocturnal movement and daytime inactivity. They explicitly interpreted the pattern through the asset-protection principle and proposed that lower-quality individuals may accept greater risk.
+
+Likewise, state-dependent migration and stopover theory already predicts that energetic state can alter departure, stopover and risk decisions.
+
+Therefore the candidate novelty here is narrower and more testable:
+
+> **the coupling between capture body state and realized movement changes across sequential phases of the same migratory programme: body state predicts entry into migration, whereas after entry it is expressed primarily in elapsed-time allocation rather than positive transit speed.**
+
+The specific contribution would be the **phase-resolved phenotype-performance turnover**, not the ideas that:
+- body condition matters for migration;
+- migration involves a speed-safety trade-off;
+- eels can pause or move nocturnally;
+- asset protection exists.
+
+A stronger final paper would need the Dutch arrival-defined event analysis to show that at least part of the additional elapsed time corresponds to condition-dependent selection among externally defined passage opportunities.
