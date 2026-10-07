@@ -4,9 +4,11 @@ on:
   push:
     paths:
       - "analysis/contracts/within_link_entry_state_speed_v1.json"
+      - "analysis/contracts/within_link_speed_quality_sensitivity_v1.json"
       - "analysis/31_entry_state_score_transferability.py"
       - "analysis/32_cross_project_entry_state_score.py"
       - "analysis/33_within_link_entry_state_speed.py"
+      - "analysis/34_within_link_speed_quality_sensitivity.py"
       - ".github/workflows/within-link-entry-state-speed.yml"
   workflow_dispatch:
 
@@ -25,8 +27,14 @@ jobs:
         run: python analysis/33_within_link_entry_state_speed.py
       - name: Show result
         run: cat analysis/results/within_link_entry_state_speed.json
+      - name: Run post-hoc speed-quality sensitivity
+        run: python analysis/34_within_link_speed_quality_sensitivity.py
+      - name: Show speed-quality sensitivity
+        run: cat analysis/results/within_link_speed_quality_sensitivity.json
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
           name: azores-within-link-entry-state-speed
-          path: analysis/results/within_link_entry_state_speed.json
+          path: |
+            analysis/results/within_link_entry_state_speed.json
+            analysis/results/within_link_speed_quality_sensitivity.json
