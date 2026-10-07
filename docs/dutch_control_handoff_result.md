@@ -20,8 +20,8 @@ van Rijn, Kuipers & Huisman (2026) followed 40 European eels through a pumping s
 Tagged animals were already in Durif FIII-FV:
 
 - FIII: 11
-- FIV: 7
-- FV: 22
+- FIV: 6
+- FV: 23
 
 Thus this system is not a yellow-versus-silver initiation experiment. It is an **already activated / near-activated migration** system.
 
