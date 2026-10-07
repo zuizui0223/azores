@@ -1,0 +1,100 @@
+{
+  "schema": "azores.condition_phase_sign_audit.v1",
+  "evidence_class": "cross_dataset_hypothesis_ledger_not_meta_analysis",
+  "europe_wide_activation": {
+    "source": "zuizui0223/azores public six-project cohort",
+    "n": 525,
+    "condition_metric": "stage-adjusted allometric weight-for-length residual",
+    "endpoint": "classified migration activation",
+    "effect_per_sd": {
+      "type": "odds_ratio",
+      "estimate": 1.4603563009,
+      "ci95": [
+        1.1643613968,
+        1.8315967289
+      ],
+      "p": 0.0010500163
+    },
+    "direction_for_progression": "positive"
+  },
+  "europe_wide_onset": {
+    "source": "zuizui0223/azores public six-project cohort",
+    "n": 570,
+    "events": 418,
+    "endpoint": "time to first classified downstream-migration crossing",
+    "effect_per_sd": {
+      "type": "hazard_ratio",
+      "estimate": 1.1492871564,
+      "ci95": [
+        1.0286327129,
+        1.2840938765
+      ],
+      "p": 0.0139370486
+    },
+    "direction_for_progression": "positive"
+  },
+  "metric_robustness": {
+    "tested": [
+      "stage-adjusted allometric residual",
+      "project-adjusted allometric residual",
+      "Fulton log K"
+    ],
+    "activation_condition_effect_range": [
+      1.4379746477,
+      1.4603563009
+    ],
+    "onset_condition_effect_range": [
+      1.1482757365,
+      1.152766157
+    ],
+    "direction_positive_all_leave_one_project_out_for_all_metrics": true,
+    "status": "ROBUST_TO_CONDITION_METRIC_DEFINITION"
+  },
+  "external_barrier_evidence": [
+    {
+      "source": "Huisman et al. 2023 Journal of Fish Biology DOI 10.1111/jfb.15398",
+      "system": "Nieuwe Statenzijl tidal sluice",
+      "n_passers": 26,
+      "endpoint": "number of missed sluicing events before passage",
+      "published_condition_direction": "higher condition -> more missed events",
+      "published_standardized_condition_irr": 1.87,
+      "published_p": 0.043,
+      "note": "Paper also reports higher weight -> more missed events; source authors discuss stimulus-threshold and asset-protection explanations. Published IRR interval and Wald p are not numerically concordant, so use the direction as contextual evidence rather than a precise pooled effect."
+    },
+    {
+      "source": "van Rijn et al. 2026 Canadian Journal of Fisheries and Aquatic Sciences DOI 10.1139/cjfas-2025-0359",
+      "system": "pumping station before tidal sluice",
+      "n_passers": 35,
+      "endpoint": "number of missed passage opportunities before passage",
+      "published_condition_direction": "higher condition -> more missed opportunities",
+      "published_condition_irr": 1.66,
+      "published_p": 0.016,
+      "note": "Source authors connect the result to stronger flow thresholds or greater risk aversion. Published IRR interval and Wald p are not numerically concordant, so use the direction as contextual evidence rather than a precise pooled effect."
+    },
+    {
+      "source": "van der Knaap et al. 2025 Movement Ecology DOI 10.1186/s40462-025-00588-9",
+      "system": "Rozema tidal pumping station",
+      "endpoint": "accelerometer-derived activity",
+      "published_condition_direction": "higher condition -> lower mean acceleration",
+      "published_p": 0.001,
+      "note": "This is activity, not passage delay; it is a mechanistic boundary consistent with greater selectivity/lower routine activity in better-conditioned eels."
+    }
+  ],
+  "synthesis": {
+    "observed_pattern": "Better capture body state predicts stronger/earlier migration activation in the Europe-wide cohort, yet better condition is associated with greater delay/selectivity at engineered passage barriers in two independent Dutch systems.",
+    "candidate_hypothesis": "The behavioral effect of body state changes sign across migration phases: reserves/readiness facilitate entry into migration, but once a risky or restrictive barrier is encountered, high-condition individuals can afford to wait for stronger/safer opportunities and therefore show greater passage selectivity.",
+    "theoretical_link": "asset-protection/state-dependent risk-taking",
+    "not_claimed": [
+      "the same condition metric was measured identically across datasets",
+      "a within-individual coefficient reverses sign",
+      "body condition causally determines either activation or barrier delay",
+      "a formal cross-study meta-analytic interaction",
+      "all barriers should produce the reversal"
+    ]
+  },
+  "decisive_tests": [
+    "Dutch 2026 arrival-defined risk set: condition x discharge-opportunity strength after direct barrier arrival",
+    "test condition effect on passage timing in a permeable/natural route where anthropogenic risk is weak",
+    "within-individual repeated body-state or independent physiological reserve measurement"
+  ]
+}
