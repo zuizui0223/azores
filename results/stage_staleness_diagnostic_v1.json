@@ -1,0 +1,207 @@
+{
+  "schema": "azores.stage_staleness_diagnostic.v1",
+  "evidence_class": "post_hoc_developmental_diagnostic",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "biological_alternative": "capture-time Durif differences may partially converge before or during migration because silvering/maturation is temporally dynamic",
+  "n_joined_speed_and_threshold_latency": 422,
+  "descriptive_by_capture_stage": {
+    "FIII": {
+      "n": 154,
+      "median_latency_days": 7.210503472222222,
+      "median_speed_ms": 0.022897608692694964
+    },
+    "FIV": {
+      "n": 53,
+      "median_latency_days": 2.142025462962963,
+      "median_speed_ms": 0.023243404543079133
+    },
+    "FV": {
+      "n": 215,
+      "median_latency_days": 2.145162037037037,
+      "median_speed_ms": 0.024476532271925717
+    }
+  },
+  "all_latency_stage_speed_model": {
+    "status": "ESTIMATED",
+    "n": 418,
+    "n_strata": 13,
+    "stage_counts": {
+      "FIII": 154,
+      "FIV": 53,
+      "FV": 211
+    },
+    "durif_speed_effect": {
+      "beta": -0.017035467203268758,
+      "se": 0.07278673350487877,
+      "ci95_beta": [
+        -0.15969746487283115,
+        0.12562653046629363
+      ],
+      "p": 0.8149490180855297,
+      "ratio": 0.9831088158963562,
+      "ci95_ratio": [
+        0.852401631397002,
+        1.1338586275452487
+      ]
+    }
+  },
+  "continuous_interaction_model": {
+    "status": "ESTIMATED",
+    "n": 418,
+    "n_strata": 13,
+    "stage_counts": {
+      "FIII": 154,
+      "FIV": 53,
+      "FV": 211
+    },
+    "durif_at_mean_within_stratum_latency": {
+      "beta": 0.0012015953353849158,
+      "se": 0.07366697281780549,
+      "ci95_beta": [
+        -0.14318567138751384,
+        0.14558886205828367
+      ],
+      "p": 0.9869861374936013,
+      "ratio": 1.0012023175402969,
+      "ci95_ratio": [
+        0.8665931524041403,
+        1.1567205185814626
+      ]
+    },
+    "latency_main_effect": {
+      "beta": 0.01741953046246423,
+      "se": 0.05515719177611573,
+      "ci95_beta": [
+        -0.09068856541872258,
+        0.12552762634365106
+      ],
+      "p": 0.7521420795942397,
+      "ratio": 1.0175721352969707,
+      "ci95_ratio": [
+        0.9133021004698334,
+        1.1337464897980247
+      ]
+    },
+    "durif_x_log_latency": {
+      "beta": 0.03575898933736754,
+      "se": 0.040889225133842716,
+      "ci95_beta": [
+        -0.04438389192496418,
+        0.11590187059969927
+      ],
+      "p": 0.3818278890729436,
+      "ratio": 1.0364060314836885,
+      "ci95_ratio": [
+        0.9565866610817804,
+        1.1228856786284818
+      ]
+    },
+    "interaction_interpretation": "A negative interaction together with a positive short-latency stage effect would be compatible with decay of capture-stage information as time to activation increases. The interaction is not a direct measurement of physiological state change."
+  },
+  "frozen_short_latency_diagnostics": {
+    "le_1_days": {
+      "all_candidate_n": 131,
+      "all_candidate_stage_counts": {
+        "FIII": 34,
+        "FIV": 15,
+        "FV": 82
+      },
+      "model": {
+        "status": "ESTIMATED",
+        "n": 120,
+        "n_strata": 6,
+        "stage_counts": {
+          "FIII": 33,
+          "FIV": 15,
+          "FV": 72
+        },
+        "durif_speed_effect": {
+          "beta": -0.059312660717415665,
+          "se": 0.1014774009453927,
+          "ci95_beta": [
+            -0.2582083665703854,
+            0.13958304513555403
+          ],
+          "p": 0.5588897988372217,
+          "ratio": 0.9424120678555035,
+          "ci95_ratio": [
+            0.7724342658586928,
+            1.149794286575785
+          ]
+        }
+      }
+    },
+    "le_3_days": {
+      "all_candidate_n": 196,
+      "all_candidate_stage_counts": {
+        "FIII": 56,
+        "FIV": 29,
+        "FV": 111
+      },
+      "model": {
+        "status": "ESTIMATED",
+        "n": 189,
+        "n_strata": 8,
+        "stage_counts": {
+          "FIII": 55,
+          "FIV": 29,
+          "FV": 105
+        },
+        "durif_speed_effect": {
+          "beta": -0.04791479581539074,
+          "se": 0.10072080380531438,
+          "ci95_beta": [
+            -0.24532757127380692,
+            0.14949797964302544
+          ],
+          "p": 0.6342746130371948,
+          "ratio": 0.9532150015245124,
+          "ci95_ratio": [
+            0.7824481887079258,
+            1.1612511246678185
+          ]
+        }
+      }
+    },
+    "le_7_days": {
+      "all_candidate_n": 239,
+      "all_candidate_stage_counts": {
+        "FIII": 75,
+        "FIV": 34,
+        "FV": 130
+      },
+      "model": {
+        "status": "ESTIMATED",
+        "n": 231,
+        "n_strata": 9,
+        "stage_counts": {
+          "FIII": 75,
+          "FIV": 34,
+          "FV": 122
+        },
+        "durif_speed_effect": {
+          "beta": -0.037868355716503654,
+          "se": 0.09603453653238832,
+          "ci95_beta": [
+            -0.22609604731998476,
+            0.15035933588697745
+          ],
+          "p": 0.6933446663923348,
+          "ratio": 0.9628396848888942,
+          "ci95_ratio": [
+            0.7976414866592979,
+            1.162251806484743
+          ]
+        }
+      }
+    }
+  },
+  "diagnostic_status": "NO_SUPPORT_FOR_SIMPLE_STATE_STALENESS_PATTERN",
+  "claim_boundary": [
+    "Durif stage is measured only at capture; no individual is re-staged at activation.",
+    "Latency is itself a post-capture movement outcome and is not randomized.",
+    "This analysis can weaken or support a state-staleness explanation but cannot prove physiological convergence.",
+    "Thresholds of 1, 3 and 7 days are fixed before running this diagnostic and must all be reported."
+  ],
+  "diagnostic_interpretation": "The simple state-staleness prediction is not supported: the Durif x log-latency interaction is not negative, and stage-speed point estimates remain near or below 1 among eels activating within 1, 3, or 7 days. Moderate short-latency effects cannot be ruled out because intervals are wide, and no individual was re-staged."
+}
