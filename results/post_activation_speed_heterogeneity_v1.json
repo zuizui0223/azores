@@ -1,0 +1,112 @@
+{
+  "schema": "azores.post_activation_speed_heterogeneity.v1",
+  "evidence_class": "posthoc_novelty_audit_triggered_by_external_2026_evidence",
+  "upstream_repository": "PieterjanVerhelst/eel-meta-analysis",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "canonical_speed_endpoint": {
+    "n": 418,
+    "pooled_speed_ratio_per_stage": 0.9831088158963518,
+    "ci95": [
+      0.8524016313969982,
+      1.1338586275452436
+    ]
+  },
+  "project_specific": [
+    {
+      "project": "2011_Warnow",
+      "n": 107,
+      "stage_counts": {
+        "FIII": 61,
+        "FIV": 23,
+        "FV": 23
+      },
+      "speed_ratio_per_stage": 0.9147660278029297,
+      "ci95": [
+        0.6815351702468111,
+        1.227811743478055
+      ]
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "n": 52,
+      "stage_counts": {
+        "FIII": 21,
+        "FIV": 7,
+        "FV": 24
+      },
+      "speed_ratio_per_stage": 0.9814994403188815,
+      "ci95": [
+        0.678257740964993,
+        1.4203172233252825
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "n": 128,
+      "stage_counts": {
+        "FIII": 26,
+        "FIV": 1,
+        "FV": 101
+      },
+      "speed_ratio_per_stage": 1.2716277635230304,
+      "ci95": [
+        0.8989808487699686,
+        1.7987448466506233
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "n": 86,
+      "stage_counts": {
+        "FIII": 34,
+        "FIV": 19,
+        "FV": 33
+      },
+      "speed_ratio_per_stage": 1.0108574795544605,
+      "ci95": [
+        0.8562231398512844,
+        1.1934188605889304
+      ]
+    },
+    {
+      "project": "2019_Grotenete",
+      "n": 33,
+      "stage_counts": {
+        "FIII": 6,
+        "FIV": 2,
+        "FV": 25
+      },
+      "speed_ratio_per_stage": 1.034969148605493,
+      "ci95": [
+        0.7310661245968955,
+        1.4652041758271999
+      ]
+    },
+    {
+      "project": "ESGL",
+      "n": 12,
+      "stage_counts": {
+        "FIII": 6,
+        "FIV": 1,
+        "FV": 5
+      },
+      "speed_ratio_per_stage": 1.2189548652451223,
+      "ci95": [
+        0.6751436119142086,
+        2.200792449612281
+      ]
+    }
+  ],
+  "heterogeneity": {
+    "cochran_Q": 2.469483662401907,
+    "df": 5,
+    "p": 0.7810837153111424,
+    "I2_percent": 0
+  },
+  "interpretation": "Within these six projects there is no detectable between-project heterogeneity in the post-activation Durif-stage speed effect. The weak pooled effect is therefore not explained by obvious project-level cancellation of strong opposing stage effects.",
+  "boundaries": [
+    "Project-specific estimates are imprecise in small projects and stage balance is poor in some systems, especially 2013_albertkanaal.",
+    "Absence of detectable heterogeneity does not prove identical stage effects across all river systems.",
+    "This is a post-hoc novelty/generalization audit motivated by external evidence, not a preregistered primary endpoint."
+  ]
+}
