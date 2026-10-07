@@ -14,6 +14,8 @@ Ordinal Durif stage strongly predicted migration activation and onset. In a mult
 
 The same score did not transfer as a general progression-speed ranking after activation. Among 418 activated eels, its whole-route speed ratio was 0.946 per SD (95% CI 0.832–1.076; p=0.396; partial R²=0.18%). For the independently frozen per-eel median positive inter-station speed endpoint (n=411), the ratio was 1.028 (0.869–1.215; p=0.750; partial R²=0.026%). Durif stage alone showed the same boundary: strong activation/onset effects but no transferable whole-route speed gradient.
 
+A project-held-out robustness analysis preserved this boundary. When the Durif and condition weights were re-estimated while withholding each project in turn, the cross-fitted score still predicted activation (OR 1.97 per SD, 95% CI 1.53–2.53) and onset (HR 1.26, 1.12–1.42), but not whole-route speed (ratio 0.948, 0.836–1.075) or frozen inter-station speed (1.013, 0.860–1.192).
+
 We also used an independent Dutch public archive to test a candidate mechanism for the weak post-activation relationship. After reconstructing duration-independent barrier risk sets from observed arrival times and opening-event timestamps, better body condition did not predict more post-arrival missed opportunities, longer barrier delay, or stronger selection for longer opening windows. Thus a general condition-dependent barrier-selectivity mechanism was not supported.
 
 These results identify a **phase-specific transferability boundary** in migratory phenotype: capture state strongly ranks the transition into migration and its timing, but the same multivariate entry state is not a general ranking of subsequent movement speed. Migration readiness should therefore be treated as an entry-state property rather than a universal progression-speed score.
@@ -89,6 +91,8 @@ R = \hat\beta_D D + \hat\beta_C C,
 where \(D\) is ordinal Durif stage and \(C\) is within-stratum centered standardized capture condition. The weights \(\hat\beta_D\) and \(\hat\beta_C\) were estimated **only from the activation model**. The score was then standardized within each analysis sample and transferred without re-fitting the relative stage/condition weights to onset, whole-route speed and the frozen median positive inter-station speed endpoint.
 
 Because the score is developed from the same source panel, this is a post-hoc cross-phase transferability diagnostic rather than prospective validation. Its purpose is not to estimate a latent physiological variable, but to ask whether an empirically activation-relevant capture-state vector behaves like a general progression-speed score.
+
+As a cross-project robustness audit, we repeated coefficient training six times, each time withholding one entire project from the activation model. The Durif and condition weights estimated from the remaining five projects were then applied without outcome-based re-estimation to individuals in the held-out project. We concatenated these project-held-out scores and repeated the activation, onset and two progression-speed tests. This removes held-out-project outcome information from score-weight estimation, although predictor preprocessing remained panel-derived; it is therefore stronger than same-panel weight fitting but is not prospective external validation.
 
 ### Source migration classification
 
@@ -228,6 +232,8 @@ The activation-derived score assigned weights 0.756 to ordinal Durif stage and 0
 Transferred without re-fitting its relative weights to the onset model, the same score predicted earlier behavioral expression of migration (HR 1.32, 95% CI 1.17–1.49; p=6.9×10\(^{-6}\); 418 onset events).
 
 The score did not transfer as a generic speed ranking. Among 418 activated eels, the whole-route speed ratio per SD was 0.946 (95% CI 0.832–1.076; p=0.396), with partial R²=0.0018. For the separately frozen median positive inter-station speed endpoint (n=411), the ratio was 1.028 (95% CI 0.869–1.215; p=0.750), with partial R²=0.00026.
+
+The same phase boundary survived project-held-out coefficient training. Across the six leave-one-project-out training folds, both activation-derived weights remained positive (Durif beta range 0.563–0.892; condition beta range 0.213–0.497). Pooling scores whose weights were learned without the focal project's outcomes, the cross-fitted score still predicted activation (OR 1.97 per SD, 95% CI 1.53–2.53; p=1.3×10\(^{-7}\)) and earlier onset (HR 1.26, 95% CI 1.12–1.42; p=0.00014), while remaining weak for whole-route speed (ratio 0.948, 95% CI 0.836–1.075; p=0.408; partial R²=0.17%) and frozen inter-station speed (ratio 1.013, 95% CI 0.860–1.192; p=0.879; partial R²=0.006%). Thus the boundary is not explained simply by estimating the entry-state weights using outcomes from the same project to which they are applied.
 
 Thus a capture-state vector optimized only for entry into migration retained information about **when** migration began but essentially no general information about **how fast** activated eels progressed under either generic speed summary.
 
@@ -383,6 +389,8 @@ Capture-time Durif stage and continuous weight-for-length state jointly predicte
 The strongest synthesis is therefore:
 
 > **the multivariate phenotype that predicts migratory commitment is an entry-state indicator, not a transferable general progression-speed score.**
+
+The project-held-out analysis strengthens this interpretation: the entry/onset signal persisted when score weights were learned without the focal project's outcomes, whereas both generic post-activation speed summaries remained near null. This still falls short of external prospective validation because all folds come from the same public multi-project programme and share predictor preprocessing.
 
 The independent Dutch analysis further showed that this boundary should not be explained by a universal condition-dependent preference for stronger barrier-opening opportunities: that specific mechanism was not supported after observed barrier arrival.
 
