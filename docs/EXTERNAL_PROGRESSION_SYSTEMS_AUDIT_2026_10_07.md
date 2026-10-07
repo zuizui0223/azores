@@ -150,15 +150,42 @@ This creates a plausible alternative:
 
 > **the capture-time stage gradient may attenuate because the underlying physiological states converge before or during migration, not because internal state loses biological importance after activation.**
 
-Current diagnostic:
+The frozen diagnostic is now complete.
+
+- Durif × log-latency interaction ratio = **1.036**, p = **0.382**;
+- <=1 d stage-speed ratio = **0.942**;
+- <=3 d = **0.953**;
+- <=7 d = **0.963**.
+
+The simple prediction that an early positive stage-speed advantage decays with longer pre-activation waiting time is therefore **not supported**. The diagnostic cannot rule out physiological convergence because individuals were not repeatedly staged.
+
+See:
 - `analysis/14_stage_staleness_diagnostic.py`
+- `results/stage_staleness_diagnostic_v1.json`
+- `docs/STAGE_STALENESS_DIAGNOSTIC_RESULT_2026_10_07.md`
 
-Frozen checks:
-- continuous Durif × log activation-latency interaction;
-- stage-speed effect among activation within <=1 d;
-- <=3 d and <=7 d sensitivities.
+## 6. Newly recognized identification boundary — activation filtering
 
-The diagnostic cannot prove convergence because individuals are not repeatedly staged. Its value is to determine whether the current data are compatible with, or weaken, a simple "capture-stage became stale" explanation.
+Post-activation speed is observed only among eels that crossed a strongly stage-dependent activation gate.
+
+Measured capture phenotype confirms that the gate is selective. Among FIII eels, initiators versus non-initiators differed by:
+
+- length SMD = **+0.514**;
+- weight-for-length residual SMD = **+0.302**.
+
+However, among 373 speed-bearing initiators with estimable canonical initiation propensities, inverse-probability weighting changes the same-sample stage-speed ratio only:
+
+- unweighted: **1.042** (0.902–1.205);
+- weighted: **1.062** (0.916–1.230).
+
+Thus measured activation selection exists but does not restore a general positive speed gradient.
+
+This does not solve the principal-stratum problem: unmeasured latent readiness can still determine which FIII eels cross the gate, and speed is undefined for animals that never migrate.
+
+See:
+- `analysis/15_activation_filter_diagnostic.py`
+- `results/activation_filter_diagnostic_v1.json`
+- `docs/ACTIVATION_FILTER_DIAGNOSTIC_RESULT_2026_10_07.md`
 
 ## Current evidence hierarchy
 
@@ -167,14 +194,15 @@ The diagnostic cannot prove convergence because individuals are not repeatedly s
 3. **External scale boundary:** River Test shows a silvering-stage signal can persist at reach scale.
 4. **Event mechanism candidate:** Dutch system can test opportunity exploitation, but only with arrival-defined risk sets and explicit release/mass confounding checks.
 5. **Route bottleneck boundary:** Lithuania shows that the location of post-activation limitation can shift from river to lagoon.
-6. **State-convergence alternative:** now under explicit diagnostic; must be resolved before treating phase attenuation as a change in biological control.
+6. **State-convergence alternative:** simple tested pattern unsupported, but repeated physiological state is unavailable.
+7. **Activation-filter boundary:** measured selection is real but does not restore a general stage-speed gradient; latent selection remains unresolved.
 
 ## Manuscript consequence
 
-Until the state-staleness diagnostic is resolved, avoid wording that implies:
+Avoid wording that implies:
 
 > internal readiness itself becomes weaker after activation.
 
 Prefer:
 
-> **the predictive information carried by capture-time Durif stage is strong for activation but weak for pooled whole-route speed; post-activation information can reappear at finer scales, and capture-time stage may also become less representative of physiological state as migration is delayed.**
+> **capture-time Durif stage strongly predicts entry into migration, but among eels selected through that stage-dependent gate it does not provide a transferable general speed ranking; simple predictor ageing and measured activation selection do not explain the weak gradient, while finer route-specific effects and latent readiness selection remain possible.**
