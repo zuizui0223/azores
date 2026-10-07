@@ -60,7 +60,7 @@ Boundary:
 - condition is a biometric weight-for-length proxy, not an independent
   physiological reserve measurement.
 
-## Figure 3 — Entry-state information transfers to onset, not generic speed
+## Figure 3 — Entry-state information transfers to onset, not realized transit speed
 
 Plot the multiplicative effect per 1 SD activation-trained score on a log ratio
 axis centered at 1. The four rows use different response links and must be
@@ -77,11 +77,35 @@ Annotate:
 - whole-route speed partial R² **0.18%**;
 - segment-speed partial R² **0.026%**.
 
+### Panel A — cross-phase transferability
+
+Plot the four canonical score effects listed above.
+
+### Panel B — exact-link realized transit-speed test
+
+Show the frozen exact-link estimate:
+- **18,012** positive segment rows;
+- **426** eels;
+- **248** directed station pairs;
+- project-held-out score ratio **0.995/SD**;
+- 95% CI **0.912–1.087**;
+- p **0.918**;
+- weighted partial R² **0.00052%**.
+
+Add three small sensitivity points:
+- <=2.5 m s⁻¹: **0.978**;
+- <=5 m s⁻¹: **0.979**;
+- <=10 m s⁻¹: **0.976**.
+
+Annotate that the external-plausibility screens are post-hoc and that they
+remove **52.5–62.5%** of candidate raw segment rows because the source
+last-to-first speed field contains grossly implausible values.
+
 Message:
 
 > a capture-state vector trained on migratory commitment still ranks when
-> migration starts, but provides essentially no general ranking of post-
-> activation progression speed.
+> migration starts, but provides essentially no ranking of realized transit
+> speed even within identical route links.
 
 ## Figure 4 — Independent arrival-defined barrier test falsifies a simple selectivity mechanism
 
@@ -165,4 +189,5 @@ Do not:
 - call the entry-state score a physiological latent variable;
 - plot the unstable EZ matched-choice coefficient as reliable evidence;
 - present Dutch results as confirmation of an internal-to-external handoff;
+- hide the source segment-speed data-quality problem or present post-hoc speed screens as preregistered;
 - use terminal non-membership as failure.
