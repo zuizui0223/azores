@@ -5,6 +5,7 @@ on:
     paths:
       - "analysis/26_fetch_dutch_schema_only.py"
       - "analysis/24_dutch_schema_provenance_audit.py"
+      - "analysis/27_dutch_arrival_riskset_reconstruction.py"
       - ".github/workflows/dutch-schema-audit.yml"
   workflow_dispatch:
 
@@ -25,6 +26,10 @@ jobs:
             --data-dir external/dutch_dans_schema
       - name: Show schema audit
         run: cat analysis/results/dutch_schema_provenance_audit.json
+      - name: Reconstruct duration-independent arrival risk sets
+        run: python analysis/27_dutch_arrival_riskset_reconstruction.py
+      - name: Show arrival risk-set reconstruction
+        run: cat analysis/results/dutch_arrival_riskset_reconstruction.json
       - name: Upload schema audit
         uses: actions/upload-artifact@v4
         with:
@@ -32,3 +37,4 @@ jobs:
           path: |
             analysis/results/dutch_dans_schema_fetch.json
             analysis/results/dutch_schema_provenance_audit.json
+            analysis/results/dutch_arrival_riskset_reconstruction.json
