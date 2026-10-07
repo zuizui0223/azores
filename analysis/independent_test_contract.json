@@ -1,7 +1,7 @@
 {
-  "schema": "azores.independent_test_contract.v3",
-  "scientific_question": "Does internal migratory readiness primarily control migration activation, with its predictive importance attenuating during post-activation progression?",
-  "priority_design": "two sequential movement gates using independently measured capture-time Durif stage",
+  "schema": "azores.independent_test_contract.v4",
+  "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
+  "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
     "FIII",
     "FIV",
@@ -12,13 +12,15 @@
     "expert_corrected_initiators": 422,
     "rule": "metadata-only individuals absent from processed migration tables are not classified as biological non-migrants"
   },
-  "gate1": {
-    "endpoint": "expert-corrected classified migration activation",
-    "estimand": "ordinal Durif effect on activation probability and time to onset",
+  "gate1_activation": {
+    "endpoints": [
+      "expert-corrected classified migration activation",
+      "time to threshold-defined first downstream-migration crossing"
+    ],
     "current_or_per_stage": 2.0763,
     "current_or_ci95": [
-      1.5645,
-      2.7556
+      1.5549,
+      2.7725
     ],
     "current_onset_hr_per_stage": 1.29,
     "current_onset_hr_ci95": [
@@ -26,33 +28,53 @@
       1.47
     ]
   },
-  "gate2": {
-    "endpoint": "published sea-escapement success among expert-corrected initiators",
-    "estimand": "ordinal Durif effect conditional on activation",
-    "current_or_per_stage": 1.1476,
-    "current_or_ci95": [
-      0.8261,
-      1.5942
-    ]
-  },
-  "primary_phase_test": {
-    "estimand": "difference between Durif coefficients at activation and completion using individual-clustered stacked model",
-    "ratio_of_stage_odds_ratios": 1.8093,
-    "ci95": [
-      1.1529,
-      2.8395
+  "gate2_primary_progression": {
+    "endpoint": "source-defined post-activation whole-migration speed among expert-corrected initiators in informative project-year strata",
+    "estimand": "multiplicative speed ratio per ordinal Durif stage",
+    "n": 418,
+    "current_speed_ratio_per_stage": 0.9831088159,
+    "current_ci95": [
+      0.8524016314,
+      1.1338586275
     ],
-    "p": 0.0099,
-    "lopo_direction_consistent": "6/6"
+    "current_p": 0.8149491123,
+    "project_heterogeneity": {
+      "cochran_Q": 2.4694836624,
+      "df": 5,
+      "p": 0.7810837153,
+      "project_ratio_range": [
+        0.9147660278,
+        1.2716277635
+      ]
+    },
+    "interpretation": "No transferable general Durif-stage advantage is detected in whole-migration speed across the six-project cohort; this does not imply that internal readiness is biologically irrelevant after activation."
+  },
+  "secondary_terminal_endpoint_sensitivity": {
+    "endpoint": "membership in the source study's project-specific terminal positive set among activated eels",
+    "adjusted_or_per_stage": 1.1475775341,
+    "ci95": [
+      0.8260854081,
+      1.5941864894
+    ],
+    "p": 0.4117689605,
+    "boundary": "Non-membership is not a validated biological failure state; terminal-set analyses and the former stacked phase OR contrast are sensitivity analyses only."
+  },
+  "external_boundary": {
+    "source": "Moyo et al. 2026 River Test",
+    "implication": "Silvering stage can contribute to finer reach-level progression, so post-activation state effects are phase-, scale- and context-dependent rather than universally absent."
   },
   "external_confirmation": {
     "target": "Dutch pump-to-tidal-sluice system",
-    "question": "after activation, do barrier-specific opportunity variables explain progression better than residual Durif differences?",
+    "data_doi": "10.17026/LS/WTSUNG",
+    "question": "After activation, does capture-time readiness modify exploitation of independently defined passage opportunities, separately at the pumping station and tidal sluice?",
+    "frozen_readiness_grouping": "FIII versus FIV/FV",
+    "primary_opportunity_axis": "discharge-event duration",
     "reject_if": [
       "Durif grouping is changed after outcome inspection",
-      "body mass is dropped to manufacture an identifiable stage effect",
-      "project-level WRS correlation is presented as causal confirmation"
+      "body mass is dropped to manufacture an identifiable readiness interaction",
+      "barriers are pooled as interchangeable after inspecting results",
+      "terminal non-detection is recoded as biological failure"
     ]
   },
-  "evidence_boundary": "developmental independent evidence; outcomes inspected during hypothesis development; Dutch within-route confirmation remains required"
+  "evidence_boundary": "Developmental independent evidence; source outcomes were inspected during programme development. The Europe-wide speed result is reproducible, while the Dutch matched opportunity-choice analysis remains an external within-route test."
 }
