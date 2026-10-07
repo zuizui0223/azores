@@ -1,5 +1,5 @@
 {
-  "schema": "azores.independent_test_contract.v8",
+  "schema": "azores.independent_test_contract.v9",
   "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
   "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
@@ -166,7 +166,7 @@
     "metric_robustness_status": "ROBUST_TO_CONDITION_METRIC_DEFINITION"
   },
   "condition_phase_reversal_hypothesis": {
-    "status": "CANDIDATE_ACTIVATION_TO_DELAY_BODY_STATE_TURNOVER",
+    "status": "MULTIVARIATE_ENTRY_GATE_SUPPORTED_BARRIER_SELECTIVITY_UNSUPPORTED",
     "evidence_ledger": "results/condition_phase_sign_audit_v1.json",
     "synthesis_doc": "docs/CONDITION_PHASE_REVERSAL_HYPOTHESIS_2026_10_07.md",
     "pattern": [
@@ -210,6 +210,27 @@
         "interpretation": "the negative whole-route-speed point estimate is carried mainly by longer elapsed migration time rather than slower positive inter-station transit"
       }
     },
-    "revised_candidate_mechanism": "Capture body state may facilitate migration entry yet increase subsequent waiting/staging or selectivity for movement opportunities; positive locomotor transit speed itself is not reduced."
+    "revised_candidate_mechanism": "Do not assign the Europe-wide elapsed-time tendency to general condition-dependent barrier selectivity. Retain the broader phase-transferability result: capture-state information strongly predicts entry/onset but is weak as a transferable general post-activation motor-performance ranking.",
+    "dutch_arrival_defined_falsification": {
+      "choice_result": "results/dutch_condition_choice_test_v1.json",
+      "waiting_result": "results/dutch_arrival_waiting_diagnostic_v1.json",
+      "EZ_condition_vs_missed_r": 0.0086145127,
+      "EZ_condition_vs_missed_p": 0.9596040396,
+      "EZ_condition_vs_delay_r": 0.0718864949,
+      "EZ_condition_vs_delay_p": 0.6773322668,
+      "CL_condition_vs_missed_r": -0.1042445775,
+      "CL_condition_vs_missed_p": 0.5919408059,
+      "CL_condition_vs_delay_r": -0.1818865189,
+      "CL_condition_vs_delay_p": 0.3502649735,
+      "CL_condition_x_duration_beta": -0.0949232585,
+      "CL_condition_x_duration_p": 0.8408658728,
+      "conclusion": "The preregistered positive condition-dependent longer-window / post-arrival waiting mechanism is unsupported."
+    },
+    "selection_diagnostic": {
+      "source": "results/body_condition_activation_selection_ipw_v1.json",
+      "unweighted_speed_ratio": 0.9073905001,
+      "ipw_speed_ratio": 0.9200811159,
+      "interpretation": "Measured condition-dependent activation selection does not explain the post-activation condition-speed pattern."
+    }
   }
 }
