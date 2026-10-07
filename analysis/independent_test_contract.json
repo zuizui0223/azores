@@ -128,5 +128,25 @@
       ],
       "boundary": "Activation is a stage-dependent selected principal stratum. Measured-predictor weighting does not restore a general gradient, but latent readiness selection remains unidentifiable."
     }
+  },
+  "activation_gate_body_state": {
+    "source": "analysis/18_body_condition_onset_diagnostic.py + independent-data-audit run 37563508791",
+    "evidence_class": "post_hoc developmental consistency diagnostic",
+    "activation_odds_ratio_per_condition_sd": 1.4585,
+    "activation_ci95": [
+      1.1647,
+      1.8265
+    ],
+    "onset_hazard_ratio_per_condition_sd": 1.1493,
+    "onset_ci95": [
+      1.0286,
+      1.2841
+    ],
+    "onset_p": 0.01394,
+    "durif_x_condition_onset_hr": 0.9636,
+    "durif_x_condition_onset_p": 0.57,
+    "onset_condition_hr_gt_1_all_leave_one_project_out": true,
+    "interpretation": "Capture weight-for-length state retains additive predictive information for whether and when classified migration activates beyond the ordinal Durif label.",
+    "boundary": "Durif classification itself uses body morphometrics including length and weight, so this is continuous biometric information beyond an ordinal stage label, not an independent energetic or physiological axis and not a causal mechanism."
   }
 }
