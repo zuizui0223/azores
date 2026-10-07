@@ -39,7 +39,7 @@ ALIASES = {
         "body_mass_g", "body_mass", "weight_g", "weight", "mass_g", "mass"
     ],
     "release_group": [
-        "release_group", "release_date", "tagging_group", "release"
+        "release_group", "release_date", "tagging_group", "release", "group"
     ],
     "receiver": [
         "receiver_id", "station_id", "receiver", "station", "location_id"
@@ -52,21 +52,22 @@ ALIASES = {
     ],
     "event_id": [
         "event_id", "discharge_event_id", "opportunity_id", "passage_event_id",
-        "event"
+        "outletid", "event"
     ],
     "event_start": [
-        "event_start", "start_time", "start_datetime", "start", "opening_time"
+        "event_start", "start_time", "start_datetime", "start", "opening_time",
+        "firstquarter"
     ],
     "event_end": [
         "event_end", "end_time", "end_datetime", "end", "closing_time"
     ],
     "duration": [
         "discharge_duration_min", "discharge_duration", "duration_min",
-        "event_duration", "duration"
+        "event_duration", "outlettimetotal", "duration"
     ],
     "discharge": [
-        "max_discharge", "maximum_discharge", "discharge_volume",
-        "total_discharge_volume", "flow", "discharge"
+        "max_discharge", "maximum_discharge", "maxdischarge", "debietsom",
+        "discharge_volume", "total_discharge_volume", "flow", "discharge"
     ],
     "wind_speed": [
         "wind_speed", "windspeed", "wind_speed_3h", "wind"
