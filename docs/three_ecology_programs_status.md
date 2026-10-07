@@ -29,9 +29,10 @@ Primary evidence:
 - frozen median positive inter-station speed audit: ratio **1.001**, 95% CI **0.831–1.204**
 - project heterogeneity is unsupported for both progression scales (whole-route Q=2.47, p=0.781; segment-scale Q=2.32, p=0.804)
 - simple capture-stage staleness diagnostic unsupported: Durif × log-latency ratio **1.036** (p=0.382); stage-speed ratios among <=1/3/7-day activators **0.942 / 0.953 / 0.963**
+- activation-filter diagnostic: FIII initiators are phenotypically selected (length SMD **+0.514**, weight-for-length residual SMD **+0.302**), but same-sample stage-speed changes only **1.042 -> 1.062** after inverse-probability weighting (95% CI for weighted ratio **0.916–1.230**)
 
 Interpretation:
-> capture-time silvering readiness is a strong transferable predictor of migration activation and onset, but does not provide a transferable general speed advantage at either whole-route or individual median inter-station scale. The weak progression signal is not explained by demonstrated project sign cancellation or the simple tested capture-stage-staleness pattern. This is a transferability boundary, not evidence that internal state becomes irrelevant after activation.
+> capture-time silvering readiness is a strong transferable predictor of migration activation and onset, but among eels that cross this stage-dependent activation filter it does not provide a transferable general speed ranking at either whole-route or individual median inter-station scale. Project sign cancellation, simple capture-stage staleness, and selection on the measured canonical activation predictors do not explain the weak progression gradient. Latent readiness selection remains an identification boundary, so this is not a causal estimate that internal-state effects disappear after activation.
 
 Post-activation heterogeneity audit:
 - reproducible analysis: `analysis/16_post_initiation_stage_heterogeneity.py`;
@@ -82,11 +83,11 @@ Older V1 completion-centred figure specifications and simplified initiation scri
 - source-study ethics wording check;
 - release/archive.
 
-**PASS_SPEED_REPRODUCTION / HETEROGENEITY_AUDIT_COMPLETE:** pooled speed n=418 and ratio 0.983 reproduce exactly; project-specific speed ratios show no supported heterogeneity (Q=2.47, df=5, p=0.781). Mechanistic attribution to route opportunity remains unresolved rather than rescued by a stage × water-body interaction.
+**PASS_SPEED_REPRODUCTION / PROGRESSION_FALSIFICATION_AUDITS_COMPLETE:** pooled speed n=418 and ratio 0.983 reproduce exactly; project-specific speed ratios show no supported heterogeneity (Q=2.47, df=5, p=0.781); the finer-scale and stage-staleness audits do not uncover a hidden general stage gradient; measured activation selection is real but IPW does not restore one. Latent selection and route-specific mechanism remain unresolved.
 
 ### Active independent mechanism extension — Dutch consecutive barriers
 
-The Europe-wide core manuscript is scientifically closed and does **not** depend on this extension. The Dutch system is the highest-value remaining route for strengthening the biological mechanism behind phase-specific control.
+The Europe-wide core manuscript remains scientifically separable from this extension. The Dutch system is an event-level mechanism candidate, not a clean independent confirmation: its source opportunity definition is duration-dependent, Durif stage is associated with release cohort, and stage/body mass are partly non-identifiable at the tidal sluice.
 
 Public DANS metadata for DOI `10.17026/LS/WTSUNG` confirms an event-resolved archive containing raw-filtered acoustic detections, receiver metadata, biometrics/outcomes, and passage-event tables (462 pumping-station events; 282 tidal-sluice events).
 
