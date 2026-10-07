@@ -9,6 +9,7 @@ on:
       - "analysis/05_processed_panel_transition_audit.py"
       - "analysis/06_build_stage_landscape_panel.py"
       - "analysis/14_stage_staleness_diagnostic.py"
+      - "analysis/15_activation_filter_diagnostic.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -40,6 +41,10 @@ jobs:
         run: python analysis/14_stage_staleness_diagnostic.py
       - name: Show capture-stage staleness diagnostic
         run: cat analysis/results/stage_staleness_diagnostic.json
+      - name: Test activation-filter selection
+        run: python analysis/15_activation_filter_diagnostic.py
+      - name: Show activation-filter diagnostic
+        run: cat analysis/results/activation_filter_diagnostic.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
