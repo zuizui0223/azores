@@ -203,7 +203,14 @@ def stage_map(root: Path) -> dict[str, str]:
     return out
 
 
-def build_rows(root: Path, passage_name: str, bio_name: str, barrier: str, stages: dict[str, str]) -> list[dict]:
+def build_rows(
+    root: Path,
+    passage_name: str,
+    bio_name: str,
+    barrier: str,
+    stages: dict[str, str],
+    source_attempt_col: str,
+) -> list[dict]:
     bio = {}
     for r in sniff_rows(root / bio_name):
         tag = (r.get("Transmitter") or "").strip()
@@ -214,6 +221,7 @@ def build_rows(root: Path, passage_name: str, bio_name: str, barrier: str, stage
         stage = (r.get("durif") or stages.get(tag) or "").strip().upper()
         if not tag or arr is None or pas is None or cond is None or mass is None:
             continue
+        source_attempts = fnum(r.get(source_attempt_col))
         bio[tag] = {
             "fish": tag,
             "barrier": barrier,
@@ -224,6 +232,7 @@ def build_rows(root: Path, passage_name: str, bio_name: str, barrier: str, stage
             "stage": stage,
             "ready": float(stage in {"FIV", "FV"}),
             "group": (r.get("Group") or "").strip(),
+            "source_attempts": source_attempts,
         }
 
     events = defaultdict(list)
@@ -256,11 +265,19 @@ def build_rows(root: Path, passage_name: str, bio_name: str, barrier: str, stage
         delay_h = (b["passage_time"] - b["arrival"]).total_seconds() / 3600.0
         if delay_h < 0:
             continue
+        source_missed = (
+            max(0.0, b["source_attempts"] - 1.0)
+            if b["source_attempts"] is not None else None
+        )
         out.append({
             **b,
             "chosen_event_start": cstart,
             "chosen_started_before_arrival": cstart < b["arrival"],
             "missed_after_arrival": missed,
+            "source_missed_opportunities": source_missed,
+            "source_minus_arrival_missed": (
+                source_missed - missed if source_missed is not None else None
+            ),
             "delay_hours": delay_h,
             "n_archive_events": len(ee),
         })
@@ -271,6 +288,10 @@ def summarize(rows: list[dict]) -> dict:
     condition = [r["condition"] for r in rows]
     missed = [r["missed_after_arrival"] for r in rows]
     delay = [r["delay_hours"] for r in rows]
+    source_rows = [r for r in rows if r["source_missed_opportunities"] is not None]
+    source_condition = [r["condition"] for r in source_rows]
+    source_missed = [r["source_missed_opportunities"] for r in source_rows]
+    source_minus_arrival = [r["source_minus_arrival_missed"] for r in source_rows]
 
     waited = [r for r in rows if r["missed_after_arrival"] > 0]
     immediate = [r for r in rows if r["missed_after_arrival"] == 0]
@@ -286,6 +307,29 @@ def summarize(rows: list[dict]) -> dict:
         "median_delay_hours": float(np.median(delay)),
         "condition_vs_missed": permutation_corr(condition, missed, "spearman"),
         "condition_vs_delay_hours": permutation_corr(condition, delay, "spearman"),
+        "source_count_comparison": {
+            "n_with_source_attempt_count": len(source_rows),
+            "condition_vs_source_missed": (
+                permutation_corr(source_condition, source_missed, "spearman")
+                if len(source_rows) >= 3 else None
+            ),
+            "condition_vs_source_minus_arrival_missed": (
+                permutation_corr(source_condition, source_minus_arrival, "spearman")
+                if len(source_rows) >= 3 else None
+            ),
+            "median_source_missed": (
+                float(np.median(source_missed)) if source_missed else None
+            ),
+            "median_source_minus_arrival_missed": (
+                float(np.median(source_minus_arrival)) if source_minus_arrival else None
+            ),
+            "interpretation": (
+                "A condition association present for source-defined missed opportunities "
+                "but absent after observed barrier arrival would localize the phenotype "
+                "signal to pre-arrival/reachability opportunity accumulation rather than "
+                "post-arrival passage selectivity."
+            ),
+        },
         "adjusted_condition_vs_log1p_missed": adjusted_partial(rows, "missed_after_arrival"),
         "adjusted_condition_vs_log1p_delay": adjusted_partial(rows, "delay_hours"),
         "mean_condition_zero_missed": (
@@ -306,6 +350,8 @@ def summarize(rows: list[dict]) -> dict:
                 "chosen_event_start": r["chosen_event_start"].isoformat(sep=" "),
                 "chosen_started_before_arrival": r["chosen_started_before_arrival"],
                 "missed_after_arrival": r["missed_after_arrival"],
+                "source_missed_opportunities": r["source_missed_opportunities"],
+                "source_minus_arrival_missed": r["source_minus_arrival_missed"],
                 "delay_hours": r["delay_hours"],
             }
             for r in rows
@@ -321,8 +367,12 @@ def main() -> None:
     root = Path(args.data_dir)
     stages = stage_map(root)
 
-    ez = build_rows(root, "passage_ez.tab", "biometrics_ez.tab", "EZ", stages)
-    cl = build_rows(root, "passage_cl.tab", "biometrics_cl.tab", "CL", stages)
+    ez = build_rows(
+        root, "passage_ez.tab", "biometrics_ez.tab", "EZ", stages, "Attempts2"
+    )
+    cl = build_rows(
+        root, "passage_cl.tab", "biometrics_cl.tab", "CL", stages, "Attempts"
+    )
 
     result = {
         "schema": "azores.dutch_arrival_waiting_diagnostic.v1",
@@ -335,6 +385,10 @@ def main() -> None:
         "missed_event_definition": (
             "non-passage event starts satisfying SewerArrival <= Firstquarter < chosen_event_start; "
             "source valid and event duration are not used"
+        ),
+        "source_count_comparison": (
+            "Source Attempts/Attempts2 are retained only for provenance decomposition: "
+            "source_missed = Attempts - 1 is compared with the new arrival-defined count."
         ),
         "barriers": {
             "EZ_pumping_station": summarize(ez),
