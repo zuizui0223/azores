@@ -7,6 +7,7 @@ on:
       - "manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json"
       - "manuscript/qc_manuscript_v4.py"
       - "results/entry_state_score_transferability_v1.json"
+      - "results/cross_project_entry_state_score_v1.json"
       - "results/dutch_condition_choice_test_v1.json"
       - "results/dutch_arrival_waiting_diagnostic_v1.json"
       - ".github/workflows/manuscript-v4-qc.yml"
