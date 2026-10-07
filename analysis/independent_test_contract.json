@@ -1,5 +1,5 @@
 {
-  "schema": "azores.independent_test_contract.v6",
+  "schema": "azores.independent_test_contract.v7",
   "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
   "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
@@ -147,6 +147,36 @@
     "durif_x_condition_onset_p": 0.57,
     "onset_condition_hr_gt_1_all_leave_one_project_out": true,
     "interpretation": "Capture weight-for-length state retains additive predictive information for whether and when classified migration activates beyond the ordinal Durif label.",
-    "boundary": "Durif classification itself uses body morphometrics including length and weight, so this is continuous biometric information beyond an ordinal stage label, not an independent energetic or physiological axis and not a causal mechanism."
+    "boundary": "Durif classification itself uses body morphometrics including length and weight, so this is continuous biometric information beyond an ordinal stage label, not an independent energetic or physiological axis and not a causal mechanism.",
+    "metric_robustness_source": "results/body_condition_metric_robustness_v1.json",
+    "metric_definitions_tested": [
+      "stage-adjusted allometric residual",
+      "project-adjusted allometric residual",
+      "Fulton log K"
+    ],
+    "activation_or_range_across_metrics": [
+      1.4379746477,
+      1.4603563009
+    ],
+    "onset_hr_range_across_metrics": [
+      1.1482757365,
+      1.152766157
+    ],
+    "positive_direction_all_leave_one_project_out_for_all_metrics": true,
+    "metric_robustness_status": "ROBUST_TO_CONDITION_METRIC_DEFINITION"
+  },
+  "condition_phase_reversal_hypothesis": {
+    "status": "CANDIDATE_CROSS_DATASET_HYPOTHESIS",
+    "evidence_ledger": "results/condition_phase_sign_audit_v1.json",
+    "synthesis_doc": "docs/CONDITION_PHASE_REVERSAL_HYPOTHESIS_2026_10_07.md",
+    "pattern": [
+      "Europe-wide: better capture body state predicts higher activation probability and earlier onset beyond ordinal Durif stage.",
+      "Huisman et al. 2023 tidal sluice: higher weight/condition predicts more missed sluicing events before passage.",
+      "van Rijn et al. 2026 pumping station: better condition predicts more missed passage opportunities before passage.",
+      "van der Knaap et al. 2025 pumping station: higher condition predicts lower routine acceleration."
+    ],
+    "candidate_mechanism": "After promoting entry into migration, high body state may increase selectivity for stronger/safer passage opportunities at engineered barriers, consistent with state-dependent stimulus thresholds or asset protection.",
+    "decisive_test": "arrival-defined Dutch barrier risk sets with condition x independently defined opportunity-strength interaction, retaining release-group and stage/body-mass confounding checks",
+    "evidence_boundary": "Cross-dataset directional synthesis only. Different condition metrics and individuals are involved; there is no within-individual sign reversal or causal asset-protection estimate yet."
   }
 }
