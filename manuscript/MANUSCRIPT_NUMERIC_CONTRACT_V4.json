@@ -228,5 +228,78 @@
       "condition_all_positive": true
     },
     "boundary": "Only score weights are trained without held-out-project outcomes; predictor preprocessing remains panel-derived. This is a post-hoc cross-project robustness audit, not external prospective validation."
+  },
+  "within_link_entry_state_result": "results/within_link_entry_state_speed_v1.json",
+  "within_link_speed_quality_result": "results/within_link_speed_quality_sensitivity_v1.json",
+  "within_link_entry_state": {
+    "primary": {
+      "n_segment_rows": 18012,
+      "n_fish": 426,
+      "n_directed_pairs": 248,
+      "ratio_per_sd": 0.995412619,
+      "ci95": [
+        0.9115226584,
+        1.0870232057
+      ],
+      "p": 0.9184701435,
+      "weighted_partial_r2": 0.000005231062,
+      "min_unique_fish_per_pair": 5
+    },
+    "pair_support_sensitivity": {
+      "min3_ratio": 0.9910812301,
+      "min10_ratio": 1.0316845109,
+      "leave_one_project_out_ratio_range": [
+        0.9695017971,
+        1.0591927898
+      ]
+    },
+    "source_speed_quality_boundary": {
+      "raw_candidate_speed_max_m_s": 3752.402245,
+      "external_context": {
+        "european_eel_Ucrit_m_s": 0.94,
+        "european_eel_Uopt_m_s": 0.64,
+        "compiled_european_eel_max_m_s": 2.26
+      },
+      "posthoc_upper_screen_results": {
+        "2.5": {
+          "candidate_fraction_removed": 0.624929872,
+          "n_segment_rows": 5946,
+          "n_fish": 426,
+          "n_pairs": 223,
+          "ratio_per_sd": 0.9776718401,
+          "ci95": [
+            0.9113816116,
+            1.0487837529
+          ],
+          "p": 0.5284581743
+        },
+        "5.0": {
+          "candidate_fraction_removed": 0.5806089662,
+          "n_segment_rows": 6798,
+          "n_fish": 426,
+          "n_pairs": 233,
+          "ratio_per_sd": 0.9787721455,
+          "ci95": [
+            0.913031861,
+            1.0492458738
+          ],
+          "p": 0.5452740231
+        },
+        "10.0": {
+          "candidate_fraction_removed": 0.5251695823,
+          "n_segment_rows": 7848,
+          "n_fish": 426,
+          "n_pairs": 235,
+          "ratio_per_sd": 0.9757959233,
+          "ci95": [
+            0.9095848321,
+            1.0468266953
+          ],
+          "p": 0.4943153984
+        }
+      },
+      "status": "WITHIN_LINK_NULL_ROBUST_TO_GROSS_SPEED_ARTIFACT_SCREEN",
+      "boundary": "The plausibility screens were registered only after the frozen primary exposed impossible source speed values; they are sensitivity analyses and do not replace the primary."
+    }
   }
 }
