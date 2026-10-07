@@ -1,0 +1,29 @@
+name: entry-state-score
+
+on:
+  push:
+    paths:
+      - "analysis/31_entry_state_score_transferability.py"
+      - ".github/workflows/entry-state-score.yml"
+  workflow_dispatch:
+
+jobs:
+  score:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Run entry-state transferability score
+        run: python analysis/31_entry_state_score_transferability.py
+      - name: Show result
+        run: cat analysis/results/entry_state_score_transferability.json
+      - name: Upload result
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-entry-state-score
+          path: analysis/results/entry_state_score_transferability.json
