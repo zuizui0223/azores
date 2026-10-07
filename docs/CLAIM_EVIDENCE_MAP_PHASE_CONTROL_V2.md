@@ -4,7 +4,10 @@
 |---|---|---|---|
 | Advanced Durif stage predicts migration activation | Adjusted six-project initiation OR **2.08**, CI **1.56–2.76** | Strong developmental | Durif stages encode migratory readiness; positive control, not novelty alone |
 | Advanced stage predicts earlier behavioral onset | Stratified Cox HR **1.29**, CI **1.13–1.47** | Strong developmental | Threshold-defined telemetry onset, not physiological silvering onset |
-| Stage is not a general post-activation speed predictor | Adjusted speed ratio **0.983**, CI **0.852–1.134** | Strong null-compatible | Does not prove zero individual-state effect |
+| Stage is not a general post-activation whole-route speed predictor | Adjusted speed ratio **0.983**, CI **0.852–1.134** | Strong null-compatible | Does not prove zero individual-state effect |
+| The weak progression signal is not specific to whole-route aggregation | Frozen individual median positive inter-station speed ratio **1.001**, CI **0.831–1.204** | Developmental scale audit | Does not exclude route-specific reach/event effects |
+| The pooled near-null is not explained by demonstrated strong project sign cancellation | Stage × project **F(5,397)=1.03, p=0.398**; Q **2.47**, p **0.781** | Post-hoc heterogeneity audit | Several project contrasts remain imprecise |
+| Simple capture-stage staleness is unsupported | Durif × log-latency ratio **1.036**, p **0.382**; <=1/3/7 d stage-speed ratios **0.942/0.953/0.963** | Post-hoc diagnostic | No repeated Durif measurement; cannot exclude physiological convergence |
 | Terminal positive-set membership shows weak stage gradient after activation | OR **1.15**, CI **0.83–1.59** | Secondary sensitivity | Complement is not a validated biological failure state; source paper did not estimate escapement success rate |
 | Former initiation/completion OR-ratio is directionally >1 | OR ratio **1.81**, CI **1.15–2.84** | Secondary sensitivity | Depends on observability-limited terminal binary endpoint; not manuscript-primary |
 | Route-specific opportunity matters after activation | Source meta-analysis + independent Dutch pump/sluice study | Independent ecological context | Published evidence, not direct replication of a phase interaction |
@@ -13,7 +16,7 @@
 
 ## Primary paper claim
 
-> **Capture-time migratory readiness is a strong transferable predictor of migration activation and onset, whereas the same ordinal stage gradient is not a transferable general predictor of post-activation whole-route speed; system-specific progression effects can still occur.**
+> **Capture-time migratory readiness is a strong transferable predictor of migration activation and onset, whereas the same capture-stage gradient is not a transferable general predictor of post-activation speed across the two progression summaries tested; system-specific progression effects can still occur.**
 
 ## Explicitly not claimed
 
