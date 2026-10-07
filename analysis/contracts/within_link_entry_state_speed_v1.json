@@ -10,6 +10,7 @@
   "segment_definition": {
     "source_rows": "public source migration_*.csv files for the six focal projects",
     "include_if": [
+      "eel is an expert-corrected initiator (the nine fixed 2015 expert non-migrants are excluded)",
       "current row migration == TRUE",
       "immediately preceding row for the same fish migration == TRUE",
       "current speed_m_s is finite and > 0",
@@ -49,5 +50,9 @@
     "do not drop extreme positive source speeds after inspecting their association with score",
     "do not treat segment rows as independent fish",
     "do not call a null coefficient proof that physiology is irrelevant after activation"
-  ]
+  ],
+  "fixed_provenance_rule": {
+    "expert_corrections": "Exclude the nine fixed 2015 expert-classified non-migrants used in every canonical activation/post-activation analysis, even if source rows contain migration==TRUE.",
+    "rationale": "This rule predates the within-link result and defines the canonical activated population; its omission from the first within-link implementation was an implementation bug, not an outcome-driven eligibility change."
+  }
 }
