@@ -1,0 +1,771 @@
+{
+  "schema": "azores.body_condition_elapsed_components.v1",
+  "evidence_class": "post_hoc_developmental_elapsed_time_component_diagnostic",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "n_pre_stratum_filter": 422,
+  "definitions": {
+    "receiver_dwell": "sum of departure-arrival durations within source rows classified migration==TRUE",
+    "residual_gap": "whole-route elapsed time minus observed receiver dwell; includes inter-station transit, unobserved waiting/staging, and intervals spanned across classifier-excluded rows"
+  },
+  "metrics": {
+    "stage_adjusted_allometric": {
+      "primary": {
+        "n": 418,
+        "n_strata": 13,
+        "median_receiver_dwell_fraction": 0.045583782430792474,
+        "elapsed": {
+          "beta": 0.10236704011426262,
+          "se": 0.07417166428202028,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1077900004855459,
+          "ci95": [
+            0.95790236478482,
+            1.2811312825722478
+          ],
+          "p": 0.16754454216180426
+        },
+        "receiver_dwell": {
+          "beta": 0.11677753232949117,
+          "se": 0.08233103720187973,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1238693772749604,
+          "ci95": [
+            0.9563882772970248,
+            1.3206794846400367
+          ],
+          "p": 0.15607688934206543
+        },
+        "residual_gap": {
+          "beta": 0.1156348428703234,
+          "se": 0.07980290806463776,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1225858770448185,
+          "ci95": [
+            0.9600414129737543,
+            1.3126507193444743
+          ],
+          "p": 0.14733608102676143
+        }
+      },
+      "leave_one_project_out": {
+        "2011_Warnow": {
+          "n": 311,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.06825011655404456,
+          "elapsed": {
+            "beta": 0.12718269918600394,
+            "se": 0.08795918227970029,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1356244764971024,
+            "ci95": [
+              0.9557897679824293,
+              1.3492956242266718
+            ],
+            "p": 0.14819722314766404
+          },
+          "receiver_dwell": {
+            "beta": 0.09482378523161654,
+            "se": 0.09113619719352858,
+            "multiplicative_ratio_on_seconds_plus_1": 1.0994650960677512,
+            "ci95": [
+              0.9196122535910863,
+              1.3144925948418076
+            ],
+            "p": 0.2981251302995689
+          },
+          "residual_gap": {
+            "beta": 0.14436739598469983,
+            "se": 0.09595298320828093,
+            "multiplicative_ratio_on_seconds_plus_1": 1.155308486261744,
+            "ci95": [
+              0.9572406549127866,
+              1.394359601818217
+            ],
+            "p": 0.1324362296857433
+          }
+        },
+        "2012_leopoldkanaal": {
+          "n": 366,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.039334109100989056,
+          "elapsed": {
+            "beta": 0.12078493521493179,
+            "se": 0.0793664658875476,
+            "multiplicative_ratio_on_seconds_plus_1": 1.128382210992338,
+            "ci95": [
+              0.965824307191373,
+              1.3183002380490618
+            ],
+            "p": 0.12804326231183705
+          },
+          "receiver_dwell": {
+            "beta": 0.12757067873889405,
+            "se": 0.08624581512606846,
+            "multiplicative_ratio_on_seconds_plus_1": 1.136065161056516,
+            "ci95": [
+              0.9593770427978033,
+              1.3452938652800153
+            ],
+            "p": 0.13909966771114934
+          },
+          "residual_gap": {
+            "beta": 0.1283646339356336,
+            "se": 0.08593287232817148,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1369675040575284,
+            "ci95": [
+              0.9607281467500405,
+              1.345536830221688
+            ],
+            "p": 0.13523365424057676
+          }
+        },
+        "2013_albertkanaal": {
+          "n": 290,
+          "n_strata": 9,
+          "median_receiver_dwell_fraction": 0.03780450054704684,
+          "elapsed": {
+            "beta": 0.052751444255788746,
+            "se": 0.06398733793119214,
+            "multiplicative_ratio_on_seconds_plus_1": 1.054167593142806,
+            "ci95": [
+              0.9299134719388786,
+              1.1950244275045174
+            ],
+            "p": 0.4097098038763676
+          },
+          "receiver_dwell": {
+            "beta": 0.09196891380758829,
+            "se": 0.08947671443366165,
+            "multiplicative_ratio_on_seconds_plus_1": 1.0963307408027356,
+            "ci95": [
+              0.9199780697215125,
+              1.3064888531450711
+            ],
+            "p": 0.30401895754086317
+          },
+          "residual_gap": {
+            "beta": 0.055485733331299684,
+            "se": 0.06520293563914359,
+            "multiplicative_ratio_on_seconds_plus_1": 1.0570539363265392,
+            "ci95": [
+              0.9302405963679428,
+              1.2011548718321845
+            ],
+            "p": 0.3947860929672138
+          }
+        },
+        "2015_phd_verhelst_eel": {
+          "n": 332,
+          "n_strata": 9,
+          "median_receiver_dwell_fraction": 0.045128182233131205,
+          "elapsed": {
+            "beta": 0.11190509569179265,
+            "se": 0.09711833744618187,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1184067139927516,
+            "ci95": [
+              0.9245512024949368,
+              1.3529089297906294
+            ],
+            "p": 0.24921627827789639
+          },
+          "receiver_dwell": {
+            "beta": 0.16318330967853842,
+            "se": 0.10631132762068414,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1772524716825414,
+            "ci95": [
+              0.9558188298087539,
+              1.4499854353779127
+            ],
+            "p": 0.12479440652872853
+          },
+          "residual_gap": {
+            "beta": 0.1308071751095347,
+            "se": 0.10457501789082714,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1397479883408836,
+            "ci95": [
+              0.9285232482902853,
+              1.3990231039653789
+            ],
+            "p": 0.2109909047709171
+          }
+        },
+        "2019_Grotenete": {
+          "n": 385,
+          "n_strata": 11,
+          "median_receiver_dwell_fraction": 0.050563903527074384,
+          "elapsed": {
+            "beta": 0.10625164927152993,
+            "se": 0.07962246774622789,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1121017008791478,
+            "ci95": [
+              0.9514117094017537,
+              1.299931649859526
+            ],
+            "p": 0.1820586969461262
+          },
+          "receiver_dwell": {
+            "beta": 0.11116374082857675,
+            "se": 0.08632543517846092,
+            "multiplicative_ratio_on_seconds_plus_1": 1.117577885002442,
+            "ci95": [
+              0.9436177580844416,
+              1.3236083343556193
+            ],
+            "p": 0.19784041776351868
+          },
+          "residual_gap": {
+            "beta": 0.1244843190333844,
+            "se": 0.08576391547651568,
+            "multiplicative_ratio_on_seconds_plus_1": 1.132564260618639,
+            "ci95": [
+              0.9573244131166916,
+              1.3398820575928336
+            ],
+            "p": 0.14664718509664354
+          }
+        },
+        "ESGL": {
+          "n": 406,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.04371192787529296,
+          "elapsed": {
+            "beta": 0.0968294945126557,
+            "se": 0.07551168101913068,
+            "multiplicative_ratio_on_seconds_plus_1": 1.10167251639682,
+            "ci95": [
+              0.9501139062257805,
+              1.27740718816054
+            ],
+            "p": 0.19973340675291507
+          },
+          "receiver_dwell": {
+            "beta": 0.11498343853901616,
+            "se": 0.08385537843442419,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1218548578626273,
+            "ci95": [
+              0.9518259341456365,
+              1.3222568086880964
+            ],
+            "p": 0.17030911126069448
+          },
+          "residual_gap": {
+            "beta": 0.1107807581134745,
+            "se": 0.08120418029977518,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1171499539400362,
+            "ci95": [
+              0.9527722031009612,
+              1.3098871015824307
+            ],
+            "p": 0.17249681940256356
+          }
+        }
+      },
+      "dwell_beta_positive_all_lopo": true,
+      "gap_beta_positive_all_lopo": true
+    },
+    "project_adjusted_allometric": {
+      "primary": {
+        "n": 418,
+        "n_strata": 13,
+        "median_receiver_dwell_fraction": 0.045583782430792474,
+        "elapsed": {
+          "beta": 0.125715408821438,
+          "se": 0.07345494565324343,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1339594075135437,
+          "ci95": [
+            0.981909351805429,
+            1.3095546299912098
+          ],
+          "p": 0.08699570806210111
+        },
+        "receiver_dwell": {
+          "beta": 0.12451285011406962,
+          "se": 0.08160705580651414,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1325965743619109,
+          "ci95": [
+            0.9651835588890252,
+            1.329047711642409
+          ],
+          "p": 0.12706943621376454
+        },
+        "residual_gap": {
+          "beta": 0.13779226275876721,
+          "se": 0.0790401142936446,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1477370977689523,
+          "ci95": [
+            0.9830194612120068,
+            1.3400553067087213
+          ],
+          "p": 0.08127762171410247
+        }
+      },
+      "leave_one_project_out": {
+        "2011_Warnow": {
+          "n": 311,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.06825011655404456,
+          "elapsed": {
+            "beta": 0.13464996215016706,
+            "se": 0.08784542529111539,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1441362232661259,
+            "ci95": [
+              0.9631683430327354,
+              1.35910581660924
+            ],
+            "p": 0.1253237539087393
+          },
+          "receiver_dwell": {
+            "beta": 0.11164153318347259,
+            "se": 0.09099302194125745,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1181119827556478,
+            "ci95": [
+              0.9354713212338933,
+              1.336411258800299
+            ],
+            "p": 0.21985111278573766
+          },
+          "residual_gap": {
+            "beta": 0.15038349681405683,
+            "se": 0.0958386277933353,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1622798879051226,
+            "ci95": [
+              0.9632327404629191,
+              1.4024591161420854
+            ],
+            "p": 0.11661708975635543
+          }
+        },
+        "2012_leopoldkanaal": {
+          "n": 366,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.039334109100989056,
+          "elapsed": {
+            "beta": 0.15218863257856569,
+            "se": 0.07928845726900649,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1643798556923965,
+            "ci95": [
+              0.9967884245081761,
+              1.3601486684711452
+            ],
+            "p": 0.054929954770731815
+          },
+          "receiver_dwell": {
+            "beta": 0.1444876239446327,
+            "se": 0.08625249683084503,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1554473949943298,
+            "ci95": [
+              0.9757320493680763,
+              1.36826363699319
+            ],
+            "p": 0.09390081628796088
+          },
+          "residual_gap": {
+            "beta": 0.15818979674273076,
+            "se": 0.085873397019998,
+            "multiplicative_ratio_on_seconds_plus_1": 1.171388499332301,
+            "ci95": [
+              0.9899289942391604,
+              1.38611054363812
+            ],
+            "p": 0.06545641599806884
+          }
+        },
+        "2013_albertkanaal": {
+          "n": 290,
+          "n_strata": 9,
+          "median_receiver_dwell_fraction": 0.03780450054704684,
+          "elapsed": {
+            "beta": 0.07570781982189922,
+            "se": 0.06187027970467626,
+            "multiplicative_ratio_on_seconds_plus_1": 1.0786473687308338,
+            "ci95": [
+              0.9554642524540973,
+              1.2177118537732499
+            ],
+            "p": 0.22108275153380808
+          },
+          "receiver_dwell": {
+            "beta": 0.11608728422014865,
+            "se": 0.0865280153792939,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1230938962301003,
+            "ci95": [
+              0.9478987123733948,
+              1.3306694937807257
+            ],
+            "p": 0.17972085680146943
+          },
+          "residual_gap": {
+            "beta": 0.07380724940175888,
+            "se": 0.06306516567387056,
+            "multiplicative_ratio_on_seconds_plus_1": 1.0765992703421754,
+            "ci95": [
+              0.951419237183697,
+              1.2182494778350963
+            ],
+            "p": 0.24186695570675631
+          }
+        },
+        "2015_phd_verhelst_eel": {
+          "n": 332,
+          "n_strata": 9,
+          "median_receiver_dwell_fraction": 0.045128182233131205,
+          "elapsed": {
+            "beta": 0.1405537613262706,
+            "se": 0.09632667598387686,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1509109524008705,
+            "ci95": [
+              0.9528988460634469,
+              1.3900699175241558
+            ],
+            "p": 0.1445275634215979
+          },
+          "receiver_dwell": {
+            "beta": 0.15442751692591183,
+            "se": 0.1056123804208586,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1669896879918427,
+            "ci95": [
+              0.9487852956492161,
+              1.435377358949717
+            ],
+            "p": 0.14368357319743907
+          },
+          "residual_gap": {
+            "beta": 0.15897597887800677,
+            "se": 0.10372540412517162,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1723097861461083,
+            "ci95": [
+              0.9566422200217427,
+              1.4365979317353343
+            ],
+            "p": 0.1253591719743603
+          }
+        },
+        "2019_Grotenete": {
+          "n": 385,
+          "n_strata": 11,
+          "median_receiver_dwell_fraction": 0.050563903527074384,
+          "elapsed": {
+            "beta": 0.12628521895083966,
+            "se": 0.07877292735737669,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1346057331942476,
+            "ci95": [
+              0.972281683495971,
+              1.3240300538918777
+            ],
+            "p": 0.10890041921990079
+          },
+          "receiver_dwell": {
+            "beta": 0.10946915020237982,
+            "se": 0.08549716406774963,
+            "multiplicative_ratio_on_seconds_plus_1": 1.115685651727674,
+            "ci95": [
+              0.9435505944712429,
+              1.319223877092202
+            ],
+            "p": 0.20041032678684423
+          },
+          "residual_gap": {
+            "beta": 0.1449546875448294,
+            "se": 0.08484635524127823,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1559871884636015,
+            "ci95": [
+              0.9788820060125409,
+              1.365135298926786
+            ],
+            "p": 0.08755521042763914
+          }
+        },
+        "ESGL": {
+          "n": 406,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.04371192787529296,
+          "elapsed": {
+            "beta": 0.12315408733336605,
+            "se": 0.07487005133975047,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1310586893381893,
+            "ci95": [
+              0.9766848839617323,
+              1.309832659166605
+            ],
+            "p": 0.0999894986100387
+          },
+          "receiver_dwell": {
+            "beta": 0.12114466667205599,
+            "se": 0.08323012762702954,
+            "multiplicative_ratio_on_seconds_plus_1": 1.128788198588168,
+            "ci95": [
+              0.9588828371338729,
+              1.3287992525556394
+            ],
+            "p": 0.1455202014175927
+          },
+          "residual_gap": {
+            "beta": 0.13682339535980778,
+            "se": 0.08051781701655762,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1466256312311394,
+            "ci95": [
+              0.9792272625133257,
+              1.3426406601688308
+            ],
+            "p": 0.08926391477013285
+          }
+        }
+      },
+      "dwell_beta_positive_all_lopo": true,
+      "gap_beta_positive_all_lopo": true
+    },
+    "fulton_log_k": {
+      "primary": {
+        "n": 418,
+        "n_strata": 13,
+        "median_receiver_dwell_fraction": 0.045583782430792474,
+        "elapsed": {
+          "beta": 0.1293957978852021,
+          "se": 0.07551749832575344,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1381405086356224,
+          "ci95": [
+            0.981553754725312,
+            1.3197074649873466
+          ],
+          "p": 0.08662895586988562
+        },
+        "receiver_dwell": {
+          "beta": 0.1284674275803136,
+          "se": 0.08389747821294204,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1370843830982618,
+          "ci95": [
+            0.9646676609894016,
+            1.340317444621127
+          ],
+          "p": 0.12570934312018123
+        },
+        "residual_gap": {
+          "beta": 0.14167539417429978,
+          "se": 0.08126012405710283,
+          "multiplicative_ratio_on_seconds_plus_1": 1.1522025761586452,
+          "ci95": [
+            0.9825594295488472,
+            1.3511353477277062
+          ],
+          "p": 0.0812498197085807
+        }
+      },
+      "leave_one_project_out": {
+        "2011_Warnow": {
+          "n": 311,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.06825011655404456,
+          "elapsed": {
+            "beta": 0.1385054034082343,
+            "se": 0.0903017483196278,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1485558876697526,
+            "ci95": [
+              0.9622451536593679,
+              1.3709402661931613
+            ],
+            "p": 0.12507727740499264
+          },
+          "receiver_dwell": {
+            "beta": 0.11546871376342069,
+            "se": 0.09353489971053373,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1223993983458422,
+            "ci95": [
+              0.9343915691701087,
+              1.3482360618107865
+            ],
+            "p": 0.21701712421228225
+          },
+          "residual_gap": {
+            "beta": 0.1545012005911531,
+            "se": 0.09851943267534669,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1670756792373889,
+            "ci95": [
+              0.9621384810773796,
+              1.415664863068572
+            ],
+            "p": 0.11682729810627501
+          }
+        },
+        "2012_leopoldkanaal": {
+          "n": 366,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.039334109100989056,
+          "elapsed": {
+            "beta": 0.15652048478957745,
+            "se": 0.08152156379945784,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1694347176977984,
+            "ci95": [
+              0.9967435335687826,
+              1.3720455793281114
+            ],
+            "p": 0.0548593213564188
+          },
+          "receiver_dwell": {
+            "beta": 0.14917159034227592,
+            "se": 0.0886790644874397,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1608721665725417,
+            "ci95": [
+              0.9756616955652245,
+              1.3812412573418857
+            ],
+            "p": 0.09253953384092939
+          },
+          "residual_gap": {
+            "beta": 0.16253057029246393,
+            "se": 0.08829283703029829,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1764842833675804,
+            "ci95": [
+              0.989531786864796,
+              1.3987577634027504
+            ],
+            "p": 0.06564902008281503
+          }
+        },
+        "2013_albertkanaal": {
+          "n": 290,
+          "n_strata": 9,
+          "median_receiver_dwell_fraction": 0.03780450054704684,
+          "elapsed": {
+            "beta": 0.07814577111846077,
+            "se": 0.0636076474357433,
+            "multiplicative_ratio_on_seconds_plus_1": 1.081280266616295,
+            "ci95": [
+              0.9545404888022452,
+              1.2248480066475478
+            ],
+            "p": 0.2192370576747471
+          },
+          "receiver_dwell": {
+            "beta": 0.1195195502112445,
+            "se": 0.08895889017133417,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1269552760655501,
+            "ci95": [
+              0.9466367164724536,
+              1.3416215240251959
+            ],
+            "p": 0.17909819076043654
+          },
+          "residual_gap": {
+            "beta": 0.07607552856797854,
+            "se": 0.06483666593790592,
+            "multiplicative_ratio_on_seconds_plus_1": 1.0790440697329957,
+            "ci95": [
+              0.9502745494960593,
+              1.2252628517131243
+            ],
+            "p": 0.2406590242796698
+          }
+        },
+        "2015_phd_verhelst_eel": {
+          "n": 332,
+          "n_strata": 9,
+          "median_receiver_dwell_fraction": 0.045128182233131205,
+          "elapsed": {
+            "beta": 0.1447477695161769,
+            "se": 0.09904393113379277,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1557480186185467,
+            "ci95": [
+              0.9518209539068839,
+              1.4033663338235067
+            ],
+            "p": 0.14389194232787883
+          },
+          "receiver_dwell": {
+            "beta": 0.15936388883514518,
+            "se": 0.10859005969938607,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1727646249975614,
+            "ci95": [
+              0.9479318872738159,
+              1.4509237257553977
+            ],
+            "p": 0.14222012353025537
+          },
+          "residual_gap": {
+            "beta": 0.16353001969263029,
+            "se": 0.10665216441716695,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1776607076692511,
+            "ci95": [
+              0.9555117457821989,
+              1.4514575550850115
+            ],
+            "p": 0.12520136349976285
+          }
+        },
+        "2019_Grotenete": {
+          "n": 385,
+          "n_strata": 11,
+          "median_receiver_dwell_fraction": 0.050563903527074384,
+          "elapsed": {
+            "beta": 0.12988191399891438,
+            "se": 0.08097880672675987,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1386939115746841,
+            "ci95": [
+              0.9715752581990272,
+              1.3345582993341736
+            ],
+            "p": 0.10873608080029662
+          },
+          "receiver_dwell": {
+            "beta": 0.11267937071713573,
+            "se": 0.08789112414976771,
+            "multiplicative_ratio_on_seconds_plus_1": 1.11927300370954,
+            "ci95": [
+              0.9421533435052416,
+              1.3296901884061574
+            ],
+            "p": 0.19983087407612632
+          },
+          "residual_gap": {
+            "beta": 0.1490225531508005,
+            "se": 0.08722255061020122,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1606991663372286,
+            "ci95": [
+              0.978305147313125,
+              1.37709850391366
+            ],
+            "p": 0.08753760104566011
+          }
+        },
+        "ESGL": {
+          "n": 406,
+          "n_strata": 12,
+          "median_receiver_dwell_fraction": 0.04371192787529296,
+          "elapsed": {
+            "beta": 0.1267654534564318,
+            "se": 0.07697245189287905,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1351507408728423,
+            "ci95": [
+              0.9761875469649526,
+              1.3199996337900686
+            ],
+            "p": 0.09957987739996388
+          },
+          "receiver_dwell": {
+            "beta": 0.12500577140247912,
+            "se": 0.0855662846511552,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1331549929414897,
+            "ci95": [
+              0.9581948334180513,
+              1.3400617423993277
+            ],
+            "p": 0.14403651572317067
+          },
+          "residual_gap": {
+            "beta": 0.1406810170370059,
+            "se": 0.0827794381545241,
+            "multiplicative_ratio_on_seconds_plus_1": 1.1510574217114418,
+            "ci95": [
+              0.978664216254754,
+              1.3538179551995606
+            ],
+            "p": 0.08923101435180891
+          }
+        }
+      },
+      "dwell_beta_positive_all_lopo": true,
+      "gap_beta_positive_all_lopo": true
+    }
+  },
+  "claim_boundary": [
+    "Receiver dwell is receiver-detection residence, not a direct behavioral resting state.",
+    "Residual gap mixes active transit with unobserved waiting and cannot be interpreted as pure stopover.",
+    "The activated cohort is selected by a process that condition itself predicts.",
+    "log1p transforms are used because observed receiver dwell can be zero."
+  ]
+}
