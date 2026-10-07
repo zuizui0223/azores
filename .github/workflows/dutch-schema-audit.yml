@@ -1,0 +1,34 @@
+name: dutch-schema-audit
+
+on:
+  push:
+    paths:
+      - "analysis/26_fetch_dutch_schema_only.py"
+      - "analysis/24_dutch_schema_provenance_audit.py"
+      - ".github/workflows/dutch-schema-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  schema:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch small Dutch DANS schema files
+        run: python analysis/26_fetch_dutch_schema_only.py
+      - name: Inspect codebook, passage tables and source construction
+        run: |
+          python analysis/24_dutch_schema_provenance_audit.py \
+            --data-dir external/dutch_dans_schema
+      - name: Show schema audit
+        run: cat analysis/results/dutch_schema_provenance_audit.json
+      - name: Upload schema audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-dutch-schema-audit
+          path: |
+            analysis/results/dutch_dans_schema_fetch.json
+            analysis/results/dutch_schema_provenance_audit.json
