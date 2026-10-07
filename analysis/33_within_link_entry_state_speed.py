@@ -75,6 +75,11 @@ def build_segments(score_map: dict[str, dict]) -> list[dict]:
             tag = (r.get("acoustic_tag_id") or "").strip()
             if tag not in score_map:
                 continue
+            # Fixed canonical provenance rule: these nine 2015 animals are
+            # classifier-positive in source rows but expert-classified as
+            # non-migratory in every primary Azores analysis.
+            if tag in B.EXPERT_NON:
+                continue
             by_tag[tag].append((as_rowid(r.get("row_id"), idx), idx, r))
 
         for tag, rr in by_tag.items():
@@ -345,7 +350,7 @@ def main():
             "Only positive source inter-station speeds during rows classified migration==TRUE on both sides of the link are analyzed.",
             "Directed station-pair fixed effects control route-link identity but not all time-varying hydrodynamics within a link.",
             "Each fish contributes total primary weight one and SEs are clustered by fish.",
-            "The project-held-out score excludes held-out-project outcomes from score-weight training, but predictor preprocessing remains panel-derived.",
+            "The nine fixed expert-classified 2015 non-migrants are excluded from the post-activation segment universe.",\n            "The project-held-out score excludes held-out-project outcomes from score-weight training, but predictor preprocessing remains panel-derived.",
             "The analysis is post-hoc even though its endpoint and thresholds were frozen before result inspection.",
             "A null result would support lack of a transferable within-link realized-speed gradient, not absence of all post-activation physiological effects.",
         ],
