@@ -40,6 +40,16 @@ ratio **0.948**, and frozen inter-station speed ratio **1.013**. Predictor
 preprocessing remains panel-derived, so this is cross-project robustness rather
 than prospective external validation.
 
+Within identical directed receiver links, the boundary is even sharper. A
+frozen project-held-out score audit over **18,012** positive segments from
+**426** eels and **248** route links gives a speed ratio of **0.995/SD**
+(95% CI **0.912–1.087**, p=**0.918**; weighted partial R² **0.00052%**).
+The source segment-speed field contains grossly implausible values, but
+explicitly post-hoc external-plausibility screens at 2.5, 5 and 10 m/s leave
+the ratio at **0.976–0.979**, with all intervals spanning one. These screens
+remove **52.5–62.5%** of candidate rows, so absolute source segment speeds
+must not be interpreted as direct swimming physiology.
+
 Thus the canonical V4 statement is:
 
 > **the multivariate capture phenotype that predicts migratory commitment is an
@@ -93,6 +103,8 @@ estimate escapement probability.
 - [V4 claim-evidence map](docs/CLAIM_EVIDENCE_MAP_PHASE_CONTROL_V3.md)
 - [activation-trained entry-state result](results/entry_state_score_transferability_v1.json)
 - [cross-project entry-state robustness](results/cross_project_entry_state_score_v1.json)
+- [within-link entry-state speed result](results/within_link_entry_state_speed_v1.json)
+- [within-link speed-quality sensitivity](results/within_link_speed_quality_sensitivity_v1.json)
 - [canonical stage-only benchmark](results/phase_control_canonical_v2.json)
 - [Dutch condition-choice falsification](results/dutch_condition_choice_test_v1.json)
 - [Dutch arrival-defined waiting falsification](results/dutch_arrival_waiting_diagnostic_v1.json)
