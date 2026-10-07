@@ -33,6 +33,8 @@ Interpretation:
 > capture-time silvering readiness is a strong transferable predictor of migration activation and onset, but does not provide a transferable general speed advantage at either whole-route or individual median inter-station scale. This is a transferability boundary, not evidence that internal state becomes irrelevant after activation.
 
 Post-activation heterogeneity audit:
+- reproducible analysis: `analysis/16_post_initiation_stage_heterogeneity.py`;
+
 - project-specific speed ratios span approximately **0.915–1.272** among the larger systems;
 - stage × project interaction: **F(5,397)=1.03, p=0.398**;
 - no supported evidence that the pooled near-zero speed effect is created by strong opposite project-specific effects.
