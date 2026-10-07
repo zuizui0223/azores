@@ -9,6 +9,7 @@ on:
       - "analysis/32_cross_project_entry_state_score.py"
       - "analysis/33_within_link_entry_state_speed.py"
       - "analysis/34_within_link_speed_quality_sensitivity.py"
+      - "analysis/35_within_link_fwl_numerical_audit.py"
       - ".github/workflows/within-link-entry-state-speed.yml"
   workflow_dispatch:
 
@@ -31,6 +32,10 @@ jobs:
         run: python analysis/34_within_link_speed_quality_sensitivity.py
       - name: Show speed-quality sensitivity
         run: cat analysis/results/within_link_speed_quality_sensitivity.json
+      - name: Check FWL numerical equivalence
+        run: python analysis/35_within_link_fwl_numerical_audit.py
+      - name: Show FWL numerical audit
+        run: cat analysis/results/within_link_fwl_numerical_audit.json
       - name: Upload result
         uses: actions/upload-artifact@v4
         with:
@@ -38,3 +43,4 @@ jobs:
           path: |
             analysis/results/within_link_entry_state_speed.json
             analysis/results/within_link_speed_quality_sensitivity.json
+            analysis/results/within_link_fwl_numerical_audit.json
