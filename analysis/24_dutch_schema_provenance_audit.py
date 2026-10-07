@@ -12,7 +12,7 @@ import argparse, csv, io, json, re
 from pathlib import Path
 
 TERMS = [
-    "OutletID","OutletTimeTotal","valid","last_detection_time","Passage",
+    "OutletID","OutletTimeTotal","Firstquarter","ATNR","valid","last_detection_time","Passage",
     "MaxOpenGates","Debietsom","MaxDischarge","distance_station",
     "distance_max","distance_1","SewerArrival","SewerDeparture"
 ]
