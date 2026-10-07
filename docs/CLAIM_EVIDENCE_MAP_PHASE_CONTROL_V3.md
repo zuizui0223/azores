@@ -24,7 +24,7 @@ multivariate-entry-state manuscript.
 ## Primary V4 claim
 
 > **The multivariate capture phenotype that predicts migratory commitment is an
-> entry-state indicator, not a transferable general motor-performance score
+> entry-state indicator, not a transferable general progression-speed score
 > across the generic post-activation speed summaries tested here.**
 
 ## Claims explicitly rejected
