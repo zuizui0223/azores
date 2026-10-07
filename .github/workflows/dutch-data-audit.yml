@@ -1,0 +1,36 @@
+name: dutch-data-audit
+
+on:
+  push:
+    paths:
+      - "analysis/22_fetch_dutch_dans_archive.py"
+      - "analysis/13_dutch_arrival_riskset_gate.py"
+      - ".github/workflows/dutch-data-audit.yml"
+  workflow_dispatch:
+
+jobs:
+  materialize-and-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch public DANS Dataverse archive
+        run: python analysis/22_fetch_dutch_dans_archive.py
+      - name: Show DANS archive manifest
+        run: cat analysis/results/dutch_dans_archive_manifest.json
+      - name: Run arrival-defined risk-set component gate
+        run: |
+          python analysis/13_dutch_arrival_riskset_gate.py \
+            --data-dir external/dutch_dans
+      - name: Show arrival-defined risk-set gate
+        run: cat analysis/results/dutch_arrival_riskset_gate.json
+      - name: Upload Dutch audit products
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-dutch-data-audit
+          path: |
+            analysis/results/dutch_dans_archive_manifest.json
+            analysis/results/dutch_arrival_riskset_gate.json
