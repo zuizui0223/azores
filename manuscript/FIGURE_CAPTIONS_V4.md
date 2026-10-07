@@ -24,7 +24,7 @@ condition; the two terms jointly improved activation fit by LR χ²(2)=**39.01**
 Condition is a biometric proxy and is not interpreted as an independent
 physiological reserve measurement.
 
-## Figure 3. An activation-trained entry-state score transfers to onset but not generic post-activation speed
+## Figure 3. An activation-trained entry-state score transfers to onset but not realized post-activation transit speed
 
 Per 1 SD of the score trained only on migration activation, activation odds
 increased **2.230-fold** (95% CI **1.704–2.918**) and behavioral-onset hazard
@@ -36,6 +36,19 @@ median positive inter-station speed endpoint (ratio **1.028**,
 speed ratios are shown together only to visualize transferability relative to
 their common null value of one; their numerical magnitudes are not treated as
 directly comparable effect-size scales.
+
+**(B)** A frozen exact-link audit compared positive source-derived movement
+speeds within identical directed receiver-to-receiver links, using
+project-held-out score weights, fish-equal weighting and fish-clustered
+uncertainty. Across **18,012** segments from **426** eels and **248** directed
+pairs, the entry-state speed ratio was **0.995/SD** (95% CI **0.912–1.087**;
+p=**0.918**; weighted partial R² **0.00052%**). Because the raw source speed
+field included biologically impossible values, explicitly post-hoc
+external-plausibility screens at 2.5, 5 and 10 m s⁻¹ were applied as
+data-quality sensitivities; the corresponding ratios were **0.978**, **0.979**
+and **0.976**, with all intervals spanning one. These screens removed
+**52.5–62.5%** of candidate raw segment rows and therefore document a major
+source-metric quality boundary rather than replacing the frozen primary.
 
 ## Figure 4. Arrival-defined Dutch barrier data do not support a general condition-dependent passage-selectivity mechanism
 
