@@ -45,6 +45,41 @@ Transferability boundary:
 - leave-one-project-out robustness shows the pooled activation result is not driven by one project;
 - direct project-specific activation fits are not all independently estimable because some project strata approach outcome saturation, so do **not** call this six independent replications.
 
+### Body-state phase-turnover diagnostic
+
+A new post-hoc body-state programme adds a second pre-movement axis beyond the ordinal Durif label.
+
+Across three frozen weight-for-length definitions:
+
+- activation OR per 1 SD condition = **1.438–1.460**;
+- onset HR per 1 SD condition = **1.148–1.153**;
+- both directions remain positive in every leave-one-project-out fit under all three definitions;
+- Durif × condition interactions are unsupported.
+
+Among activated eels, however:
+
+- whole-route speed condition ratio = **0.896–0.925** per SD, with all six leave-one-project-out estimates below one under all three definitions, but full-cohort 95% intervals include one;
+- the previously frozen median positive inter-station speed endpoint gives condition ratios only **1.049–1.050**, with no negative gradient;
+- decomposition of whole-route speed gives distance ratios **1.019–1.025** but elapsed-time ratios **1.108–1.138** per SD condition;
+- elapsed-time estimates are >1 in every leave-one-project-out fit under all three definitions.
+
+Interpretation:
+
+> **better capture body state predicts entry into migration, but the later whole-route pattern is associated with longer elapsed migration time rather than slower positive transit speed.**
+
+This is compatible with additional waiting/staging or passage selectivity, and is directionally consistent with independent Dutch barrier studies in which better-conditioned eels accumulate more missed passage opportunities. It is **not** yet a causal sign reversal: the post-activation cohort is selected, elapsed time is not direct stop time, and the condition proxies reuse morphometrics that also contribute to Durif classification.
+
+Current status: **CANDIDATE_ACTIVATION_TO_DELAY_BODY_STATE_TURNOVER**.
+
+Canonical artifacts:
+- `results/multivariate_readiness_gate_diagnostic_v1.json`
+- `results/body_condition_onset_diagnostic_v1.json`
+- `results/body_condition_metric_robustness_v1.json`
+- `results/body_condition_post_activation_speed_v1.json`
+- `results/body_condition_segment_progression_v1.json`
+- `results/body_condition_whole_route_decomposition_v1.json`
+- `docs/CONDITION_PHASE_REVERSAL_HYPOTHESIS_2026_10_07.md`
+
 ### Endpoint boundary
 
 The upstream terminal-positive file is not a validated binary success/failure variable.
