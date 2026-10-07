@@ -28,9 +28,10 @@ Primary evidence:
 - p = **0.815**
 - frozen median positive inter-station speed audit: ratio **1.001**, 95% CI **0.831–1.204**
 - project heterogeneity is unsupported for both progression scales (whole-route Q=2.47, p=0.781; segment-scale Q=2.32, p=0.804)
+- simple capture-stage staleness diagnostic unsupported: Durif × log-latency ratio **1.036** (p=0.382); stage-speed ratios among <=1/3/7-day activators **0.942 / 0.953 / 0.963**
 
 Interpretation:
-> capture-time silvering readiness is a strong transferable predictor of migration activation and onset, but does not provide a transferable general speed advantage at either whole-route or individual median inter-station scale. This is a transferability boundary, not evidence that internal state becomes irrelevant after activation.
+> capture-time silvering readiness is a strong transferable predictor of migration activation and onset, but does not provide a transferable general speed advantage at either whole-route or individual median inter-station scale. The weak progression signal is not explained by demonstrated project sign cancellation or the simple tested capture-stage-staleness pattern. This is a transferability boundary, not evidence that internal state becomes irrelevant after activation.
 
 Post-activation heterogeneity audit:
 - reproducible analysis: `analysis/16_post_initiation_stage_heterogeneity.py`;
