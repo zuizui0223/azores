@@ -1,0 +1,38 @@
+{
+  "schema": "azores.within_link_speed_quality_sensitivity_contract.v1",
+  "evidence_class": "post_hoc_data_quality_sensitivity_after_primary_result_inspection",
+  "primary_result_already_seen": true,
+  "primary_result": "results/within_link_entry_state_speed_v1.json",
+  "reason": "The frozen primary retained all finite positive source speed_m_s values and revealed an impossible maximum of 3752.402245 m/s. This sensitivity asks whether that source-data artifact materially determines the near-null entry-state coefficient.",
+  "external_biological_context": {
+    "experimental_european_eel_Ucrit_m_s": 0.94,
+    "experimental_european_eel_Uopt_m_s": 0.64,
+    "compiled_european_eel_swim_speed_max_m_s": 2.26,
+    "citations": [
+      "Tudorache et al. 2015 Frontiers in Physiology",
+      "DFO fish swimming performance database / CSAS 2024 summary"
+    ]
+  },
+  "thresholds_m_s": [
+    {
+      "max_speed": 2.5,
+      "role": "closest permissive round threshold above the 2.26 m/s compiled eel record maximum"
+    },
+    {
+      "max_speed": 5,
+      "role": "very permissive threshold, more than twice the compiled eel maximum"
+    },
+    {
+      "max_speed": 10,
+      "role": "extremely permissive threshold used only to test sensitivity to gross source-speed artifacts"
+    }
+  ],
+  "model": "Identical to frozen within-link primary: min 5 unique fish per directed pair, fish-total weight 1, directed station-pair and project-year fixed effects, length/release timing adjustment, fish-clustered SE.",
+  "interpretation_rule": "Do not replace the frozen primary. If all externally motivated cuts remain near 1 with intervals spanning 1, treat the within-link null as robust to gross implausible-speed artifacts. If conclusions shift materially, report the within-link result as source-speed-quality sensitive.",
+  "prohibited": [
+    "do not select the threshold giving the preferred coefficient",
+    "do not redefine the frozen primary",
+    "do not claim the thresholds estimate a true ecological maximum speed",
+    "do not infer intrinsic swimming capacity from source ground-speed rows"
+  ]
+}
