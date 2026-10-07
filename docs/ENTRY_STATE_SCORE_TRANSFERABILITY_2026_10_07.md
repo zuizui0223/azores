@@ -2,7 +2,7 @@
 
 ## Question
 
-> **Does the multivariate capture state that predicts entry into downstream migration also behave as a general motor-performance score after migration has begun?**
+> **Does the multivariate capture state that predicts entry into downstream migration also behave as a general progression-speed score after migration has begun?**
 
 This analysis compresses two capture-time predictors into one score using **activation outcomes only**:
 
@@ -84,7 +84,7 @@ Leave-one-project-out estimates cross both sides of one.
 
 The strongest statement is now:
 
-> **The multivariate capture state that determines entry into migration is not a general motor-performance score.**
+> **The multivariate capture state that determines entry into migration is not a general progression-speed score.**
 
 The same entry-state score strongly predicts:
 1. **whether** downstream migration is expressed;
@@ -94,7 +94,7 @@ but explains essentially none of the variation in:
 3. generic whole-route speed after activation;
 4. generic positive inter-station transit speed.
 
-That is a sharper result than a Durif-only attenuation claim because it shows that adding continuous body-state information does not rescue the idea that a single pre-migration readiness axis ranks later locomotor performance.
+That is a sharper result than a Durif-only attenuation claim because it shows that adding continuous body-state information does not rescue the idea that a single pre-migration readiness axis ranks later realized progression speed.
 
 ## Relation to the Dutch falsification
 
