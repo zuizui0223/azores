@@ -4,7 +4,7 @@
 Scientific question
 -------------------
 Do the same capture-state dimensions that predict entry into downstream
-migration also behave as a general motor-performance score after activation?
+migration also behave as a general progression-speed score after activation?
 
 The score is trained ONLY on migration activation:
     entry_score = beta_stage * ordinal_Durif
