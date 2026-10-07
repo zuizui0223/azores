@@ -34,6 +34,12 @@ Per 1 SD of that score:
 - frozen median positive inter-station speed ratio = **1.028**
   (95% CI **0.869–1.215**; partial R² **0.026%**).
 
+With score weights trained while withholding each project in turn, the same
+boundary persists: activation OR **1.97**, onset HR **1.26**, whole-route speed
+ratio **0.948**, and frozen inter-station speed ratio **1.013**. Predictor
+preprocessing remains panel-derived, so this is cross-project robustness rather
+than prospective external validation.
+
 Thus the canonical V4 statement is:
 
 > **the multivariate capture phenotype that predicts migratory commitment is an
@@ -86,6 +92,7 @@ estimate escapement probability.
 - [V4 QC PASS](manuscript/MANUSCRIPT_QC_V4.json)
 - [V4 claim-evidence map](docs/CLAIM_EVIDENCE_MAP_PHASE_CONTROL_V3.md)
 - [activation-trained entry-state result](results/entry_state_score_transferability_v1.json)
+- [cross-project entry-state robustness](results/cross_project_entry_state_score_v1.json)
 - [canonical stage-only benchmark](results/phase_control_canonical_v2.json)
 - [Dutch condition-choice falsification](results/dutch_condition_choice_test_v1.json)
 - [Dutch arrival-defined waiting falsification](results/dutch_arrival_waiting_diagnostic_v1.json)
