@@ -10,6 +10,7 @@ on:
       - "analysis/06_build_stage_landscape_panel.py"
       - "analysis/14_stage_staleness_diagnostic.py"
       - "analysis/15_activation_filter_diagnostic.py"
+      - "analysis/17_multivariate_readiness_gate_diagnostic.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -45,6 +46,10 @@ jobs:
         run: python analysis/15_activation_filter_diagnostic.py
       - name: Show activation-filter diagnostic
         run: cat analysis/results/activation_filter_diagnostic.json
+      - name: Test multivariate readiness-gate compensation
+        run: python analysis/17_multivariate_readiness_gate_diagnostic.py
+      - name: Show multivariate readiness-gate diagnostic
+        run: cat analysis/results/multivariate_readiness_gate_diagnostic.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
