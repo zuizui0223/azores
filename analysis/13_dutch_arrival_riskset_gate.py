@@ -30,7 +30,7 @@ from pathlib import Path
 ALIASES = {
     "individual": [
         "individual_id", "eel_id", "fish_id", "animal_id", "tag_id",
-        "acoustic_tag_id", "transmitter_id", "tag", "id"
+        "acoustic_tag_id", "transmitter_id", "transmitter", "tag", "id"
     ],
     "durif_stage": [
         "durif_stage", "silvering_stage", "life_stage", "stage", "durif"
@@ -95,9 +95,9 @@ def resolve(header: list[str]) -> dict[str, str | None]:
 
 def read_header(path: Path) -> list[str] | None:
     suffix = path.suffix.lower()
-    if suffix not in {".csv", ".tsv", ".txt"}:
+    if suffix not in {".csv", ".tsv", ".tab", ".txt"}:
         return None
-    delimiters = ["\t", ",", ";"] if suffix in {".tsv", ".txt"} else [",", "\t", ";"]
+    delimiters = ["\t", ",", ";"] if suffix in {".tsv", ".tab", ".txt"} else [",", "\t", ";"]
     for delim in delimiters:
         try:
             with path.open("r", encoding="utf-8-sig", newline="") as f:
