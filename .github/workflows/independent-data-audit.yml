@@ -17,6 +17,7 @@ on:
       - "analysis/21_body_condition_segment_progression.py"
       - "analysis/23_body_condition_whole_route_decomposition.py"
       - "analysis/25_body_condition_elapsed_components.py"
+      - "analysis/30_body_condition_activation_selection_ipw.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -80,6 +81,10 @@ jobs:
         run: python analysis/25_body_condition_elapsed_components.py
       - name: Show body-condition elapsed-time components
         run: cat analysis/results/body_condition_elapsed_components.json
+      - name: Test condition-specific activation selection with IPW
+        run: python analysis/30_body_condition_activation_selection_ipw.py
+      - name: Show condition-specific activation selection diagnostic
+        run: cat analysis/results/body_condition_activation_selection_ipw.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -99,3 +104,4 @@ jobs:
             analysis/results/body_condition_segment_progression.json
             analysis/results/body_condition_whole_route_decomposition.json
             analysis/results/body_condition_elapsed_components.json
+            analysis/results/body_condition_activation_selection_ipw.json
