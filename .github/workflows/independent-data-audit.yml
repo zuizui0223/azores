@@ -8,6 +8,7 @@ on:
       - "analysis/04_zenodo_header_probe.py"
       - "analysis/05_processed_panel_transition_audit.py"
       - "analysis/06_build_stage_landscape_panel.py"
+      - "analysis/14_stage_staleness_diagnostic.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -19,6 +20,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Install analysis dependency
+        run: python -m pip install numpy
       - name: Audit Europe-wide eel Zenodo record
         run: python analysis/02_fetch_public_comparative_data.py
       - name: Probe raw detection schema without full download
@@ -33,6 +36,10 @@ jobs:
         run: |
           python analysis/06_build_stage_landscape_panel.py \
             --source-repo external/eel-meta-analysis
+      - name: Test whether capture-stage information decays with activation latency
+        run: python analysis/14_stage_staleness_diagnostic.py
+      - name: Show capture-stage staleness diagnostic
+        run: cat analysis/results/stage_staleness_diagnostic.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -43,3 +50,4 @@ jobs:
             analysis/results/processed_panel_transition_audit.json
             analysis/results/state_landscape_panel.csv
             analysis/results/state_landscape_panel.csv.summary.json
+            analysis/results/stage_staleness_diagnostic.json
