@@ -1,0 +1,297 @@
+{
+  "schema": "azores.within_link_speed_quality_sensitivity.v1",
+  "evidence_class": "post_hoc_data_quality_sensitivity_after_primary_result_inspection",
+  "contract": "analysis/contracts/within_link_speed_quality_sensitivity_v1.json",
+  "primary_result_already_seen": true,
+  "frozen_primary_reference": {
+    "ratio": 0.9954126190434742,
+    "ci95": [
+      0.91152265839465,
+      1.0870232056502485
+    ],
+    "p": 0.9184701434914989,
+    "n_segment_rows": 18012,
+    "n_fish": 426,
+    "n_pairs": 248,
+    "source_speed_max_m_s": 3752.402245
+  },
+  "external_context": {
+    "experimental_european_eel_Ucrit_m_s": 0.94,
+    "experimental_european_eel_Uopt_m_s": 0.64,
+    "compiled_european_eel_swim_speed_max_m_s": 2.26,
+    "citations": [
+      "Tudorache et al. 2015 Frontiers in Physiology",
+      "DFO fish swimming performance database / CSAS 2024 summary"
+    ]
+  },
+  "candidate_inventory_before_quality_cut": {
+    "n_rows": 19607,
+    "n_fish": 431,
+    "n_pairs": 1114,
+    "speed_min": 0.00006,
+    "speed_max": 3752.402245,
+    "rows_by_project": {
+      "2011_Warnow": 446,
+      "2012_leopoldkanaal": 3488,
+      "2013_albertkanaal": 12203,
+      "2015_phd_verhelst_eel": 2462,
+      "2019_Grotenete": 886,
+      "ESGL": 122
+    }
+  },
+  "threshold_results": {
+    "2.5": {
+      "upper_speed_m_s": 2.5,
+      "inventory_kept_before_pair_filter": {
+        "n_rows": 7354,
+        "n_fish": 431,
+        "n_pairs": 1057,
+        "speed_min": 0.00006,
+        "speed_max": 2.499137,
+        "rows_by_project": {
+          "2011_Warnow": 446,
+          "2012_leopoldkanaal": 1093,
+          "2013_albertkanaal": 2682,
+          "2015_phd_verhelst_eel": 2225,
+          "2019_Grotenete": 846,
+          "ESGL": 62
+        }
+      },
+      "inventory_removed": {
+        "n_rows": 12253,
+        "n_fish": 213,
+        "n_pairs": 183,
+        "speed_min": 2.502656,
+        "speed_max": 3752.402245,
+        "rows_by_project": {
+          "2012_leopoldkanaal": 2395,
+          "2013_albertkanaal": 9521,
+          "2015_phd_verhelst_eel": 237,
+          "2019_Grotenete": 40,
+          "ESGL": 60
+        }
+      },
+      "fraction_candidate_rows_removed": 0.6249298719844953,
+      "primary_model_after_quality_cut": {
+        "status": "ESTIMATED",
+        "min_unique_fish_per_pair": 5,
+        "fish_equal_weighting": true,
+        "n_segment_rows": 5946,
+        "n_fish": 426,
+        "n_pairs": 223,
+        "n_strata": 14,
+        "pair_unique_fish_range": [
+          5,
+          97
+        ],
+        "speed_range_m_s": [
+          0.00006,
+          2.499137
+        ],
+        "score_scaling": {
+          "mean_unique_fish": 0.28282830557087996,
+          "sd_unique_fish": 1.081095630385267
+        },
+        "entry_state_effect": {
+          "beta": -0.02258120704650901,
+          "cluster_se": 0.03582263739842671,
+          "speed_ratio_per_1sd_score": 0.9776718401269876,
+          "ci95": [
+            0.9113816116013174,
+            1.0487837529417061
+          ],
+          "p_normal": 0.5284581743303423
+        },
+        "weighted_partial_r2": 0.00018163665580438087,
+        "weighted_rss_reduction": 0.14717707651061573,
+        "fit_with_score": {
+          "rank": 234,
+          "n_parameters": 239,
+          "n_clusters": 426,
+          "cr1_correction": 1.0432402372713794,
+          "xtwx_condition_number": 30338100668504570000
+        },
+        "fit_without_score": {
+          "rank": 233,
+          "n_parameters": 238,
+          "n_clusters": 426,
+          "cr1_correction": 1.0430576291430278,
+          "xtwx_condition_number": 837795849806671100
+        }
+      }
+    },
+    "5.0": {
+      "upper_speed_m_s": 5,
+      "inventory_kept_before_pair_filter": {
+        "n_rows": 8223,
+        "n_fish": 431,
+        "n_pairs": 1079,
+        "speed_min": 0.00006,
+        "speed_max": 4.993058,
+        "rows_by_project": {
+          "2011_Warnow": 446,
+          "2012_leopoldkanaal": 1334,
+          "2013_albertkanaal": 3221,
+          "2015_phd_verhelst_eel": 2298,
+          "2019_Grotenete": 860,
+          "ESGL": 64
+        }
+      },
+      "inventory_removed": {
+        "n_rows": 11384,
+        "n_fish": 193,
+        "n_pairs": 155,
+        "speed_min": 5.00785,
+        "speed_max": 3752.402245,
+        "rows_by_project": {
+          "2012_leopoldkanaal": 2154,
+          "2013_albertkanaal": 8982,
+          "2015_phd_verhelst_eel": 164,
+          "2019_Grotenete": 26,
+          "ESGL": 58
+        }
+      },
+      "fraction_candidate_rows_removed": 0.580608966185546,
+      "primary_model_after_quality_cut": {
+        "status": "ESTIMATED",
+        "min_unique_fish_per_pair": 5,
+        "fish_equal_weighting": true,
+        "n_segment_rows": 6798,
+        "n_fish": 426,
+        "n_pairs": 233,
+        "n_strata": 14,
+        "pair_unique_fish_range": [
+          5,
+          97
+        ],
+        "speed_range_m_s": [
+          0.00006,
+          4.993058
+        ],
+        "score_scaling": {
+          "mean_unique_fish": 0.28282830557087996,
+          "sd_unique_fish": 1.081095630385267
+        },
+        "entry_state_effect": {
+          "beta": -0.021456405632947963,
+          "cluster_se": 0.035473518522982896,
+          "speed_ratio_per_1sd_score": 0.978772145491269,
+          "ci95": [
+            0.9130318610140109,
+            1.049245873770095
+          ],
+          "p_normal": 0.5452740231285426
+        },
+        "weighted_partial_r2": 0.00016423065785417006,
+        "weighted_rss_reduction": 0.13359109305190486,
+        "fit_with_score": {
+          "rank": 244,
+          "n_parameters": 249,
+          "n_clusters": 426,
+          "cr1_correction": 1.039516774668366,
+          "xtwx_condition_number": 999762200452579300
+        },
+        "fit_without_score": {
+          "rank": 243,
+          "n_parameters": 248,
+          "n_clusters": 426,
+          "cr1_correction": 1.0393581908736036,
+          "xtwx_condition_number": 5105486932583059000
+        }
+      }
+    },
+    "10.0": {
+      "upper_speed_m_s": 10,
+      "inventory_kept_before_pair_filter": {
+        "n_rows": 9310,
+        "n_fish": 431,
+        "n_pairs": 1089,
+        "speed_min": 0.00006,
+        "speed_max": 9.999222,
+        "rows_by_project": {
+          "2011_Warnow": 446,
+          "2012_leopoldkanaal": 1712,
+          "2013_albertkanaal": 3882,
+          "2015_phd_verhelst_eel": 2332,
+          "2019_Grotenete": 871,
+          "ESGL": 67
+        }
+      },
+      "inventory_removed": {
+        "n_rows": 10297,
+        "n_fish": 181,
+        "n_pairs": 131,
+        "speed_min": 10.002743,
+        "speed_max": 3752.402245,
+        "rows_by_project": {
+          "2012_leopoldkanaal": 1776,
+          "2013_albertkanaal": 8321,
+          "2015_phd_verhelst_eel": 130,
+          "2019_Grotenete": 15,
+          "ESGL": 55
+        }
+      },
+      "fraction_candidate_rows_removed": 0.5251695822920386,
+      "primary_model_after_quality_cut": {
+        "status": "ESTIMATED",
+        "min_unique_fish_per_pair": 5,
+        "fish_equal_weighting": true,
+        "n_segment_rows": 7848,
+        "n_fish": 426,
+        "n_pairs": 235,
+        "n_strata": 14,
+        "pair_unique_fish_range": [
+          5,
+          97
+        ],
+        "speed_range_m_s": [
+          0.00006,
+          9.999222
+        ],
+        "score_scaling": {
+          "mean_unique_fish": 0.28282830557087996,
+          "sd_unique_fish": 1.081095630385267
+        },
+        "entry_state_effect": {
+          "beta": -0.024501809424247067,
+          "cluster_se": 0.03584959314914135,
+          "speed_ratio_per_1sd_score": 0.9757959232880061,
+          "ci95": [
+            0.9095848321364606,
+            1.0468266952835927
+          ],
+          "p_normal": 0.4943153984191003
+        },
+        "weighted_partial_r2": 0.00020896444552924394,
+        "weighted_rss_reduction": 0.17476941873849228,
+        "fit_with_score": {
+          "rank": 246,
+          "n_parameters": 251,
+          "n_clusters": 426,
+          "cr1_correction": 1.0346571335716608,
+          "xtwx_condition_number": 3184690881339572000
+        },
+        "fit_without_score": {
+          "rank": 245,
+          "n_parameters": 250,
+          "n_clusters": 426,
+          "cr1_correction": 1.0345210481930507,
+          "xtwx_condition_number": 3001516723203849700
+        }
+      }
+    }
+  },
+  "ratio_range_across_quality_cuts": [
+    0.9757959232880061,
+    0.978772145491269
+  ],
+  "all_quality_cut_intervals_span_one": true,
+  "status": "WITHIN_LINK_NULL_ROBUST_TO_GROSS_SPEED_ARTIFACT_SCREEN",
+  "claim_boundary": [
+    "This sensitivity was designed after the frozen primary exposed impossible source speed values.",
+    "The thresholds are external plausibility screens, not estimated true maximum field speeds.",
+    "The frozen all-positive-speed primary remains the primary result.",
+    "Removing implausible source speeds does not correct other telemetry timing or distance errors.",
+    "A null coefficient concerns realized source-derived link speed, not intrinsic laboratory swimming capacity."
+  ]
+}
