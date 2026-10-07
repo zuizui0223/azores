@@ -395,7 +395,7 @@ def fit_model(choice_sets, model, condition_override=None, readiness_override=No
     return coef_summary(fit, names), scale
 
 
-def condition_permutation(choice_sets, observed_beta: float, n_perm: int = 5000) -> dict:
+def condition_permutation(choice_sets, observed_beta: float, n_perm: int = 1000) -> dict:
     base = standardize_between_fish(choice_sets, "condition")
     fish = [cs["fish"] for cs in choice_sets]
     vals = np.asarray([base[f] for f in fish], dtype=float)
