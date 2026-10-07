@@ -12,6 +12,8 @@ R = Path("results/entry_state_score_transferability_v1.json")
 D = Path("results/dutch_condition_choice_test_v1.json")
 W = Path("results/dutch_arrival_waiting_diagnostic_v1.json")
 X = Path("results/cross_project_entry_state_score_v1.json")
+L = Path("results/within_link_entry_state_speed_v1.json")
+Q = Path("results/within_link_speed_quality_sensitivity_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -19,6 +21,8 @@ score = json.loads(R.read_text())
 dutch = json.loads(D.read_text())
 waiting = json.loads(W.read_text())
 cross = json.loads(X.read_text())
+link = json.loads(L.read_text())
+quality = json.loads(Q.read_text())
 
 checks = {}
 
@@ -50,6 +54,13 @@ checks["cross_activation_OR_1_97"] = has(r"1\.97")
 checks["cross_onset_HR_1_26"] = has(r"1\.26")
 checks["cross_whole_speed_0_948"] = has(r"0\.948")
 checks["cross_segment_speed_1_013"] = has(r"1\.013")
+checks["within_link_ratio_0_995"] = has(r"0\.995")
+checks["within_link_ci_0_912_1_087"] = has(r"0\.912") and has(r"1\.087")
+checks["within_link_n_segments_18012"] = has(r"18,012")
+checks["within_link_n_fish_426"] = has(r"426")
+checks["within_link_n_pairs_248"] = has(r"248")
+checks["quality_ratios_present"] = has(r"0\.978") and has(r"0\.979") and has(r"0\.976")
+checks["quality_boundary_present"] = has(r"3752") and has(r"52\.5") and has(r"62\.5")
 
 # Contract/result identity.
 checks["score_schema"] = score.get("schema") == "azores.entry_state_score_transferability.v1"
@@ -64,6 +75,18 @@ checks["cross_onset_exact"] = abs(cross["crossfitted_transfer"]["onset"]["effect
 checks["cross_whole_speed_exact"] = abs(cross["crossfitted_transfer"]["whole_route_speed"]["effect"]["ratio"] - contract["cross_project_entry_state"]["whole_route_speed"]["ratio_per_sd"]) < 1e-9
 checks["cross_segment_speed_exact"] = abs(cross["crossfitted_transfer"]["frozen_median_positive_interstation_speed"]["effect"]["ratio"] - contract["cross_project_entry_state"]["frozen_segment_speed"]["ratio_per_sd"]) < 1e-9
 checks["cross_weight_signs_positive"] = bool(cross["weight_stability"]["stage_beta_all_positive"] and cross["weight_stability"]["condition_beta_all_positive"])
+checks["within_link_schema"] = link.get("schema") == "azores.within_link_entry_state_speed.v1"
+checks["within_link_ratio_exact"] = abs(link["primary"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["primary"]["ratio_per_sd"]) < 1e-9
+checks["within_link_ci_exact"] = all(abs(a-b) < 1e-9 for a,b in zip(link["primary"]["entry_state_effect"]["ci95"], contract["within_link_entry_state"]["primary"]["ci95"]))
+checks["within_link_sample_exact"] = link["primary"]["n_segment_rows"] == contract["within_link_entry_state"]["primary"]["n_segment_rows"] and link["primary"]["n_fish"] == contract["within_link_entry_state"]["primary"]["n_fish"] and link["primary"]["n_pairs"] == contract["within_link_entry_state"]["primary"]["n_directed_pairs"]
+checks["within_link_status_null"] = link.get("status") == "NO_SUPPORTED_WITHIN_LINK_ENTRY_STATE_SPEED_GRADIENT"
+checks["quality_schema"] = quality.get("schema") == "azores.within_link_speed_quality_sensitivity.v1"
+checks["quality_status_robust"] = quality.get("status") == "WITHIN_LINK_NULL_ROBUST_TO_GROSS_SPEED_ARTIFACT_SCREEN"
+checks["quality_2_5_exact"] = abs(quality["threshold_results"]["2.5"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["2.5"]["ratio_per_sd"]) < 1e-9
+checks["quality_5_exact"] = abs(quality["threshold_results"]["5.0"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["5.0"]["ratio_per_sd"]) < 1e-9
+checks["quality_10_exact"] = abs(quality["threshold_results"]["10.0"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["10.0"]["ratio_per_sd"]) < 1e-9
+checks["title_realized_transit_speed"] = manuscript.startswith("# A multivariate entry state predicts migration activation but not realized transit speed in European eel")
+checks["new_refs_present"] = "Tudorache, C." in manuscript and "Katopodis, C." in manuscript
 
 # Dutch falsification language and numbers.
 checks["dutch_falsification_heading"] = has(r"did not support condition-dependent barrier selectivity|falsified the specific prediction")
