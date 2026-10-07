@@ -130,3 +130,35 @@ Executable analysis:
 
 Corrected onset endpoint:
 - expert-corrected onset events = **418**.
+
+
+## Project-held-out coefficient training
+
+To reduce same-project outcome reuse in score construction, the activation
+model was re-trained six times, leaving one entire project out each time.
+
+Across the six training folds:
+- Durif weight remained positive: beta **0.563–0.892**;
+- condition weight remained positive: beta **0.213–0.497**.
+
+After applying each five-project score to the held-out project and concatenating
+the cross-fitted scores:
+
+- activation OR per SD = **1.968**, 95% CI **1.530–2.530**, p = **1.3×10⁻7**;
+- onset HR per SD = **1.258**, 95% CI **1.118–1.416**, p = **0.000138**;
+- whole-route speed ratio = **0.948**, 95% CI **0.836–1.075**, p = **0.408**;
+- frozen median positive inter-station speed ratio = **1.013**, 95% CI **0.860–1.192**, p = **0.879**.
+
+Thus the phase boundary is not an artifact of estimating score weights using
+outcomes from the same focal project.
+
+Boundary:
+- score **weights** are project-held-out;
+- predictor preprocessing remains panel-derived;
+- all projects belong to the same public programme.
+
+Therefore this is a strong cross-project robustness audit, not prospective
+external validation.
+
+Canonical robustness result:
+- `results/cross_project_entry_state_score_v1.json`
