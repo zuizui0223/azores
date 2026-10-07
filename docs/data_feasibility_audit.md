@@ -129,3 +129,18 @@ Its value is narrower and more relevant:
 
 Because n=40 and stage/weight are partly confounded, treat this as a confirmation candidate rather than a decisive test.
 
+
+
+## 2026-10-07 DANS archive-level feasibility update
+
+Public registry metadata for DANS DOI `10.17026/LS/WTSUNG` (dataset version 1.1) confirms that the archive contains:
+
+- raw-filtered acoustic detections;
+- receiver-station metadata;
+- individual biometrics and passage outcomes;
+- per-event passage-probability data with environmental covariates for **462 pumping-station events** and **282 tidal-sluice events**;
+- a full variable codebook.
+
+This closes the archive-level question of whether event-resolved barrier data exist publicly. It does **not** yet prove that the frozen matched-choice table can be reconstructed exactly: eel identifiers, opportunity-event identifiers, durations, chosen events, and biometric joins still need field-level inspection.
+
+Therefore the remaining gate is **file retrieval and schema/join validation**, not absence of event-level public data. Do not treat the Dutch matched-choice test as estimated until `analysis/08_dutch_barrier_confirmation_gate.py` passes on the downloaded archive.
