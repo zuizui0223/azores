@@ -8,7 +8,7 @@ needed to reconstruct an arrival-defined risk set:
 - source-code lines that construct event IDs, validity and passage fields.
 """
 from __future__ import annotations
-import argparse, csv, json, re
+import argparse, csv, io, json, re
 from pathlib import Path
 
 TERMS = [
@@ -26,8 +26,20 @@ RFILES = [
 ]
 
 def read_tab(path: Path):
-    with path.open("r",encoding="utf-8-sig",newline="") as f:
-        return list(csv.DictReader(f,delimiter="\t"))
+    """Read DANS text tables by sniffing the actual delimiter.
+
+    Several files retain a .tab extension even though the original download is
+    comma-delimited, so extension-based delimiter assumptions are unsafe.
+    """
+    text = path.read_text(encoding="utf-8-sig", errors="replace")
+    sample = text[:8192]
+    try:
+        dialect = csv.Sniffer().sniff(sample, delimiters=",\t;")
+        delim = dialect.delimiter
+    except csv.Error:
+        first = sample.splitlines()[0] if sample else ""
+        delim = "," if first.count(",") >= first.count("\t") else "\t"
+    return list(csv.DictReader(io.StringIO(text), delimiter=delim))
 
 def compact_row(row):
     return {k:v for k,v in row.items() if v not in (None,"")}
