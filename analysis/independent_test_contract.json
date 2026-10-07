@@ -1,5 +1,5 @@
 {
-  "schema": "azores.independent_test_contract.v9",
+  "schema": "azores.independent_test_contract.v10",
   "scientific_question": "At what phase and spatial/temporal scale is capture-time Durif readiness transferable as a predictor of European eel migration?",
   "priority_design": "phase-resolved activation/onset versus post-activation progression using independently measured capture-time Durif stage",
   "primary_stages": [
@@ -232,5 +232,50 @@
       "ipw_speed_ratio": 0.9200811159,
       "interpretation": "Measured condition-dependent activation selection does not explain the post-activation condition-speed pattern."
     }
+  },
+  "multivariate_entry_state_score": {
+    "status": "ENTRY_STATE_SCORE_NOT_GENERAL_MOTOR_SCORE",
+    "source": "results/entry_state_score_transferability_v1.json",
+    "training": "activation only: 0.756 x ordinal Durif + 0.379 x capture condition",
+    "activation": {
+      "or_per_sd": 2.2300541395,
+      "ci95": [
+        1.7041449224,
+        2.9182620559
+      ],
+      "p": 5.0786508332e-9
+    },
+    "onset": {
+      "n": 570,
+      "events": 418,
+      "hr_per_sd": 1.3173057497,
+      "ci95": [
+        1.168198773,
+        1.4854444964
+      ],
+      "p": 0.0000069056170342
+    },
+    "whole_route_speed": {
+      "n": 418,
+      "ratio_per_sd": 0.9459346481,
+      "ci95": [
+        0.8318810455,
+        1.0756253712
+      ],
+      "p": 0.3964992546,
+      "partial_r2": 0.0017851592
+    },
+    "frozen_segment_speed": {
+      "n": 411,
+      "ratio_per_sd": 1.0275696157,
+      "ci95": [
+        0.8692505974,
+        1.2147237152
+      ],
+      "p": 0.7500445824,
+      "partial_r2": 0.0002568798
+    },
+    "interpretation": "The capture-state vector that predicts entry and onset does not transfer as a general post-activation motor-performance ranking.",
+    "boundary": "Activation-trained score is post hoc and shares individuals with transfer endpoints; post-activation analyses condition on activation."
   }
 }
