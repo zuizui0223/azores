@@ -500,6 +500,19 @@ def main() -> None:
             "inverse_probability_weight": quantiles([w[i] for i in idx]),
         }
 
+    same_ratio = summarize_logcoef(b_un, c_un, i_stage)
+    weighted_ratio = summarize_logcoef(b_w, c_w, i_stage)
+    if (
+        abs(weighted_ratio["ratio"] - same_ratio["ratio"]) < 0.05
+        and weighted_ratio["ci95_ratio"][0] <= 1.0
+        and weighted_ratio["ci95_ratio"][1] >= 1.0
+    ):
+        diagnostic_status = (
+            "MEASURED_SELECTION_PRESENT_BUT_DOES_NOT_RESTORE_STAGE_SPEED_GRADIENT"
+        )
+    else:
+        diagnostic_status = "SELECTION_DIAGNOSTIC_INCONCLUSIVE"
+
     result = {
         "schema": "azores.activation_filter_diagnostic.v1",
         "evidence_class": "post_hoc_developmental_selection_diagnostic",
@@ -522,13 +535,22 @@ def main() -> None:
         "speed_ipw_diagnostic": {
             "n": len(sdat),
             "speed_project_year_strata": len(sstrata),
-            "unweighted_same_sample": summarize_logcoef(b_un, c_un, i_stage),
-            "inverse_probability_weighted": summarize_logcoef(b_w, c_w, i_stage),
+            "unweighted_same_sample": same_ratio,
+            "inverse_probability_weighted": weighted_ratio,
             "weight_definition": "1 / fitted P(initiation | canonical measured predictors)",
             "weight_quantiles": quantiles(list(w)),
             "effective_sample_size": ess,
             "by_stage": weights_by_stage,
         },
+        "diagnostic_status": diagnostic_status,
+        "diagnostic_interpretation": (
+            "Observed activation is phenotypically selective, but weighting for "
+            "the measured canonical initiation predictors does not materially "
+            "restore a general positive Durif-speed gradient. Unmeasured/latent "
+            "readiness selection remains unresolved."
+            if diagnostic_status.startswith("MEASURED_SELECTION_PRESENT")
+            else "Interpret only within the explicit claim boundaries below."
+        ),
         "interpretation_rule": (
             "If IPW materially restores a positive Durif-speed gradient, measured "
             "activation selection is compatible with explaining part of the null. "
