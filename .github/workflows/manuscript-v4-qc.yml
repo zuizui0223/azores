@@ -1,0 +1,33 @@
+name: manuscript-v4-qc
+
+on:
+  push:
+    paths:
+      - "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md"
+      - "manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json"
+      - "manuscript/qc_manuscript_v4.py"
+      - "results/entry_state_score_transferability_v1.json"
+      - "results/dutch_condition_choice_test_v1.json"
+      - "results/dutch_arrival_waiting_diagnostic_v1.json"
+      - ".github/workflows/manuscript-v4-qc.yml"
+  workflow_dispatch:
+
+jobs:
+  qc:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Run V4 manuscript QC
+        run: python manuscript/qc_manuscript_v4.py
+      - name: Show QC
+        if: always()
+        run: cat manuscript/MANUSCRIPT_QC_V4.json
+      - name: Upload QC
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-manuscript-v4-qc
+          path: manuscript/MANUSCRIPT_QC_V4.json
