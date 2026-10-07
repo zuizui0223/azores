@@ -13,6 +13,8 @@ multivariate-entry-state manuscript.
 | Project-held-out score training preserves the phase boundary | Cross-fitted score: activation OR **1.97/SD** (1.53–2.53), onset HR **1.26/SD** (1.12–1.42), whole-route speed **0.948/SD** (0.836–1.075), frozen segment speed **1.013/SD** (0.860–1.192) | Strong cross-project robustness audit | Score weights exclude held-out-project outcomes, but predictor preprocessing is not fully cross-fitted; not external prospective validation |
 | The same entry-state score does not rank generic whole-route speed | Ratio **0.946/SD**, 95% CI **0.832–1.076**, p **0.396**; partial R² **0.18%** | Strong null-compatible transferability boundary | Post-activation population is selected; not proof of zero state effects |
 | The weak speed transfer is not an artifact of the whole-route endpoint | Frozen individual median positive inter-station speed ratio **1.028/SD**, 95% CI **0.869–1.215**, p **0.750**; partial R² **0.026%** | Developmental frozen-endpoint audit | Does not exclude reach/event-specific state effects |
+| Entry-state score does not rank realized speed within identical directed route links | Frozen primary: **18,012** segments, **426** eels, **248** directed pairs; ratio **0.995/SD**, 95% CI **0.912–1.087**, p **0.918**, weighted partial R² **0.00052%** | Strong frozen within-link robustness audit | Source `speed_m_s` is derived ground speed, not intrinsic swim capacity; fixed-effect matrix is high-dimensional |
+| The within-link null is robust to gross source-speed artifacts | Post-hoc externally motivated upper screens 2.5/5/10 m s⁻¹: ratios **0.978 / 0.979 / 0.976**, all CIs span 1; screens remove **62.5% / 58.1% / 52.5%** of candidate rows | Post-hoc data-quality sensitivity | Designed after impossible source speeds were observed; thresholds do not replace the frozen primary |
 | Durif alone shows the same phase boundary | Activation OR **2.08**, onset HR **1.29** vs whole-route speed ratio **0.983** and frozen segment ratio **1.001** | Canonical | Multivariate score is the stronger V4 framing |
 | Project sign cancellation does not explain the weak generic stage-speed gradient | whole-route Q **2.47**, p **0.781**; segment Q **2.32**, p **0.804** | Post-hoc heterogeneity audit | Some project-stage cells remain imprecise |
 | Simple capture-stage ageing does not explain the result | Durif×log-latency ratio **1.036**, p **0.382**; short-latency ratios remain near/below 1 | Post-hoc diagnostic | No repeated post-release physiology |
@@ -49,6 +51,8 @@ Do not claim that:
 - `manuscript/MANUSCRIPT_QC_V4.json`
 - `results/entry_state_score_transferability_v1.json`
 - `results/cross_project_entry_state_score_v1.json`
+- `results/within_link_entry_state_speed_v1.json`
+- `results/within_link_speed_quality_sensitivity_v1.json`
 - `results/phase_control_canonical_v2.json`
 - `results/dutch_condition_choice_test_v1.json`
 - `results/dutch_arrival_waiting_diagnostic_v1.json`
