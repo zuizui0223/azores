@@ -18,6 +18,7 @@ on:
       - "analysis/23_body_condition_whole_route_decomposition.py"
       - "analysis/25_body_condition_elapsed_components.py"
       - "analysis/30_body_condition_activation_selection_ipw.py"
+      - "analysis/31_entry_state_score_transferability.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -85,6 +86,10 @@ jobs:
         run: python analysis/30_body_condition_activation_selection_ipw.py
       - name: Show condition-specific activation selection diagnostic
         run: cat analysis/results/body_condition_activation_selection_ipw.json
+      - name: Transfer activation-trained entry-state score across phases
+        run: python analysis/31_entry_state_score_transferability.py
+      - name: Show entry-state score transferability
+        run: cat analysis/results/entry_state_score_transferability.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -105,3 +110,4 @@ jobs:
             analysis/results/body_condition_whole_route_decomposition.json
             analysis/results/body_condition_elapsed_components.json
             analysis/results/body_condition_activation_selection_ipw.json
+            analysis/results/entry_state_score_transferability.json
