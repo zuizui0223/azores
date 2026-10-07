@@ -1,4 +1,4 @@
-# A multivariate entry state predicts migration activation but not generic motor performance in European eel
+# A multivariate entry state predicts migration activation but not generic progression speed in European eel
 
 **Manuscript draft V4 — multivariate entry-state revision**
 
@@ -12,11 +12,11 @@ Animal migration requires both entry into a migratory state and subsequent progr
 
 Ordinal Durif stage strongly predicted migration activation and onset. In a multivariate activation model, each Durif-stage increment increased activation odds 2.13-fold (95% CI 1.60–2.84), while a continuous weight-for-length condition measure retained an additional 1.46-fold effect per SD (1.16–1.83). We therefore trained an **entry-state score** from these two capture predictors using activation only. Per SD, this frozen score predicted migration activation strongly (OR 2.23, 95% CI 1.70–2.92) and transferred to earlier behavioral onset (HR 1.32, 95% CI 1.17–1.49; 418 events).
 
-The same score did not transfer as a general motor-performance ranking after activation. Among 418 activated eels, its whole-route speed ratio was 0.946 per SD (95% CI 0.832–1.076; p=0.396; partial R²=0.18%). For the independently frozen per-eel median positive inter-station speed endpoint (n=411), the ratio was 1.028 (0.869–1.215; p=0.750; partial R²=0.026%). Durif stage alone showed the same boundary: strong activation/onset effects but no transferable whole-route speed gradient.
+The same score did not transfer as a general progression-speed ranking after activation. Among 418 activated eels, its whole-route speed ratio was 0.946 per SD (95% CI 0.832–1.076; p=0.396; partial R²=0.18%). For the independently frozen per-eel median positive inter-station speed endpoint (n=411), the ratio was 1.028 (0.869–1.215; p=0.750; partial R²=0.026%). Durif stage alone showed the same boundary: strong activation/onset effects but no transferable whole-route speed gradient.
 
 We also used an independent Dutch public archive to test a candidate mechanism for the weak post-activation relationship. After reconstructing duration-independent barrier risk sets from observed arrival times and opening-event timestamps, better body condition did not predict more post-arrival missed opportunities, longer barrier delay, or stronger selection for longer opening windows. Thus a general condition-dependent barrier-selectivity mechanism was not supported.
 
-These results identify a **phase-specific transferability boundary** in migratory phenotype: capture state strongly ranks the transition into migration and its timing, but the same multivariate entry state is not a general ranking of subsequent movement speed. Migration readiness should therefore be treated as an entry-state property rather than a universal motor-performance score.
+These results identify a **phase-specific transferability boundary** in migratory phenotype: capture state strongly ranks the transition into migration and its timing, but the same multivariate entry state is not a general ranking of subsequent movement speed. Migration readiness should therefore be treated as an entry-state property rather than a universal progression-speed score.
 
 **Keywords:** *Anguilla anguilla*; animal movement; migration; silvering; Durif stage; body condition; internal state; telemetry; phase-specific control; movement ecology
 
@@ -88,7 +88,7 @@ R = \hat\beta_D D + \hat\beta_C C,
 
 where \(D\) is ordinal Durif stage and \(C\) is within-stratum centered standardized capture condition. The weights \(\hat\beta_D\) and \(\hat\beta_C\) were estimated **only from the activation model**. The score was then standardized within each analysis sample and transferred without re-fitting the relative stage/condition weights to onset, whole-route speed and the frozen median positive inter-station speed endpoint.
 
-Because the score is developed from the same source panel, this is a post-hoc cross-phase transferability diagnostic rather than prospective validation. Its purpose is not to estimate a latent physiological variable, but to ask whether an empirically activation-relevant capture-state vector behaves like a general motor-performance score.
+Because the score is developed from the same source panel, this is a post-hoc cross-phase transferability diagnostic rather than prospective validation. Its purpose is not to estimate a latent physiological variable, but to ask whether an empirically activation-relevant capture-state vector behaves like a general progression-speed score.
 
 ### Source migration classification
 
@@ -273,13 +273,13 @@ Thus the independent Dutch analysis **falsified the specific prediction** that h
 
 ## Discussion
 
-### Migration is a sequence of ecological filters, but entry state is not a motor score
+### Migration is a sequence of ecological filters, but entry state is not a progression-speed score
 
 Our central result is not simply that more silvered eels migrate. FIII is explicitly a pre-migrant Durif stage and FIV/FV are migrating stages, so that qualitative relationship is built into the biology of silvering.
 
 The informative result is the **transferability boundary**. Ordinal Durif stage and continuous weight-for-length state both carried information about entry into migration. When their activation-derived contributions were compressed into one score, that score strongly predicted whether migration became behaviorally expressed and when onset occurred. Yet it explained only 0.18% of residual variation in whole-route speed and 0.026% in the frozen positive inter-station speed summary.
 
-This directly rejects the simple interpretation of capture-time readiness as a universal locomotor-quality axis. The phenotype that makes an eel more likely to enter the migratory mode is not, in these data, a general ranking of how fast activated animals move through heterogeneous routes.
+This directly rejects the simple interpretation of capture-time readiness as a universal realized-progression-quality axis. The phenotype that makes an eel more likely to enter the migratory mode is not, in these data, a general ranking of how fast activated animals move through heterogeneous routes.
 
 That result is not the default prediction from the broad condition–movement literature. Goossens et al. (2020) synthesize many systems in which higher condition is associated with more efficient migration and, when integrated over an entire trajectory, faster travel and earlier arrival. Our eel result instead shows strong condition information at the transition into migration but almost no transferable information in positive inter-station speed. The difference is therefore not simply “condition matters” versus “condition does not matter”; it is **which component of movement the condition signal describes**.
 
@@ -382,7 +382,7 @@ Capture-time Durif stage and continuous weight-for-length state jointly predicte
 
 The strongest synthesis is therefore:
 
-> **the multivariate phenotype that predicts migratory commitment is an entry-state indicator, not a transferable general motor-performance score.**
+> **the multivariate phenotype that predicts migratory commitment is an entry-state indicator, not a transferable general progression-speed score.**
 
 The independent Dutch analysis further showed that this boundary should not be explained by a universal condition-dependent preference for stronger barrier-opening opportunities: that specific mechanism was not supported after observed barrier arrival.
 
