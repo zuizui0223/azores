@@ -15,6 +15,7 @@ on:
       - "analysis/19_body_condition_metric_robustness.py"
       - "analysis/20_body_condition_post_activation_speed.py"
       - "analysis/21_body_condition_segment_progression.py"
+      - "analysis/23_body_condition_whole_route_decomposition.py"
       - ".github/workflows/independent-data-audit.yml"
   workflow_dispatch:
 
@@ -70,6 +71,10 @@ jobs:
         run: python analysis/21_body_condition_segment_progression.py
       - name: Show body-condition segment progression audit
         run: cat analysis/results/body_condition_segment_progression.json
+      - name: Decompose body-condition whole-route speed
+        run: python analysis/23_body_condition_whole_route_decomposition.py
+      - name: Show body-condition whole-route decomposition
+        run: cat analysis/results/body_condition_whole_route_decomposition.json
       - name: Upload audit
         uses: actions/upload-artifact@v4
         with:
@@ -87,3 +92,4 @@ jobs:
             analysis/results/body_condition_metric_robustness.json
             analysis/results/body_condition_post_activation_speed.json
             analysis/results/body_condition_segment_progression.json
+            analysis/results/body_condition_whole_route_decomposition.json
