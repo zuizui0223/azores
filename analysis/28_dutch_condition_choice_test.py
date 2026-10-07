@@ -112,6 +112,14 @@ def normal_cdf(x: float) -> float:
     return 0.5 * (1.0 + math.erf(x / math.sqrt(2.0)))
 
 
+def safe_exp(x: float) -> float:
+    if x > 709:
+        return float("inf")
+    if x < -745:
+        return 0.0
+    return math.exp(x)
+
+
 def stage_map(root: Path) -> dict[str, str]:
     out = {}
     for r in sniff_rows(root / "durif_21.tab"):
@@ -365,8 +373,8 @@ def coef_summary(fit: dict, names: list[str]) -> dict:
         out[name] = {
             "beta": beta,
             "se": se,
-            "odds_ratio_per_1sd_log_duration": math.exp(beta),
-            "ci95": [math.exp(beta - 1.96 * se), math.exp(beta + 1.96 * se)],
+            "odds_ratio_per_1sd_log_duration": safe_exp(beta),
+            "ci95": [safe_exp(beta - 1.96 * se), safe_exp(beta + 1.96 * se)],
             "p_wald": 2 * (1 - normal_cdf(abs(z))) if math.isfinite(z) else None,
         }
     out["_fit"] = {
