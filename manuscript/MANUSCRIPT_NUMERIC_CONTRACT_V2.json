@@ -1,5 +1,5 @@
 {
-  "schema": "azores.manuscript_numeric_contract.v3",
+  "schema": "azores.manuscript_numeric_contract.v4",
   "manuscript": "manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V3.md",
   "canonical_result": "results/phase_control_canonical_v2.json",
   "primary_cohort": {
@@ -92,12 +92,13 @@
     "mean_cumulative_barrier_delay_days": 34,
     "role": "independent ecological context / confirmation target, not direct phase-model replication"
   },
-  "primary_claim": "Capture-time migratory readiness strongly predicts whether and when seaward migration becomes behaviorally active, whereas the same capture-stage gradient is not a transferable general predictor of post-activation speed across the two progression summaries tested; local route-specific effects may still occur.",
+  "primary_claim": "Capture-time migratory readiness strongly predicts whether and when seaward migration becomes behaviorally active; among eels that cross this stage-dependent activation filter, capture-time Durif stage does not provide a transferable general ranking of post-activation speed across the two progression summaries tested.",
   "prohibited_interpretations": [
     "terminal non-membership equals migration failure",
     "escapement probability is estimated in this reanalysis",
     "WRS causally replaces internal state after activation",
-    "Durif stage has exactly zero post-activation effect"
+    "Durif stage has exactly zero post-activation effect",
+    "post-activation speed estimates a causal attenuation of Durif effects in all tagged eels"
   ],
   "post_activation_transferability_audits": {
     "segment_scale": {
@@ -142,6 +143,31 @@
       },
       "diagnostic": "NO_SUPPORT_FOR_SIMPLE_STATE_STALENESS_PATTERN",
       "role": "post-hoc developmental diagnostic; no repeated physiological staging"
+    },
+    "activation_filter_selection": {
+      "source": "results/activation_filter_diagnostic_v1.json",
+      "observed_selection": {
+        "FIII_length_smd_initiator_minus_non": 0.514,
+        "FIII_weight_for_length_smd": 0.302,
+        "FV_length_smd_initiator_minus_non": 0.266,
+        "FV_weight_for_length_smd": 0.565
+      },
+      "ipw_same_sample": {
+        "n": 373,
+        "unweighted_ratio_per_stage": 1.042,
+        "unweighted_ci95": [
+          0.902,
+          1.205
+        ],
+        "inverse_probability_weighted_ratio_per_stage": 1.062,
+        "inverse_probability_weighted_ci95": [
+          0.916,
+          1.23
+        ],
+        "effective_sample_size": 302
+      },
+      "diagnostic": "MEASURED_SELECTION_PRESENT_BUT_DOES_NOT_RESTORE_STAGE_SPEED_GRADIENT",
+      "boundary": "Speed is undefined for non-initiators; measured-selection IPW does not remove the principal-stratum/latent-readiness selection boundary."
     }
   }
 }
