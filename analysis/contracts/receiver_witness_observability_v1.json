@@ -1,0 +1,21 @@
+{
+  "schema": "azores.receiver_witness_observability_contract.v1",
+  "evidence_class": "post_hoc_source_receiver_event_inventory_for_observation_gate",
+  "question": "How much of the 100 short-followup source noninitiation class has any actual receiver evidence, and what lower-bound evidence is available that their last receiver continued recording other fish?",
+  "data": "Public original migration_*.csv for six projects at PieterjanVerhelst/eel-meta-analysis commit 59578cb622dddbbba5174b4c51bff0807787385a; expert-corrected 575 canonical fish, 90-day horizon eligibility from analysis/43",
+  "rule_nonvirtual": "A real receiver contact requires a non-null receiver_id distinct from 'none' or 'NA', a non-virtual release station, and a parseable arrival timestamp. Synthetic release pseudo-stations do not count as observed receiver operation.",
+  "cohorts": "100 source-classified noninitiators excluded by the original 90-day followup eligibility, 53 eligible source noninitiators, 422 source initiators; all from the same six-project panel",
+  "metrics": [
+    "Number and proportion of fish with >=1 real receiver contact; observed real receiver rows, unique stations/receiver IDs, days to first and last real contact; project/stage strata.",
+    "For each fish whose last real receiver is known, indicator of another tag having a source receiver event at exactly that receiver/station in the next 1, 7, 30, 90 days after its last contact, restricted to release+90 days; historical existence witness only.",
+    "Number of fish with only a synthetic release pseudo-station, separated from those with real receiver contacts; both remain biological fate UNKNOWN.",
+    "Source metadata availability of actual receiver deploy and recover timestamps for six target projects: NOT IDENTIFIED from original deployments.csv, which lists station coordinates only."
+  ],
+  "checks": [
+    "100/53/422 partition intact; source expert fixes identical to main analysis.",
+    "All real receiver evidence must derive from actual receiver rows, not virtual release stations.",
+    "Other fish same-receiver event must occur strictly later than focal last actual receiver event and no later than focal release+90 days.",
+    "No interpretation of other-fish presence as continuous receiver uptime, a true no-movement observation or eventual migration.",
+    "Do not infer physiology, tag failure, mortality, or causal missingness mechanism from this proxy."
+  ]
+}
