@@ -151,18 +151,22 @@ def run():
     assert len(full)==575
     eligible,inventory=FIX.horizon_filter(full,90)
     assert len(eligible)==475,inventory
-    selected={r["tag"]:r for r in eligible}
+    eligible_tags={r["tag"] for r in eligible}
+    selected={r["tag"]:r for r in full if r["tag"] in eligible_tags}
     scored,folds=train_scores_once(full)
     fixed_scored=[r for r in scored if r["fish"] in selected]
     assert len(fixed_scored)==len(selected)==475
     results={k:endpoint_auc(fixed_scored,selected,k)
              for k in ("7","30","60","90","eventual")}
-    assert results["30"]["n_event"]==inventory["n_events"]-sum(
-        1 for r in eligible if r["onset"] is not None and
-        r["onset"]>r["release"]+timedelta(days=30)
-    ) if False else True
-    # A small guard independent of source outcome reclassification:
+    # Sample selection is fixed; endpoint labels are always rederived from
+    # ORIGINAL rows, not the 90-day binary outcome assigned by the filter.
     assert results["90"]["n_event"]==inventory["n_events"]
+    assert results["30"]["n_event"]==sum(
+        1 for r in selected.values()
+        if r["onset"] is not None and
+        r["release"]<=r["onset"]<=r["release"]+timedelta(days=30)
+    )
+    assert sum(r["initiated"] for r in selected.values())>=results["90"]["n_event"]
     pairs=paired_project_contrast(results["30"],results["eventual"])
     groups=onset_categories(fixed_scored,selected)
     if pairs["status"]=="ESTIMATED":
