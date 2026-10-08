@@ -1,0 +1,767 @@
+{
+  "schema": "azores.paired_temporal_endpoint_condition.v1",
+  "evidence_class": "post_hoc_falsification_after_fixed_followup_reversal_observed",
+  "contract": "analysis/contracts/paired_temporal_endpoint_condition_v1.json",
+  "source_n": 575,
+  "common_cohort_inventory": {
+    "horizon_days": 90,
+    "n_source": 575,
+    "n_included": 475,
+    "n_events": 351,
+    "n_nonevents": 124,
+    "n_excluded_early_tracking_end": 100,
+    "n_excluded_algorithm_onset_unresolved": 0,
+    "n_excluded_onset_before_release": 0,
+    "by_project": {
+      "2011_Warnow": {
+        "event": 105,
+        "excluded_early_tracking_end": 33,
+        "nonevent_observed_beyond_horizon": 3
+      },
+      "2012_leopoldkanaal": {
+        "event": 41,
+        "nonevent_observed_beyond_horizon": 32,
+        "excluded_early_tracking_end": 7
+      },
+      "2013_albertkanaal": {
+        "event": 110,
+        "nonevent_observed_beyond_horizon": 32,
+        "excluded_early_tracking_end": 2
+      },
+      "2015_phd_verhelst_eel": {
+        "nonevent_observed_beyond_horizon": 53,
+        "event": 54,
+        "excluded_early_tracking_end": 19
+      },
+      "2019_Grotenete": {
+        "event": 33,
+        "excluded_early_tracking_end": 5
+      },
+      "ESGL": {
+        "excluded_early_tracking_end": 34,
+        "nonevent_observed_beyond_horizon": 4,
+        "event": 8
+      }
+    }
+  },
+  "n_common_fish": 475,
+  "project_heldout_eventual_weights": {
+    "2011_Warnow": {
+      "n_heldout": 141,
+      "train_base_stage_coef": 0.8501286446997404,
+      "train_condition_beta": 0.4766064026440197,
+      "train_stage_beta_with_condition": 0.892133908991032
+    },
+    "2012_leopoldkanaal": {
+      "n_heldout": 80,
+      "train_base_stage_coef": 0.6966319865328517,
+      "train_condition_beta": 0.21281104437240336,
+      "train_stage_beta_with_condition": 0.7107890259523497
+    },
+    "2013_albertkanaal": {
+      "n_heldout": 144,
+      "train_base_stage_coef": 0.8532851069131155,
+      "train_condition_beta": 0.30690645487036233,
+      "train_stage_beta_with_condition": 0.869306830510997
+    },
+    "2015_phd_verhelst_eel": {
+      "n_heldout": 126,
+      "train_base_stage_coef": 0.5103321781173309,
+      "train_condition_beta": 0.4973471807863472,
+      "train_stage_beta_with_condition": 0.5631143308406443
+    },
+    "2019_Grotenete": {
+      "n_heldout": 38,
+      "train_base_stage_coef": 0.6507420879328673,
+      "train_condition_beta": 0.3891688627564736,
+      "train_stage_beta_with_condition": 0.675935777993015
+    },
+    "ESGL": {
+      "n_heldout": 46,
+      "train_base_stage_coef": 0.7941961652386242,
+      "train_condition_beta": 0.4217853114392397,
+      "train_stage_beta_with_condition": 0.8081882470868748
+    }
+  },
+  "endpoint_auc_with_fixed_scores": {
+    "7": {
+      "n_informative_strata": 13,
+      "n_positive_negative_pairs": 5727,
+      "auc": {
+        "score_base": 0.5877422734415925,
+        "score_plus": 0.5954251789767767,
+        "score_stage_only": 0.605639951108783,
+        "score_stage_condition": 0.6036319189802689
+      },
+      "delta_auc_condition_above_stage_length_timing": 0.007682905535184248,
+      "delta_auc_stage_condition_above_stage_only": -0.002008032128514081,
+      "by_heldout_project": {
+        "2011_Warnow": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 2592,
+          "auc": {
+            "score_base": 0.5578703703703703,
+            "score_plus": 0.5513117283950617,
+            "score_stage_only": 0.5189043209876543,
+            "score_stage_condition": 0.5316358024691358
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.006558641975308643,
+          "delta_auc_stage_condition_above_stage_only": 0.01273148148148151
+        },
+        "2012_leopoldkanaal": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 1276,
+          "auc": {
+            "score_base": 0.7452978056426333,
+            "score_plus": 0.8479623824451411,
+            "score_stage_only": 0.8307210031347962,
+            "score_stage_condition": 0.8934169278996865
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.10266457680250785,
+          "delta_auc_stage_condition_above_stage_only": 0.06269592476489028
+        },
+        "2013_albertkanaal": {
+          "n_informative_strata": 5,
+          "n_positive_negative_pairs": 1132,
+          "auc": {
+            "score_base": 0.43197879858657245,
+            "score_plus": 0.3913427561837456,
+            "score_stage_only": 0.42667844522968196,
+            "score_stage_condition": 0.39045936395759717
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.040636042402826866,
+          "delta_auc_stage_condition_above_stage_only": -0.036219081272084785
+        },
+        "2015_phd_verhelst_eel": {
+          "n_informative_strata": 4,
+          "n_positive_negative_pairs": 663,
+          "auc": {
+            "score_base": 0.6817496229260935,
+            "score_plus": 0.669683257918552,
+            "score_stage_only": 0.8310708898944194,
+            "score_stage_condition": 0.7285067873303167
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.012066365007541546,
+          "delta_auc_stage_condition_above_stage_only": -0.10256410256410264
+        },
+        "2019_Grotenete": {
+          "n_informative_strata": 2,
+          "n_positive_negative_pairs": 64,
+          "auc": {
+            "score_base": 0.4375,
+            "score_plus": 0.1875,
+            "score_stage_only": 0.4609375,
+            "score_stage_condition": 0.21875
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.25,
+          "delta_auc_stage_condition_above_stage_only": -0.2421875
+        }
+      },
+      "equal_project_mean_delta_auc": -0.04131929451663384,
+      "project_deltas_positive": 1,
+      "projects_informative": 5,
+      "n_event": 239,
+      "n_nonevent": 236
+    },
+    "30": {
+      "n_informative_strata": 13,
+      "n_positive_negative_pairs": 4244,
+      "auc": {
+        "score_base": 0.5170829406220546,
+        "score_plus": 0.5499528746465598,
+        "score_stage_only": 0.5802309142318567,
+        "score_stage_condition": 0.5857681432610744
+      },
+      "delta_auc_condition_above_stage_length_timing": 0.03286993402450522,
+      "delta_auc_stage_condition_above_stage_only": 0.005537229029217716,
+      "by_heldout_project": {
+        "2011_Warnow": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 1067,
+          "auc": {
+            "score_base": 0.29756326148078727,
+            "score_plus": 0.32239925023430177,
+            "score_stage_only": 0.3322399250234302,
+            "score_stage_condition": 0.3711340206185567
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.024835988753514504,
+          "delta_auc_stage_condition_above_stage_only": 0.03889409559512652
+        },
+        "2012_leopoldkanaal": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 1330,
+          "auc": {
+            "score_base": 0.6962406015037594,
+            "score_plus": 0.8082706766917294,
+            "score_stage_only": 0.7879699248120301,
+            "score_stage_condition": 0.8586466165413534
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.11203007518796992,
+          "delta_auc_stage_condition_above_stage_only": 0.07067669172932334
+        },
+        "2013_albertkanaal": {
+          "n_informative_strata": 5,
+          "n_positive_negative_pairs": 1009,
+          "auc": {
+            "score_base": 0.4182358771060456,
+            "score_plus": 0.4043607532210109,
+            "score_stage_only": 0.4276511397423191,
+            "score_stage_condition": 0.4093161546085233
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.013875123885034701,
+          "delta_auc_stage_condition_above_stage_only": -0.018334985133795834
+        },
+        "2015_phd_verhelst_eel": {
+          "n_informative_strata": 4,
+          "n_positive_negative_pairs": 718,
+          "auc": {
+            "score_base": 0.6601671309192201,
+            "score_plus": 0.6448467966573816,
+            "score_stage_only": 0.7931754874651811,
+            "score_stage_condition": 0.6824512534818942
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.01532033426183843,
+          "delta_auc_stage_condition_above_stage_only": -0.1107242339832869
+        },
+        "2019_Grotenete": {
+          "n_informative_strata": 2,
+          "n_positive_negative_pairs": 120,
+          "auc": {
+            "score_base": 0.4583333333333333,
+            "score_plus": 0.36666666666666664,
+            "score_stage_only": 0.49166666666666664,
+            "score_stage_condition": 0.375
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.09166666666666667,
+          "delta_auc_stage_condition_above_stage_only": -0.11666666666666664
+        }
+      },
+      "equal_project_mean_delta_auc": 0.0032007878255889246,
+      "project_deltas_positive": 2,
+      "projects_informative": 5,
+      "n_event": 299,
+      "n_nonevent": 176
+    },
+    "60": {
+      "n_informative_strata": 14,
+      "n_positive_negative_pairs": 3873,
+      "auc": {
+        "score_base": 0.5409243480506067,
+        "score_plus": 0.5868835528014459,
+        "score_stage_only": 0.6107668474051123,
+        "score_stage_condition": 0.6281951975213013
+      },
+      "delta_auc_condition_above_stage_length_timing": 0.045959204750839144,
+      "delta_auc_stage_condition_above_stage_only": 0.01742835011618893,
+      "by_heldout_project": {
+        "2011_Warnow": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 707,
+          "auc": {
+            "score_base": 0.31541725601131543,
+            "score_plus": 0.3437057991513437,
+            "score_stage_only": 0.3620933521923621,
+            "score_stage_condition": 0.39462517680339465
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.028288543140028266,
+          "delta_auc_stage_condition_above_stage_only": 0.032531824611032545
+        },
+        "2012_leopoldkanaal": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 1332,
+          "auc": {
+            "score_base": 0.6719219219219219,
+            "score_plus": 0.7852852852852853,
+            "score_stage_only": 0.762012012012012,
+            "score_stage_condition": 0.8378378378378378
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.11336336336336339,
+          "delta_auc_stage_condition_above_stage_only": 0.07582582582582587
+        },
+        "2013_albertkanaal": {
+          "n_informative_strata": 5,
+          "n_positive_negative_pairs": 935,
+          "auc": {
+            "score_base": 0.42566844919786095,
+            "score_plus": 0.4470588235294118,
+            "score_stage_only": 0.43262032085561497,
+            "score_stage_condition": 0.4588235294117647
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.021390374331550832,
+          "delta_auc_stage_condition_above_stage_only": 0.026203208556149715
+        },
+        "2015_phd_verhelst_eel": {
+          "n_informative_strata": 4,
+          "n_positive_negative_pairs": 772,
+          "auc": {
+            "score_base": 0.6619170984455959,
+            "score_plus": 0.655440414507772,
+            "score_stage_only": 0.7933937823834197,
+            "score_stage_condition": 0.7007772020725389
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.006476683937823857,
+          "delta_auc_stage_condition_above_stage_only": -0.09261658031088082
+        },
+        "2019_Grotenete": {
+          "n_informative_strata": 2,
+          "n_positive_negative_pairs": 95,
+          "auc": {
+            "score_base": 0.42105263157894735,
+            "score_plus": 0.43157894736842106,
+            "score_stage_only": 0.5684210526315789,
+            "score_stage_condition": 0.5263157894736842
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.010526315789473717,
+          "delta_auc_stage_condition_above_stage_only": -0.04210526315789476
+        },
+        "ESGL": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 32,
+          "auc": {
+            "score_base": 0.875,
+            "score_plus": 0.59375,
+            "score_stage_only": 0.734375,
+            "score_stage_condition": 0.5625
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.28125,
+          "delta_auc_stage_condition_above_stage_only": -0.171875
+        }
+      },
+      "equal_project_mean_delta_auc": -0.01902634788556794,
+      "project_deltas_positive": 4,
+      "projects_informative": 6,
+      "n_event": 331,
+      "n_nonevent": 144
+    },
+    "90": {
+      "n_informative_strata": 12,
+      "n_positive_negative_pairs": 3369,
+      "auc": {
+        "score_base": 0.5770258236865539,
+        "score_plus": 0.6319382606114574,
+        "score_stage_only": 0.6424755120213713,
+        "score_stage_condition": 0.6800237459186702
+      },
+      "delta_auc_condition_above_stage_length_timing": 0.05491243692490355,
+      "delta_auc_stage_condition_above_stage_only": 0.03754823389729889,
+      "by_heldout_project": {
+        "2011_Warnow": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 315,
+          "auc": {
+            "score_base": 0.273015873015873,
+            "score_plus": 0.35873015873015873,
+            "score_stage_only": 0.3761904761904762,
+            "score_stage_condition": 0.5333333333333333
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.08571428571428574,
+          "delta_auc_stage_condition_above_stage_only": 0.15714285714285714
+        },
+        "2012_leopoldkanaal": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 1312,
+          "auc": {
+            "score_base": 0.6989329268292683,
+            "score_plus": 0.8140243902439024,
+            "score_stage_only": 0.7621951219512195,
+            "score_stage_condition": 0.8597560975609756
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.11509146341463405,
+          "delta_auc_stage_condition_above_stage_only": 0.09756097560975607
+        },
+        "2013_albertkanaal": {
+          "n_informative_strata": 5,
+          "n_positive_negative_pairs": 928,
+          "auc": {
+            "score_base": 0.42780172413793105,
+            "score_plus": 0.44504310344827586,
+            "score_stage_only": 0.4326508620689655,
+            "score_stage_condition": 0.4558189655172414
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.017241379310344807,
+          "delta_auc_stage_condition_above_stage_only": 0.023168103448275856
+        },
+        "2015_phd_verhelst_eel": {
+          "n_informative_strata": 4,
+          "n_positive_negative_pairs": 782,
+          "auc": {
+            "score_base": 0.670076726342711,
+            "score_plus": 0.6649616368286445,
+            "score_stage_only": 0.801150895140665,
+            "score_stage_condition": 0.710997442455243
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.005115089514066473,
+          "delta_auc_stage_condition_above_stage_only": -0.09015345268542196
+        },
+        "ESGL": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 32,
+          "auc": {
+            "score_base": 0.625,
+            "score_plus": 0.46875,
+            "score_stage_only": 0.5625,
+            "score_stage_condition": 0.5
+          },
+          "delta_auc_condition_above_stage_length_timing": -0.15625,
+          "delta_auc_stage_condition_above_stage_only": -0.0625
+        }
+      },
+      "equal_project_mean_delta_auc": 0.011336407785039627,
+      "project_deltas_positive": 3,
+      "projects_informative": 5,
+      "n_event": 351,
+      "n_nonevent": 124
+    },
+    "eventual": {
+      "n_informative_strata": 8,
+      "n_positive_negative_pairs": 2045,
+      "auc": {
+        "score_base": 0.6665036674816626,
+        "score_plus": 0.7471882640586797,
+        "score_stage_only": 0.6765281173594132,
+        "score_stage_condition": 0.7638141809290954
+      },
+      "delta_auc_condition_above_stage_length_timing": 0.0806845965770171,
+      "delta_auc_stage_condition_above_stage_only": 0.08728606356968216,
+      "by_heldout_project": {
+        "2011_Warnow": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 107,
+          "auc": {
+            "score_base": 0.4672897196261682,
+            "score_plus": 0.5607476635514018,
+            "score_stage_only": 0.7149532710280374,
+            "score_stage_condition": 0.8411214953271028
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.0934579439252336,
+          "delta_auc_stage_condition_above_stage_only": 0.12616822429906538
+        },
+        "2012_leopoldkanaal": {
+          "n_informative_strata": 1,
+          "n_positive_negative_pairs": 1092,
+          "auc": {
+            "score_base": 0.7124542124542125,
+            "score_plus": 0.8333333333333334,
+            "score_stage_only": 0.717032967032967,
+            "score_stage_condition": 0.8498168498168498
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.1208791208791209,
+          "delta_auc_stage_condition_above_stage_only": 0.13278388278388276
+        },
+        "2013_albertkanaal": {
+          "n_informative_strata": 3,
+          "n_positive_negative_pairs": 325,
+          "auc": {
+            "score_base": 0.5092307692307693,
+            "score_plus": 0.5661538461538461,
+            "score_stage_only": 0.42615384615384616,
+            "score_stage_condition": 0.5815384615384616
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.056923076923076854,
+          "delta_auc_stage_condition_above_stage_only": 0.1553846153846154
+        },
+        "2015_phd_verhelst_eel": {
+          "n_informative_strata": 3,
+          "n_positive_negative_pairs": 521,
+          "auc": {
+            "score_base": 0.7092130518234165,
+            "score_plus": 0.7178502879078695,
+            "score_stage_only": 0.7399232245681382,
+            "score_stage_condition": 0.6813819577735125
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.008637236084452993,
+          "delta_auc_stage_condition_above_stage_only": -0.05854126679462568
+        }
+      },
+      "equal_project_mean_delta_auc": 0.06997434445297109,
+      "project_deltas_positive": 4,
+      "projects_informative": 4,
+      "n_event": 422,
+      "n_nonevent": 53
+    }
+  },
+  "paired_eventual_minus_30day": {
+    "status": "ESTIMATED",
+    "unit": "project (equal-project primary)",
+    "n_projects": 4,
+    "by_project": {
+      "2011_Warnow": {
+        "onset_30day_delta": 0.024835988753514504,
+        "eventual_delta": 0.0934579439252336,
+        "eventual_minus_30day_delta": 0.0686219551717191,
+        "n_pairs_30day": 1067,
+        "n_pairs_eventual": 107
+      },
+      "2012_leopoldkanaal": {
+        "onset_30day_delta": 0.11203007518796992,
+        "eventual_delta": 0.1208791208791209,
+        "eventual_minus_30day_delta": 0.00884904569115097,
+        "n_pairs_30day": 1330,
+        "n_pairs_eventual": 1092
+      },
+      "2013_albertkanaal": {
+        "onset_30day_delta": -0.013875123885034701,
+        "eventual_delta": 0.056923076923076854,
+        "eventual_minus_30day_delta": 0.07079820080811156,
+        "n_pairs_30day": 1009,
+        "n_pairs_eventual": 325
+      },
+      "2015_phd_verhelst_eel": {
+        "onset_30day_delta": -0.01532033426183843,
+        "eventual_delta": 0.008637236084452993,
+        "eventual_minus_30day_delta": 0.023957570346291424,
+        "n_pairs_30day": 718,
+        "n_pairs_eventual": 521
+      }
+    },
+    "equal_project_mean_eventual_minus_30day": 0.04305669300431826,
+    "project_boot_ci95": [
+      0.016403308018721197,
+      0.06971007798991533
+    ],
+    "boot_probability_positive": 1,
+    "signflip_two_sided_p": 0.125,
+    "n_positive_projects": 4,
+    "n_negative_projects": 0
+  },
+  "early_late_never": {
+    "group_counts": {
+      "early_le_30": 299,
+      "late_gt_30": 123,
+      "no_detected_initiation": 53
+    },
+    "rank_comparisons": {
+      "early_vs_never": {
+        "n_fish": 352,
+        "n_positive": 299,
+        "n_negative": 53,
+        "discrimination": {
+          "n_informative_strata": 8,
+          "n_positive_negative_pairs": 1370,
+          "auc": {
+            "score_base": 0.6686131386861314,
+            "score_plus": 0.7518248175182481,
+            "score_stage_only": 0.7343065693430657,
+            "score_stage_condition": 0.7927007299270074
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.08321167883211678,
+          "delta_auc_stage_condition_above_stage_only": 0.058394160583941646,
+          "by_heldout_project": {
+            "2011_Warnow": {
+              "n_informative_strata": 1,
+              "n_positive_negative_pairs": 97,
+              "auc": {
+                "score_base": 0.4329896907216495,
+                "score_plus": 0.5257731958762887,
+                "score_stage_only": 0.6958762886597938,
+                "score_stage_condition": 0.8247422680412371
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.09278350515463918,
+              "delta_auc_stage_condition_above_stage_only": 0.12886597938144329
+            },
+            "2012_leopoldkanaal": {
+              "n_informative_strata": 1,
+              "n_positive_negative_pairs": 735,
+              "auc": {
+                "score_base": 0.7292517006802721,
+                "score_plus": 0.8680272108843538,
+                "score_stage_only": 0.8020408163265306,
+                "score_stage_condition": 0.9006802721088435
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.13877551020408163,
+              "delta_auc_stage_condition_above_stage_only": 0.09863945578231292
+            },
+            "2013_albertkanaal": {
+              "n_informative_strata": 3,
+              "n_positive_negative_pairs": 226,
+              "auc": {
+                "score_base": 0.4778761061946903,
+                "score_plus": 0.5265486725663717,
+                "score_stage_only": 0.415929203539823,
+                "score_stage_condition": 0.5442477876106194
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.048672566371681436,
+              "delta_auc_stage_condition_above_stage_only": 0.12831858407079644
+            },
+            "2015_phd_verhelst_eel": {
+              "n_informative_strata": 3,
+              "n_positive_negative_pairs": 312,
+              "auc": {
+                "score_base": 0.7371794871794872,
+                "score_plus": 0.7115384615384616,
+                "score_stage_only": 0.8173076923076923,
+                "score_stage_condition": 0.7083333333333334
+              },
+              "delta_auc_condition_above_stage_length_timing": -0.02564102564102566,
+              "delta_auc_stage_condition_above_stage_only": -0.10897435897435892
+            }
+          },
+          "equal_project_mean_delta_auc": 0.06364763902234415,
+          "project_deltas_positive": 3,
+          "projects_informative": 4
+        }
+      },
+      "late_vs_never": {
+        "n_fish": 176,
+        "n_positive": 123,
+        "n_negative": 53,
+        "discrimination": {
+          "n_informative_strata": 7,
+          "n_positive_negative_pairs": 675,
+          "auc": {
+            "score_base": 0.6622222222222223,
+            "score_plus": 0.7377777777777778,
+            "score_stage_only": 0.5592592592592592,
+            "score_stage_condition": 0.7051851851851851
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.07555555555555549,
+          "delta_auc_stage_condition_above_stage_only": 0.1459259259259259,
+          "by_heldout_project": {
+            "2011_Warnow": {
+              "n_informative_strata": 1,
+              "n_positive_negative_pairs": 10,
+              "auc": {
+                "score_base": 0.8,
+                "score_plus": 0.9,
+                "score_stage_only": 0.9,
+                "score_stage_condition": 1
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.09999999999999998,
+              "delta_auc_stage_condition_above_stage_only": 0.09999999999999998
+            },
+            "2012_leopoldkanaal": {
+              "n_informative_strata": 1,
+              "n_positive_negative_pairs": 357,
+              "auc": {
+                "score_base": 0.6778711484593838,
+                "score_plus": 0.7619047619047619,
+                "score_stage_only": 0.542016806722689,
+                "score_stage_condition": 0.7450980392156863
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.08403361344537807,
+              "delta_auc_stage_condition_above_stage_only": 0.20308123249299725
+            },
+            "2013_albertkanaal": {
+              "n_informative_strata": 2,
+              "n_positive_negative_pairs": 99,
+              "auc": {
+                "score_base": 0.5808080808080808,
+                "score_plus": 0.6565656565656566,
+                "score_stage_only": 0.4494949494949495,
+                "score_stage_condition": 0.6666666666666666
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.0757575757575758,
+              "delta_auc_stage_condition_above_stage_only": 0.21717171717171713
+            },
+            "2015_phd_verhelst_eel": {
+              "n_informative_strata": 3,
+              "n_positive_negative_pairs": 209,
+              "auc": {
+                "score_base": 0.6674641148325359,
+                "score_plus": 0.7272727272727273,
+                "score_stage_only": 0.6244019138755981,
+                "score_stage_condition": 0.6411483253588517
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.05980861244019142,
+              "delta_auc_stage_condition_above_stage_only": 0.01674641148325362
+            }
+          },
+          "equal_project_mean_delta_auc": 0.07989995041078632,
+          "project_deltas_positive": 4,
+          "projects_informative": 4
+        }
+      },
+      "early_vs_late": {
+        "n_fish": 422,
+        "n_positive": 299,
+        "n_negative": 123,
+        "discrimination": {
+          "n_informative_strata": 12,
+          "n_positive_negative_pairs": 2874,
+          "auc": {
+            "score_base": 0.44485038274182326,
+            "score_plus": 0.453723034098817,
+            "score_stage_only": 0.5067849686847599,
+            "score_stage_condition": 0.4871259568545581
+          },
+          "delta_auc_condition_above_stage_length_timing": 0.008872651356993722,
+          "delta_auc_stage_condition_above_stage_only": -0.019659011830201745,
+          "by_heldout_project": {
+            "2011_Warnow": {
+              "n_informative_strata": 1,
+              "n_positive_negative_pairs": 970,
+              "auc": {
+                "score_base": 0.284020618556701,
+                "score_plus": 0.3020618556701031,
+                "score_stage_only": 0.2958762886597938,
+                "score_stage_condition": 0.32577319587628867
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.018041237113402053,
+              "delta_auc_stage_condition_above_stage_only": 0.02989690721649485
+            },
+            "2012_leopoldkanaal": {
+              "n_informative_strata": 1,
+              "n_positive_negative_pairs": 595,
+              "auc": {
+                "score_base": 0.6554621848739496,
+                "score_plus": 0.7344537815126051,
+                "score_stage_only": 0.7705882352941177,
+                "score_stage_condition": 0.8067226890756303
+              },
+              "delta_auc_condition_above_stage_length_timing": 0.07899159663865551,
+              "delta_auc_stage_condition_above_stage_only": 0.03613445378151259
+            },
+            "2013_albertkanaal": {
+              "n_informative_strata": 4,
+              "n_positive_negative_pairs": 783,
+              "auc": {
+                "score_base": 0.40102171136653897,
+                "score_plus": 0.36909323116219667,
+                "score_stage_only": 0.43103448275862066,
+                "score_stage_condition": 0.37037037037037035
+              },
+              "delta_auc_condition_above_stage_length_timing": -0.0319284802043423,
+              "delta_auc_stage_condition_above_stage_only": -0.06066411238825031
+            },
+            "2015_phd_verhelst_eel": {
+              "n_informative_strata": 4,
+              "n_positive_negative_pairs": 406,
+              "auc": {
+                "score_base": 0.6009852216748769,
+                "score_plus": 0.5935960591133005,
+                "score_stage_only": 0.7746305418719212,
+                "score_stage_condition": 0.6625615763546798
+              },
+              "delta_auc_condition_above_stage_length_timing": -0.007389162561576401,
+              "delta_auc_stage_condition_above_stage_only": -0.11206896551724133
+            },
+            "2019_Grotenete": {
+              "n_informative_strata": 2,
+              "n_positive_negative_pairs": 120,
+              "auc": {
+                "score_base": 0.4583333333333333,
+                "score_plus": 0.36666666666666664,
+                "score_stage_only": 0.49166666666666664,
+                "score_stage_condition": 0.375
+              },
+              "delta_auc_condition_above_stage_length_timing": -0.09166666666666667,
+              "delta_auc_stage_condition_above_stage_only": -0.11666666666666664
+            }
+          },
+          "equal_project_mean_delta_auc": -0.006790295136105562,
+          "project_deltas_positive": 2,
+          "projects_informative": 5
+        }
+      }
+    }
+  },
+  "status": "COMMON_COHORT_HORIZON_CONTRAST_SUPERIOR_SUPPORT",
+  "boundaries": [
+    "Eligibility at day90 depends on future receiver detections and can induce informative selection; this is NOT unbiased incident hazard estimation.",
+    "Later detections are not continuous tracking evidence and observed eventual initiation is itself an algorithmic telemetry endpoint.",
+    "The same 90day cohort holds fish fixed but distinct outcome labels necessarily induce different positive/negative pair sets; contrasts are not the same outcome comparison.",
+    "Events after day90 are still eventual initiators in the eventual endpoint; project receiver followup lengths differ.",
+    "Only six independent project contexts; many paired ranks share fish and source fold models.",
+    "Positive score difference for late vs never does not establish energy storage, seasonal mismatch, hydraulic cue selection or escapement fitness."
+  ]
+}
