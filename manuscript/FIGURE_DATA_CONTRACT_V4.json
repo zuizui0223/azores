@@ -247,6 +247,89 @@
         1.1528508837,
         2.8395327907
       ]
+    },
+    "heldout_condition_increment": {
+      "source": [
+        "results/cross_project_condition_increment_v1.json",
+        "results/cross_project_condition_increment_project_robustness_v1.json"
+      ],
+      "n_fish": 575,
+      "n_projects": 6,
+      "n_positive_negative_pairs": 6914,
+      "baseline_auc": 0.6097772635232861,
+      "condition_augmented_auc": 0.6433323691061614,
+      "delta_auc": 0.03355510558287533,
+      "fixed_training_conditional_boot_ci95": [
+        0.0021442001735608924,
+        0.06443809661556262
+      ],
+      "same_stage_pairs": 3199,
+      "same_stage_baseline_auc": 0.4795248515160988,
+      "same_stage_condition_augmented_auc": 0.554548296342607,
+      "project_delta_auc": [
+        {
+          "project": "2011_Warnow",
+          "n_pairs": 3638,
+          "delta_auc": 0.0068719076415612035
+        },
+        {
+          "project": "2012_leopoldkanaal",
+          "n_pairs": 1456,
+          "delta_auc": 0.10851648351648346
+        },
+        {
+          "project": "2013_albertkanaal",
+          "n_pairs": 393,
+          "delta_auc": 0.10305343511450382
+        },
+        {
+          "project": "2015_phd_verhelst_eel",
+          "n_pairs": 931,
+          "delta_auc": 0.04081632653061218
+        },
+        {
+          "project": "2019_Grotenete",
+          "n_pairs": 88,
+          "delta_auc": -0.03409090909090906
+        },
+        {
+          "project": "ESGL",
+          "n_pairs": 408,
+          "delta_auc": -0.06495098039215685
+        }
+      ],
+      "project_boot_ci95": [
+        -0.0007243058217031535,
+        0.091779728651237
+      ],
+      "project_sign_flip_two_sided_p": 0.1875,
+      "leave_one_project_out_delta_auc": [
+        {
+          "excluded": "2011_Warnow",
+          "delta_auc": 0.06318681318681314
+        },
+        {
+          "excluded": "2012_leopoldkanaal",
+          "delta_auc": 0.013558079882740858
+        },
+        {
+          "excluded": "2013_albertkanaal",
+          "delta_auc": 0.029366661554976158
+        },
+        {
+          "excluded": "2015_phd_verhelst_eel",
+          "delta_auc": 0.03242520474678248
+        },
+        {
+          "excluded": "2019_Grotenete",
+          "delta_auc": 0.03442719015528853
+        },
+        {
+          "excluded": "ESGL",
+          "delta_auc": 0.03973255456501683
+        }
+      ],
+      "supported_interpretation": "Conditional ranking improves in-panel but six-project uncertainty overlaps zero; not universal improvement."
     }
   },
   "boundaries": [
@@ -256,6 +339,7 @@
     "Dutch barrier analysis is falsification, not handoff confirmation.",
     "Terminal non-membership is not biological failure.",
     "Figure 3 exact-link numbers use the corrected expert-eligible cohort; old 18,012/426/248 figures are superseded.",
-    "Post-hoc upper-speed screens are sensitivity tests; confidence intervals include one and weakly negative effects remain inconclusive."
+    "Post-hoc upper-speed screens are sensitivity tests; confidence intervals include one and weakly negative effects remain inconclusive.",
+    "The stage+condition initiation AUC advantage is conditional to the study panel, with broad project-level uncertainty and two reversed projects."
   ]
 }
