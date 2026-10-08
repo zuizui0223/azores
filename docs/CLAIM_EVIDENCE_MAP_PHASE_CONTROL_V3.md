@@ -8,6 +8,8 @@ multivariate-entry-state manuscript.
 | Capture-time Durif stage predicts migration activation | OR **2.08** per stage, 95% CI **1.56–2.77** in the canonical stage model | Strong developmental | Expected from silvering biology; not novelty alone |
 | Continuous capture body state adds information beyond the ordinal Durif label | Multivariate activation model: condition OR **1.46/SD**, 95% CI **1.16–1.83**; Durif OR **2.13/stage** | Strong developmental | Condition is weight/length-derived and not independent physiology |
 | Continuous capture condition adds some held-out activation-ranking information, but not consistently across rivers | Six leave-one-project-out models: within-project-year stratified AUC **0.610 → 0.643** (Δ **+0.0336**, 6,914 pairs); within-Durif-stage **0.480 → 0.555** (3,199 pairs); **4/6** projects positive | Conditional held-out ranking evidence | Six-project resampling 95% interval **−0.0007 to +0.0918**; exact project sign-flip two-sided **p=0.1875**. No universal gain established; outcomes used to assess ranks, not train withheld-project coefficients. |
+| Condition may contain predictive mass information beyond continuous silvering morphology, but its benefit is not reliably portable | Five morph-complete projects, 429 fish, 3,272 initiator/non-initiator pairs: AUC baseline **0.706**, +eye/fin **0.716**, +condition **0.741**, +both **0.741**; condition increment after morphology **+0.0244**; project bootstrap CI **−0.0151 to +0.0659** | Post-hoc independent-project falsification | Improvement positive in only 3/5 projects. Warnow has no morphometrics. Durif uses mass/length itself; no direct fat or hormones, no physiological independence proved. |
+| Stronger observed FV than FIII condition ranking is context-sensitive | Original 6-project stage-matched contrast: FV gain **+0.161** vs FIII **+0.047**. Five shared project-year cells yield FV-minus-FIII incremental difference **+0.150**, but exact 4-project two-sided sign-flip **p=0.25** | Exploratory stage/context check | FIV only 108 pairs; source 2015 cohort reverses yearly; effect-size differences need not be causal. |
 | Durif and condition act mainly additively at the entry gate | Durif×condition and Durif×length interaction model: LR p **0.931** | Developmental mechanism diagnostic | Does not exclude nonlinear/unmeasured physiological interactions |
 | An activation-trained multivariate score predicts migration entry | Score OR **2.23/SD**, 95% CI **1.70–2.92** | Strong within-panel transferability benchmark | Score trained and evaluated in the same public panel; not prospective validation |
 | The same activation-trained score predicts earlier behavioral onset | HR **1.32/SD**, 95% CI **1.17–1.49**, **418** onset events | Strong cross-endpoint transfer | Behavioral classifier onset, not physiological decision time |
@@ -56,6 +58,9 @@ Do not claim that:
 - `results/cross_project_entry_state_score_v1.json`
 - `results/cross_project_condition_increment_v1.json`
 - `results/cross_project_condition_increment_project_robustness_v1.json`
+- `results/stage_specific_condition_gate_v1.json`
+- `results/stage_gate_context_matched_robustness_v1.json`
+- `results/continuous_morphology_condition_increment_v1.json`
 - `results/within_link_entry_state_speed_v1.json`
 - `results/within_link_speed_quality_sensitivity_v1.json`
 - `results/phase_control_canonical_v2.json`
