@@ -79,22 +79,22 @@ when defining the score.
 
 ### 5. The boundary survives exact-link comparison
 
-The frozen within-link audit compares realized positive source speeds on the
+The corrected frozen within-link audit excludes all nine pre-existing expert-classified non-migrants, and its FWL numerical-equivalence test passes. It compares realized positive source speeds on the
 same directed receiver-to-receiver links, gives each eel total weight one, and
 clusters uncertainty by eel.
 
 Primary frozen result:
-- **18,012** segment rows;
-- **426** eels;
-- **248** directed station pairs;
-- entry-state speed ratio **0.995 per SD**;
-- 95% CI **0.912–1.087**;
-- p = **0.918**;
-- weighted partial R² approximately **0.00052%**.
+- **17,792** segment rows;
+- **418** eels;
+- **244** directed station pairs;
+- entry-state speed ratio **0.962 per SD**;
+- 95% CI **0.883–1.048**;
+- p = **0.372**;
+- weighted partial R² approximately **0.0382%**.
 
 Pair-support sensitivities remain close to one:
-- >=3 fish/pair: **0.991**;
-- >=10 fish/pair: **1.032**.
+- >=3 fish/pair: **0.956**;
+- >=10 fish/pair: **0.999**.
 
 Leave-one-project-out estimates cross both sides of one.
 
@@ -127,12 +127,12 @@ externally motivated upper screens of 2.5, 5 and 10 m/s. The all-positive-speed
 primary remains frozen regardless of the sensitivity result.
 
 Observed quality-sensitivity result:
-- <=2.5 m/s: ratio **0.978**, 95% CI **0.911–1.049**;
-- <=5 m/s: ratio **0.979**, 95% CI **0.913–1.049**;
-- <=10 m/s: ratio **0.976**, 95% CI **0.910–1.047**.
+- <=2.5 m/s: ratio **0.942**, 95% CI **0.882–1.006**;
+- <=5 m/s: ratio **0.944**, 95% CI **0.884–1.007**;
+- <=10 m/s: ratio **0.941**, 95% CI **0.881–1.005**.
 
-These screens remove **62.5%**, **58.1%** and **52.5%** of candidate rows,
-respectively, yet all retain the same null-compatible conclusion.
+These screens remove **63.1%**, **58.6%** and **53.0%** of candidate rows,
+respectively. All confidence intervals contain one, although the weak negative estimates have p≈0.07–0.08, so neither a positive effect, a negative effect, nor exact zero is established.
 
 ## Current novelty claim
 
