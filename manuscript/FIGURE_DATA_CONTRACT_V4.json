@@ -577,7 +577,17 @@
         "excluded": 0.5150289351851852
       },
       "negative_control_observability_delta": 0.009202453987730064,
-      "interpretation": "The apparent +0.0471 selected-cohort gain amplification is a project-pair-weighting artifact, and the actual fish-retention pattern is typical of stratified random retention. Neither source noninitiation nor last receiver span is continuous observed biological nonmovement."
+      "interpretation": "The apparent +0.0471 selected-cohort gain amplification is a project-pair-weighting artifact, and the actual fish-retention pattern is typical of stratified random retention. Neither source noninitiation nor last receiver span is continuous observed biological nonmovement.",
+      "label_ambiguity_bound": {
+        "source": "results/observability_label_ambiguity_tipping_v1.json",
+        "model_weights": "original frozen project-held-out scores (not refitted)",
+        "candidate_source_negative_labels": 100,
+        "first_k_with_nonpositive_worst_case_auc_gain": 11,
+        "worst_case_auc_gain_at_tipping": -0.00016131634134537829,
+        "exact_lower_bound_10_flips": 0.0019087004930809608,
+        "exact_lower_bound_15_flips": -0.007835455435847209,
+        "evidence_boundary": "Adversarial hypothetical hidden starts, not observed misclassifications or estimated detection error."
+      }
     }
   },
   "boundaries": [
