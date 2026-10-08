@@ -821,5 +821,37 @@
     ],
     "project_cluster_fraction_strict_positive": 0.5326,
     "interpretation": "These are exploratory resampling ranges for the endpoint of a conditional finite-sample sharp label bound, not confidence intervals for true population initiation or causal effect."
+  },
+  "stage_stratified_hidden_start_tipping": {
+    "evidence_class": "post_hoc_exact_frozen_score_stage_restricted_hypothetical_relabeling",
+    "source": "results/stage_stratified_hidden_start_tipping_v1.json",
+    "n_short_negative_candidates": 100,
+    "unrestricted_first_k": 11,
+    "original_worst_witness_stage_counts": {
+      "FIII": 8,
+      "FIV": 2,
+      "FV": 1
+    },
+    "stage": {
+      "FIII": {
+        "candidate_count": 70,
+        "first_nonpositive_k": 16,
+        "minimum_delta_at_11": 0.006395258150054594,
+        "minimum_delta_if_all_changed": 0.062199807877041303
+      },
+      "FIV": {
+        "candidate_count": 13,
+        "first_nonpositive_k": null,
+        "minimum_delta_at_11": 0.024966362685005232,
+        "minimum_delta_if_all_changed": 0.027574899388880608
+      },
+      "FV": {
+        "candidate_count": 17,
+        "first_nonpositive_k": null,
+        "minimum_delta_at_11": 0.021151586368977675,
+        "minimum_delta_if_all_changed": 0.027948402948402947
+      }
+    },
+    "conclusion": "FIII-only strategic hypothetical misclassifications can null the AUC increment at 16/70; FIV-only and FV-only cannot erase it regardless of number. This is label-contamination sensitivity, not observed or stage-specific detection rates."
   }
 }
