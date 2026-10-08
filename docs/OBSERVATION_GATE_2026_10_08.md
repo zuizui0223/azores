@@ -31,6 +31,28 @@ Among the 153 source noninitiators, the 100 excluded individuals have a median t
 
 This is an unusually useful negative result: **the selected-cohort AUC amplification has an identified accounting explanation, without requiring an adaptive physiological timing mechanism**. This does not prove the original activation association is entirely artifactual or that all pathways of detection bias are absent.
 
+## Exact ambiguity tipping: the in-panel condition gain is vulnerable to a few hypothetical missed initiations
+
+A follow-up **post-hoc sensitivity**, independently validated by exhaustive synthetic combination tests, held the **original two project-held-out model scores fixed** and allowed hypothetical relabelling of only the 100 source noninitiation records lacking 90-day observation support. All 422 source initiators and the 53 longer-observed source noninitiators were fixed.
+
+The exact rank-pair optimization over possible relabellings found:
+- unchanged classification: condition adds **+0.03356 AUC**;
+- best-case *against* condition at 5 relabelled fish: **+0.01296**;
+- at 10 fish: minimum **+0.00191**;
+- **first nonpositive gain at 11 fish: −0.00016**;
+- at 15 fish: minimum **−0.00784**.
+
+The eleven-fish worst-case allocation assigned eight hypothetical hidden starts to Warnow and one each to Leopoldkanaal, Albertkanaal and Verhelst. Other legal assignments could strengthen rather than weaken the apparent condition signal.
+
+**This does not show that 11 actual fish started migration undetected.** It is a mathematically exact *adversarial sensitivity bound* conditional on frozen fitted scores and one source-definition of inadequate receiver follow-up. Score retraining under alternative labels was not performed; receiver dropout and genuine nonmigration remain unidentifiable. Its scientific contribution is to quantify **how little source-label ambiguity may be sufficient to remove the added ranking advantage** in one allowed worst-case scenario.
+
+Reproduction:
+- `analysis/contracts/observability_label_ambiguity_tipping_v1.json`;
+- `analysis/46_observability_label_ambiguity_tipping.py`;
+- `analysis/tests/test_observability_label_ambiguity_tipping.py`;
+- `results/observability_label_ambiguity_tipping_v1.json`;
+- [CI run 37763360099](https://github.com/zuizui0223/azores/actions/runs/37763360099) — PASS.
+
 ## Competing explanations
 
 - **Random loss from the noninitiation class.** Narrowing the control pool, with differing project-year support, could alter ranking metrics simply by chance and reweighting. Diagnostic: randomly retain the same number of negative records within every project-year; repeat with the fixed scores.
