@@ -114,6 +114,18 @@ Canonical artifacts:
 - `results/observability_selection_gate_v1.json`
 - `docs/OBSERVATION_GATE_2026_10_08.md`
 
+Exact label-ambiguity sensitivity for entry-state prediction (2026-10-08; exhaustive synthetic algorithm test PASS, original fixed held-out scores):
+- among 575 fish, the 100 source noninitiation records with insufficient 90-day observation are the only hypothetically relabelled individuals;
+- full-cohort body-condition incremental AUC **+0.0336**;
+- 10 worst-case hidden-start reassignments still give minimum **+0.00191**;
+- **11 strategically selected hypothetical hidden starts** give the first nonpositive exact lower bound (**−0.00016**);
+- **not an empirical finding that 11 missed starts occurred**, not a false-negative prevalence estimate, and not a sensitivity with re-trained coefficients;
+- ecological boundary: telemetry-defined initiation is an observation-dependent endpoint and cannot be used as a validated direct measure of intrinsic readiness or seaward escapement.
+
+Canonical artifacts:
+- `results/observability_label_ambiguity_tipping_v1.json`
+- `docs/OBSERVATION_GATE_2026_10_08.md`
+
 Exact-link realized transit-speed audit (corrected expert-eligible cohort, FWL numerical equivalence PASS):
 - **17,792** positive segment rows;
 - **418** eels;
