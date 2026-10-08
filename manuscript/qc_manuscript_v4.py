@@ -292,7 +292,7 @@ for scenario,contract_key in [("uniform","uniform"),("stage_FV_x3","FV_enriched"
 checks["random_hidden_rank_adverse_tail"] = all(abs(next(x for x in random_hidden["scenarios"]["adverse_disagreement_x3"] if x["k"] == int(k))["fraction_nonpositive"] - v) < 1e-10 for k,v in rh["score_disagreement_enrichment_nonpositive_fraction_by_k"].items())
 checks["random_hidden_all100_nonmonotonic"] = abs(next(x for x in random_hidden["scenarios"]["uniform"] if x["k"] == 100)["mean_auc_increment"] - rh["deterministic_all_100_reclassified_gain"]) < 1e-10 and rh["deterministic_all_100_reclassified_gain"] > rh["baseline_auc_gain"]
 checks["random_hidden_figure_match"] = abs(rfig["all_100_reclassified_auc_gain"] - rh["deterministic_all_100_reclassified_gain"]) < 1e-10 and abs(rfig["score_disagreement_nonpositive_at_50"] - rh["score_disagreement_enrichment_nonpositive_fraction_by_k"]["50"]) < 1e-10
-checks["random_hidden_reported_as_hypothetical"] = has(r"10,000.*uniformly selected") and has(r"23\\.3%") and has(r"hypothetical") and has(r"not a true detection-error model")
+checks["random_hidden_reported_as_hypothetical"] = has(r"10,000.{0,8}uniformly selected") and has(r"23\.3%") and has(r"hypothetical") and has(r"not a true detection-error model")
 
 
 failed = [k for k,v in checks.items() if not v]
