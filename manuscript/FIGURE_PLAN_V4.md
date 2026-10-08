@@ -185,6 +185,41 @@ Required annotation:
 > terminal non-membership is not a validated biological failure state; no
 > escapement probability is estimated.
 
+## Supplementary Figure S4 — Entry participation versus timing among initiators
+
+**All analyses in this figure are exploratory and conducted after inspection of the first multivariate entry-score results.**
+
+Panel A — **Frozen project-held-out prediction across observed time horizons**:
+- exactly **475** day-90-eligible eels in every comparison;
+- the same event-training coefficients are used in all five endpoints;
+- report added condition stratified AUC by 7/30/60/90-day onset and eventual initiation:
+  **+0.0077 / +0.0329 / +0.0460 / +0.0549 / +0.0807**;
+- label each endpoint event count **239 / 299 / 331 / 351 / 422**;
+- avoid a linear/physiological-time interpretation of the event labels; pair sets change as the event definition changes.
+
+Panel B — **Three observed migration-onset categories**:
+- ≤30-day onset: **299** eels;
+- >30-day onset: **123** eels;
+- no source-classified initiation: **53** eels.
+- conditional AUC increments, same fixed scores: early versus never **+0.0832**, late versus never **+0.0756**, early versus late **+0.0089**.
+- the 53 are not verified true nonmigrants or failed escapements.
+
+Panel C — **Direct onset-order ranking among detected entrants**:
+- 422 initiated eels, **10,756** within-project-year onset-order pairs;
+- baseline concordance **0.5446**, condition-expanded **0.5461**, gain **+0.0015**;
+- project-resampling CI for gain **−0.0237–+0.0202** and exact project sign-flip **p=0.9375**;
+- onset after day 1 only: 291 eels, gain **−0.0086**.
+
+Panel D — **Selection and inferential boundaries**:
+- 100 of 575 eels lack day-90 eligibility;
+- unequal event/control followup and latent non-detection limit any survival inference;
+- eventual-vs-day30 added AUC contrast: four matched projects, mean **+0.0431**, project-bootstrap CI **+0.0164–+0.0697**, exact sign-flip **p=0.125**.
+- explicitly distinguish from separately re-trained 7/30/60/90-day models, which changed training population and had different effect directions.
+
+Data sources: `results/paired_temporal_endpoint_condition_v1.json`,
+`results/fixed_followup_condition_increment_v1.json`,
+`results/entrant_onset_latency_discrimination_v1.json`.
+
 ## Figure boundary
 
 Do not:
