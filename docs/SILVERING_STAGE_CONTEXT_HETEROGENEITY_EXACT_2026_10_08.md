@@ -59,6 +59,12 @@ The key inferential distinction:
 - Between-river homogeneity: **not supported** by the six-project exact test.
 - Biological mechanism and management consequences: **not yet determined**.
 
+## What the pinned source can test about mechanism
+
+The pinned upstream `PieterjanVerhelst/eel-meta-analysis` tree (commit `59578cb622dddbbba5174b4c51bff0807787385a`) includes project and water-regulating-structure metadata (`data/external/eels_wrs.csv`), distance matrices, habitats and station geometry. It does **not** contain harmonized, time-aligned river discharge or tidal forcing series for all six focal project-year cohorts. A categorical contrast among water-regulating-structure types would also be essentially confounded with project identity.
+
+Therefore the current archive can compare **source-classified stage associations across sampled project-year contexts**, but cannot identify an ecological flow-trigger interaction or a causal barrier effect. A convincing mechanistic extension would combine onset risk sets, time-varying discharge/tide and receiver operation windows in replicated water bodies while retaining individual silvering and condition phenotypes.
+
 ## Ecological and conservation implications
 
 A uniform maturity-to-migration conversion factor across rivers is not empirically justified by this particular observational panel. It is safer to report separately: production of morphologically silver eels, individually classified downstream movement, duration/coverage of receiver observation, safe barrier passage and actual escapement.
