@@ -1,0 +1,33 @@
+{
+  "schema": "azores.fixed_followup_condition_increment_contract.v1",
+  "evidence_class": "post_hoc_developmental_observation_exposure_sensitivity",
+  "question": "Does body condition add held-out initiation information when non-events must have observed post-release tracking beyond a common time horizon?",
+  "source": "Pinned PieterjanVerhelst/eel-meta-analysis; same 575 FIII/FIV/FV individuals as V4; fixed nine expert non-migrant overrides; event = canonical downstream onset timestamp, not source terminal positive set",
+  "windows_days": [
+    7,
+    30,
+    60,
+    90
+  ],
+  "event": "first canonical detected behavioral onset >= release and <= release + horizon",
+  "nonevent": "no onset <= horizon; last recorded receiver arrival >= release + horizon",
+  "excluded": "no event within horizon and no recorded arrival beyond horizon; this is informative selection, not missing-at-random correction",
+  "evaluate": "at each horizon leave one entire source project out, train a baseline stage+length+release-timing model and an expanded baseline+weight-for-length residual; evaluate AUC on heldout initiator/noninitiator pairs within each project-year only",
+  "primary_horizon_days": 30,
+  "secondary_horizons_days": [
+    7,
+    60,
+    90
+  ],
+  "sample_integrity": "No event can be counted after horizon; no nonevent included without observed >=horizon last arrival; all nine expert non-migrants remain nonevents unless last arrival meets horizon. Heldout project outcomes never used to estimate coefficients.",
+  "output": "per-window total included, events, controls, excluded, project/stratum counts, pooled AUC delta, per-project direction; intervals from 10,000 bootstraps of source projects with fit weights fixed, not independent prospective validation",
+  "status_rule": "An initial 30-day condition increment is transportable only if positive and its project bootstrap CI excludes zero with ≥4 informative projects. Otherwise no demonstrated general condition increment at fixed observation horizon.",
+  "boundaries": [
+    "A last arrival after a horizon documents later detection, not continuous array coverage or full tracking surveillance.",
+    "Events are eligible when observed early even if last arrival occurs before horizon; non-events require later detection. The asymmetry can itself induce selection.",
+    "Excluding short-observed nonevents is an ascertainment sensitivity, not inverse-probability correction or unbiased migration probability.",
+    "Unknown detection probability, mortality and undetected downstream movement remain confounded.",
+    "No interpretation of fixed-window noninitiation as biological failure or escapement deficit.",
+    "Multiple windows are a frozen sensitivity series; do not select a window after seeing a favorable effect."
+  ]
+}
