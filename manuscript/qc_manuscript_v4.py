@@ -14,6 +14,8 @@ W = Path("results/dutch_arrival_waiting_diagnostic_v1.json")
 X = Path("results/cross_project_entry_state_score_v1.json")
 L = Path("results/within_link_entry_state_speed_v1.json")
 Q = Path("results/within_link_speed_quality_sensitivity_v1.json")
+F = Path("results/within_link_fwl_numerical_audit_v1.json")
+FD = Path("manuscript/FIGURE_DATA_CONTRACT_V4.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -23,6 +25,8 @@ waiting = json.loads(W.read_text())
 cross = json.loads(X.read_text())
 link = json.loads(L.read_text())
 quality = json.loads(Q.read_text())
+fwl = json.loads(F.read_text())
+figure = json.loads(FD.read_text())
 
 checks = {}
 
@@ -54,13 +58,15 @@ checks["cross_activation_OR_1_97"] = has(r"1\.97")
 checks["cross_onset_HR_1_26"] = has(r"1\.26")
 checks["cross_whole_speed_0_948"] = has(r"0\.948")
 checks["cross_segment_speed_1_013"] = has(r"1\.013")
-checks["within_link_ratio_0_995"] = has(r"0\.995")
-checks["within_link_ci_0_912_1_087"] = has(r"0\.912") and has(r"1\.087")
-checks["within_link_n_segments_18012"] = has(r"18,012")
-checks["within_link_n_fish_426"] = has(r"426")
-checks["within_link_n_pairs_248"] = has(r"248")
-checks["quality_ratios_present"] = has(r"0\.978") and has(r"0\.979") and has(r"0\.976")
-checks["quality_boundary_present"] = has(r"3752") and has(r"52\.5") and has(r"62\.5")
+checks["within_link_ratio_0_962"] = has(r"0\.962")
+checks["within_link_ci_0_883_1_048"] = has(r"0\.883") and has(r"1\.048")
+checks["within_link_n_segments_17792"] = has(r"17,792")
+checks["within_link_n_fish_418"] = has(r"17,792.{0,120}418")
+checks["within_link_n_pairs_244"] = has(r"244")
+checks["quality_ratios_present"] = has(r"0\.942") and has(r"0\.944") and has(r"0\.941")
+checks["quality_boundary_present"] = has(r"3752") and has(r"53\.0") and has(r"63\.1")
+checks["within_link_no_superseded_numbers"] = not has(r"18,012|0\.995|0\.00052%")
+checks["within_link_weak_negative_quality_boundary"] = has(r"0\.07.{0,8}0\.08")
 
 # Contract/result identity.
 checks["score_schema"] = score.get("schema") == "azores.entry_state_score_transferability.v1"
@@ -88,6 +94,12 @@ checks["quality_status_robust"] = quality.get("status") == "WITHIN_LINK_NULL_ROB
 checks["quality_2_5_exact"] = abs(quality["threshold_results"]["2.5"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["2.5"]["ratio_per_sd"]) < 1e-9
 checks["quality_5_exact"] = abs(quality["threshold_results"]["5.0"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["5.0"]["ratio_per_sd"]) < 1e-9
 checks["quality_10_exact"] = abs(quality["threshold_results"]["10.0"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["10.0"]["ratio_per_sd"]) < 1e-9
+checks["fwl_equivalence_pass"] = fwl.get("status") == "PASS_FWL_NUMERICAL_EQUIVALENCE"
+checks["fwl_primary_agreement"] = fwl["primary_all_positive_source_speeds"]["absolute_beta_difference"] < 1e-8 and fwl["primary_all_positive_source_speeds"]["absolute_se_difference"] < 5e-4
+checks["fwl_primary_sample_match"] = fwl["primary_all_positive_source_speeds"]["n_rows"] == link["primary"]["n_segment_rows"] and fwl["primary_all_positive_source_speeds"]["n_fish"] == link["primary"]["n_fish"]
+checks["figure3_corrected_link"] = figure["main_figures"]["figure3"]["exact_link_transit"]["n_segment_rows"] == link["primary"]["n_segment_rows"] and abs(figure["main_figures"]["figure3"]["exact_link_transit"]["ratio_per_sd"] - link["primary"]["entry_state_effect"]["speed_ratio_per_1sd_score"]) < 1e-9
+checks["figure3_quality_sensitivity"] = figure["main_figures"]["figure3"]["speed_quality_sensitivity"]["all_intervals_include_one"] is True
+
 checks["title_realized_transit_speed"] = text.startswith("# A multivariate entry state predicts migration activation but not realized transit speed in European eel")
 checks["new_refs_present"] = "Tudorache, C." in text and "Katopodis, C." in text
 
