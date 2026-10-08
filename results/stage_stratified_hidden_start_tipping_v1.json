@@ -1,0 +1,294 @@
+{
+  "schema": "azores.stage_stratified_hidden_start_tipping.v1",
+  "evidence_class": "post_hoc_exact_frozen_score_stage_restricted_hypothetical_relabeling",
+  "contract": "analysis/contracts/stage_stratified_hidden_start_tipping_v1.json",
+  "source": [
+    "results/observability_label_ambiguity_tipping_v1.json",
+    "results/receiver_witness_observability_v1.json"
+  ],
+  "n_fish": 575,
+  "n_source_initiators": 422,
+  "n_short_negative_candidates": 100,
+  "baseline_comparison_pairs": 6914,
+  "baseline_heldout_condition_auc_increment": 0.033555105582875326,
+  "unrestricted_minimum_k": 11,
+  "original_unrestricted_11_flips_by_stage": {
+    "FIII": 8,
+    "FIV": 2,
+    "FV": 1
+  },
+  "stage": {
+    "FIII": {
+      "stage": "FIII",
+      "candidate_count": 70,
+      "first_k_with_nonpositive_heldout_condition_auc_gain": 16,
+      "fraction_of_stage_candidates_at_tipping": 0.22857142857142856,
+      "hypothetical_witness_at_first_tipping": {
+        "minimum_delta_auc": -0.0001595150741745095,
+        "hypothetical_flips": 16,
+        "n_informative_pairs": 6269,
+        "flips_by_project": {
+          "2011_Warnow": 8,
+          "2012_leopoldkanaal": 2,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 4
+        },
+        "witness_tags": [
+          "A69-1601-29944",
+          "A69-1601-31867",
+          "A69-1601-38342",
+          "A69-1601-38356",
+          "A69-1601-38361",
+          "A69-1601-38366",
+          "A69-1601-52643",
+          "A69-1601-541",
+          "A69-1601-552",
+          "A69-1601-558",
+          "A69-1601-571",
+          "A69-1601-57473",
+          "A69-1601-600",
+          "A69-1601-642",
+          "A69-1601-656",
+          "A69-1601-675"
+        ]
+      },
+      "minimum_at_exactly_11_flips": {
+        "minimum_delta_auc": 0.006395258150054594,
+        "hypothetical_flips": 11,
+        "n_informative_pairs": 6411,
+        "flips_by_project": {
+          "2011_Warnow": 6,
+          "2012_leopoldkanaal": 2,
+          "2015_phd_verhelst_eel": 1,
+          "ESGL": 2
+        },
+        "witness_tags": [
+          "A69-1601-29944",
+          "A69-1601-31867",
+          "A69-1601-38342",
+          "A69-1601-38366",
+          "A69-1601-52643",
+          "A69-1601-541",
+          "A69-1601-552",
+          "A69-1601-571",
+          "A69-1601-600",
+          "A69-1601-656",
+          "A69-1601-675"
+        ]
+      },
+      "minimum_if_all_stage_candidates_flipped": {
+        "minimum_delta_auc": 0.062199807877041303,
+        "hypothetical_flips": 70,
+        "n_informative_pairs": 4164,
+        "flips_by_project": {
+          "2011_Warnow": 24,
+          "2012_leopoldkanaal": 6,
+          "2015_phd_verhelst_eel": 15,
+          "2019_Grotenete": 5,
+          "ESGL": 20
+        },
+        "witness_tags": [
+          "A69-1601-26501",
+          "A69-1601-26505",
+          "A69-1601-28265",
+          "A69-1601-29944",
+          "A69-1601-31860",
+          "A69-1601-31863",
+          "A69-1601-31867",
+          "A69-1601-31871",
+          "A69-1601-31878",
+          "A69-1601-38317",
+          "A69-1601-38320",
+          "A69-1601-38325",
+          "A69-1601-38326",
+          "A69-1601-38328",
+          "A69-1601-38330",
+          "A69-1601-38331",
+          "A69-1601-38332",
+          "A69-1601-38335",
+          "A69-1601-38342",
+          "A69-1601-38344",
+          "A69-1601-38345",
+          "A69-1601-38347",
+          "A69-1601-38354",
+          "A69-1601-38355",
+          "A69-1601-38356",
+          "A69-1601-38361",
+          "A69-1601-38362",
+          "A69-1601-38364",
+          "A69-1601-38366",
+          "A69-1601-52624",
+          "A69-1601-52643",
+          "A69-1601-52652",
+          "A69-1601-52655",
+          "A69-1601-52656",
+          "A69-1601-541",
+          "A69-1601-552",
+          "A69-1601-554",
+          "A69-1601-558",
+          "A69-1601-559",
+          "A69-1601-570",
+          "A69-1601-571",
+          "A69-1601-57460",
+          "A69-1601-57461",
+          "A69-1601-57463",
+          "A69-1601-57466",
+          "A69-1601-57467",
+          "A69-1601-57473",
+          "A69-1601-57474",
+          "A69-1601-581",
+          "A69-1601-585",
+          "A69-1601-592",
+          "A69-1601-594",
+          "A69-1601-596",
+          "A69-1601-600",
+          "A69-1601-602",
+          "A69-1601-603",
+          "A69-1601-610",
+          "A69-1601-633",
+          "A69-1601-636",
+          "A69-1601-642",
+          "A69-1601-648",
+          "A69-1601-64882",
+          "A69-1601-654",
+          "A69-1601-656",
+          "A69-1601-661",
+          "A69-1601-675",
+          "A69-1602-11948",
+          "A69-1602-30365",
+          "A69-9006-3992",
+          "A69-9006-4000"
+        ]
+      },
+      "interpretation": "Stage-only hypothetical relabeling can erase pooled AUC gain under a sufficiently adversarial label assignment."
+    },
+    "FIV": {
+      "stage": "FIV",
+      "candidate_count": 13,
+      "first_k_with_nonpositive_heldout_condition_auc_gain": null,
+      "fraction_of_stage_candidates_at_tipping": null,
+      "hypothetical_witness_at_first_tipping": null,
+      "minimum_at_exactly_11_flips": {
+        "minimum_delta_auc": 0.024966362685005232,
+        "hypothetical_flips": 11,
+        "n_informative_pairs": 6689,
+        "flips_by_project": {
+          "2011_Warnow": 4,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 5
+        },
+        "witness_tags": [
+          "A69-1601-38322",
+          "A69-1601-38323",
+          "A69-1601-38324",
+          "A69-1601-38340",
+          "A69-1601-38352",
+          "A69-1601-568",
+          "A69-1601-57471",
+          "A69-1601-57476",
+          "A69-1601-606",
+          "A69-1601-678",
+          "A69-1601-685"
+        ]
+      },
+      "minimum_if_all_stage_candidates_flipped": {
+        "minimum_delta_auc": 0.027574899388880608,
+        "hypothetical_flips": 13,
+        "n_informative_pairs": 6709,
+        "flips_by_project": {
+          "2011_Warnow": 4,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 7
+        },
+        "witness_tags": [
+          "A69-1601-38321",
+          "A69-1601-38322",
+          "A69-1601-38323",
+          "A69-1601-38324",
+          "A69-1601-38339",
+          "A69-1601-38340",
+          "A69-1601-38352",
+          "A69-1601-568",
+          "A69-1601-57471",
+          "A69-1601-57476",
+          "A69-1601-606",
+          "A69-1601-678",
+          "A69-1601-685"
+        ]
+      },
+      "interpretation": "Even changing any number of short-followup negative labels restricted to this stage cannot erase the pooled AUC gain."
+    },
+    "FV": {
+      "stage": "FV",
+      "candidate_count": 17,
+      "first_k_with_nonpositive_heldout_condition_auc_gain": null,
+      "fraction_of_stage_candidates_at_tipping": null,
+      "hypothetical_witness_at_first_tipping": null,
+      "minimum_at_exactly_11_flips": {
+        "minimum_delta_auc": 0.021151586368977675,
+        "hypothetical_flips": 11,
+        "n_informative_pairs": 6808,
+        "flips_by_project": {
+          "2011_Warnow": 1,
+          "2012_leopoldkanaal": 1,
+          "2013_albertkanaal": 2,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 5
+        },
+        "witness_tags": [
+          "A69-1601-26450",
+          "A69-1601-26453",
+          "A69-1601-31900",
+          "A69-1601-38327",
+          "A69-1601-38329",
+          "A69-1601-38341",
+          "A69-1601-38349",
+          "A69-1601-38353",
+          "A69-1601-52650",
+          "A69-1601-52663",
+          "A69-1601-637"
+        ]
+      },
+      "minimum_if_all_stage_candidates_flipped": {
+        "minimum_delta_auc": 0.027948402948402947,
+        "hypothetical_flips": 17,
+        "n_informative_pairs": 6512,
+        "flips_by_project": {
+          "2011_Warnow": 5,
+          "2012_leopoldkanaal": 1,
+          "2013_albertkanaal": 2,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 7
+        },
+        "witness_tags": [
+          "A69-1601-26450",
+          "A69-1601-26453",
+          "A69-1601-31900",
+          "A69-1601-38327",
+          "A69-1601-38329",
+          "A69-1601-38333",
+          "A69-1601-38338",
+          "A69-1601-38341",
+          "A69-1601-38349",
+          "A69-1601-38353",
+          "A69-1601-52650",
+          "A69-1601-52663",
+          "A69-1601-637",
+          "A69-1601-639",
+          "A69-1601-644",
+          "A69-1601-651",
+          "A69-1601-669"
+        ]
+      },
+      "interpretation": "Even changing any number of short-followup negative labels restricted to this stage cannot erase the pooled AUC gain."
+    }
+  },
+  "status": "STAGE_RESTRICTED_EXACT_LABEL_SENSITIVITY_COMPUTED",
+  "interpretation_boundary": [
+    "A source noninitiation with short followup is not documented hidden initiation; relabelings are worst-case hypothetical.",
+    "No stage-dependent detection error rate or stage-dependent ecological mechanism is identified.",
+    "Project-year pair-weighted AUC is not an estimate of independent-project generalization.",
+    "Relabeling one source outcome may change its true observational history, so this is a label-only sensitivity not a complete generative observation model.",
+    "The original nine expert-classified non-migrants remain corrected exactly as defined by pinned upstream analysis."
+  ]
+}
