@@ -84,21 +84,21 @@ Plot the four canonical score effects listed above.
 ### Panel B — exact-link realized transit-speed test
 
 Show the frozen exact-link estimate:
-- **18,012** positive segment rows;
-- **426** eels;
-- **248** directed station pairs;
-- project-held-out score ratio **0.995/SD**;
-- 95% CI **0.912–1.087**;
-- p **0.918**;
-- weighted partial R² **0.00052%**.
+- **17,792** positive segment rows;
+- **418** eels;
+- **244** directed station pairs;
+- project-held-out score ratio **0.962/SD**;
+- 95% CI **0.883–1.048**;
+- p **0.372**;
+- weighted partial R² **0.0382%**.
 
 Add three small sensitivity points:
-- <=2.5 m s⁻¹: **0.978**;
-- <=5 m s⁻¹: **0.979**;
-- <=10 m s⁻¹: **0.976**.
+- <=2.5 m s⁻¹: **0.942**;
+- <=5 m s⁻¹: **0.944**;
+- <=10 m s⁻¹: **0.941**.
 
 Annotate that the external-plausibility screens are post-hoc and that they
-remove **52.5–62.5%** of candidate raw segment rows because the source
+remove **53.0–63.1%** of candidate raw segment rows because the source
 last-to-first speed field contains grossly implausible values.
 
 Message:
@@ -106,6 +106,9 @@ Message:
 > a capture-state vector trained on migratory commitment still ranks when
 > migration starts, but provides essentially no ranking of realized transit
 > speed even within identical route links.
+
+
+The current numerical results exclude the nine fixed expert-classified 2015 non-migrants. Corrected pair-support ratios are **0.956** (>=3 fish) and **0.999** (>=10 fish); leave-one-project-out ratios range **0.933–1.013**. The 2.5/5/10 m s⁻¹ screens are post-hoc and yield weak negative point estimates (p≈0.07–0.08), not an established speed effect.
 
 ## Figure 4 — Independent arrival-defined barrier test falsifies a simple selectivity mechanism
 
