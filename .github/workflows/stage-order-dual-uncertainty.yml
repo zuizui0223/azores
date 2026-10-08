@@ -1,0 +1,34 @@
+name: stage-order-dual-uncertainty
+
+on:
+  push:
+    paths:
+      - "analysis/52_stage_order_dual_uncertainty.py"
+      - "analysis/contracts/stage_order_dual_uncertainty_v1.json"
+      - "results/stage_order_dual_uncertainty_v1.json"
+      - "results/stage_entry_observability_bounds_v1.json"
+      - ".github/workflows/stage-order-dual-uncertainty.yml"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check syntax
+        run: python -m py_compile analysis/52_stage_order_dual_uncertainty.py
+      - name: Recompute and compare to canonical output
+        run: python analysis/52_stage_order_dual_uncertainty.py
+      - name: Show result
+        if: always()
+        run: cat analysis/results/stage_order_dual_uncertainty.json || true
+      - name: Upload analytical result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-stage-order-dual-uncertainty
+          path: analysis/results/stage_order_dual_uncertainty.json
