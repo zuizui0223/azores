@@ -26,6 +26,8 @@ SEASON = Path("results/seasonal_condition_interaction_v1.json")
 FIXED = Path("results/fixed_followup_condition_increment_v1.json")
 PAIRED = Path("results/paired_temporal_endpoint_condition_v1.json")
 ENTRANT = Path("results/entrant_onset_latency_discrimination_v1.json")
+OBS = Path("results/observability_selection_gate_v1.json")
+OBS_MIX = Path("results/observability_project_composition_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -47,6 +49,8 @@ seasonal = json.loads(SEASON.read_text())
 fixed_followup = json.loads(FIXED.read_text())
 paired_endpoint = json.loads(PAIRED.read_text())
 entrant_latency = json.loads(ENTRANT.read_text())
+observability = json.loads(OBS.read_text())
+observability_mix = json.loads(OBS_MIX.read_text())
 
 checks = {}
 
@@ -199,6 +203,32 @@ checks["temporal_entrant_exclusion"] = entrant_latency["sensitivity_excluding_da
 checks["temporal_figure_matches"] = figure["supplementary"]["temporal_entry_decomposition"]["common_cohort"]["n"] == tcommon["n"] and figure["supplementary"]["temporal_entry_decomposition"]["conditional_latency"]["pairs"] == tlat["pairs"]
 checks["temporal_manuscript_results"] = has(r"10,756") and has(r"0\.5461") and has(r"0\.0329") and has(r"0\.0807") and has(r"0\.125")
 checks["temporal_no_migration_delay_claim"] = not has(r"high(?:er)?[- ]condition eels (?:deliberately )?wait longer|proved? that (?:better|high)[- ]condition eels delay")
+
+
+# 90-day observability gate: freeze the project-composition, permutation and
+# descriptive follow-up denominators rather than promote a stronger timing effect.
+oc = contract["observability_selection_gate"]
+oe = observability["cohort"]
+om = observability_mix["exact_decomposition"]
+ar = observability["random_negative_retention"]
+null = ar["conditional_random_retention"]
+checks["observability_schema"] = observability.get("schema") == "azores.observability_selection_gate.v1"
+checks["observability_mix_schema"] = observability_mix.get("schema") == "azores.observability_project_composition.v1"
+checks["observability_n"] = oe["n_initiators"] == oc["source_initiators"] == 422 and oe["n_source_noninitiators"] == oc["source_noninitiators"] == 153
+checks["observability_asymmetric_retention"] = oe["n_excluded_initiators"] == oc["excluded_initiators"] == 0 and oe["n_excluded_noninitiators"] == oc["early_followup_excluded"] == 100 and oe["n_retained_noninitiators"] == oc["retained_noninitiators"] == 53
+checks["observability_full_auc"] = abs(observability_mix["auc_condition_increment"]["full"] - oc["full_eventual_auc_gain"]) < 1e-10
+checks["observability_selected_auc"] = abs(ar["observed_selected_delta"] - oc["day90_selected_eventual_auc_gain"]) < 1e-10
+checks["observability_exact_weight_identity"] = abs(om["identity_residual"]) < 1e-10 and abs(om["project_pair_weight_rebalancing"] - oc["project_weight_composition_term"]) < 1e-10 and abs(om["within_project_changes_and_project_year_mix"] - oc["within_project_changes_term"]) < 1e-10
+checks["observability_random_retention_count"] = null["resamples"] == oc["null_retention"]["n_replicates"] == 20000
+checks["observability_random_retention_same_auc"] = abs(null["mean_delta"] - oc["null_retention"]["mean_auc_gain"]) < 1e-10 and abs(ar["observed_selected_delta"] - oc["null_retention"]["observed_delta"]) < 1e-10
+checks["observability_random_retention_ci"] = null["ci95"][0] < ar["observed_selected_delta"] < null["ci95"][1] and abs(null["two_sided_distance_from_mean_probability"] - oc["null_retention"]["two_sided_distance_from_mean_p"]) < 1e-10
+checks["observability_no_phenotype_retention_claim"] = ar["status"] == "OBSERVED_RETENTION_WITHIN_STRATIFIED_RANDOM_THINNING_ENVELOPE"
+checks["observability_source_negative_control"] = abs(observability["negative_control"]["auc_within_project_year"]["delta_auc_condition_above_stage_length_timing"] - oc["negative_control"]["delta_auc_condition"]) < 1e-10
+checks["observability_followup_medians"] = abs(observability["noninitiator_condition_and_followup_medians"]["excluded"]["median_last_observation_days"] - oc["source_noninitiator_last_receiver_arrival_days"]["excluded_median"]) < 1e-10 and abs(observability["noninitiator_condition_and_followup_medians"]["retained"]["median_last_observation_days"] - oc["source_noninitiator_last_receiver_arrival_days"]["selected_median"]) < 1e-10
+checks["observability_figure_data"] = abs(figure["supplementary"]["observation_process_gate"]["project_weight_rebalance_component"] - om["project_pair_weight_rebalancing"]) < 1e-10
+checks["observability_in_manuscript"] = has(r"0\.0515") and has(r"0\.0044") and has(r"0\.0844") and has(r"0\.764") and has(r"100/153")
+checks["observability_no_phenotype_time_strengthening"] = not has(r"condition gains? (?:more |stronger )?physiological influence over (?:elapsed )?time|time makes condition more biologically important")
+
 
 checks["title_realized_transit_speed"] = text.startswith("# A multivariate entry state predicts migration activation but not realized transit speed in European eel")
 checks["new_refs_present"] = "Tudorache, C." in text and "Katopodis, C." in text
