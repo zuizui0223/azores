@@ -1,0 +1,51 @@
+{
+  "schema": "azores.continuous_morphology_condition_increment_contract.v1",
+  "evidence_class": "post_hoc_targeted_falsification_of_independent_body_condition_interpretation",
+  "question": "Does weight-for-length condition incrementally rank telemetry-defined migration initiation beyond the continuous eye/fin morphology underlying silvering classification?",
+  "sources": {
+    "pinned_upstream": "PieterjanVerhelst/eel-meta-analysis@59578cb622dddbbba5174b4c51bff0807787385a",
+    "metadata": "data/interim/eel_meta_data.csv",
+    "population": "Same public migration-eligible source as azores analysis/36, but restricted to complete eye/fin measurements",
+    "label_rule": "keep 9 fixed 2015 expert-classified non-migrants as non-initiators"
+  },
+  "morphology": {
+    "identify_by": "length2/length3/length4 *_type labels, never by column number",
+    "required": [
+      "horizontal eye diameter",
+      "vertical eye diameter",
+      "pectoral fin length"
+    ],
+    "unit": "mm",
+    "eye_index": "100*pi*((eye_horizontal_mm+eye_vertical_mm)/4)^2 / total_length_mm",
+    "fin_index": "100*pectoral_fin_length_mm/total_length_mm",
+    "bounds": "All measurements must be positive finite values; report by-project completeness and units."
+  },
+  "models": {
+    "baseline": "project-year FE + length centered within project-year + release-date centered within project-year + ordinal Durif stage",
+    "base_plus_morphology": "baseline + z(eye_index) + z(fin_index)",
+    "base_plus_condition": "baseline + weight-for-length residual condition from existing entry-state pipeline",
+    "full": "baseline + z(eye_index) + z(fin_index) + condition",
+    "estimation": "Frozen L2 penalized logistic, lambda=1.0 on predictor coefficients only, NOT intercept/project-year dummies; train means/SD for continuous morphology from training projects only",
+    "heldout": "Leave one of the complete-morphology projects out. Do not fit coefficient weights with heldout initiation labels. Project/year intercepts not transferred.",
+    "models_same_sample": "All four models scored on exactly the same complete-morphology eels."
+  },
+  "primary": "Within heldout project-year positive-negative-pair AUC of full minus base_plus_morphology",
+  "secondary": [
+    "Base-plus-condition vs baseline on the exact same reduced sample",
+    "Base-plus-morphology vs baseline on the exact same reduced sample",
+    "Full vs base-plus-condition on the exact same reduced sample",
+    "Condition incremental contrast after morphology within each FIII/FIV/FV category when support permits",
+    "Project and stage counts, leave-one-project-out pooled AUC differences, 10000 project bootstrap replicates"
+  ],
+  "interpretation": {
+    "positive_supported": "Only if full model raises AUC after morphology with a positive project-resampled CI and no single-project dependence. Even then physiological independence is unproven.",
+    "otherwise": "No robust extra ranking once continuous morphology included; could reflect quantization or data limitations, NOT proof of no independent energy mechanism.",
+    "constraints": [
+      "Condition residual uses weight and length; the original Durif classification also uses weight/length and eye/fin morphology. These are not independent physiological measurements.",
+      "No direct lipid, endocrine status, hunger or survival is measured.",
+      "The Warnow project has no eye or fin measurements; loss of that project's comparison limits transferability and shifts cohort composition.",
+      "All analyses were developed after observing previous stage-specific results; classify as exploratory falsification.",
+      "Event labels are telemetry-defined initiation, not escapement success or true nonmigration."
+    ]
+  }
+}
