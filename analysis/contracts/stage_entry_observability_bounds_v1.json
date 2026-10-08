@@ -1,0 +1,30 @@
+{
+  "schema": "azores.stage_entry_observability_bounds_contract.v1",
+  "evidence_class": "post_hoc_sharp_partial_identification_for_source_classified_activation",
+  "source_files": [
+    "results/stage_specific_condition_gate_v1.json",
+    "results/receiver_witness_observability_v1.json"
+  ],
+  "question": "Does the observed FV-over-FIII source-classified initiation-rate ordering remain even if every short-follow-up noninitiator with inadequate receiver evidence were an unseen initiator? How many additional longer-observed negative labels would have to be wrong to erase the pooled ordering?",
+  "admissible_scenarios": {
+    "A": "All 422 source initiation positives remain positive. Only the existing 100 short-followup source negatives are allowed to be hypothesized as unobserved initiators, independently by project and stage. The 53 day-90-supported negatives are retained as negative. This gives sharp algebraic bounds, not statistical confidence intervals or biological estimates.",
+    "B": "Starting from the worst-case Scenario A for FIII and the original FV observed initiation count, reassign the minimum number of FIII day-90-supported source negative labels to initiation needed for the pooled FIII rate to match or exceed the original FV rate. No re-training or extrapolation.",
+    "C": "Compute project-specific FIII/FV bounds on the same restrictions and count each strict robust positive, strict robust negative, and ambiguous/equality project; do not aggregate signs as if independent replication."
+  },
+  "required_checks": [
+    "Exactly 575 fish partitioned FIII 261/FIV 68/FV 246.",
+    "Exactly 422 original source-classified initiators; exactly 100 short-followup negatives plus 53 day90-supported negatives.",
+    "For every stage and project, ambiguous short-followup counts never exceed original source negatives; project counts reconcile stage totals.",
+    "FV minus FIII pooled lower bound computed with all FIII short-followup negatives flipped and no FV negatives flipped; upper with inverse assignment.",
+    "Strict bound >0 permits ordering ONLY conditional on Scenario A, not true observed physiological initiation.",
+    "Compute minimum extra flips in longer-observed FIII negatives by exact rational/integer arithmetic; this is a vulnerability threshold, NOT their empirical misclassification count.",
+    "Project aggregation may exhibit Simpson-like composition; report project-specific upper/lower and opposing strata."
+  ],
+  "unsupported_claims": [
+    "Observed telemetry noninitiation is not verified biological inactivity.",
+    "90-day receiver observation is not proof of continuous detection opportunity.",
+    "Condition effects are not established by silvering-stage marginal bounds.",
+    "Pooled stage ranking does not establish a causal stage effect or universal cross-waterway ordering.",
+    "Sharp bounds conditional on limited label ambiguity are not sampling confidence intervals."
+  ]
+}
