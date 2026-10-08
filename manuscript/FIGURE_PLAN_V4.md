@@ -220,6 +220,16 @@ Data sources: `results/paired_temporal_endpoint_condition_v1.json`,
 `results/fixed_followup_condition_increment_v1.json`,
 `results/entrant_onset_latency_discrimination_v1.json`.
 
+Panel E — **Observation/retention gate behind the enlarged eventual AUC increment**:
+- full 575: 422 source initiation cases, 153 source noninitiation cases; eligible 475: the same 422 initiation cases, only 53 noninitiation cases;
+- compare condition AUC increment **+0.0336** in full source panel to **+0.0807** in the selected cohort;
+- display project-pair-weight contribution **+0.0515** and within-project contribution **−0.0044**; identity sum **+0.0471**;
+- show 20,000 random noninitiator retentions matched on project-year, null mean **+0.0844**, 95% interval **+0.0606–+0.1083**, observed **+0.0807** (two-sided **p=0.764**);
+- expose 100 noninitiators lost for short receiver observation and median final receiver intervals **0.515** vs **549** days for excluded vs retained controls;
+- label this as an observational composition audit, **not a physiological delay process, survival or downstream escapement**.
+
+Data sources: `results/observability_selection_gate_v1.json`, `results/observability_project_composition_v1.json`.
+
 ## Figure boundary
 
 Do not:
