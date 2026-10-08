@@ -73,4 +73,19 @@ The present public telemetry panel contains signal about source-classified entry
 
 ## Follow-up mathematical sensitivity
 
-A constrained-label audit is frozen in `analysis/contracts/receiver_stratified_hidden_start_tipping_v1.json` and `analysis/49_receiver_stratified_label_tipping.py`. It asks whether the exact worst-case **11-label AUC tipping** could be achieved by hypothetical missed starts only among fish with no physical receiver history versus fish with direct receiver evidence. The direction and magnitude must come from the analysis result; do not preclaim either.
+The constrained exact-label audit passed independent GitHub Actions [37765521770](https://github.com/zuizui0223/azores/actions/runs/37765521770). Canonical result: `results/receiver_stratified_label_tipping_v1.json`.
+
+**The counterintuitive result:** the exact original worst-case eleven-label assignment included **9 fish with physical receiver contact** and **only 2 with no physical receiver contact**. Constraining the worst-case hypothetical misclassification to each observational group gives:
+
+| Only hypothetical hidden starts drawn from… | Eligible source negatives | Minimum k to erase +0.03356 condition AUC |
+|---|---:|---:|
+| No real receiver contact | 24 | **Impossible even if all 24 switched** |
+| Had at least one real receiver contact | 76 | **13** |
+| Other fish later recorded at that same receiver within 90 days | 70 | **13** |
+| Other fish later recorded at the same receiver within 1 day | 58 | **17** |
+| No subsequent same-receiver witness within 90 days (includes no contacts) | 30 | **Impossible even if all 30 switched** |
+| Unrestricted union of 100 | 100 | **11** |
+
+The exact minimum at **11** changes is **+0.02081** if relabeling is constrained to the **24 virtual-only** fish, **+0.00288** for the 76 with any real contact, and **+0.00748** for the 58 whose last receiver later recorded another fish within a day. All are still positive.
+
+This shows that the worst-case rank sensitivity is **not solely produced by those eels with no real receiver observations**. The most influential hypothetical relabelings include already-detected fish whose subsequent fates are unresolved. It does **not** show that such fish truly initiated, nor that receiver hardware worked continuously, nor that tag loss rather than habitat behavior caused the final detection. The result is a stronger *observation-process identifiability boundary*, not a newly identified physiological migration mechanism.
