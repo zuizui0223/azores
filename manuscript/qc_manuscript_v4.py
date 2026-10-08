@@ -18,6 +18,9 @@ F = Path("results/within_link_fwl_numerical_audit_v1.json")
 FD = Path("manuscript/FIGURE_DATA_CONTRACT_V4.json")
 I = Path("results/cross_project_condition_increment_v1.json")
 J = Path("results/cross_project_condition_increment_project_robustness_v1.json")
+G = Path("results/stage_specific_condition_gate_v1.json")
+H = Path("results/stage_gate_context_matched_robustness_v1.json")
+CM = Path("results/continuous_morphology_condition_increment_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -31,6 +34,9 @@ fwl = json.loads(F.read_text())
 figure = json.loads(FD.read_text())
 increment = json.loads(I.read_text())
 project_robustness = json.loads(J.read_text())
+stage_gate = json.loads(G.read_text())
+stage_matched = json.loads(H.read_text())
+morphology = json.loads(CM.read_text())
 
 checks = {}
 
@@ -123,6 +129,28 @@ checks["condition_project_signed_test"] = abs(project_robustness["exploratory_ex
 checks["condition_figure_contract_matches"] = abs(figure["supplementary"]["heldout_condition_increment"]["delta_auc"] - delta) < 1e-10
 checks["condition_auc_reported"] = has(r"0\.610") and has(r"0\.643") and has(r"0\.0336")
 checks["condition_project_uncertainty_reported"] = has(r"0\.0007") and has(r"0\.0918") and has(r"four of six") and has(r"p=0\.1875")
+
+# Complete-morphology replication of the condition increment.
+mc = contract["continuous_morphology_condition_increment"]
+fig_m = figure["supplementary"]["continuous_silvering_morphology"]
+checks["continuous_morphology_schema"] = morphology.get("schema") == "azores.continuous_morphology_condition_increment.v1"
+checks["continuous_morphology_n"] = morphology["n_complete_morphology_evaluable"] == mc["n_morphology_complete"] == 429
+checks["continuous_morphology_projects"] = morphology["n_eligible_projects"] == mc["n_projects"] == 5 and "2011_Warnow" not in morphology["eligible_projects"]
+checks["continuous_morphology_n_pairs"] = morphology["primary"]["n_pairs"] == mc["n_positive_negative_pairs"] == 3272
+checks["continuous_morphology_auc_identity"] = all(abs(morphology["primary"]["auc"][key] - mc["auc"][key]) < 1e-10 for key in ("base","morph","condition","full"))
+checks["continuous_morphology_condition_increment"] = abs(morphology["primary"]["deltas"]["condition_after_morph"] - mc["delta_auc"]["condition_after_morph"]) < 1e-10
+checks["continuous_morphology_ci_spans_zero"] = morphology["project_uncertainty"]["project_bootstrap"]["ci95"][0] < 0 < morphology["project_uncertainty"]["project_bootstrap"]["ci95"][1]
+checks["continuous_morphology_project_signs"] = morphology["project_uncertainty"]["n_positive_project_deltas"] == mc["n_project_delta_positive"] == 3
+checks["continuous_morphology_figure"] = abs(fig_m["delta_auc"]["condition_after_morph"]-mc["delta_auc"]["condition_after_morph"]) < 1e-10
+checks["continuous_morphology_manuscript"] = has(r"429") and has(r"3,272") and has(r"0\.0244") and has(r"0\.0003") and has(r"0\.0659")
+checks["continuous_morphology_no_energy_proof"] = has(r"cannot isolate fat reserves") and has(r"not justify interpreting condition as an independent energy-reserve trait")
+checks["stage_schema"] = stage_gate.get("schema") == "azores.stage_specific_condition_gate.v1"
+checks["stage_n_fish"] = stage_gate["n_evaluable_fish"] == 575 and stage_gate["n_informative_same_stage_pairs"] == 3199
+checks["stage_FV_FIII_finite"] = stage_gate["stage"]["FV"]["delta_auc"] > stage_gate["stage"]["FIII"]["delta_auc"]
+checks["stage_matched_schema"] = stage_matched.get("schema") == "azores.stage_gate_context_matched_robustness.v1"
+checks["stage_matched_contexts"] = stage_matched["full"]["n_contexts"] == 5 and stage_matched["full"]["n_projects"] == 4
+checks["stage_matched_uncertainty"] = stage_matched["exploratory_exact_project_signflip_two_sided_p"] == 0.25
+
 
 
 checks["title_realized_transit_speed"] = text.startswith("# A multivariate entry state predicts migration activation but not realized transit speed in European eel")
