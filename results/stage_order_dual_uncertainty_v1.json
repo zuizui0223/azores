@@ -1,0 +1,81 @@
+{
+  "schema": "azores.stage_order_dual_uncertainty.v1",
+  "evidence_class": "post_hoc_conditional_identification_plus_exploratory_sampling_uncertainty",
+  "source": "results/stage_entry_observability_bounds_v1.json",
+  "contract": "analysis/contracts/stage_order_dual_uncertainty_v1.json",
+  "seed": 20261008,
+  "n_resamples": 10000,
+  "n_projects": 6,
+  "observed": {
+    "pooled_lower": 0.01574619194467808,
+    "pooled_upper": 0.3530511167180638,
+    "equal_project_lower": -0.068395786210781,
+    "equal_project_upper": 0.3866589707617128
+  },
+  "sampling_variation": {
+    "within_project_fish": {
+      "lower": {
+        "ci95": [
+          -0.07714699560788801,
+          0.07040580319593795
+        ],
+        "median": 0.023969722455845333,
+        "fraction_strict_positive": 0.7178,
+        "mean": 0.01614317820764414
+      },
+      "upper": {
+        "ci95": [
+          0.5748189421549454,
+          0.4256704980841401
+        ],
+        "median": 0.5299271096159237,
+        "fraction_strict_positive": 1,
+        "mean": 0.3536028829081408
+      }
+    },
+    "project_cluster": {
+      "pooled_lower": {
+        "ci95": [
+          -0.32887562628942313,
+          0.1840549169858861
+        ],
+        "median": 0.018503937007874005,
+        "fraction_strict_positive": 0.5326,
+        "mean": 0.008067736543628483
+      },
+      "pooled_upper": {
+        "ci95": [
+          0.3594976825429808,
+          0.5484704968942152
+        ],
+        "median": 0.5382683275474782,
+        "fraction_strict_positive": 0.9999,
+        "mean": 0.36129169638350067
+      },
+      "equal_project_lower": {
+        "ci95": [
+          -0.5826035059179,
+          0.13365459788962505
+        ],
+        "median": -0.10073366555924694,
+        "fraction_strict_positive": 0.2817,
+        "mean": -0.06948228455007599
+      },
+      "equal_project_upper": {
+        "ci95": [
+          0.3364613858363896,
+          0.5943506767777914
+        ],
+        "median": 0.5825419764199701,
+        "fraction_strict_positive": 0.9998,
+        "mean": 0.3858032274809575
+      }
+    }
+  },
+  "status": "FINITE_SAMPLE_BOUND_NOT_POPULATION_LEVEL_CONFIRMED",
+  "interpretation_boundary": [
+    "The finite-sample sharp lower bound is conditional on allowing only short-followup source negatives to be unobserved starts.",
+    "Within-stage/site fish resampling assumes independent exchangeable fish; six-project bootstrap is a descriptive stability diagnostic with few clusters.",
+    "Results do not identify true migration, detection probability or causal silvering mechanisms."
+  ]
+}
