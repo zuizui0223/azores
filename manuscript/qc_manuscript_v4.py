@@ -16,6 +16,8 @@ L = Path("results/within_link_entry_state_speed_v1.json")
 Q = Path("results/within_link_speed_quality_sensitivity_v1.json")
 F = Path("results/within_link_fwl_numerical_audit_v1.json")
 FD = Path("manuscript/FIGURE_DATA_CONTRACT_V4.json")
+I = Path("results/cross_project_condition_increment_v1.json")
+J = Path("results/cross_project_condition_increment_project_robustness_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -27,6 +29,8 @@ link = json.loads(L.read_text())
 quality = json.loads(Q.read_text())
 fwl = json.loads(F.read_text())
 figure = json.loads(FD.read_text())
+increment = json.loads(I.read_text())
+project_robustness = json.loads(J.read_text())
 
 checks = {}
 
@@ -99,6 +103,27 @@ checks["fwl_primary_agreement"] = fwl["primary_all_positive_source_speeds"]["abs
 checks["fwl_primary_sample_match"] = fwl["primary_all_positive_source_speeds"]["n_rows"] == link["primary"]["n_segment_rows"] and fwl["primary_all_positive_source_speeds"]["n_fish"] == link["primary"]["n_fish"]
 checks["figure3_corrected_link"] = figure["main_figures"]["figure3"]["exact_link_transit"]["n_segment_rows"] == link["primary"]["n_segment_rows"] and abs(figure["main_figures"]["figure3"]["exact_link_transit"]["ratio_per_sd"] - link["primary"]["entry_state_effect"]["speed_ratio_per_1sd_score"]) < 1e-9
 checks["figure3_quality_sensitivity"] = figure["main_figures"]["figure3"]["speed_quality_sensitivity"]["all_intervals_include_one"] is True
+
+# Project-held-out AUC increment and project-level uncertainty.
+delta = increment["primary_pairwise_auc"]["delta_auc_condition_above_stage_length_timing"]
+incr_contract = contract["heldout_condition_increment"]
+checks["condition_increment_schema"] = increment.get("schema") == "azores.cross_project_condition_increment.v1"
+checks["condition_increment_n_projects"] = increment["n_projects"] == 6 and increment["n_source_evaluable"] == 575
+checks["condition_increment_auc_exact"] = abs(delta - incr_contract["incremental_auc"]) < 1e-10
+checks["condition_increment_auc_baseline_exact"] = abs(increment["primary_pairwise_auc"]["auc"]["score_base"] - incr_contract["base_auc"]) < 1e-10
+checks["condition_increment_auc_plus_exact"] = abs(increment["primary_pairwise_auc"]["auc"]["score_plus"] - incr_contract["expanded_auc"]) < 1e-10
+checks["condition_increment_pairs_exact"] = increment["primary_pairwise_auc"]["n_positive_negative_pairs"] == incr_contract["initiator_noninitiator_pairs"] == 6914
+checks["condition_increment_stage_control"] = increment["secondary_same_stage_pairwise_auc"]["n_positive_negative_pairs"] == incr_contract["same_stage_pairs"] == 3199
+checks["condition_increment_4_of_6"] = increment["primary_pairwise_auc"]["project_deltas_positive"] == incr_contract["n_projects_positive"] == 4
+checks["condition_project_robustness_schema"] = project_robustness.get("schema") == "azores.cross_project_condition_increment_project_robustness.v1"
+checks["condition_project_ci_includes_zero"] = project_robustness["project_cluster_bootstrap"]["pair_weighted_gain_ci95"][0] < 0 < project_robustness["project_cluster_bootstrap"]["pair_weighted_gain_ci95"][1]
+checks["condition_project_ci_exact"] = all(abs(x-y)<1e-10 for x,y in zip(project_robustness["project_cluster_bootstrap"]["pair_weighted_gain_ci95"], incr_contract["project_cluster_bootstrap_ci95"]))
+checks["condition_project_leave_one_out"] = min(p["delta_auc"] for p in project_robustness["leave_one_project_out"]) > 0
+checks["condition_project_signed_test"] = abs(project_robustness["exploratory_exact_sign_flip"]["weighted"]["two_sided"] - 0.1875) < 1e-10
+checks["condition_figure_contract_matches"] = abs(figure["supplementary"]["heldout_condition_increment"]["delta_auc"] - delta) < 1e-10
+checks["condition_auc_reported"] = has(r"0\.610") and has(r"0\.643") and has(r"0\.0336")
+checks["condition_project_uncertainty_reported"] = has(r"0\.0007") and has(r"0\.0918") and has(r"four of six") and has(r"p=0\.1875")
+
 
 checks["title_realized_transit_speed"] = text.startswith("# A multivariate entry state predicts migration activation but not realized transit speed in European eel")
 checks["new_refs_present"] = "Tudorache, C." in text and "Katopodis, C." in text
