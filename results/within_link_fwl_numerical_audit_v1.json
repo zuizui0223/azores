@@ -1,0 +1,69 @@
+{
+  "schema": "azores.within_link_fwl_numerical_audit.v1",
+  "evidence_class": "post_hoc_numerical_equivalence_audit",
+  "question": "Is the focal within-link entry-state coefficient stable to SVD-based Frisch-Waugh-Lovell absorption of the high-dimensional nuisance fixed effects?",
+  "primary_all_positive_source_speeds": {
+    "n_rows": 17792,
+    "n_fish": 418,
+    "n_pairs": 244,
+    "nuisance_rank": 254,
+    "full_rank_for_correction": 255,
+    "fwl": {
+      "beta": -0.0391312152729935,
+      "cluster_se": 0.04379428327531124,
+      "ratio": 0.9616245210435986,
+      "ci95": [
+        0.882525133677335,
+        1.0478134663646002
+      ]
+    },
+    "full_pseudoinverse": {
+      "beta": -0.039131215272957265,
+      "cluster_se": 0.04379460973304496,
+      "ratio": 0.9616245210436335,
+      "ci95": [
+        0.8825245689875236,
+        1.0478141368157994
+      ]
+    },
+    "absolute_beta_difference": 3.6234903966203547e-14,
+    "absolute_se_difference": 3.2645773372086406e-7
+  },
+  "posthoc_speed_le_2_5_m_s": {
+    "n_rows": 5726,
+    "n_fish": 418,
+    "n_pairs": 219,
+    "nuisance_rank": 229,
+    "full_rank_for_correction": 230,
+    "fwl": {
+      "beta": -0.059658612852971096,
+      "cluster_se": 0.03353110685562251,
+      "ratio": 0.9420860947768481,
+      "ci95": [
+        0.8821619859576336,
+        1.0060807698581975
+      ]
+    },
+    "full_pseudoinverse": {
+      "beta": -0.059658612852964366,
+      "cluster_se": 0.03353118885789992,
+      "ratio": 0.9420860947768545,
+      "ci95": [
+        0.8821618441726389,
+        1.0060809315600094
+      ]
+    },
+    "absolute_beta_difference": 6.7307270867900115e-15,
+    "absolute_se_difference": 8.200227741284039e-8
+  },
+  "tolerances": {
+    "absolute_beta_difference": 1e-8,
+    "absolute_cluster_se_difference": 0.0005
+  },
+  "status": "PASS_FWL_NUMERICAL_EQUIVALENCE",
+  "claim_boundary": [
+    "This audit addresses numerical representation of nuisance fixed effects only.",
+    "It does not repair telemetry timing/distance artifacts.",
+    "It does not change the frozen ecological estimand or the post-hoc quality-sensitivity status."
+  ]
+}
