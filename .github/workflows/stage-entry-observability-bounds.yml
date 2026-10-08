@@ -26,6 +26,26 @@ jobs:
         run: python analysis/tests/test_stage_entry_observability_bounds.py
       - name: Recompute silvering-stage observability bounds
         run: python analysis/50_stage_entry_observability_bounds.py
+      - name: Compare recomputation to frozen canonical output
+        run: |
+          python - <<'PY'
+          import json, math
+          canonical=json.load(open("results/stage_entry_observability_bounds_v1.json"))
+          computed=json.load(open("analysis/results/stage_entry_observability_bounds.json"))
+          def equivalent(x,y,path="$"):
+              if isinstance(x,dict) and isinstance(y,dict):
+                  assert x.keys()==y.keys(),(path,"key drift",list(x),list(y))
+                  for k in x:equivalent(x[k],y[k],path+"."+str(k))
+              elif isinstance(x,list) and isinstance(y,list):
+                  assert len(x)==len(y),(path,"length mismatch")
+                  for i,(a,b) in enumerate(zip(x,y)):equivalent(a,b,f"{path}[{i}]")
+              elif isinstance(x,(float,int)) and isinstance(y,(float,int)) and not isinstance(x,bool) and not isinstance(y,bool):
+                  assert math.isclose(x,y,rel_tol=1e-12,abs_tol=1e-12),(path,x,y)
+              else:
+                  assert x==y,(path,x,y)
+          equivalent(canonical,computed)
+          print("PASS recomputation agrees with frozen 575-fish project and stage bounds")
+          PY
       - name: Show compact audit
         run: |
           python - <<'PY'
