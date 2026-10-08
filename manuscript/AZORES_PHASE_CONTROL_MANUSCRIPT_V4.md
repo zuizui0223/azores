@@ -205,7 +205,7 @@ Event duration (`OutletTimeTotal`) was then used only as a predictor. The pumpin
 
 The primary mechanistic prediction was that better capture condition would increase dependence on longer opening windows after barrier arrival. We tested condition × log event duration in eel-stratified conditional choice models. Because the stage composition was sparse, readiness × duration was treated as secondary. We also tested a broader arrival-defined waiting response in all eventual passers: number of non-passage opening events after arrival and elapsed hours from arrival to confirmed passage. Permutation tests were used for the small-sample condition associations.
 
-This Dutch analysis is an independent falsification test of a proposed post-activation mechanism, not a replication of the Europe-wide activation model.
+This Dutch analysis is an independent developmental test of a proposed post-activation mechanism, not a replication of the Europe-wide activation model.
 
 ### Evidence class
 
@@ -289,7 +289,7 @@ At the tidal sluice, the condition × duration interaction was near zero (β=−
 
 The broader arrival-defined waiting analysis likewise showed no evidence that better-conditioned eels waited through more opening events after reaching a barrier. At the pumping station, condition was unrelated to missed post-arrival events (Spearman r=0.009; permutation p=0.960) or delay to passage (r=0.072; p=0.677). At the tidal sluice, the corresponding associations were r=−0.104 (p=0.592) and r=−0.182 (p=0.350). Adjusting for body mass, readiness, arrival calendar time and release group did not reveal hidden positive associations.
 
-Thus the independent Dutch analysis **falsified the specific prediction** that higher capture condition generally causes stronger selection for long opening windows or more post-arrival barrier waiting.
+Thus the independent Dutch analysis **did not support the specific prediction** that higher capture condition generally favours longer opening windows or greater post-arrival waiting. Given the small number of informative matched-choice fish and the unstable pumping-station model, this should not be interpreted as proving the mechanism impossible.
 
 ---
 
