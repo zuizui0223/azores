@@ -137,6 +137,69 @@ def project_bootstrap(projects: list[str], stage_result: dict) -> dict:
     }
 
 
+def compare_within_matched_project_year(groups: list[dict]) -> dict:
+    """Require BOTH FIII and FV to have informative pairs in the same project-year.
+
+    This eliminates the direct comparison of stages from disjoint rivers/years,
+    but still cannot distinguish physiology from unmeasured individual and
+    sampling differences. We retain the original analysis as the primary.
+    """
+    by = {}
+    for g in groups:
+        if g["stage"] not in ("FIII", "FV"):
+            continue
+        context = g["id"].rsplit("::", 1)[0]
+        base = g["concordant"]["score_base"] / g["n_pairs"]
+        plus = g["concordant"]["score_plus"] / g["n_pairs"]
+        by[(g["project"], context, g["stage"])] = {
+            "project": g["project"],
+            "project_year": context,
+            "stage": g["stage"],
+            "n_pairs": int(g["n_pairs"]),
+            "gain": float(plus - base),
+            "base_auc": float(base),
+            "plus_auc": float(plus),
+            "n_initiators": g["n_positive"],
+            "n_noninitiators": g["n_negative"],
+        }
+    contexts = sorted({(p,c) for p,c,stage in by if stage=="FIII"} &
+                      {(p,c) for p,c,stage in by if stage=="FV"})
+    cells=[]
+    for p,c in contexts:
+        third=by[(p,c,"FIII")]
+        fifth=by[(p,c,"FV")]
+        delta=fifth["gain"]-third["gain"]
+        cells.append({
+            "project":p,"project_year":c,
+            "FIII":third,"FV":fifth,
+            "delta_FV_minus_FIII":float(delta),
+            "minimum_stage_pair_count":min(third["n_pairs"],fifth["n_pairs"])
+        })
+    projects=sorted({r["project"] for r in cells})
+    by_proj={}
+    for p in projects:
+        r=[x for x in cells if x["project"]==p]
+        weight=sum(x["minimum_stage_pair_count"] for x in r)
+        by_proj[p]={
+            "n_project_year_contexts":len(r),
+            "matched_minimum_pairs":weight,
+            "delta_FV_minus_FIII":float(
+                sum(x["minimum_stage_pair_count"]*x["delta_FV_minus_FIII"] for x in r)/weight
+            )
+        }
+    n_weight=sum(x["minimum_stage_pair_count"] for x in cells)
+    pooled=float(sum(x["minimum_stage_pair_count"]*x["delta_FV_minus_FIII"] for x in cells)/n_weight) if n_weight else None
+    return {
+        "status":"EXPLORATORY_MATCHED_PROJECT_YEAR_COMPARISON",
+        "n_contexts":len(cells),
+        "n_projects":len(projects),
+        "comparison_cells":cells,
+        "project_summary":by_proj,
+        "pooled_minimum_pair_weighted_contrast":pooled,
+        "limitation":"Stage-specific AUC differences are conditioned on the same project and release-year, but project/year comparisons still differ in individuals and samples. Stage-specific outcomes were not randomized."
+    }
+
+
 def run():
     contract = json.loads(CONTRACT.read_text(encoding="utf-8"))
     rows = INC.B.load()
@@ -160,6 +223,7 @@ def run():
     )
     assert abs(baseline_diff-all_stage["delta_auc_condition_above_stage_length_timing"])<1e-10
     boot = project_bootstrap(projects, stage_result)
+    matched = compare_within_matched_project_year(groups)
     status = "EXPLORATORY_STAGE_HETEROGENEITY_AUDITED"
     result={
         "schema":"azores.stage_specific_condition_gate.v1",
@@ -177,6 +241,7 @@ def run():
             "FIV_minus_FV":contrast(stage_result["FIV"]["delta_auc"], stage_result["FV"]["delta_auc"]),
         },
         "project_bootstrap":boot,
+        "matched_project_year_FIII_vs_FV":matched,
         "status":status,
         "interpretation_boundary":contract["claim_rules"],
     }
