@@ -135,7 +135,7 @@ def optimize_fractional(cells:list[dict],num0:float,den0:int,k:int,sign:int,
 
 def envelope(cells:list[dict],num0:float,den0:int,k:int,sign:int):
     if k==0:
-        return {"ratio":num0/den0,"n_flips":0,"flips_by_project":{}}
+        return {"ratio":num0/den0,"n_flips":0,"flips_by_project":{},"witness_tags":[],"n_informative_pairs_after_flip":den0}
     option=prepare(cells,sign,k)
     # Signed AUC differences are confined to [-1,1].
     lower,upper=-1.0,1.0
