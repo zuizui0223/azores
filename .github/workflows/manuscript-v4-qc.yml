@@ -23,6 +23,7 @@ on:
       - "results/entrant_onset_latency_discrimination_v1.json"
       - "results/observability_selection_gate_v1.json"
       - "results/observability_label_ambiguity_tipping_v1.json"
+      - "results/observability_random_hidden_start_sensitivity_v1.json"
       - "results/observability_project_composition_v1.json"
       - "analysis/46_observability_project_weight_decomposition.py"
       - "manuscript/FIGURE_DATA_CONTRACT_V4.json"
