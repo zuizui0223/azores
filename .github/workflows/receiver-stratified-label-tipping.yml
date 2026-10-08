@@ -1,0 +1,37 @@
+name: receiver-stratified-label-tipping
+
+on:
+  push:
+    paths:
+      - "analysis/49_receiver_stratified_label_tipping.py"
+      - "analysis/tests/test_receiver_stratified_label_tipping.py"
+      - "analysis/contracts/receiver_stratified_hidden_start_tipping_v1.json"
+      - ".github/workflows/receiver-stratified-label-tipping.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Check syntax
+        run: python -m py_compile analysis/49_receiver_stratified_label_tipping.py analysis/tests/test_receiver_stratified_label_tipping.py
+      - name: Check exact constrained mathematics on exhaustive synthetic cases
+        run: python analysis/tests/test_receiver_stratified_label_tipping.py
+      - name: Run source-pinned receiver-constrained worst-case AUC bounds
+        run: python analysis/49_receiver_stratified_label_tipping.py
+      - name: Print results
+        if: always()
+        run: cat analysis/results/receiver_stratified_label_tipping.json || true
+      - name: Archive results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-receiver-stratified-label-tipping
+          path: analysis/results/receiver_stratified_label_tipping.json
