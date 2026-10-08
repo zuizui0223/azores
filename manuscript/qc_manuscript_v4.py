@@ -28,6 +28,7 @@ PAIRED = Path("results/paired_temporal_endpoint_condition_v1.json")
 ENTRANT = Path("results/entrant_onset_latency_discrimination_v1.json")
 OBS = Path("results/observability_selection_gate_v1.json")
 OBS_MIX = Path("results/observability_project_composition_v1.json")
+LABEL_TIP = Path("results/observability_label_ambiguity_tipping_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -51,6 +52,7 @@ paired_endpoint = json.loads(PAIRED.read_text())
 entrant_latency = json.loads(ENTRANT.read_text())
 observability = json.loads(OBS.read_text())
 observability_mix = json.loads(OBS_MIX.read_text())
+label_tip = json.loads(LABEL_TIP.read_text())
 
 checks = {}
 
@@ -254,6 +256,20 @@ checks["no_dutch_handoff_confirmation"] = not has(r"Dutch.{0,100}(confirm(?:s|ed
 # Reference requirements.
 for key in ["Durif, C.", "Nathan, R.", "Verhelst, P.", "Huisman, J. B. J.", "van Rijn, J.", "Lennox, R. J.", "Moyo, S."]:
     checks[f"ref::{key}"] = key in text
+
+# Exact fixed-score sensitivity to hypothetical initiation misclassification.
+lt = contract["observability_label_ambiguity_tipping"]
+tc = label_tip["cohort"]
+checks["label_tip_schema"] = label_tip.get("schema") == "azores.observability_label_ambiguity_tipping.v1"
+checks["label_tip_evidence_class"] = label_tip.get("status") == "AUC_INCREMENT_SENSITIVE_TO_HYPOTHETICAL_UNOBSERVED_INITIATION"
+checks["label_tip_sample"] = tc["source_fish"] == 575 and tc["source_initiators"] == lt["n_initiators"] == 422 and tc["source_noninitiators"] == lt["n_noninitiators"] == 153
+checks["label_tip_short_followup"] = tc["short_followup_source_noninitiators_potentially_ambiguous"] == lt["n_shortfollowup_potentially_ambiguous"] == 100 and tc["long_observed_source_noninitiators_frozen_negative"] == lt["n_fixed_adequately_observed_noninitiators"] == 53
+checks["label_tip_correct_frozen_baseline"] = abs(label_tip["frozen_original_auc_gain"] - incr_contract["incremental_auc"]) < 1e-10 and abs(label_tip["frozen_original_auc_gain"] - lt["baseline_delta_auc"]) < 1e-10
+checks["label_tip_exact_tipping"] = label_tip["first_k_with_nonpositive_exact_minimum"] == lt["exact_first_nonpositive_k"] == 11 and abs(label_tip["tipping_witness"]["ratio"] - lt["first_nonpositive_delta_auc"]) < 1e-10
+checks["label_tip_10_positive_15_nonpositive"] = label_tip["exact_minimum_at_k"]["10"]["ratio"] > 0 and label_tip["exact_minimum_at_k"]["15"]["ratio"] < 0
+checks["label_tip_11_projects"] = label_tip["tipping_witness"]["flips_by_project"] == lt["tipping_flips_by_project"]
+checks["label_tip_manuscript_scope"] = has(r"adversarially selected 11") and has(r"worst-case label-contamination") and has(r"not a finding that eleven misclassifications occurred")
+checks["label_tip_not_promoted_biology"] = not has(r"(?:observed|confirmed|proved) (?:eleven|11) (?:hidden|missed|false-negative) (?:migration|initiations)")
 
 failed = [k for k,v in checks.items() if not v]
 result = {
