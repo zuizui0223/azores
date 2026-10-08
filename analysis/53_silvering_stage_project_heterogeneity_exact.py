@@ -259,10 +259,19 @@ def main():
         bs=[u for j,u in enumerate(blocks) if j!=i]
         ys=[u.y1 for u in bs]
         t=fit_common(bs,ys)
+        exact_minus_one = exact_conditional(bs,ys,t) if math.isfinite(t) else None
         leave.append({
             "excluded":b.project,
             "conditional_common_or":math.exp(t) if math.isfinite(t) else None,
-            "heterogeneity_lr":deviance(bs,ys,t) if math.isfinite(t) else None
+            "heterogeneity_lr":deviance(bs,ys,t) if math.isfinite(t) else None,
+            "exact_conditional_p": (
+                exact_minus_one["exact_conditional_p"]
+                if exact_minus_one is not None else None
+            ),
+            "admissible_joint_vectors": (
+                exact_minus_one["admissible_joint_vectors"]
+                if exact_minus_one is not None else None
+            )
         })
     result={
         "schema":"azores.silvering_stage_project_heterogeneity_exact.v1",
