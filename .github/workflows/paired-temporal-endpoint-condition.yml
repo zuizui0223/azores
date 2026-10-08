@@ -1,0 +1,40 @@
+name: paired-temporal-endpoint-condition
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/paired_temporal_endpoint_condition_v1.json"
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/36_cross_project_condition_increment.py"
+      - "analysis/42_fixed_followup_condition_increment.py"
+      - "analysis/43_paired_temporal_endpoint_condition.py"
+      - "analysis/tests/test_paired_temporal_endpoint_condition.py"
+      - ".github/workflows/paired-temporal-endpoint-condition.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numpy
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Syntax preflight
+        run: python -m py_compile analysis/31_entry_state_score_transferability.py analysis/36_cross_project_condition_increment.py analysis/42_fixed_followup_condition_increment.py analysis/43_paired_temporal_endpoint_condition.py analysis/tests/test_paired_temporal_endpoint_condition.py
+      - name: Test same-fish horizon decomposition
+        run: python analysis/tests/test_paired_temporal_endpoint_condition.py
+      - name: Run common-cohort fixed-model test
+        run: python analysis/43_paired_temporal_endpoint_condition.py
+      - name: Show output
+        if: always()
+        run: cat analysis/results/paired_temporal_endpoint_condition.json || true
+      - name: Upload output
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paired-temporal-endpoint-condition
+          path: analysis/results/paired_temporal_endpoint_condition.json
