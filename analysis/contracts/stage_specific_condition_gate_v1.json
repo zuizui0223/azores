@@ -1,0 +1,21 @@
+{
+  "schema": "azores.stage_specific_condition_gate_contract.v1",
+  "evidence_class": "post_hoc_exploratory_after_cross_project_auc_result",
+  "question": "Within the same ordinal silvering category (FIII, FIV, FV), where does capture condition add held-out discrimination of migration initiation?",
+  "training": "Exactly the nested activation model coefficients from analysis/36; train on five of six projects, score the completely held-out project, using original nine-fish expert correction and outcome-free morphometric preprocessing.",
+  "primary": "For each stage, pair-weighted within-project-year initiator/non-initiator concordance difference: score with Durif+length+timing+condition minus Durif+length+timing.",
+  "secondary": [
+    "per-stage stage+condition versus stage alone, where stage-only AUC necessarily 0.5",
+    "informative project-year groups, positive and negative outcome counts, informative project coverage and pair counts",
+    "project-specific stage deltas and leave-one-project-out stage deltas",
+    "exploratory contrasts FIII minus FV and FIII minus FIV"
+  ],
+  "uncertainty": "10000 deterministic project-level bootstrap resamples of six projects preserving per-project stage statistics; do not treat fish pairs as independent experimental units or infer causal mechanisms.",
+  "claim_rules": [
+    "Show sample size, positive and negative cases, within-stage informative project coverage and interval before discussing stage trend.",
+    "When per-stage model overlap or support is sparse, do not promote an effect.",
+    "Stage differences were designed after overall AUC result and are exploratory; do not call pre-registered.",
+    "Inconsistent project-level signs prevent a general biological inference, even if pooled effects are positive.",
+    "Do not treat condition residual as independent physiology nor link it causally to reserves, hydraulic gates or escapement success."
+  ]
+}
