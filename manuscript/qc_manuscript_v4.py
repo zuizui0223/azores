@@ -34,6 +34,7 @@ RECEIVER_OBS = Path("results/receiver_witness_observability_v1.json")
 RECEIVER_TIP = Path("results/receiver_stratified_label_tipping_v1.json")
 STAGE_BOUNDS = Path("results/stage_entry_observability_bounds_v1.json")
 STAGE_SAMPLE = Path("results/stage_order_dual_uncertainty_v1.json")
+STAGE_TIP = Path("results/stage_stratified_hidden_start_tipping_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -63,6 +64,7 @@ receiver_obs = json.loads(RECEIVER_OBS.read_text())
 receiver_tip = json.loads(RECEIVER_TIP.read_text())
 stage_bounds = json.loads(STAGE_BOUNDS.read_text())
 stage_sample = json.loads(STAGE_SAMPLE.read_text())
+stage_tipping = json.loads(STAGE_TIP.read_text())
 
 checks = {}
 
@@ -356,6 +358,21 @@ checks["stage_fish_sample_ci_exact"] = all(abs(a-b)<1e-12 for a,b in zip(stage_s
 checks["stage_project_sample_ci_exact"] = all(abs(a-b)<1e-12 for a,b in zip(stage_sample["sampling_variation"]["project_cluster"]["pooled_lower"]["ci95"],su["project_cluster_lower_endpoint_ci95"]))
 checks["stage_dual_ci_cross_zero"] = stage_sample["sampling_variation"]["within_project_fish"]["lower"]["ci95"][0] < 0 < stage_sample["sampling_variation"]["within_project_fish"]["lower"]["ci95"][1] and stage_sample["sampling_variation"]["project_cluster"]["pooled_lower"]["ci95"][0] < 0 < stage_sample["sampling_variation"]["project_cluster"]["pooled_lower"]["ci95"][1]
 checks["stage_dual_manuscript"] = has(r"3\.91 and \+6\.87 percentage points") and has(r"16\.65 to \+17\.96 points") and has(r"finite-sample")
+
+st = contract["stage_stratified_hidden_start_tipping"]
+checks["stage_restricted_tipping_schema"] = stage_tipping.get("schema") == "azores.stage_stratified_hidden_start_tipping.v1"
+checks["stage_restricted_tipping_candidates"] = stage_tipping["n_short_negative_candidates"] == st["n_short_negative_candidates"] == 100
+checks["stage_restricted_unrestricted_k"] = stage_tipping["unrestricted_minimum_k"] == st["unrestricted_first_k"] == 11
+checks["stage_restricted_all_stage_counts"] = sum(v["candidate_count"] for v in stage_tipping["stage"].values()) == 100
+checks["stage_restricted_fiii_k16"] = stage_tipping["stage"]["FIII"]["first_k_with_nonpositive_heldout_condition_auc_gain"] == st["stage"]["FIII"]["first_nonpositive_k"] == 16
+checks["stage_restricted_other_stage_null"] = all(stage_tipping["stage"][key]["first_k_with_nonpositive_heldout_condition_auc_gain"] is None for key in ("FIV","FV"))
+checks["stage_restricted_ci_recomputed"] = all(
+    abs(stage_tipping["stage"][key]["minimum_at_exactly_11_flips"]["minimum_delta_auc"] - st["stage"][key]["minimum_delta_at_11"]) < 1e-10
+    for key in ("FIII","FIV","FV")
+)
+checks["stage_restricted_fiii_nonmonotonic"] = stage_tipping["stage"]["FIII"]["minimum_if_all_stage_candidates_flipped"]["minimum_delta_auc"] > 0.06
+checks["stage_restricted_manuscript"] = has(r"16 of 70") and has(r"0\.0064") and has(r"0\.0622") and has(r"neither changing only FIV labels")
+
 
 
 failed = [k for k,v in checks.items() if not v]
