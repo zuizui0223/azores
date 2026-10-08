@@ -152,32 +152,44 @@
     {
       "excluded": "2011_Warnow",
       "conditional_common_or": 4.113283986328773,
-      "heterogeneity_lr": 24.654104924597746
+      "heterogeneity_lr": 24.654104924597746,
+      "exact_conditional_p": 0.00010512395635451286,
+      "admissible_joint_vectors": 11237
     },
     {
       "excluded": "2012_leopoldkanaal",
       "conditional_common_or": 3.0343886037155383,
-      "heterogeneity_lr": 24.71401830428926
+      "heterogeneity_lr": 24.71401830428926,
+      "exact_conditional_p": 0.00009098442271774238,
+      "admissible_joint_vectors": 12169
     },
     {
       "excluded": "2013_albertkanaal",
       "conditional_common_or": 5.375994471594015,
-      "heterogeneity_lr": 10.421858093708515
+      "heterogeneity_lr": 10.421858093708515,
+      "exact_conditional_p": 0.044772835765060304,
+      "admissible_joint_vectors": 5286
     },
     {
       "excluded": "2015_phd_verhelst_eel",
       "conditional_common_or": 2.624607670278227,
-      "heterogeneity_lr": 21.687160091438976
+      "heterogeneity_lr": 21.687160091438976,
+      "exact_conditional_p": 0.00038491123782666514,
+      "admissible_joint_vectors": 13104
     },
     {
       "excluded": "2019_Grotenete",
       "conditional_common_or": 3.0586340178655513,
-      "heterogeneity_lr": 19.598209684923383
+      "heterogeneity_lr": 19.598209684923383,
+      "exact_conditional_p": 0.0008874060988303168,
+      "admissible_joint_vectors": 33192
     },
     {
       "excluded": "ESGL",
       "conditional_common_or": 3.764276639333611,
-      "heterogeneity_lr": 25.793831718403297
+      "heterogeneity_lr": 25.793831718403297,
+      "exact_conditional_p": 0.000054341964804339773,
+      "admissible_joint_vectors": 11921
     }
   ],
   "inferential_boundaries": [
