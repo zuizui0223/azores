@@ -37,7 +37,7 @@ These results reject a **single common FV/FIII source-label association across a
 
 ## Robustness and unresolved confounding
 
-An exploratory exact omission calculation gives a positive heterogeneity signal after excluding any one project; excluding Albertkanaal yields p approximately **0.0448** (five projects). The repository's updated CI calculation of all leave-one-project-out exact tails is pending, so those omission tails are secondary until reproduced.
+A reproducible exact omission calculation also gave a heterogeneity tail below 0.05 after excluding **each** project. The largest p occurs when Albertkanaal is excluded: **p=0.0448** (five projects); the other omission p-values range from **0.000054 to 0.000887**. These exploratory omission tails were independently reproduced by [GitHub Actions run 37770976891](https://github.com/zuizui0223/azores/actions/runs/37770976891), but they are not a substitute for adjusting project-year composition.
 
 **Critically, different release years may be mixed within projects.** A separate analysis conditions on every project × release-year table before comparing project-specific silvering odds. See:
 - `analysis/contracts/silvering_stage_project_year_heterogeneity_exact_v1.json`
@@ -72,3 +72,4 @@ One may **hypothesize** that external cues and river structure modify readiness-
 - [Frozen contract](../analysis/contracts/silvering_stage_project_heterogeneity_exact_v1.json)
 - [No-network synthetic checks](../analysis/tests/test_silvering_stage_project_heterogeneity_exact.py)
 - [Successful Actions run](https://github.com/zuizui0223/azores/actions/runs/37770796620)
+- [Verified leave-one-project-out update](https://github.com/zuizui0223/azores/actions/runs/37770976891)
