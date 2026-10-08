@@ -1,0 +1,39 @@
+name: silvering-stage-project-year-heterogeneity-exact
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/silvering_stage_project_year_heterogeneity_exact_v1.json"
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/53_silvering_stage_project_heterogeneity_exact.py"
+      - "analysis/54_silvering_stage_project_year_heterogeneity_exact.py"
+      - "analysis/tests/test_silvering_stage_project_year_heterogeneity_exact.py"
+      - ".github/workflows/silvering-stage-project-year-heterogeneity-exact.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Validate syntax
+        run: python -m py_compile analysis/53_silvering_stage_project_heterogeneity_exact.py analysis/54_silvering_stage_project_year_heterogeneity_exact.py analysis/tests/test_silvering_stage_project_year_heterogeneity_exact.py
+      - name: Synthetic test
+        run: python analysis/tests/test_silvering_stage_project_year_heterogeneity_exact.py
+      - name: Exact release-year-stratified heterogeneity test
+        run: python analysis/54_silvering_stage_project_year_heterogeneity_exact.py
+      - name: Show outcome
+        if: always()
+        run: cat analysis/results/silvering_stage_project_year_heterogeneity_exact.json || true
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-silvering-stage-project-year-heterogeneity-exact
+          path: analysis/results/silvering_stage_project_year_heterogeneity_exact.json
