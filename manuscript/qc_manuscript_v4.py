@@ -22,6 +22,10 @@ G = Path("results/stage_specific_condition_gate_v1.json")
 H = Path("results/stage_gate_context_matched_robustness_v1.json")
 CM = Path("results/continuous_morphology_condition_increment_v1.json")
 PENALTY = Path("results/continuous_morphology_penalty_sensitivity_v1.json")
+SEASON = Path("results/seasonal_condition_interaction_v1.json")
+FIXED = Path("results/fixed_followup_condition_increment_v1.json")
+PAIRED = Path("results/paired_temporal_endpoint_condition_v1.json")
+ENTRANT = Path("results/entrant_onset_latency_discrimination_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -39,6 +43,10 @@ stage_gate = json.loads(G.read_text())
 stage_matched = json.loads(H.read_text())
 morphology = json.loads(CM.read_text())
 penalty = json.loads(PENALTY.read_text())
+seasonal = json.loads(SEASON.read_text())
+fixed_followup = json.loads(FIXED.read_text())
+paired_endpoint = json.loads(PAIRED.read_text())
+entrant_latency = json.loads(ENTRANT.read_text())
 
 checks = {}
 
@@ -162,6 +170,35 @@ checks["penalty_manuscript_reporting"] = has(r"0\.0269") and has(r"0\.0244") and
 
 
 
+
+
+# Temporal endpoint evidence: guard against retroactive promotion of apparent
+# short-horizon sign reversals or overstatement of entrant-only timing.
+temp = contract["temporal_entry_decomposition"]
+tcommon = temp["common_cohort_fixed_score"]
+tlat = temp["entrant_latency"]
+checks["temporal_season_schema"] = seasonal.get("schema") == "azores.seasonal_condition_interaction.v1"
+checks["temporal_season_not_supported"] = seasonal.get("status") == "NO_GENERAL_HELDOUT_SEASONAL_CONDITION_INTERACTION_SUPPORT"
+checks["temporal_season_delta_exact"] = abs(seasonal["primary"]["delta_auc"] - temp["seasonal_interaction"]["delta"]) < 1e-10
+checks["temporal_fixed_schema"] = fixed_followup.get("schema") == "azores.fixed_followup_condition_increment.v1"
+checks["temporal_fixed_primary_negative"] = abs(fixed_followup["windows"]["30"]["pairwise_auc"]["delta_auc_condition_above_stage_length_timing"] - temp["fixed_window_retrained"]["30"]["condition_auc_delta"]) < 1e-10
+checks["temporal_fixed_retention"] = fixed_followup["windows"]["90"]["cohort"]["n_included"] == 475 and fixed_followup["windows"]["90"]["cohort"]["n_excluded_early_tracking_end"] == 100
+checks["temporal_paired_schema"] = paired_endpoint.get("schema") == "azores.paired_temporal_endpoint_condition.v1"
+checks["temporal_paired_475"] = paired_endpoint["n_common_fish"] == tcommon["n"] == 475
+checks["temporal_paired_event_counts"] = paired_endpoint["endpoint_auc_with_fixed_scores"]["30"]["n_event"] == tcommon["by_horizon"]["30"]["events"] == 299 and paired_endpoint["endpoint_auc_with_fixed_scores"]["eventual"]["n_event"] == tcommon["by_horizon"]["eventual"]["events"] == 422
+checks["temporal_paired_horizon_exact"] = all(abs(paired_endpoint["endpoint_auc_with_fixed_scores"][key]["delta_auc_condition_above_stage_length_timing"] - tcommon["by_horizon"][key]["condition_delta_auc"]) < 1e-10 for key in ("7","30","60","90","eventual"))
+checks["temporal_paired_4projects"] = paired_endpoint["paired_eventual_minus_30day"]["n_projects"] == 4
+checks["temporal_paired_project_signflip"] = abs(paired_endpoint["paired_eventual_minus_30day"]["signflip_two_sided_p"] - tcommon["paired_project_signflip_p"]) < 1e-10 and tcommon["paired_project_signflip_p"] == 0.125
+checks["temporal_paired_ci_exact"] = all(abs(x-y)<1e-10 for x,y in zip(paired_endpoint["paired_eventual_minus_30day"]["project_boot_ci95"],tcommon["paired_project_boot_ci95"]))
+checks["temporal_three_categories"] = paired_endpoint["early_late_never"]["group_counts"] == {"early_le_30":299,"late_gt_30":123,"no_detected_initiation":53}
+checks["temporal_entrant_schema"] = entrant_latency.get("schema") == "azores.entrant_onset_latency_discrimination.v1"
+checks["temporal_entrant_n"] = entrant_latency["n_initiators_with_valid_onset"] == tlat["n"] == 422 and entrant_latency["primary"]["n_pairs"] == tlat["pairs"] == 10756
+checks["temporal_entrant_delta_exact"] = abs(entrant_latency["primary"]["condition_delta"] - tlat["condition_increment"]) < 1e-10
+checks["temporal_entrant_ci_spans_zero"] = tlat["project_boot_ci95"][0] < 0 < tlat["project_boot_ci95"][1]
+checks["temporal_entrant_exclusion"] = entrant_latency["sensitivity_excluding_day0_to1"]["n_entrants"] == tlat["n_excluding_1_day"] == 291
+checks["temporal_figure_matches"] = figure["supplementary"]["temporal_entry_decomposition"]["common_cohort"]["n"] == tcommon["n"] and figure["supplementary"]["temporal_entry_decomposition"]["conditional_latency"]["pairs"] == tlat["pairs"]
+checks["temporal_manuscript_results"] = has(r"10,756") and has(r"0\.5461") and has(r"0\.0329") and has(r"0\.0807") and has(r"0\.125")
+checks["temporal_no_migration_delay_claim"] = not has(r"high(?:er)?[- ]condition eels (?:deliberately )?wait longer|proved? that (?:better|high)[- ]condition eels delay")
 
 checks["title_realized_transit_speed"] = text.startswith("# A multivariate entry state predicts migration activation but not realized transit speed in European eel")
 checks["new_refs_present"] = "Tudorache, C." in text and "Katopodis, C." in text
