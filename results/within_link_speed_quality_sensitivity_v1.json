@@ -293,5 +293,11 @@
     "The frozen all-positive-speed primary remains the primary result.",
     "Removing implausible source speeds does not correct other telemetry timing or distance errors.",
     "A null coefficient concerns realized source-derived link speed, not intrinsic laboratory swimming capacity."
-  ]
+  ],
+  "source_reference_audit_2026_10_08": {
+    "status": "SPECIFIC_2_26_MAXIMUM_UNVERIFIED",
+    "retains_frozen_original_claim_for_provenance": true,
+    "interpretation": "The original frozen contract listed a 2.26 m/s compiled species maximum. This specific value was not independently verified in an accessible primary table. The source performance database and Tudorache lab Ucrit/Uopt are valid background, but neither justifies interpreting the 2.5/5/10 m/s thresholds as definitive physiological limits on field-derived ground speed. Treat all three as post-hoc heuristic artifact screens.",
+    "numeric_results_unchanged": true
+  }
 }
