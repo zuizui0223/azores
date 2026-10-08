@@ -95,6 +95,8 @@ The upstream terminal/sea-positive set remains a secondary sensitivity only.
 Its complement is not validated biological failure, and this project does not
 estimate escapement probability.
 
+**Within-link correction notice (2026-10-08):** The first within-link result inadvertently included nine fixed expert-classified 2015 non-migrants. Its 18,012-segment / 426-fish estimates and dependent speed-quality sensitivities are provisional until the corrected analysis and numerical audit pass. See [correction ledger](docs/WITHIN_LINK_CORRECTION_LEDGER_2026_10_08.md).
+
 ## Canonical V4 artifacts
 
 - [submission manuscript V4](manuscript/AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md)
