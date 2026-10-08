@@ -1,0 +1,497 @@
+{
+  "schema": "azores.receiver_witness_observability.v1",
+  "evidence_class": "post_hoc_source_receiver_event_inventory_for_observation_gate",
+  "contract": "analysis/contracts/receiver_witness_observability_v1.json",
+  "source_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "source": {
+    "focal_fish": 575,
+    "physical_receiver_events_across_all_source_fish": 165198,
+    "nonphysical_virtual_or_missing_receiver_rows": 457,
+    "receiver_station_keys": 423,
+    "has_receiver_deployment_and_recovery_times": false,
+    "receiver_metadata_limit": "interim and raw deployments.csv list coordinates but no deploy/recovery dates for these six projects"
+  },
+  "cohorts": {
+    "day90_supported_source_noninitiator": {
+      "group": "day90_supported_source_noninitiator",
+      "n_fish": 53,
+      "n_fish_without_any_real_receiver_contact": 0,
+      "n_fish_with_real_receiver_contact": 53,
+      "fraction_fish_with_real_receiver_contact": 1,
+      "stage_counts": {
+        "FIII": 37,
+        "FIV": 2,
+        "FV": 14
+      },
+      "number_real_receiver_rows": {
+        "total": 24242,
+        "median": 260
+      },
+      "unique_real_receivers_median": 2,
+      "last_real_receiver_day_since_release_median": 549.1100462962963,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 0,
+          "n_known_last_receiver": 53,
+          "fraction_positive_given_real_contact": 0
+        },
+        "7": {
+          "n_positive": 0,
+          "n_known_last_receiver": 53,
+          "fraction_positive_given_real_contact": 0
+        },
+        "30": {
+          "n_positive": 0,
+          "n_known_last_receiver": 53,
+          "fraction_positive_given_real_contact": 0
+        },
+        "90": {
+          "n_positive": 0,
+          "n_known_last_receiver": 53,
+          "fraction_positive_given_real_contact": 0
+        }
+      }
+    },
+    "short_followup_source_noninitiator": {
+      "group": "short_followup_source_noninitiator",
+      "n_fish": 100,
+      "n_fish_without_any_real_receiver_contact": 24,
+      "n_fish_with_real_receiver_contact": 76,
+      "fraction_fish_with_real_receiver_contact": 0.76,
+      "stage_counts": {
+        "FIII": 70,
+        "FIV": 13,
+        "FV": 17
+      },
+      "number_real_receiver_rows": {
+        "total": 3044,
+        "median": 1
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 0.6796643518518518,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 58,
+          "n_known_last_receiver": 76,
+          "fraction_positive_given_real_contact": 0.7631578947368421
+        },
+        "7": {
+          "n_positive": 66,
+          "n_known_last_receiver": 76,
+          "fraction_positive_given_real_contact": 0.868421052631579
+        },
+        "30": {
+          "n_positive": 68,
+          "n_known_last_receiver": 76,
+          "fraction_positive_given_real_contact": 0.8947368421052632
+        },
+        "90": {
+          "n_positive": 70,
+          "n_known_last_receiver": 76,
+          "fraction_positive_given_real_contact": 0.9210526315789473
+        }
+      }
+    },
+    "source_initiator": {
+      "group": "source_initiator",
+      "n_fish": 422,
+      "n_fish_without_any_real_receiver_contact": 0,
+      "n_fish_with_real_receiver_contact": 422,
+      "fraction_fish_with_real_receiver_contact": 1,
+      "stage_counts": {
+        "FIII": 154,
+        "FIV": 53,
+        "FV": 215
+      },
+      "number_real_receiver_rows": {
+        "total": 135602,
+        "median": 50
+      },
+      "unique_real_receivers_median": 12,
+      "last_real_receiver_day_since_release_median": 72.92795138888889,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 84,
+          "n_known_last_receiver": 422,
+          "fraction_positive_given_real_contact": 0.1990521327014218
+        },
+        "7": {
+          "n_positive": 143,
+          "n_known_last_receiver": 422,
+          "fraction_positive_given_real_contact": 0.33886255924170616
+        },
+        "30": {
+          "n_positive": 180,
+          "n_known_last_receiver": 422,
+          "fraction_positive_given_real_contact": 0.4265402843601896
+        },
+        "90": {
+          "n_positive": 183,
+          "n_known_last_receiver": 422,
+          "fraction_positive_given_real_contact": 0.43364928909952605
+        }
+      }
+    }
+  },
+  "by_project_short_followup": {
+    "2011_Warnow": {
+      "group": "2011_Warnow",
+      "n_fish": 33,
+      "n_fish_without_any_real_receiver_contact": 2,
+      "n_fish_with_real_receiver_contact": 31,
+      "fraction_fish_with_real_receiver_contact": 0.9393939393939394,
+      "stage_counts": {
+        "FIII": 24,
+        "FIV": 4,
+        "FV": 5
+      },
+      "number_real_receiver_rows": {
+        "total": 61,
+        "median": 1
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 1.5534837962962964,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 25,
+          "n_known_last_receiver": 31,
+          "fraction_positive_given_real_contact": 0.8064516129032258
+        },
+        "7": {
+          "n_positive": 30,
+          "n_known_last_receiver": 31,
+          "fraction_positive_given_real_contact": 0.967741935483871
+        },
+        "30": {
+          "n_positive": 30,
+          "n_known_last_receiver": 31,
+          "fraction_positive_given_real_contact": 0.967741935483871
+        },
+        "90": {
+          "n_positive": 30,
+          "n_known_last_receiver": 31,
+          "fraction_positive_given_real_contact": 0.967741935483871
+        }
+      }
+    },
+    "2012_leopoldkanaal": {
+      "group": "2012_leopoldkanaal",
+      "n_fish": 7,
+      "n_fish_without_any_real_receiver_contact": 6,
+      "n_fish_with_real_receiver_contact": 1,
+      "fraction_fish_with_real_receiver_contact": 0.14285714285714285,
+      "stage_counts": {
+        "FIII": 6,
+        "FV": 1
+      },
+      "number_real_receiver_rows": {
+        "total": 17,
+        "median": 0
+      },
+      "unique_real_receivers_median": 0,
+      "last_real_receiver_day_since_release_median": 17.33125,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 1,
+          "n_known_last_receiver": 1,
+          "fraction_positive_given_real_contact": 1
+        },
+        "7": {
+          "n_positive": 1,
+          "n_known_last_receiver": 1,
+          "fraction_positive_given_real_contact": 1
+        },
+        "30": {
+          "n_positive": 1,
+          "n_known_last_receiver": 1,
+          "fraction_positive_given_real_contact": 1
+        },
+        "90": {
+          "n_positive": 1,
+          "n_known_last_receiver": 1,
+          "fraction_positive_given_real_contact": 1
+        }
+      }
+    },
+    "2013_albertkanaal": {
+      "group": "2013_albertkanaal",
+      "n_fish": 2,
+      "n_fish_without_any_real_receiver_contact": 0,
+      "n_fish_with_real_receiver_contact": 2,
+      "fraction_fish_with_real_receiver_contact": 1,
+      "stage_counts": {
+        "FV": 2
+      },
+      "number_real_receiver_rows": {
+        "total": 80,
+        "median": 40
+      },
+      "unique_real_receivers_median": 1.5,
+      "last_real_receiver_day_since_release_median": 10.97711226851852,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 2,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 1
+        },
+        "7": {
+          "n_positive": 2,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 1
+        },
+        "30": {
+          "n_positive": 2,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 1
+        },
+        "90": {
+          "n_positive": 2,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 1
+        }
+      }
+    },
+    "2015_phd_verhelst_eel": {
+      "group": "2015_phd_verhelst_eel",
+      "n_fish": 19,
+      "n_fish_without_any_real_receiver_contact": 2,
+      "n_fish_with_real_receiver_contact": 17,
+      "fraction_fish_with_real_receiver_contact": 0.8947368421052632,
+      "stage_counts": {
+        "FIII": 15,
+        "FIV": 2,
+        "FV": 2
+      },
+      "number_real_receiver_rows": {
+        "total": 144,
+        "median": 2
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 4.058668981481482,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 14,
+          "n_known_last_receiver": 17,
+          "fraction_positive_given_real_contact": 0.8235294117647058
+        },
+        "7": {
+          "n_positive": 16,
+          "n_known_last_receiver": 17,
+          "fraction_positive_given_real_contact": 0.9411764705882353
+        },
+        "30": {
+          "n_positive": 17,
+          "n_known_last_receiver": 17,
+          "fraction_positive_given_real_contact": 1
+        },
+        "90": {
+          "n_positive": 17,
+          "n_known_last_receiver": 17,
+          "fraction_positive_given_real_contact": 1
+        }
+      }
+    },
+    "2019_Grotenete": {
+      "group": "2019_Grotenete",
+      "n_fish": 5,
+      "n_fish_without_any_real_receiver_contact": 3,
+      "n_fish_with_real_receiver_contact": 2,
+      "fraction_fish_with_real_receiver_contact": 0.4,
+      "stage_counts": {
+        "FIII": 5
+      },
+      "number_real_receiver_rows": {
+        "total": 9,
+        "median": 0
+      },
+      "unique_real_receivers_median": 0,
+      "last_real_receiver_day_since_release_median": 49.68478009259259,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 0,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 0
+        },
+        "7": {
+          "n_positive": 0,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 0
+        },
+        "30": {
+          "n_positive": 0,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 0
+        },
+        "90": {
+          "n_positive": 1,
+          "n_known_last_receiver": 2,
+          "fraction_positive_given_real_contact": 0.5
+        }
+      }
+    },
+    "ESGL": {
+      "group": "ESGL",
+      "n_fish": 34,
+      "n_fish_without_any_real_receiver_contact": 11,
+      "n_fish_with_real_receiver_contact": 23,
+      "fraction_fish_with_real_receiver_contact": 0.6764705882352942,
+      "stage_counts": {
+        "FIII": 20,
+        "FIV": 7,
+        "FV": 7
+      },
+      "number_real_receiver_rows": {
+        "total": 2733,
+        "median": 1
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 0.10422453703703703,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 16,
+          "n_known_last_receiver": 23,
+          "fraction_positive_given_real_contact": 0.6956521739130435
+        },
+        "7": {
+          "n_positive": 17,
+          "n_known_last_receiver": 23,
+          "fraction_positive_given_real_contact": 0.7391304347826086
+        },
+        "30": {
+          "n_positive": 18,
+          "n_known_last_receiver": 23,
+          "fraction_positive_given_real_contact": 0.782608695652174
+        },
+        "90": {
+          "n_positive": 19,
+          "n_known_last_receiver": 23,
+          "fraction_positive_given_real_contact": 0.8260869565217391
+        }
+      }
+    }
+  },
+  "by_stage_short_followup": {
+    "FIII": {
+      "group": "FIII",
+      "n_fish": 70,
+      "n_fish_without_any_real_receiver_contact": 20,
+      "n_fish_with_real_receiver_contact": 50,
+      "fraction_fish_with_real_receiver_contact": 0.7142857142857143,
+      "stage_counts": {
+        "FIII": 70
+      },
+      "number_real_receiver_rows": {
+        "total": 205,
+        "median": 1
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 1.1043981481481482,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 39,
+          "n_known_last_receiver": 50,
+          "fraction_positive_given_real_contact": 0.78
+        },
+        "7": {
+          "n_positive": 43,
+          "n_known_last_receiver": 50,
+          "fraction_positive_given_real_contact": 0.86
+        },
+        "30": {
+          "n_positive": 44,
+          "n_known_last_receiver": 50,
+          "fraction_positive_given_real_contact": 0.88
+        },
+        "90": {
+          "n_positive": 45,
+          "n_known_last_receiver": 50,
+          "fraction_positive_given_real_contact": 0.9
+        }
+      }
+    },
+    "FIV": {
+      "group": "FIV",
+      "n_fish": 13,
+      "n_fish_without_any_real_receiver_contact": 3,
+      "n_fish_with_real_receiver_contact": 10,
+      "fraction_fish_with_real_receiver_contact": 0.7692307692307693,
+      "stage_counts": {
+        "FIV": 13
+      },
+      "number_real_receiver_rows": {
+        "total": 33,
+        "median": 1
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 0.5431828703703704,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 8,
+          "n_known_last_receiver": 10,
+          "fraction_positive_given_real_contact": 0.8
+        },
+        "7": {
+          "n_positive": 10,
+          "n_known_last_receiver": 10,
+          "fraction_positive_given_real_contact": 1
+        },
+        "30": {
+          "n_positive": 10,
+          "n_known_last_receiver": 10,
+          "fraction_positive_given_real_contact": 1
+        },
+        "90": {
+          "n_positive": 10,
+          "n_known_last_receiver": 10,
+          "fraction_positive_given_real_contact": 1
+        }
+      }
+    },
+    "FV": {
+      "group": "FV",
+      "n_fish": 17,
+      "n_fish_without_any_real_receiver_contact": 1,
+      "n_fish_with_real_receiver_contact": 16,
+      "fraction_fish_with_real_receiver_contact": 0.9411764705882353,
+      "stage_counts": {
+        "FV": 17
+      },
+      "number_real_receiver_rows": {
+        "total": 2806,
+        "median": 1
+      },
+      "unique_real_receivers_median": 1,
+      "last_real_receiver_day_since_release_median": 2.7621122685185187,
+      "has_later_other_fish_detection_same_receiver": {
+        "1": {
+          "n_positive": 11,
+          "n_known_last_receiver": 16,
+          "fraction_positive_given_real_contact": 0.6875
+        },
+        "7": {
+          "n_positive": 13,
+          "n_known_last_receiver": 16,
+          "fraction_positive_given_real_contact": 0.8125
+        },
+        "30": {
+          "n_positive": 14,
+          "n_known_last_receiver": 16,
+          "fraction_positive_given_real_contact": 0.875
+        },
+        "90": {
+          "n_positive": 15,
+          "n_known_last_receiver": 16,
+          "fraction_positive_given_real_contact": 0.9375
+        }
+      }
+    }
+  },
+  "status": "RECEIVER_EVENT_EVIDENCE_INVENTORIED_NOT_RECEIVER_EFFORT_ESTIMATED",
+  "interpretation_boundary": [
+    "100/53/422 partition intact; source expert fixes identical to main analysis.",
+    "All real receiver evidence must derive from actual receiver rows, not virtual release stations.",
+    "Other fish same-receiver event must occur strictly later than focal last actual receiver event and no later than focal release+90 days.",
+    "No interpretation of other-fish presence as continuous receiver uptime, a true no-movement observation or eventual migration.",
+    "Do not infer physiology, tag failure, mortality, or causal missingness mechanism from this proxy."
+  ]
+}
