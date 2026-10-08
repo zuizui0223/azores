@@ -27,6 +27,8 @@ on:
       - "results/receiver_witness_observability_v1.json"
       - "results/receiver_stratified_label_tipping_v1.json"
       - "results/stage_entry_observability_bounds_v1.json"
+      - "results/stage_order_dual_uncertainty_v1.json"
+      - "analysis/52_stage_order_dual_uncertainty.py"
       - "results/observability_project_composition_v1.json"
       - "analysis/46_observability_project_weight_decomposition.py"
       - "manuscript/FIGURE_DATA_CONTRACT_V4.json"
