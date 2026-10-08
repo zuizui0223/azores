@@ -13,6 +13,7 @@ multivariate-entry-state manuscript.
 | Stronger observed FV than FIII condition ranking is context-sensitive | Original 6-project stage-matched contrast: FV gain **+0.161** vs FIII **+0.047**. Five shared project-year cells yield FV-minus-FIII incremental difference **+0.150**, but exact 4-project two-sided sign-flip **p=0.25** | Exploratory stage/context check | FIV only 108 pairs; source 2015 cohort reverses yearly; effect-size differences need not be causal. |
 | The capture phenotype ranks observed migration participation more strongly than onset order among initiators | Same 475 eels and fixed project-held-out scores: condition ΔAUC **+0.0329** by day 30 versus **+0.0807** eventual; 4-project paired contrast **+0.0431** (project CI **+0.0164–+0.0697**, exact p **0.125**). Among **422 initiators**, condition added only **+0.0015** onset-order concordance (project CI **−0.0237–+0.0202**) | Exploratory positive evidence for prediction-target separation | Timed onset remains algorithmic and detection-censored; selecting initiators is not a causal decomposition, 4 projects are not enough to establish broad generalization |
 | A simple release-date interaction explains between-river readiness differences | Interaction ΔAUC **−0.0010** on 6,914 held-out pairs (project CI **−0.0274–+0.0106**) | **Unsupported** | Release day is not direct flow/tide cue exposure; no direct hydrological inference |
+| An apparent strengthening of condition's eventual-initiation AUC in a 90-day-eligible subsample does not establish time-dependent physiology | Full 575 vs selected 475 held-out-score AUC gain **+0.0336→+0.0807**; 100/153 source noninitiators omitted; exact project-pair-reweighting contribution **+0.0515**, within-project term **−0.0044**; 20,000 matched random noninitiator retentions predict mean **+0.0844** (95% interval **+0.0606–+0.1083**), observed **+0.0807**, p **0.764** | Verified observation-process falsification, V4 QC PASS | Source labels and final receiver detections cannot establish true residence, failure, death or escapement; project composition and detection opportunity remain confounded |
 | Durif and condition act mainly additively at the entry gate | Durif×condition and Durif×length interaction model: LR p **0.931** | Developmental mechanism diagnostic | Does not exclude nonlinear/unmeasured physiological interactions |
 | An activation-trained multivariate score predicts migration entry | Score OR **2.23/SD**, 95% CI **1.70–2.92** | Strong within-panel transferability benchmark | Score trained and evaluated in the same public panel; not prospective validation |
 | The same activation-trained score predicts earlier behavioral onset | HR **1.32/SD**, 95% CI **1.17–1.49**, **418** onset events | Strong cross-endpoint transfer | Behavioral classifier onset, not physiological decision time |
@@ -59,6 +60,8 @@ Do not claim that:
 - `manuscript/MANUSCRIPT_QC_V4.json`
 - `results/entry_state_score_transferability_v1.json`
 - `results/cross_project_entry_state_score_v1.json`
+- `results/observability_project_composition_v1.json`
+- `results/observability_selection_gate_v1.json`
 - `results/cross_project_condition_increment_v1.json`
 - `results/cross_project_condition_increment_project_robustness_v1.json`
 - `results/stage_specific_condition_gate_v1.json`
