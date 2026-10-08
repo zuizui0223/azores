@@ -1,0 +1,36 @@
+name: stage-specific-condition-gate
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/stage_specific_condition_gate_v1.json"
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/36_cross_project_condition_increment.py"
+      - "analysis/37_stage_specific_condition_gate.py"
+      - ".github/workflows/stage-specific-condition-gate.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Python syntax preflight
+        run: python -m py_compile analysis/31_entry_state_score_transferability.py analysis/36_cross_project_condition_increment.py analysis/37_stage_specific_condition_gate.py
+      - name: Run stage-specific held-out condition analysis
+        run: python analysis/37_stage_specific_condition_gate.py
+      - name: Display output
+        if: always()
+        run: cat analysis/results/stage_specific_condition_gate.json || true
+      - name: Upload audit artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-stage-specific-condition-gate
+          path: analysis/results/stage_specific_condition_gate.json
