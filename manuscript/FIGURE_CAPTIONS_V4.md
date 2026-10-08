@@ -66,9 +66,7 @@ unrelated to post-arrival delay (EZ r=**0.072**, p=**0.677**; CL
 r=**−0.182**, p=**0.350**). **(D)** At CL, the matched condition × event-duration
 coefficient was near zero (β=**−0.095**, p=**0.841**, permutation p=**0.849**).
 The corresponding EZ model was near-separated and non-converged and is marked
-unstable rather than interpreted biologically. These independent data therefore
-falsify the specific prediction that better-conditioned eels generally wait for
-longer opening windows after reaching a barrier.
+unstable rather than interpreted biologically. These independent data did not support the predicted tendency for better-conditioned eels to wait for longer openings after barrier arrival. Small informative samples and the unstable EZ choice model preclude a definitive zero-effect claim.
 
 ## Supplementary Figure S1. The original Durif-only result shows the same phase boundary
 
