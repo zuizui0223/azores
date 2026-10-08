@@ -587,6 +587,44 @@
         "exact_lower_bound_10_flips": 0.0019087004930809608,
         "exact_lower_bound_15_flips": -0.007835455435847209,
         "evidence_boundary": "Adversarial hypothetical hidden starts, not observed misclassifications or estimated detection error."
+      },
+      "conditional_hidden_start_assignment": {
+        "source": "results/observability_random_hidden_start_sensitivity_v1.json",
+        "scenarios": [
+          "uniform",
+          "stage_FV_x3",
+          "adverse_disagreement_x3"
+        ],
+        "k11_distributions": {
+          "uniform": {
+            "median": 0.03373502988345829,
+            "interval95": [
+              0.023086161311873854,
+              0.044631904172824026
+            ],
+            "nonpositive_draws": 0
+          },
+          "FV_enriched": {
+            "median": 0.03276953953449037,
+            "interval95": [
+              0.022679702272022637,
+              0.043386145120553145
+            ],
+            "nonpositive_draws": 0
+          },
+          "score_disagreement_enriched": {
+            "median": 0.026227505422509276,
+            "interval95": [
+              0.015781272003323382,
+              0.037379111914203886
+            ],
+            "nonpositive_draws": 0
+          }
+        },
+        "score_disagreement_nonpositive_at_30": 0.0325,
+        "score_disagreement_nonpositive_at_50": 0.233,
+        "all_100_reclassified_auc_gain": 0.06832560101223113,
+        "boundary": "Hypothetical allocation simulation only, not identified observation or biological movement process."
       }
     }
   },
@@ -603,6 +641,7 @@
     "Stage and morphology-conditioned increments are exploratory and cannot establish energetic/physiological causality.",
     "Cumulative initiation labels are retrospective telemetry events and do not define confirmed escape, mortality, or physiological movement scheduling.",
     "Show 4-project exact p=0.125 alongside the paired temporal bootstrap CI and n=422 conditional-on-entry latency result.",
-    "The 90-day subset retains all source-classified initiators and discards 100/153 noninitiators; apparent eventual AUC improvement is not an elapsed-time physiological effect."
+    "The 90-day subset retains all source-classified initiators and discards 100/153 noninitiators; apparent eventual AUC improvement is not an elapsed-time physiological effect.",
+    "The exact eleven-label tipping is an adversarial existence result. Hypothetical random-label assignments do not reveal real misclassification prevalence or validate activation labels."
   ]
 }
