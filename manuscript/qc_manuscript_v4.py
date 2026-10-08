@@ -268,6 +268,7 @@ checks["label_tip_correct_frozen_baseline"] = abs(label_tip["frozen_original_auc
 checks["label_tip_exact_tipping"] = label_tip["first_k_with_nonpositive_exact_minimum"] == lt["exact_first_nonpositive_k"] == 11 and abs(label_tip["tipping_witness"]["ratio"] - lt["first_nonpositive_delta_auc"]) < 1e-10
 checks["label_tip_10_positive_15_nonpositive"] = label_tip["exact_minimum_at_k"]["10"]["ratio"] > 0 and label_tip["exact_minimum_at_k"]["15"]["ratio"] < 0
 checks["label_tip_11_projects"] = label_tip["tipping_witness"]["flips_by_project"] == lt["tipping_flips_by_project"]
+checks["label_tip_figure_data"] = figure["supplementary"]["observation_process_gate"]["label_ambiguity_bound"]["first_k_with_nonpositive_worst_case_auc_gain"] == label_tip["first_k_with_nonpositive_exact_minimum"] and abs(figure["supplementary"]["observation_process_gate"]["label_ambiguity_bound"]["worst_case_auc_gain_at_tipping"] - label_tip["tipping_witness"]["ratio"]) < 1e-10
 checks["label_tip_manuscript_scope"] = has(r"adversarially selected 11") and has(r"worst-case label-contamination") and has(r"not a finding that eleven misclassifications occurred")
 checks["label_tip_not_promoted_biology"] = not has(r"(?:observed|confirmed|proved) (?:eleven|11) (?:hidden|missed|false-negative) (?:migration|initiations)")
 
