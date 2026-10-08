@@ -741,5 +741,62 @@
     "original_11_witness_zero_receiver": 2,
     "original_11_witness_real_receiver": 9,
     "boundary": "Receiver contacts and later independent-tag encounters are discrete point-in-time observations. No focal fish fate, continuous detector uptime or missed-initiation frequency identified."
+  },
+  "stage_entry_observability_partial_identification": {
+    "evidence_class": "post_hoc_sharp_scenario_conditional_partial_identification",
+    "source": "results/stage_entry_observability_bounds_v1.json",
+    "stage_rate_bounds": {
+      "FIII": {
+        "n": 261,
+        "classified_starts": 154,
+        "ambiguous_short_negative": 70,
+        "longer_observed_negative": 37,
+        "rate_interval": [
+          0.5900383141762452,
+          0.8582375478927203
+        ]
+      },
+      "FIV": {
+        "n": 68,
+        "classified_starts": 53,
+        "ambiguous_short_negative": 13,
+        "longer_observed_negative": 2,
+        "rate_interval": [
+          0.7794117647058824,
+          0.9705882352941176
+        ]
+      },
+      "FV": {
+        "n": 246,
+        "classified_starts": 215,
+        "ambiguous_short_negative": 17,
+        "longer_observed_negative": 14,
+        "rate_interval": [
+          0.8739837398373984,
+          0.943089430894309
+        ]
+      }
+    },
+    "pooled_fv_minus_fiii_bounds": [
+      0.01574619194467808,
+      0.3530511167180638
+    ],
+    "equal_project_mean_fv_minus_fiii_bounds": [
+      -0.068395786210781,
+      0.3866589707617128
+    ],
+    "balanced_stage_sample_project_bounds": [
+      -0.0033293863849152786,
+      0.34618977666087486
+    ],
+    "project_status": {
+      "n_projects": 6,
+      "robust_fv_gt_fiii": 2,
+      "robust_fv_lt_fiii": 1,
+      "not_strictly_identified": 3
+    },
+    "min_additional_longer_observed_fiii_negative_flips_to_erase_pooled_order": 5,
+    "long_observed_fiii_negative_pool": 37,
+    "claim_boundary": "Pooled stage order sign is protected only when 422 classified initiators and 53 day-90 observed noninitiator labels are held fixed. Project-standardized region crosses zero; 1 of 6 project signs reverses; five more hypothetical FIII long-observed negative relabels erase pooled stage order."
   }
 }
