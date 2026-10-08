@@ -610,7 +610,7 @@
         0.06063569682151589,
         0.10831295843520783
       ],
-      "observed_delta": null,
+      "observed_delta": 0.0806845965770171,
       "two_sided_distance_from_mean_p": 0.7643617819109044,
       "upper_tail_p": 0.6251687415629219,
       "status": "OBSERVED_RETENTION_WITHIN_STRATIFIED_RANDOM_THINNING_ENVELOPE"
