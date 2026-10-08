@@ -1,0 +1,543 @@
+{
+  "schema": "azores.observability_random_hidden_start_sensitivity.v1",
+  "evidence_class": "post_hoc_scenario_sensitivity_after_exact_11_label_tipping",
+  "contract": "analysis/contracts/observability_random_hidden_start_sensitivity_v1.json",
+  "source_result": "results/observability_label_ambiguity_tipping_v1.json",
+  "population": {
+    "source_fish": 575,
+    "source_positives": 422,
+    "source_negatives": 153,
+    "hypothetically_relabelable_negative_fish": 100,
+    "baseline_pairs": 6914
+  },
+  "original_auc_increment": 0.033555105582875326,
+  "exact_adversarial_tipping_k": 11,
+  "monte_carlo_replications": 10000,
+  "seed": 20261008,
+  "scenarios": {
+    "uniform": [
+      {
+        "k": 0,
+        "n_evaluated": 1,
+        "mean_auc_increment": 0.033555105582875326,
+        "median_auc_increment": 0.033555105582875326,
+        "ci95_assignment": [
+          0.033555105582875326,
+          0.033555105582875326
+        ],
+        "min_sampled_increment": 0.033555105582875326,
+        "max_sampled_increment": 0.033555105582875326,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6914,
+          6914
+        ]
+      },
+      {
+        "k": 5,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.033645370348824775,
+        "median_auc_increment": 0.0335660181197089,
+        "ci95_assignment": [
+          0.026092532758186883,
+          0.04147284705988645
+        ],
+        "min_sampled_increment": 0.017018690168667375,
+        "max_sampled_increment": 0.04720460244873875,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6524,
+          6999
+        ]
+      },
+      {
+        "k": 10,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.0337791893136322,
+        "median_auc_increment": 0.03366343991494876,
+        "ci95_assignment": [
+          0.023548406825738003,
+          0.04461581036351943
+        ],
+        "min_sampled_increment": 0.013289793438639124,
+        "max_sampled_increment": 0.055264827148747225,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6197,
+          7024
+        ]
+      },
+      {
+        "k": 11,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.03378688683828578,
+        "median_auc_increment": 0.03373502988345829,
+        "ci95_assignment": [
+          0.023086161311873854,
+          0.044631904172824026
+        ],
+        "min_sampled_increment": 0.009732170663344752,
+        "max_sampled_increment": 0.056422569027611044,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6172,
+          7009
+        ]
+      },
+      {
+        "k": 15,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.033952558542724186,
+        "median_auc_increment": 0.033876270867527376,
+        "ci95_assignment": [
+          0.021279898891965274,
+          0.046756111656773396
+        ],
+        "min_sampled_increment": 0.012127298007106442,
+        "max_sampled_increment": 0.0567895400126024,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5895,
+          7004
+        ]
+      },
+      {
+        "k": 20,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.0341680378732288,
+        "median_auc_increment": 0.03411187094677329,
+        "ci95_assignment": [
+          0.0200572376347907,
+          0.04840557210237781
+        ],
+        "min_sampled_increment": 0.003614647179003615,
+        "max_sampled_increment": 0.06401748138556167,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5740,
+          6889
+        ]
+      },
+      {
+        "k": 30,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.03473521804905243,
+        "median_auc_increment": 0.03471459663190972,
+        "ci95_assignment": [
+          0.017550979575733695,
+          0.052426429941347046
+        ],
+        "min_sampled_increment": 0.0005798542080848244,
+        "max_sampled_increment": 0.06655348047538201,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5035,
+          6637
+        ]
+      },
+      {
+        "k": 50,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.03784160392456223,
+        "median_auc_increment": 0.037758227955254645,
+        "ci95_assignment": [
+          0.0163233475142972,
+          0.060023460200243406
+        ],
+        "min_sampled_increment": -0.00877023901310717,
+        "max_sampled_increment": 0.07656471541421916,
+        "fraction_nonpositive": 0.0002,
+        "informative_pair_count_range": [
+          4394,
+          5926
+        ]
+      },
+      {
+        "k": 75,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.04557491438122036,
+        "median_auc_increment": 0.04541919853667699,
+        "ci95_assignment": [
+          0.02050386706697479,
+          0.07148371958313493
+        ],
+        "min_sampled_increment": -0.0046875,
+        "max_sampled_increment": 0.0879653906659675,
+        "fraction_nonpositive": 0.0002,
+        "informative_pair_count_range": [
+          3249,
+          4640
+        ]
+      },
+      {
+        "k": 100,
+        "n_evaluated": 1,
+        "mean_auc_increment": 0.06832560101223113,
+        "median_auc_increment": 0.06832560101223113,
+        "ci95_assignment": [
+          0.06832560101223113,
+          0.06832560101223113
+        ],
+        "min_sampled_increment": 0.06832560101223113,
+        "max_sampled_increment": 0.06832560101223113,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          2371,
+          2371
+        ]
+      }
+    ],
+    "stage_FV_x3": [
+      {
+        "k": 0,
+        "n_evaluated": 1,
+        "mean_auc_increment": 0.033555105582875326,
+        "median_auc_increment": 0.033555105582875326,
+        "ci95_assignment": [
+          0.033555105582875326,
+          0.033555105582875326
+        ],
+        "min_sampled_increment": 0.033555105582875326,
+        "max_sampled_increment": 0.033555105582875326,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6914,
+          6914
+        ]
+      },
+      {
+        "k": 5,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.033180367819731736,
+        "median_auc_increment": 0.03311576868899849,
+        "ci95_assignment": [
+          0.026183431952662723,
+          0.04052507626293862
+        ],
+        "min_sampled_increment": 0.019140209630867384,
+        "max_sampled_increment": 0.046290844863114515,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6524,
+          6999
+        ]
+      },
+      {
+        "k": 10,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.032918769763804125,
+        "median_auc_increment": 0.032874383777970806,
+        "ci95_assignment": [
+          0.02317258088988355,
+          0.042800169879497516
+        ],
+        "min_sampled_increment": 0.014414414414414415,
+        "max_sampled_increment": 0.05220277610138805,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6159,
+          7031
+        ]
+      },
+      {
+        "k": 11,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.03281911662888237,
+        "median_auc_increment": 0.03276953953449037,
+        "ci95_assignment": [
+          0.022679702272022637,
+          0.043386145120553145
+        ],
+        "min_sampled_increment": 0.011030570438071227,
+        "max_sampled_increment": 0.05525818639798489,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6126,
+          7009
+        ]
+      },
+      {
+        "k": 15,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.03272315862868797,
+        "median_auc_increment": 0.03256646946646842,
+        "ci95_assignment": [
+          0.021073633647011328,
+          0.044952461511483126
+        ],
+        "min_sampled_increment": 0.010521429676620765,
+        "max_sampled_increment": 0.05620645978467385,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5873,
+          6950
+        ]
+      },
+      {
+        "k": 20,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.032510838616969844,
+        "median_auc_increment": 0.03243265685986828,
+        "ci95_assignment": [
+          0.01912367882465573,
+          0.04654783240887819
+        ],
+        "min_sampled_increment": 0.008187857253205623,
+        "max_sampled_increment": 0.06016260162601626,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5694,
+          6872
+        ]
+      },
+      {
+        "k": 30,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.0328287049337353,
+        "median_auc_increment": 0.03266742308711838,
+        "ci95_assignment": [
+          0.016619169200676936,
+          0.049934630957431225
+        ],
+        "min_sampled_increment": 0.001176668347621449,
+        "max_sampled_increment": 0.06493266924921601,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5237,
+          6634
+        ]
+      },
+      {
+        "k": 50,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.034832658937996475,
+        "median_auc_increment": 0.034822862629021734,
+        "ci95_assignment": [
+          0.013868595923426525,
+          0.056137797780242256
+        ],
+        "min_sampled_increment": -0.01086318261890781,
+        "max_sampled_increment": 0.07736156351791532,
+        "fraction_nonpositive": 0.0005,
+        "informative_pair_count_range": [
+          4324,
+          5942
+        ]
+      },
+      {
+        "k": 75,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.04260341095288409,
+        "median_auc_increment": 0.042630051667517606,
+        "ci95_assignment": [
+          0.01749214500337169,
+          0.0682940586900011
+        ],
+        "min_sampled_increment": -0.0006211180124223603,
+        "max_sampled_increment": 0.08782201405152225,
+        "fraction_nonpositive": 0.0002,
+        "informative_pair_count_range": [
+          3213,
+          4619
+        ]
+      },
+      {
+        "k": 100,
+        "n_evaluated": 1,
+        "mean_auc_increment": 0.06832560101223113,
+        "median_auc_increment": 0.06832560101223113,
+        "ci95_assignment": [
+          0.06832560101223113,
+          0.06832560101223113
+        ],
+        "min_sampled_increment": 0.06832560101223113,
+        "max_sampled_increment": 0.06832560101223113,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          2371,
+          2371
+        ]
+      }
+    ],
+    "adverse_disagreement_x3": [
+      {
+        "k": 0,
+        "n_evaluated": 1,
+        "mean_auc_increment": 0.033555105582875326,
+        "median_auc_increment": 0.033555105582875326,
+        "ci95_assignment": [
+          0.033555105582875326,
+          0.033555105582875326
+        ],
+        "min_sampled_increment": 0.033555105582875326,
+        "max_sampled_increment": 0.033555105582875326,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6914,
+          6914
+        ]
+      },
+      {
+        "k": 5,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.03023819623580657,
+        "median_auc_increment": 0.03012933568489124,
+        "ci95_assignment": [
+          0.023210106205512657,
+          0.03791887125220458
+        ],
+        "min_sampled_increment": 0.015219005196733483,
+        "max_sampled_increment": 0.04627020613970043,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6524,
+          6999
+        ]
+      },
+      {
+        "k": 10,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.02689118573091506,
+        "median_auc_increment": 0.026844907691395012,
+        "ci95_assignment": [
+          0.01668183196845617,
+          0.037513278938456206
+        ],
+        "min_sampled_increment": 0.009110233829334954,
+        "max_sampled_increment": 0.05027110766847405,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6176,
+          7001
+        ]
+      },
+      {
+        "k": 11,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.026299037825731363,
+        "median_auc_increment": 0.026227505422509276,
+        "ci95_assignment": [
+          0.015781272003323382,
+          0.037379111914203886
+        ],
+        "min_sampled_increment": 0.006721260815822003,
+        "max_sampled_increment": 0.04895104895104895,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          6128,
+          7007
+        ]
+      },
+      {
+        "k": 15,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.023846240349762224,
+        "median_auc_increment": 0.02377088453277271,
+        "ci95_assignment": [
+          0.01186007430645738,
+          0.03643555140101367
+        ],
+        "min_sampled_increment": 0.0021864750898016555,
+        "max_sampled_increment": 0.04852089528877759,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          5865,
+          6957
+        ]
+      },
+      {
+        "k": 20,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.020950373898111392,
+        "median_auc_increment": 0.020800616332819724,
+        "ci95_assignment": [
+          0.0069388918781967115,
+          0.03586195962856687
+        ],
+        "min_sampled_increment": -0.001142857142857143,
+        "max_sampled_increment": 0.04867326110849427,
+        "fraction_nonpositive": 0.0006,
+        "informative_pair_count_range": [
+          5717,
+          6846
+        ]
+      },
+      {
+        "k": 30,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.015336341812755885,
+        "median_auc_increment": 0.015050729859141835,
+        "ci95_assignment": [
+          -0.0008565017928279121,
+          0.03282588978156479
+        ],
+        "min_sampled_increment": -0.015267873468641434,
+        "max_sampled_increment": 0.04672290720311486,
+        "fraction_nonpositive": 0.0325,
+        "informative_pair_count_range": [
+          5057,
+          6597
+        ]
+      },
+      {
+        "k": 50,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.007848158271202211,
+        "median_auc_increment": 0.007581856872355185,
+        "ci95_assignment": [
+          -0.01143386747560067,
+          0.028542380798493493
+        ],
+        "min_sampled_increment": -0.02856609410007468,
+        "max_sampled_increment": 0.05098855359001041,
+        "fraction_nonpositive": 0.233,
+        "informative_pair_count_range": [
+          4285,
+          5813
+        ]
+      },
+      {
+        "k": 75,
+        "n_evaluated": 10000,
+        "mean_auc_increment": 0.013106696705014836,
+        "median_auc_increment": 0.012807675784499126,
+        "ci95_assignment": [
+          -0.006147648270534718,
+          0.03391482534939401
+        ],
+        "min_sampled_increment": -0.023230621088107847,
+        "max_sampled_increment": 0.05845942228335626,
+        "fraction_nonpositive": 0.1018,
+        "informative_pair_count_range": [
+          3087,
+          4586
+        ]
+      },
+      {
+        "k": 100,
+        "n_evaluated": 1,
+        "mean_auc_increment": 0.06832560101223113,
+        "median_auc_increment": 0.06832560101223113,
+        "ci95_assignment": [
+          0.06832560101223113,
+          0.06832560101223113
+        ],
+        "min_sampled_increment": 0.06832560101223113,
+        "max_sampled_increment": 0.06832560101223113,
+        "fraction_nonpositive": 0,
+        "informative_pair_count_range": [
+          2371,
+          2371
+        ]
+      }
+    ]
+  },
+  "status": "CONDITIONAL_LABEL_ASSIGNMENT_DISTRIBUTIONS_ESTIMATED",
+  "interpretation_boundary": [
+    "The uniform model is a reference distribution over hypothetical label assignments and does not estimate how many genuine undetected initiators exist.",
+    "The stage-enriched and adverse rank-disagreement scenarios are uncalibrated MNAR sensitivity functions, not estimators or causal mechanisms.",
+    "All source labels and fitted coefficients remain unchanged in the canonical analyses.",
+    "Eleven adversarial flips is an exact worst-case vulnerability; random-assignment probabilities cannot substitute for independent receiver exposure or downstream tracking evidence.",
+    "No claim about real false-negative prevalence, population escapement, eventual survival or physiological energy budget."
+  ]
+}
