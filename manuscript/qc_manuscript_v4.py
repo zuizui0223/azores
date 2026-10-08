@@ -80,6 +80,9 @@ checks["within_link_ratio_exact"] = abs(link["primary"]["entry_state_effect"]["s
 checks["within_link_ci_exact"] = all(abs(a-b) < 1e-9 for a,b in zip(link["primary"]["entry_state_effect"]["ci95"], contract["within_link_entry_state"]["primary"]["ci95"]))
 checks["within_link_sample_exact"] = link["primary"]["n_segment_rows"] == contract["within_link_entry_state"]["primary"]["n_segment_rows"] and link["primary"]["n_fish"] == contract["within_link_entry_state"]["primary"]["n_fish"] and link["primary"]["n_pairs"] == contract["within_link_entry_state"]["primary"]["n_directed_pairs"]
 checks["within_link_status_null"] = link.get("status") == "NO_SUPPORTED_WITHIN_LINK_ENTRY_STATE_SPEED_GRADIENT"
+checks["within_link_expert_correction"] = link.get("expert_non_migrant_segment_rows") == 0 and link.get("canonical_expert_non_migrant_count") == 9
+checks["within_link_canonical_initiator_universe"] = link.get("raw_candidate_fish") == 422
+checks["quality_uses_corrected_primary"] = quality.get("frozen_primary_reference", {}).get("n_fish") == link.get("primary", {}).get("n_fish") and abs(quality.get("frozen_primary_reference", {}).get("ratio", 0) - link.get("primary", {}).get("entry_state_effect", {}).get("speed_ratio_per_1sd_score", 999)) < 1e-9
 checks["quality_schema"] = quality.get("schema") == "azores.within_link_speed_quality_sensitivity.v1"
 checks["quality_status_robust"] = quality.get("status") == "WITHIN_LINK_NULL_ROBUST_TO_GROSS_SPEED_ARTIFACT_SCREEN"
 checks["quality_2_5_exact"] = abs(quality["threshold_results"]["2.5"]["primary_model_after_quality_cut"]["entry_state_effect"]["speed_ratio_per_1sd_score"] - contract["within_link_entry_state"]["source_speed_quality_boundary"]["posthoc_upper_screen_results"]["2.5"]["ratio_per_sd"]) < 1e-9
