@@ -1,0 +1,39 @@
+name: seasonal-condition-interaction
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/seasonal_condition_interaction_v1.json"
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/36_cross_project_condition_increment.py"
+      - "analysis/41_seasonal_condition_interaction.py"
+      - "analysis/tests/test_seasonal_condition_interaction.py"
+      - ".github/workflows/seasonal-condition-interaction.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numpy
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Syntax preflight
+        run: python -m py_compile analysis/31_entry_state_score_transferability.py analysis/36_cross_project_condition_increment.py analysis/41_seasonal_condition_interaction.py analysis/tests/test_seasonal_condition_interaction.py
+      - name: Synthetic unit tests
+        run: python analysis/tests/test_seasonal_condition_interaction.py
+      - name: Calculate held-out seasonality interaction
+        run: python analysis/41_seasonal_condition_interaction.py
+      - name: Show result
+        if: always()
+        run: cat analysis/results/seasonal_condition_interaction.json || true
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: seasonal-condition-interaction
+          path: analysis/results/seasonal_condition_interaction.json
