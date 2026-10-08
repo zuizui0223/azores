@@ -1,0 +1,106 @@
+{
+  "schema": "azores.observability_project_composition.v1",
+  "evidence_class": "post_hoc_exact_accounting_of_completed_auc_outputs",
+  "sources": [
+    "results/cross_project_condition_increment_v1.json",
+    "results/paired_temporal_endpoint_condition_v1.json"
+  ],
+  "question": "How much of the apparent 90-day-selected eventual AUC improvement is project-pair reweighting rather than changes inside the retained projects?",
+  "full_source_n": 575,
+  "selected_source_n": 475,
+  "retained_initiation_events": 422,
+  "retained_noninitiation_records": 53,
+  "n_lost_followup_records": 100,
+  "n_positive_negative_pairs": {
+    "full": 6914,
+    "selected": 2045
+  },
+  "auc_condition_increment": {
+    "full": 0.03355510558287533,
+    "selected": 0.0806845965770171,
+    "observed_increase": 0.047129490994141765
+  },
+  "exact_decomposition": {
+    "project_pair_weight_rebalancing": 0.05152702969942776,
+    "within_project_changes_and_project_year_mix": -0.004397538705285908,
+    "identity_residual": 9.71445146547012e-17,
+    "fraction_of_observed_increase_from_project_rebalancing": 1.0933075790237712
+  },
+  "project_terms": [
+    {
+      "project": "2011_Warnow",
+      "full_pairs": 3638,
+      "retained_pairs": 107,
+      "full_weight": 0.5261787677176742,
+      "retained_weight": 0.05232273838630807,
+      "full_delta_auc": 0.0068719076415612035,
+      "retained_delta_auc": 0.0934579439252336,
+      "pair_weight_composition_term": -0.003256294868962065,
+      "within_project_delta_term": 0.004530418524377969
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "full_pairs": 1456,
+      "retained_pairs": 1092,
+      "full_weight": 0.2105872143477003,
+      "retained_weight": 0.5339853300733496,
+      "full_delta_auc": 0.10851648351648346,
+      "retained_delta_auc": 0.1208791208791209,
+      "pair_weight_composition_term": 0.03509402629440423,
+      "within_project_delta_term": 0.006601466992665072
+    },
+    {
+      "project": "2013_albertkanaal",
+      "full_pairs": 393,
+      "retained_pairs": 325,
+      "full_weight": 0.056841191784784494,
+      "retained_weight": 0.15892420537897312,
+      "full_delta_auc": 0.10305343511450382,
+      "retained_delta_auc": 0.056923076923076854,
+      "pair_weight_composition_term": 0.010520005217721728,
+      "within_project_delta_term": -0.007331230519419934
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "full_pairs": 931,
+      "retained_pairs": 521,
+      "full_weight": 0.13465432455886606,
+      "retained_weight": 0.25476772616136917,
+      "full_delta_auc": 0.04081632653061218,
+      "retained_delta_auc": 0.008637236084452993,
+      "pair_weight_composition_term": 0.004902587820510323,
+      "within_project_delta_term": -0.008198193702909015
+    },
+    {
+      "project": "2019_Grotenete",
+      "full_pairs": 88,
+      "retained_pairs": 0,
+      "full_weight": 0.012727798669366503,
+      "retained_weight": 0,
+      "full_delta_auc": -0.03409090909090906,
+      "retained_delta_auc": null,
+      "pair_weight_composition_term": 0.0004339022273647668,
+      "within_project_delta_term": 0
+    },
+    {
+      "project": "ESGL",
+      "full_pairs": 408,
+      "retained_pairs": 0,
+      "full_weight": 0.05901070292160833,
+      "retained_weight": 0,
+      "full_delta_auc": -0.06495098039215685,
+      "retained_delta_auc": null,
+      "pair_weight_composition_term": 0.003832803008388776,
+      "within_project_delta_term": 0
+    }
+  ],
+  "status": "EXACT_PROJECT_COMPOSITION_DECOMPOSITION_CLOSED",
+  "boundaries": [
+    "Exact descriptive difference-of-weighted-means identity; no model refit.",
+    "Project-weight term does not identify a physiological or environmental mechanism.",
+    "Within-project changes can arise from within-project-year weighting, sample selection and individual score distributions.",
+    "No source-classified noninitiator is proven biologically resident, dead or a failed migrant.",
+    "The common 90-day cohort retains all 422 source-classified initiators but only 53 of 153 source noninitiators.",
+    "The larger selected-sample AUC must not be interpreted as an increased state effect with elapsed time."
+  ]
+}
