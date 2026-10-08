@@ -29,6 +29,7 @@ ENTRANT = Path("results/entrant_onset_latency_discrimination_v1.json")
 OBS = Path("results/observability_selection_gate_v1.json")
 OBS_MIX = Path("results/observability_project_composition_v1.json")
 LABEL_TIP = Path("results/observability_label_ambiguity_tipping_v1.json")
+RANDOM_HIDDEN = Path("results/observability_random_hidden_start_sensitivity_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -53,6 +54,7 @@ entrant_latency = json.loads(ENTRANT.read_text())
 observability = json.loads(OBS.read_text())
 observability_mix = json.loads(OBS_MIX.read_text())
 label_tip = json.loads(LABEL_TIP.read_text())
+random_hidden = json.loads(RANDOM_HIDDEN.read_text())
 
 checks = {}
 
@@ -271,6 +273,27 @@ checks["label_tip_11_projects"] = label_tip["tipping_witness"]["flips_by_project
 checks["label_tip_figure_data"] = figure["supplementary"]["observation_process_gate"]["label_ambiguity_bound"]["first_k_with_nonpositive_worst_case_auc_gain"] == label_tip["first_k_with_nonpositive_exact_minimum"] and abs(figure["supplementary"]["observation_process_gate"]["label_ambiguity_bound"]["worst_case_auc_gain_at_tipping"] - label_tip["tipping_witness"]["ratio"]) < 1e-10
 checks["label_tip_manuscript_scope"] = has(r"adversarially selected 11") and has(r"worst-case label-contamination") and has(r"not a finding that eleven misclassifications occurred")
 checks["label_tip_not_promoted_biology"] = not has(r"(?:observed|confirmed|proved) (?:eleven|11) (?:hidden|missed|false-negative) (?:migration|initiations)")
+
+# The exact 11-fish vulnerability and a conditional random-assignment model
+# answer different questions. Freeze that distinction in the manuscript.
+rh = contract["observability_random_hidden_start_sensitivity"]
+rfig = figure["supplementary"]["observation_process_gate"]["conditional_hidden_start_assignment"]
+checks["random_hidden_schema"] = random_hidden.get("schema") == "azores.observability_random_hidden_start_sensitivity.v1"
+checks["random_hidden_source_population"] = random_hidden["population"]["source_fish"] == 575 and random_hidden["population"]["hypothetically_relabelable_negative_fish"] == 100 and random_hidden["population"]["baseline_pairs"] == 6914
+checks["random_hidden_exact_tipping_preserved"] = random_hidden["exact_adversarial_tipping_k"] == label_tip["first_k_with_nonpositive_exact_minimum"] == rh["exact_worst_case_tipping_k"] == 11
+checks["random_hidden_baseline"] = abs(random_hidden["original_auc_increment"] - rh["baseline_auc_gain"]) < 1e-10
+checks["random_hidden_scenario_count"] = len(random_hidden["scenarios"]) == 3 and all(len(v) == 10 for v in random_hidden["scenarios"].values())
+checks["random_hidden_frozen_training"] = random_hidden["evidence_class"] == "post_hoc_scenario_sensitivity_after_exact_11_label_tipping"
+checks["random_hidden_conditional_samples"] = random_hidden["monte_carlo_replications"] == rh["conditional_repetitions"] == 10000
+for scenario,contract_key in [("uniform","uniform"),("stage_FV_x3","FV_enriched"),("adverse_disagreement_x3","score_disagreement_enriched")]:
+    row = next(x for x in random_hidden["scenarios"][scenario] if x["k"] == 11)
+    saved = rh["k11"][contract_key]
+    checks["random_hidden_11_" + contract_key] = abs(row["median_auc_increment"] - saved["median"]) < 1e-10 and all(abs(a-b) < 1e-10 for a,b in zip(row["ci95_assignment"], saved["interval95"])) and row["fraction_nonpositive"] == 0 and saved["nonpositive_draws"] == 0
+checks["random_hidden_rank_adverse_tail"] = all(abs(next(x for x in random_hidden["scenarios"]["adverse_disagreement_x3"] if x["k"] == int(k))["fraction_nonpositive"] - v) < 1e-10 for k,v in rh["score_disagreement_enrichment_nonpositive_fraction_by_k"].items())
+checks["random_hidden_all100_nonmonotonic"] = abs(next(x for x in random_hidden["scenarios"]["uniform"] if x["k"] == 100)["mean_auc_increment"] - rh["deterministic_all_100_reclassified_gain"]) < 1e-10 and rh["deterministic_all_100_reclassified_gain"] > rh["baseline_auc_gain"]
+checks["random_hidden_figure_match"] = abs(rfig["all_100_reclassified_auc_gain"] - rh["deterministic_all_100_reclassified_gain"]) < 1e-10 and abs(rfig["score_disagreement_nonpositive_at_50"] - rh["score_disagreement_enrichment_nonpositive_fraction_by_k"]["50"]) < 1e-10
+checks["random_hidden_reported_as_hypothetical"] = has(r"10,000.*uniformly selected") and has(r"23\\.3%") and has(r"hypothetical") and has(r"not a true detection-error model")
+
 
 failed = [k for k,v in checks.items() if not v]
 result = {
