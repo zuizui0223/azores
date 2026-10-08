@@ -1,0 +1,190 @@
+{
+  "schema": "azores.silvering_stage_project_heterogeneity_exact.v1",
+  "evidence_class": "post_hoc_fixed_margin_bootstrap_heterogeneity_audit",
+  "source": "results/stage_specific_condition_gate_v1.json",
+  "contract": "analysis/contracts/silvering_stage_project_heterogeneity_exact_v1.json",
+  "stage_contrast": "FV vs FIII telemetry-classified initiation",
+  "n_projects": 6,
+  "n_FIII": 261,
+  "n_FV": 246,
+  "common_or_fv_vs_fiii": 3.550766657079559,
+  "common_log_or": 1.2671635399120973,
+  "observed_lr": 26.16987273040649,
+  "project_stage_counts": [
+    {
+      "project": "2011_Warnow",
+      "FIII": {
+        "n": 86,
+        "starts": 61,
+        "rate": 0.7093023255813954
+      },
+      "FV": {
+        "n": 28,
+        "starts": 23,
+        "rate": 0.8214285714285714
+      },
+      "fv_success_support": [
+        0,
+        28
+      ],
+      "observed_fv_success_at_boundary": false,
+      "haldane_or_fv_vs_fiii_descriptive": 1.771618625277162
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "FIII": {
+        "n": 45,
+        "starts": 21,
+        "rate": 0.4666666666666667
+      },
+      "FV": {
+        "n": 28,
+        "starts": 24,
+        "rate": 0.8571428571428571
+      },
+      "fv_success_support": [
+        0,
+        28
+      ],
+      "observed_fv_success_at_boundary": false,
+      "haldane_or_fv_vs_fiii_descriptive": 6.204134366925064
+    },
+    {
+      "project": "2013_albertkanaal",
+      "FIII": {
+        "n": 26,
+        "starts": 26,
+        "rate": 1
+      },
+      "FV": {
+        "n": 117,
+        "starts": 105,
+        "rate": 0.8974358974358975
+      },
+      "fv_success_support": [
+        105,
+        117
+      ],
+      "observed_fv_success_at_boundary": true,
+      "haldane_or_fv_vs_fiii_descriptive": 0.15924528301886792
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "FIII": {
+        "n": 67,
+        "starts": 34,
+        "rate": 0.5074626865671642
+      },
+      "FV": {
+        "n": 36,
+        "starts": 33,
+        "rate": 0.9166666666666666
+      },
+      "fv_success_support": [
+        0,
+        36
+      ],
+      "observed_fv_success_at_boundary": false,
+      "haldane_or_fv_vs_fiii_descriptive": 9.29399585921325
+    },
+    {
+      "project": "2019_Grotenete",
+      "FIII": {
+        "n": 11,
+        "starts": 6,
+        "rate": 0.5454545454545454
+      },
+      "FV": {
+        "n": 25,
+        "starts": 25,
+        "rate": 1
+      },
+      "fv_success_support": [
+        20,
+        25
+      ],
+      "observed_fv_success_at_boundary": true,
+      "haldane_or_fv_vs_fiii_descriptive": 43.15384615384615
+    },
+    {
+      "project": "ESGL",
+      "FIII": {
+        "n": 26,
+        "starts": 6,
+        "rate": 0.23076923076923078
+      },
+      "FV": {
+        "n": 12,
+        "starts": 5,
+        "rate": 0.4166666666666667
+      },
+      "fv_success_support": [
+        0,
+        11
+      ],
+      "observed_fv_success_at_boundary": false,
+      "haldane_or_fv_vs_fiii_descriptive": 2.312820512820513
+    }
+  ],
+  "parametric_bootstrap": {
+    "replicates": 10000,
+    "seed": 20261008,
+    "observed_lr": 26.16987273040649,
+    "extreme_replicates": 0,
+    "p_plus_one": 0.00009999000099990002,
+    "null_quantiles": {
+      "50": 4.60593208997615,
+      "95": 11.982076592941219,
+      "99": 16.12213225869772
+    }
+  },
+  "exact_conditioned_on_total_FV_starts": {
+    "total_FV_classified_starts_fixed": 215,
+    "admissible_joint_vectors": 156690,
+    "extreme_joint_vectors": 119197,
+    "exact_conditional_p": 0.000141038331236153,
+    "observed_lr": 26.16987273040649,
+    "max_lr_in_support": 246.0428770679806,
+    "algorithm": "full enumeration, probability-weighted hypergeometric, fixed project margins and fixed grand FV initiators",
+    "common_odds_nuisance_cancelled": true
+  },
+  "leave_one_project_out": [
+    {
+      "excluded": "2011_Warnow",
+      "conditional_common_or": 4.113283986328773,
+      "heterogeneity_lr": 24.654104924597746
+    },
+    {
+      "excluded": "2012_leopoldkanaal",
+      "conditional_common_or": 3.0343886037155383,
+      "heterogeneity_lr": 24.71401830428926
+    },
+    {
+      "excluded": "2013_albertkanaal",
+      "conditional_common_or": 5.375994471594015,
+      "heterogeneity_lr": 10.421858093708515
+    },
+    {
+      "excluded": "2015_phd_verhelst_eel",
+      "conditional_common_or": 2.624607670278227,
+      "heterogeneity_lr": 21.687160091438976
+    },
+    {
+      "excluded": "2019_Grotenete",
+      "conditional_common_or": 3.0586340178655513,
+      "heterogeneity_lr": 19.598209684923383
+    },
+    {
+      "excluded": "ESGL",
+      "conditional_common_or": 3.764276639333611,
+      "heterogeneity_lr": 25.793831718403297
+    }
+  ],
+  "inferential_boundaries": [
+    "Post-hoc after observing project reversal; this is an exploratory descriptive heterogeneity test.",
+    "Conditional-on-margins inference applies to telemetry-classified initiation labels, not true physiological departures.",
+    "Project and hydrology, cohort composition, release year, tagging design and detection opportunities remain confounded.",
+    "Failure to reject common OR does not prove no interaction; six project contexts limit power.",
+    "The test does not account for fish and observation-history misclassification or infer escapement."
+  ]
+}
