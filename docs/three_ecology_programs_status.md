@@ -4,6 +4,16 @@ These are three separate ecological papers. EOG is provenance/discovery only.
 
 ---
 
+Supplementary conditional hidden-start assignment (10,000 draws per scenario and k):
+- **11 uniformly selected** short-follow-up negative labels: median held-out AUC gain **+0.0337**, with zero nonpositive draws among 10,000;
+- FV-enriched selection (3:1): median **+0.0328**, zero nonpositive draws;
+- score-disagreement-enriched selection (3:1): median **+0.0262**, zero nonpositive draws;
+- score-disagreement-enriched scenario at k=30 and k=50: **3.25%** and **23.3%** nonpositive draws, respectively;
+- all 100 hypothetically relabeled: **+0.0683** due to changed comparison pairs; no monotone relationship between k and added AUC;
+- no evidence that any of the hypothetical assignments occurred; exact eleven-label tipping remains a worst-case existence bound.
+
+Canonical: `results/observability_random_hidden_start_sensitivity_v1.json`; interpretation: `docs/OBSERVABILITY_HIDDEN_START_SCENARIOS_2026_10_08.md`.
+
 ## 1. Azores — phase-specific control of eel migration
 
 ### Scientific status
