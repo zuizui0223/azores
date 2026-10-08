@@ -541,6 +541,43 @@
         ]
       },
       "display": "Plot fixed-cohort 7/30/60/90/eventual added AUC increments as ordered endpoint labels; inset entrant-only onset concordance and project uncertainty. The retrained-window series has different samples/models and MUST be visually distinguished."
+    },
+    "observation_process_gate": {
+      "source": [
+        "results/observability_selection_gate_v1.json",
+        "results/observability_project_composition_v1.json"
+      ],
+      "cohort": {
+        "source_n": 575,
+        "initiators": 422,
+        "source_noninitiators": 153,
+        "selected_n": 475,
+        "selected_initiators": 422,
+        "selected_noninitiators": 53,
+        "excluded_noninitiators": 100,
+        "excluded_initiators": 0
+      },
+      "full_condition_auc_gain": 0.03355510558287533,
+      "selected_condition_auc_gain": 0.0806845965770171,
+      "gain_increase": 0.047129490994141765,
+      "project_weight_rebalance_component": 0.05152702969942776,
+      "within_project_component": -0.004397538705285908,
+      "permutation": {
+        "replicate_count": 20000,
+        "observed": 0.0806845965770171,
+        "expected_mean": 0.08444273838630806,
+        "interval95": [
+          0.06063569682151589,
+          0.10831295843520783
+        ],
+        "two_sided_p": 0.7643617819109044
+      },
+      "last_receiver_arrival_median_days_for_source_noninitiators": {
+        "selected": 549.0834490740741,
+        "excluded": 0.5150289351851852
+      },
+      "negative_control_observability_delta": 0.009202453987730064,
+      "interpretation": "The apparent +0.0471 selected-cohort gain amplification is a project-pair-weighting artifact, and the actual fish-retention pattern is typical of stratified random retention. Neither source noninitiation nor last receiver span is continuous observed biological nonmovement."
     }
   },
   "boundaries": [
@@ -555,6 +592,7 @@
     "Continuous silvering morphology was retrospectively identified in typed length2/3/4 columns; project-specific ordering is harmonized by measurement type.",
     "Stage and morphology-conditioned increments are exploratory and cannot establish energetic/physiological causality.",
     "Cumulative initiation labels are retrospective telemetry events and do not define confirmed escape, mortality, or physiological movement scheduling.",
-    "Show 4-project exact p=0.125 alongside the paired temporal bootstrap CI and n=422 conditional-on-entry latency result."
+    "Show 4-project exact p=0.125 alongside the paired temporal bootstrap CI and n=422 conditional-on-entry latency result.",
+    "The 90-day subset retains all source-classified initiators and discards 100/153 noninitiators; apparent eventual AUC improvement is not an elapsed-time physiological effect."
   ]
 }
