@@ -22,7 +22,7 @@ def check():
     assert m.minimum_extra_long_observed_flips(fiii,fv)["needed"]==1
 
     h=m.bounds(4,4,0)
-    k=m.bounds(9,7,2)
+    k=m.bounds(9,6,2)
     assert m.contrast(k,h)["status"].startswith("STRICT_NEGATIVE")
 
     e=m.bounds(20,10,8)
