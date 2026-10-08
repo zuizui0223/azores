@@ -1,0 +1,41 @@
+name: stage-entry-observability-bounds
+
+on:
+  push:
+    paths:
+      - "results/stage_specific_condition_gate_v1.json"
+      - "results/receiver_witness_observability_v1.json"
+      - "analysis/contracts/stage_entry_observability_bounds_v1.json"
+      - "analysis/50_stage_entry_observability_bounds.py"
+      - "analysis/tests/test_stage_entry_observability_bounds.py"
+      - ".github/workflows/stage-entry-observability-bounds.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax preflight
+        run: python -m py_compile analysis/50_stage_entry_observability_bounds.py analysis/tests/test_stage_entry_observability_bounds.py
+      - name: Test sharp bound and integer relabel counts
+        run: python analysis/tests/test_stage_entry_observability_bounds.py
+      - name: Recompute silvering-stage observability bounds
+        run: python analysis/50_stage_entry_observability_bounds.py
+      - name: Show compact audit
+        run: |
+          python - <<'PY'
+          import json
+          x=json.load(open("analysis/results/stage_entry_observability_bounds.json"))
+          print(json.dumps({k:x[k] for k in ["stage_bounds","fv_minus_fiii_pooled","minimum_additional_longer_observed_fiii_negative_relabels_to_erase_fv_over_fiii","project_status_summary","project_level"]},indent=2))
+          PY
+      - name: Preserve result even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-stage-entry-observability-bounds
+          path: analysis/results/stage_entry_observability_bounds.json
