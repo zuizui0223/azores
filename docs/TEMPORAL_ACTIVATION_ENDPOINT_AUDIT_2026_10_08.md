@@ -57,6 +57,19 @@ Using the **same fixed predictor scores** and evaluating within project-year pos
 
 An entry-state score appears to rank **initiation participation** more reliably than the early-versus-late order among detected initiators. The larger cumulative AUC increment is therefore compatible with a changing composition of the apparent noninitiator class; it is **not** yet evidence that well-conditioned fish deliberately wait longer before migrating.
 
+## Follow-up selection explains inflated eventual AUC in the restricted cohort
+
+A second, now completed post-hoc falsification specifically interrogated why the eventual-source-initiation increment rises from **+0.0336** in all 575 to **+0.0807** in the day-90-eligible 475 fish. That selection retains all 422 source initiators but only 53/153 source noninitiators.
+
+The exact project-pair decomposition assigned **+0.0515** of the **+0.0471** change to altered project weights and **−0.0044** to changes inside the projects. A project-year-matched random-control retention simulation (20,000 repeats) produced mean AUC gain **+0.0844**, interval **+0.0606–+0.1083**; observed **+0.0807** is typical (two-sided **p=0.764**). Thus the larger AUC gain in the 90-day subset does **not** independently support stronger biological readiness effects at long follow-up.
+
+The excluded 100 source noninitiation records had a median last receiver arrival **0.515 days** after release, making source-classified noninitiation a particularly incomplete biological category. This finding reinforces the need to distinguish observation opportunity, departure, migration initiation, subsequent passage and verified escapement.
+
+Canonical independent outputs:
+- `results/observability_project_composition_v1.json`
+- `results/observability_selection_gate_v1.json`
+- `docs/OBSERVATION_GATE_2026_10_08.md`
+
 ## What remains unresolved
 
 1. **Informative detection/selection.** Last receiver arrival after the horizon is not continuous receiver coverage; early events and non-events have asymmetric eligibility. One hundred source tracks lack day-90 eligibility. The 53 eventual noninitiators are an observed telemetry category, not proven failures, deaths or residents.
