@@ -1,0 +1,241 @@
+{
+  "schema": "azores.entrant_onset_latency_discrimination.v1",
+  "evidence_class": "post_hoc_exploratory_after_paired_horizon_results",
+  "question": "Within detected migration initiators, does the same project-held-out activation-trained body-condition score rank whose detected migration onset occurs sooner after release?",
+  "contract": "analysis/contracts/entrant_onset_latency_discrimination_v1.json",
+  "n_source": 575,
+  "n_initiators_with_valid_onset": 422,
+  "excluded": {
+    "not_source_initiator": 153
+  },
+  "stage_latency_distribution": {
+    "FIII": {
+      "n": 154,
+      "median_days": 7.210503472222222,
+      "q25_days": 1.55484375,
+      "q75_days": 81.44127314814814
+    },
+    "FIV": {
+      "n": 53,
+      "median_days": 2.142025462962963,
+      "q25_days": 0.7380439814814815,
+      "q75_days": 51.43503472222222
+    },
+    "FV": {
+      "n": 215,
+      "median_days": 2.145162037037037,
+      "q25_days": 0.7183275462962962,
+      "q75_days": 32.90007523148148
+    }
+  },
+  "primary": {
+    "n_pairs": 10756,
+    "n_strata": 14,
+    "concordance": {
+      "score_base": 0.5446262551134251,
+      "score_plus": 0.5461137969505392,
+      "score_stage_only": 0.5439754555596876,
+      "score_stage_condition": 0.543882484194868
+    },
+    "condition_delta": 0.0014875418371140814,
+    "stage_plus_condition_delta": -0.00009297136481967172
+  },
+  "project_uncertainty": {
+    "status": "ESTIMATED",
+    "by_project": {
+      "2011_Warnow": {
+        "n_pairs": 5671,
+        "n_strata": 1,
+        "concordance": {
+          "score_base": 0.5539587374360783,
+          "score_plus": 0.5600423205783812,
+          "score_stage_only": 0.5291835655087286,
+          "score_stage_condition": 0.542937753482631
+        },
+        "condition_delta": 0.006083583142302951,
+        "stage_plus_condition_delta": 0.013754187973902376
+      },
+      "2012_leopoldkanaal": {
+        "n_pairs": 1326,
+        "n_strata": 1,
+        "concordance": {
+          "score_base": 0.6417797888386124,
+          "score_plus": 0.6862745098039216,
+          "score_stage_only": 0.6866515837104072,
+          "score_stage_condition": 0.7164404223227753
+        },
+        "condition_delta": 0.044494720965309154,
+        "stage_plus_condition_delta": 0.02978883861236803
+      },
+      "2013_albertkanaal": {
+        "n_pairs": 2383,
+        "n_strata": 5,
+        "concordance": {
+          "score_base": 0.4708350818296265,
+          "score_plus": 0.4494334872010071,
+          "score_stage_only": 0.45719681074276125,
+          "score_stage_condition": 0.4448174569869912
+        },
+        "condition_delta": -0.021401594628619403,
+        "stage_plus_condition_delta": -0.01237935375577004
+      },
+      "2015_phd_verhelst_eel": {
+        "n_pairs": 1024,
+        "n_strata": 4,
+        "concordance": {
+          "score_base": 0.5537109375,
+          "score_plus": 0.548828125,
+          "score_stage_only": 0.6455078125,
+          "score_stage_condition": 0.5810546875
+        },
+        "condition_delta": -0.0048828125,
+        "stage_plus_condition_delta": -0.064453125
+      },
+      "2019_Grotenete": {
+        "n_pairs": 286,
+        "n_strata": 2,
+        "concordance": {
+          "score_base": 0.46678321678321677,
+          "score_plus": 0.4230769230769231,
+          "score_stage_only": 0.5192307692307693,
+          "score_stage_condition": 0.458041958041958
+        },
+        "condition_delta": -0.0437062937062937,
+        "stage_plus_condition_delta": -0.061188811188811254
+      },
+      "ESGL": {
+        "n_pairs": 66,
+        "n_strata": 1,
+        "concordance": {
+          "score_base": 0.6515151515151515,
+          "score_plus": 0.5151515151515151,
+          "score_stage_only": 0.6136363636363636,
+          "score_stage_condition": 0.5303030303030303
+        },
+        "condition_delta": -0.13636363636363635,
+        "stage_plus_condition_delta": -0.08333333333333337
+      }
+    },
+    "n_informative_projects": 6,
+    "n_positive_projects": 2,
+    "n_negative_projects": 4,
+    "pair_weighted_delta": 0.001487541837114163,
+    "project_boot_ci95": [
+      -0.023666589702147318,
+      0.02015144113336587
+    ],
+    "project_boot_n": 10000,
+    "exact_project_signflip_two_sided_p": 0.9375
+  },
+  "sensitivity_excluding_day0_to1": {
+    "n_entrants": 291,
+    "concordance": {
+      "n_pairs": 5435,
+      "n_strata": 14,
+      "concordance": {
+        "score_base": 0.5105795768169273,
+        "score_plus": 0.5019319227230911,
+        "score_stage_only": 0.5091076356945722,
+        "score_stage_condition": 0.5065317387304508
+      },
+      "condition_delta": -0.008647654093836277,
+      "stage_plus_condition_delta": -0.0025758969641214158
+    },
+    "project_uncertainty": {
+      "status": "ESTIMATED",
+      "by_project": {
+        "2011_Warnow": {
+          "n_pairs": 3403,
+          "n_strata": 1,
+          "concordance": {
+            "score_base": 0.49911842491918895,
+            "score_plus": 0.491625036732295,
+            "score_stage_only": 0.4929473993535116,
+            "score_stage_condition": 0.4957390537760799
+          },
+          "condition_delta": -0.0074933881868939345,
+          "stage_plus_condition_delta": 0.0027916544225682904
+        },
+        "2012_leopoldkanaal": {
+          "n_pairs": 406,
+          "n_strata": 1,
+          "concordance": {
+            "score_base": 0.5221674876847291,
+            "score_plus": 0.583743842364532,
+            "score_stage_only": 0.583743842364532,
+            "score_stage_condition": 0.6206896551724138
+          },
+          "condition_delta": 0.061576354679802936,
+          "stage_plus_condition_delta": 0.036945812807881784
+        },
+        "2013_albertkanaal": {
+          "n_pairs": 988,
+          "n_strata": 5,
+          "concordance": {
+            "score_base": 0.5172064777327935,
+            "score_plus": 0.48785425101214575,
+            "score_stage_only": 0.4812753036437247,
+            "score_stage_condition": 0.47368421052631576
+          },
+          "condition_delta": -0.029352226720647745,
+          "stage_plus_condition_delta": -0.007591093117408909
+        },
+        "2015_phd_verhelst_eel": {
+          "n_pairs": 317,
+          "n_strata": 4,
+          "concordance": {
+            "score_base": 0.6025236593059937,
+            "score_plus": 0.580441640378549,
+            "score_stage_only": 0.6356466876971609,
+            "score_stage_condition": 0.583596214511041
+          },
+          "condition_delta": -0.02208201892744477,
+          "stage_plus_condition_delta": -0.05205047318611988
+        },
+        "2019_Grotenete": {
+          "n_pairs": 255,
+          "n_strata": 2,
+          "concordance": {
+            "score_base": 0.46862745098039216,
+            "score_plus": 0.4627450980392157,
+            "score_stage_only": 0.5294117647058824,
+            "score_stage_condition": 0.49411764705882355
+          },
+          "condition_delta": -0.00588235294117645,
+          "stage_plus_condition_delta": -0.03529411764705881
+        },
+        "ESGL": {
+          "n_pairs": 66,
+          "n_strata": 1,
+          "concordance": {
+            "score_base": 0.6515151515151515,
+            "score_plus": 0.5151515151515151,
+            "score_stage_only": 0.6136363636363636,
+            "score_stage_condition": 0.5303030303030303
+          },
+          "condition_delta": -0.13636363636363635,
+          "stage_plus_condition_delta": -0.08333333333333337
+        }
+      },
+      "n_informative_projects": 6,
+      "n_positive_projects": 1,
+      "n_negative_projects": 5,
+      "pair_weighted_delta": -0.00864765409383625,
+      "project_boot_ci95": [
+        -0.03111000497760077,
+        0.016996047430830035
+      ],
+      "project_boot_n": 10000,
+      "exact_project_signflip_two_sided_p": 0.28125
+    }
+  },
+  "status": "ENTRANT_LATENCY_RANKING_AUDITED",
+  "boundaries": [
+    "This conditions on having entered the source classified migration state, a phenotype-selected cohort; not a causal state effect on timing.",
+    "Source timestamps and receiver geometry may differ among rivers; interval from release is not a physiological initiation time.",
+    "Onset occurring on tagging/release day may be mechanically coupled to release, so explicitly show >1-day sensitivity.",
+    "Only six projects and pairwise observations share eels; infer using projects, not fish pairs.",
+    "This endpoint is not swimming velocity, passage success, escapement or mortality.",
+    "Do not equate failure to predict latency with no internal role in temporal gating under unobserved hydraulic/thermal cues."
+  ]
+}
