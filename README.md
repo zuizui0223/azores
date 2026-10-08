@@ -40,6 +40,10 @@ ratio **0.948**, and frozen inter-station speed ratio **1.013**. Predictor
 preprocessing remains panel-derived, so this is cross-project robustness rather
 than prospective external validation.
 
+**Incremental information beyond Durif (2026-10-08).** In six project-held-out activation-ranking folds (575 eels), adding a continuous weight-for-length residual to Durif, length and release timing improved within-project-year AUC from **0.610 to 0.643** (Δ **+0.0336**, 6,914 initiator/non-initiator pairs). This increment was positive in **4/6 projects**; a six-project cluster bootstrap 95% interval (**−0.0007 to +0.0918**) crosses zero and an exploratory exact project sign-flip gave two-sided **p=0.1875**. At identical Durif stage, ranking AUC rose from **0.480 to 0.555**. This suggests condition can supply stage-within readiness information in some contexts, not that the gain generalizes to every new river. This is developmental public-data evidence, not prospective validation or an estimate of eel escape success.
+
+See [held-out activation AUC result](results/cross_project_condition_increment_v1.json), [project-heterogeneity audit](results/cross_project_condition_increment_project_robustness_v1.json) and [V4 numerical contract](manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json).
+
 Within identical directed receiver links, the boundary is even sharper. A
 frozen project-held-out score audit over **17,792** positive segments from
 **418** eels and **244** route links gives a speed ratio of **0.962/SD**
