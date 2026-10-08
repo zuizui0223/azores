@@ -16,6 +16,7 @@ on:
       - "results/stage_specific_condition_gate_v1.json"
       - "results/stage_gate_context_matched_robustness_v1.json"
       - "results/continuous_morphology_condition_increment_v1.json"
+      - "results/continuous_morphology_penalty_sensitivity_v1.json"
       - "manuscript/FIGURE_DATA_CONTRACT_V4.json"
       - "results/dutch_condition_choice_test_v1.json"
       - "results/dutch_arrival_waiting_diagnostic_v1.json"
