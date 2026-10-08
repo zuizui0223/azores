@@ -688,5 +688,58 @@
     },
     "deterministic_all_100_reclassified_gain": 0.06832560101223113,
     "inferential_limit": "Distribution of hypothetical labels conditional on arbitrary 3:1 or uniform selection rules; neither actual missing initiation rate nor demonstrated state-dependent detection; coefficients frozen."
+  },
+  "receiver_observability_and_stratified_tipping": {
+    "source_result_files": [
+      "results/receiver_witness_observability_v1.json",
+      "results/receiver_stratified_label_tipping_v1.json"
+    ],
+    "receiver_cohort": {
+      "short_noninitiators": 100,
+      "virtual_only": 24,
+      "any_real": 76,
+      "median_real_rows": 1,
+      "day90_noninitiators": 53,
+      "day90_median_real_rows": 260,
+      "later_other_fish_same_receiver_1d": 58,
+      "later_other_fish_same_receiver_7d": 66,
+      "later_other_fish_same_receiver_90d": 70
+    },
+    "exact_tipping_candidate_groups": {
+      "any_real_contact": {
+        "n": 76,
+        "first_nonpositive_k": 13,
+        "minimum_auc_at_k11": 0.0028823058446757407
+      },
+      "later_same_receiver_1d": {
+        "n": 58,
+        "first_nonpositive_k": 17,
+        "minimum_auc_at_k11": 0.0074824629773967265
+      },
+      "later_same_receiver_90d": {
+        "n": 70,
+        "first_nonpositive_k": 13,
+        "minimum_auc_at_k11": 0.0028823058446757407
+      },
+      "no_later_same_receiver_1d": {
+        "n": 42,
+        "first_nonpositive_k": null,
+        "minimum_auc_at_k11": 0.01123258948629624
+      },
+      "no_later_same_receiver_90d": {
+        "n": 30,
+        "first_nonpositive_k": null,
+        "minimum_auc_at_k11": 0.02002068557919622
+      },
+      "zero_real_contact": {
+        "n": 24,
+        "first_nonpositive_k": null,
+        "minimum_auc_at_k11": 0.020808909730363423
+      }
+    },
+    "unrestricted_first_nonpositive_k": 11,
+    "original_11_witness_zero_receiver": 2,
+    "original_11_witness_real_receiver": 9,
+    "boundary": "Receiver contacts and later independent-tag encounters are discrete point-in-time observations. No focal fish fate, continuous detector uptime or missed-initiation frequency identified."
   }
 }
