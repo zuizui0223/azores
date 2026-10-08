@@ -1,0 +1,33 @@
+{
+  "schema": "azores.observability_label_ambiguity_tipping_contract.v1",
+  "evidence_class": "post_hoc_sensitivity_after_followup_selection_audit",
+  "question": "How many possibly undetected initiators among the 100 source noninitiation records without day-90 observability would be sufficient to nullify the +0.03356 held-out condition AUC increment?",
+  "population": "exact same 575-eel six-project panel and 422/153 frozen source initiation classifications; 100 early-ended SOURCE noninitiation records form the only candidates for hypothetical false negatives",
+  "training_rule": "freeze BOTH original project-held-out logistic score vectors; no outcome re-training, so this is evaluation-label vulnerability, not a corrected causal or fully refitted estimate",
+  "outcome_flip_rule": "flip exactly k distinct source-noninitiation labels whose followup was too short to pass original day-90 observation eligibility; do not flip the 53 day-90 observed negative labels or any of the 422 source initiators",
+  "primary": "within-project-year positive-vs-negative pair weighted AUC increment of condition-augmented score over base; calculate EXACT mathematical minimum and maximum over all allowed k-label assignments under frozen scores and strata",
+  "algorithm": "per-stratum pairwise rank-difference antisymmetry yields label-flip additive numerator changes; for each stratum sort candidate contributions, then fractional knapsack-by-count dynamic programming and bisection yield extremal ratio for fixed total k",
+  "requested_k": [
+    0,
+    1,
+    2,
+    3,
+    5,
+    10,
+    15,
+    20,
+    30,
+    50,
+    75,
+    100
+  ],
+  "diagnostic": "find smallest k up to 100 for which the exact worst-case label allocation yields AUC increment <=0, and which strata/fish support it; report project composition of any witness",
+  "boundary": [
+    "This is a WHAT-IF label contamination sensitivity; source noninitiation does not establish true biological nonmigration.",
+    "100 early-ended source controls are not known to be misclassified; no hidden event is imputed as observed truth.",
+    "Worst-case extremes are adversarial and need not be ecologically plausible; do not confuse a small tipping point with empirical evidence for misclassification.",
+    "Original held-out training still used original source labels; full refitting under hypothetical labels could change coefficients, so this test does not bound fully retrained model utility.",
+    "The positive/negative comparison pairs share individuals; project-level uncertainty remains six independent project contexts, not thousands of independent replicates.",
+    "AUC is rank discrimination for a telemetry-derived initiation label, not an estimate of eventual migration success or conservation benefit."
+  ]
+}
