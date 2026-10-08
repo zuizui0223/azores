@@ -1,0 +1,25 @@
+{
+  "schema": "azores.entrant_onset_latency_discrimination_contract.v1",
+  "evidence_class": "post_hoc_exploratory_after_paired_horizon_results",
+  "question": "Within detected migration initiators, does the same project-held-out activation-trained body-condition score rank whose detected migration onset occurs sooner after release?",
+  "source": "Pinned same six-project stage-coded eel panel, 575 tracks, canonical nine expert-classified nonmigrants excluded from initiators.",
+  "scoring": "Train stage+length+release and expanded stage+length+release+condition activation models on the other five projects, freeze all coefficients, score focal project; no focal outcome used in fitted weights.",
+  "target": "Among eels with canonical initiated=TRUE and a nonnegative onset-release interval, continuous latency in days to source downstream movement onset.",
+  "primary": "Within project-year, pairwise time-order concordance: if eel A begins sooner than B, did the frozen score of A exceed B? Report base and expanded C and their difference, with release-day ties omitted.",
+  "secondary": [
+    "Stage-only and stage+condition within-initiator concordance",
+    "Sensitivity excluding onset within first 24 hours of release",
+    "Median and interquartile latency by Durif stage and project",
+    "Equal-project mean and six-project cluster-bootstrap CI on the base/expanded concordance difference",
+    "Project sign-flip descriptive exact p (2^n) for improvement"
+  ],
+  "status_rule": "Do not interpret a near 0.5 C-index as exact zero; interpret a general positive condition contribution only if project-resampled 95% CI for the additional concordance excludes zero and project signs do not strongly conflict.",
+  "boundaries": [
+    "This conditions on having entered the source classified migration state, a phenotype-selected cohort; not a causal state effect on timing.",
+    "Source timestamps and receiver geometry may differ among rivers; interval from release is not a physiological initiation time.",
+    "Onset occurring on tagging/release day may be mechanically coupled to release, so explicitly show >1-day sensitivity.",
+    "Only six projects and pairwise observations share eels; infer using projects, not fish pairs.",
+    "This endpoint is not swimming velocity, passage success, escapement or mortality.",
+    "Do not equate failure to predict latency with no internal role in temporal gating under unobserved hydraulic/thermal cues."
+  ]
+}
