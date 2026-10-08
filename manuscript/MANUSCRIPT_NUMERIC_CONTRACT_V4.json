@@ -626,5 +626,26 @@
       "excluded_median": 0.5150289351851852
     },
     "interpretation": "The increase in eventual-condition AUC after 90-day selection is explained algebraically by project pair reweighting; observed noninitiator selection is unexceptional under project-year-matched random control selection. This cannot prove no observation bias or biologically identify readiness; source noninitiation is not true residence or failure."
+  },
+  "observability_label_ambiguity_tipping": {
+    "source": "results/observability_label_ambiguity_tipping_v1.json",
+    "evidence_class": "AUC_INCREMENT_SENSITIVE_TO_HYPOTHETICAL_UNOBSERVED_INITIATION",
+    "baseline_delta_auc": 0.033555105582875326,
+    "n_initiators": 422,
+    "n_noninitiators": 153,
+    "n_shortfollowup_potentially_ambiguous": 100,
+    "n_fixed_adequately_observed_noninitiators": 53,
+    "exact_first_nonpositive_k": 11,
+    "first_nonpositive_delta_auc": -0.00016131634134537829,
+    "ten_flip_exact_min": 0.0019087004930809608,
+    "fifteen_flip_exact_min": -0.007835455435847209,
+    "tipping_flips_by_project": {
+      "2011_Warnow": 8,
+      "2012_leopoldkanaal": 1,
+      "2013_albertkanaal": 1,
+      "2015_phd_verhelst_eel": 1
+    },
+    "verified_method": "Exact mathematical minimum over all hypothetical false-negative assignments among 100 short-followup labels at frozen score weights, synthetic combinatorial equivalence test passed.",
+    "interpretive_boundary": "Not the estimated false-negative rate, not proof of hidden initiation and not uncertainty over model retraining or physiology."
   }
 }
