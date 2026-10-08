@@ -1,0 +1,40 @@
+{
+  "schema": "azores.stage_stratified_hidden_start_tipping_contract.v1",
+  "evidence_class": "post_hoc_exact_frozen_score_label_sensitivity_after_observability_discovery",
+  "question": "Is the +0.03356 held-out condition AUC increment primarily fragile to hypothesized hidden migration among the less-advanced FIII, transitional FIV, or advanced FV source-noninitiators?",
+  "data_sources": [
+    "results/observability_label_ambiguity_tipping_v1.json",
+    "results/receiver_witness_observability_v1.json",
+    "results/stage_specific_condition_gate_v1.json",
+    "analysis/46_observability_label_ambiguity_tipping.py"
+  ],
+  "frozen_cohort": {
+    "fish": 575,
+    "source_initiators": 422,
+    "short_followup_negative_candidates": 100,
+    "short_followup_negatives_by_stage": {
+      "FIII": 70,
+      "FIV": 13,
+      "FV": 17
+    },
+    "base_heldout_auc_increment": 0.033555105582875326
+  },
+  "test": "Hold every other stage's source labels and all score coefficients fixed. For each stage separately allow any subset of only its short-followup source noninitiators to change hypothetically to initiation. Use existing exact dynamic program to find the smallest number of changes making pair-weighted heldout activation AUC increment <=0. Report within-stage candidate fraction and project counts, and optimize minimum at k=11 and all candidates.",
+  "positive_interpretation": "If stage-specific constrained tipping is impossible, that stage's short-followup label ambiguity alone cannot erase the pooled score advantage under the fixed-score counterfactual.",
+  "negative_interpretation": "If stage-specific tipping occurs, it exposes a sensitivity to hypothesized labels, not observed missed starts or a physiological stage mechanism.",
+  "required_checks": [
+    "100 short-followup fish partition exactly 70 FIII, 13 FIV, 17 FV by source metadata and receiver inventory.",
+    "Unrestricted exact first k matches canonical 11, and original pooled ratio is +0.033555105582875326.",
+    "AUC optimization reuses exact rank difference calculations and original 6914 positive-negative pairs, not a re-fit.",
+    "Each constrained candidate list contains only fish in the single named stage; counters retain source outcomes otherwise.",
+    "Reconstruct each stored tipping witness using the unchanged score records and independent pairwise evaluation.",
+    "The source 53 day90-supported negatives and 422 initiators may never be relabeled in this experiment."
+  ],
+  "claim_limits": [
+    "A source noninitiation with short followup is not documented hidden initiation; relabelings are worst-case hypothetical.",
+    "No stage-dependent detection error rate or stage-dependent ecological mechanism is identified.",
+    "Project-year pair-weighted AUC is not an estimate of independent-project generalization.",
+    "Relabeling one source outcome may change its true observational history, so this is a label-only sensitivity not a complete generative observation model.",
+    "The original nine expert-classified non-migrants remain corrected exactly as defined by pinned upstream analysis."
+  ]
+}
