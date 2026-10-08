@@ -16,5 +16,13 @@
     "Project and hydrology, cohort composition, release year, tagging design and detection opportunities remain confounded.",
     "Failure to reject common OR does not prove no interaction; six project contexts limit power.",
     "The test does not account for fish and observation-history misclassification or infer escapement."
-  ]
+  ],
+  "secondary_nuisance_free_exact_test": {
+    "defined_before_outcome_inspection": true,
+    "method": "Enumerate every admissible six-project FV-initiator count vector preserving the project-specific FIII/FV denominators, project-specific total initiators, AND the across-project total FV initiators. The latter conditioning eliminates the common odds ratio parameter.",
+    "enumeration_count_expected": 156690,
+    "null_weight": "The exact conditional weight of each vector is proportional to the product of choose(n_FV,k_FV)*choose(n_FIII,T_project-k_FV).",
+    "tail": "Likelihood-ratio deviance at least as large as observed; exact conditional probability via stable log-sum-exp.",
+    "role": "Finite-sample exact cross-check on the fitted-parametric bootstrap; both shown without selecting whichever is smaller."
+  }
 }
