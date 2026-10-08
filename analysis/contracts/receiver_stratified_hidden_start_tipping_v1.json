@@ -1,0 +1,25 @@
+{
+  "schema": "azores.receiver_stratified_hidden_start_tipping_contract.v1",
+  "evidence_class": "post_hoc_restricted_exact_label_bound_using_observed_receiver_contacts",
+  "question": "Is the exact eleven-ambiguous-label AUC vulnerability driven by short-followup eels with no real physical receiver contact, or by eels that have a real receiver history, often witnessed operating later with other fish?",
+  "sources": [
+    "results/observability_label_ambiguity_tipping_v1.json",
+    "results/receiver_witness_observability_v1.json"
+  ],
+  "classification": {
+    "zero_real_receiver": "No source event at a physical receiver; synthetic release pseudo-stations ignored.",
+    "any_real_receiver": "At least one source event at a physical receiver.",
+    "later_same_receiver_90d": "At least one other fish observed at focal eel's last real physical receiver strictly after focal last receiver event and no later than focal release+90 days.",
+    "no_later_same_receiver_90d": "Complement among 100 ambiguous, including virtual-only and contact-without-witness.",
+    "later_same_receiver_1d": "Another tag detected at focal last receiver within one day after its last observation, prior to release+90 days."
+  },
+  "frozen_target": "Original 575-fish 422 vs 153 source-label within-project-year held-out condition-minus-base AUC gain = +0.033555; only source negative labels among the 100 short-followup group may hypothetically switch to positive. No score retraining.",
+  "test": "For each observationally defined candidate stratum, EXACT minimum AUC increment with k=11 flips and minimum integer k needed to make added AUC nonpositive, if possible. Repeat for complement. Include original 11-fish worst-case witness group composition.",
+  "interpretation_boundary": [
+    "These are counterfactual worst-case label reassignments within measured contact categories. They are not evidence that a particular fish initiated unseen.",
+    "A later other-fish receiver event proves only that this receiver observed that other fish at that later time; not continuous uptime, focal tag operation, focal fish presence, or reliable absence detection.",
+    "Zero physical contacts in the cleaned migration table does not prove there was no raw detection elsewhere.",
+    "Even if a subgroup needs more than 11 strategic flips, that is not its empirical false-negative count.",
+    "Pair-weighted AUC, six projects, source-derived labels and fixed project-held-out scores; not migration success, hazard causality or physiology."
+  ]
+}
