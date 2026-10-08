@@ -1,15 +1,16 @@
 # Measurement dependence audit: Durif stage vs weight-for-length condition
 
+**Correction 2026-10-08:** An earlier version incorrectly claimed raw eye and fin measurements were unavailable. This document now records the actual `length2/3/4` measurements and the five-project coverage, verified at the pinned source commit.
+
 **2026-10-08 — interpretive and provenance audit**
 
 ## Confirmed source facts
 
 The public source archive pinned to
 `PieterjanVerhelst/eel-meta-analysis@59578cb622dddbbba5174b4c51bff0807787385a`
-contains `data/interim/eel_meta_data.csv`. Its header contains `length1`,
-`weight`, `sex`, `life_stage`, collection metadata and locations,
-**but no raw eye diameters, pectoral fin measurements or continuous Durif
-discriminant scores**. (Header verified directly from the pinned file.)
+contains `data/interim/eel_meta_data.csv`. Its header contains `length1`, `weight`, `sex`, `life_stage`, collection metadata and locations, **as well as `length2/3/4`, their recorded measurement types and units**. The first header-only audit incorrectly treated those generically named length fields as absent morphometrics.
+
+**Correction based on parsing actual pinned source rows:** Horizontal and vertical eye diameters and pectoral fin length are present, though their assignment to `length2`, `length3` and `length4` **differs by project**. Of the six focal projects, five include morphometrics for at least some FIII–FV individuals: Leopoldkanaal (80/80 raw stage-coded fish), Albertkanaal (152/157), Verhelst 2015 cohort (135/135), Grotenete (38/38) and ESGL (47/47). Warnow (0/146) does not. These counts are from the broader metadata and must not be confused with the 575 movement-evaluable sample. The source still does **not** expose a ready-made continuous Durif discriminant score, but a continuous eye index and relative pectoral fin length can be constructed for the available subset.
 
 The current Azores score defines capture condition as a standardized residual
 from a regression of log body weight on log length, project and the three
@@ -42,11 +43,7 @@ physiological reserve axis.
    silvering stage; physiologically independent inputs to entry-state control;
    measured fat content or swimming capacity; conservation-benefit magnitude.
 
-To distinguish explanation (1) due only to ordinal coarsening from a
-truly independent condition axis, one would need the *underlying* continuous
-Durif discriminant measurements (eye, fin, length and weight), plus preferably
-direct lipid/condition proxies, with prospective/held-out validation. The pinned
-public `eel_meta_data.csv` does not provide those raw measurements.
+To distinguish explanation (1), due only to ordinal coarsening, from a more independent condition contribution, we **can now reconstruct a subset of the underlying continuous morphology**: normalized eye diameter/eye index and relative pectoral fin length, together with body length and mass. The pinned public metadata contain those observations for five focal projects; the remaining challenge is valid type/units harmonization, eligible-fish intersection and project-held-out testing. Direct lipid measurements and prospective validation are still unavailable, and even an additional weight residual after eye/fin adjustment does not prove energetic causation.
 
 ## Consequences for the stage decomposition
 
