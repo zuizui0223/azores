@@ -1,0 +1,43 @@
+{
+  "schema": "azores.observability_random_hidden_start_sensitivity_contract.v1",
+  "evidence_class": "post_hoc_scenario_sensitivity_after_exact_11_label_tipping",
+  "scientific_question": "How dependent is the exact adversarial eleven-label tipping result on WHICH short-followup eel labels are hypothetical unseen migration initiators?",
+  "source": "Same 575 eel panel, 422 source initiators, 153 noninitiators; only 100 negative labels lacking documented 90-day follow-up are relabelable.",
+  "frozen_scores": "Exact project-held-out base and condition-augmented activation scores from analysis/36, without refit or recalibration under hypothetical labels.",
+  "scenarios": [
+    {
+      "id": "uniform",
+      "description": "Fix exactly k hypothetical hidden starts, uniformly sample k of 100 ambiguous negative fish; noninformative assignment reference, NOT an empirical missingness mechanism."
+    },
+    {
+      "id": "stage_FV_x3",
+      "description": "Fix exactly k hidden starts; assign sampling weights 3 to FV, 1 to FIII/FIV. Illustrative, uncalibrated higher-late-silvering missed-initiation scenario, not an estimated probability."
+    },
+    {
+      "id": "adverse_disagreement_x3",
+      "description": "Fix exactly k hidden starts; sampling odds 3:1 for ambiguous fish whose positive relabeling contributes the most negative rank-change impacts (lowest third); illustrative score-related missing-not-at-random process, NOT biological evidence."
+    }
+  ],
+  "k_values": [
+    0,
+    5,
+    10,
+    11,
+    15,
+    20,
+    30,
+    50,
+    75,
+    100
+  ],
+  "primary": "For each k and scenario, recompute exact frozen-score within-project-year pair-weighted AUC increment over plausible label assignments, preserving the project-year strata and removing positives from negative comparison sets.",
+  "simulation": "10000 conditional draws per k/scenario, seed=20261008. k=0 and 100 deterministic. Quantiles and Pr(Delta AUC <= 0) describe the specified counterfactual assignment model only.",
+  "numerical_check": "Validate each random draw's fast antisymmetric pairwise score numerator and changed denominator against a direct O(n²) AUC recomputation on synthetic small strata; also validate exact envelope containment for k=11.",
+  "interpretation": [
+    "The uniform model is a reference distribution over hypothetical label assignments and does not estimate how many genuine undetected initiators exist.",
+    "The stage-enriched and adverse rank-disagreement scenarios are uncalibrated MNAR sensitivity functions, not estimators or causal mechanisms.",
+    "All source labels and fitted coefficients remain unchanged in the canonical analyses.",
+    "Eleven adversarial flips is an exact worst-case vulnerability; random-assignment probabilities cannot substitute for independent receiver exposure or downstream tracking evidence.",
+    "No claim about real false-negative prevalence, population escapement, eventual survival or physiological energy budget."
+  ]
+}
