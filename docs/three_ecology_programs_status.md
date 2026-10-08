@@ -101,6 +101,19 @@ Temporal entry-classification boundary (new post-hoc diagnostic):
 - The implication is a **prediction-target distinction**: observed entry participation versus when an entrant begins. Neither receiver censoring nor energetic physiology is identified.
 - Results: `results/fixed_followup_condition_increment_v1.json`, `results/paired_temporal_endpoint_condition_v1.json`, `results/entrant_onset_latency_discrimination_v1.json`, `results/seasonal_condition_interaction_v1.json`.
 
+Observation-process audit of apparent time-horizon gain (2026-10-08, CI PASS):
+- 575 source eels: 422 algorithmic migratory initiators and 153 noninitiation records; 90-day-eligible 475 retains all 422 initiators and only 53 noninitiation records;
+- frozen score for eventual outcome: condition AUC increase +0.0336 full vs +0.0807 selected, a +0.0471 shift;
+- exact project weight decomposition +0.0515 weight change and −0.0044 within-project change;
+- 20,000 project-year-matched random negative retentions: expected mean +0.0844, 95% +0.0606–+0.1083, observed +0.0807 (two-sided p=0.764);
+- among 153 source noninitiation records, final receiver arrival after release had median 0.515 days for the 100 excluded vs 549 days for 53 retained, **not continuous monitoring or proven biological nonmigration**;
+- interpretation: this AUC amplification is explained by sample composition rather than demonstrated increasing physiological readiness over observation time.
+
+Canonical artifacts:
+- `results/observability_project_composition_v1.json`
+- `results/observability_selection_gate_v1.json`
+- `docs/OBSERVATION_GATE_2026_10_08.md`
+
 Exact-link realized transit-speed audit (corrected expert-eligible cohort, FWL numerical equivalence PASS):
 - **17,792** positive segment rows;
 - **418** eels;
