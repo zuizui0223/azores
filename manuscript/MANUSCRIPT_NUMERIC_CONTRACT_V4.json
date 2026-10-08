@@ -418,5 +418,38 @@
     },
     "interpretation": "On a five-project complete-morphology subset, body-condition residual adds some pooled held-out AUC beyond eye/fin morphology, but project-resampled 95% uncertainty spans zero; no physiological independence established."
   },
-  "continuous_morphology_result": "results/continuous_morphology_condition_increment_v1.json"
+  "continuous_morphology_result": "results/continuous_morphology_condition_increment_v1.json",
+  "continuous_morphology_penalty_sensitivity": {
+    "evidence_class": "post_hoc_after_primary_lambda_1_outcome_exposed",
+    "penalties": [
+      0.1,
+      1,
+      10
+    ],
+    "condition_after_morph_delta_by_lambda": {
+      "0.1": 0.02689486552567244,
+      "1.0": 0.02444987775061125,
+      "10.0": 0.021393643031784926
+    },
+    "project_bootstrap_ci_by_lambda": {
+      "0.1": [
+        -0.01144045761830477,
+        0.06674684305472031
+      ],
+      "1.0": [
+        -0.015080603224128976,
+        0.0658737419945105
+      ],
+      "10.0": [
+        -0.022880915236609487,
+        0.06639616377720399
+      ]
+    },
+    "all_positive": true,
+    "all_ci_include_zero": true,
+    "n_projects": 5,
+    "n_morph_complete": 429,
+    "scope": "posthoc strength-of-regularization sensitivity, not tuning."
+  },
+  "continuous_morphology_penalty_result": "results/continuous_morphology_penalty_sensitivity_v1.json"
 }
