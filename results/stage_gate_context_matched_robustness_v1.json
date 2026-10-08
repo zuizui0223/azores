@@ -1,0 +1,106 @@
+{
+  "schema": "azores.stage_gate_context_matched_robustness.v1",
+  "evidence_class": "post_hoc_exploratory_matched_context",
+  "source": "results/stage_specific_condition_gate_v1.json",
+  "purpose": "Check whether the apparent larger FV than FIII held-out AUC gain survives comparisons restricted to project-years informative in both categories and project omission.",
+  "full": {
+    "n_contexts": 5,
+    "n_projects": 4,
+    "matched_minimum_pairs": 280,
+    "weighted_contrast": 0.1495094861715177
+  },
+  "leave_one_project_out": [
+    {
+      "excluded": "2011_Warnow",
+      "n_contexts": 4,
+      "n_projects": 3,
+      "matched_minimum_pairs": 165,
+      "weighted_contrast": 0.2603499278499277
+    },
+    {
+      "excluded": "2012_leopoldkanaal",
+      "n_contexts": 4,
+      "n_projects": 3,
+      "matched_minimum_pairs": 184,
+      "weighted_contrast": 0.08181050173098457
+    },
+    {
+      "excluded": "2015_phd_verhelst_eel",
+      "n_contexts": 3,
+      "n_projects": 3,
+      "matched_minimum_pairs": 246,
+      "weighted_contrast": 0.1369658882478754
+    },
+    {
+      "excluded": "ESGL",
+      "n_contexts": 4,
+      "n_projects": 3,
+      "matched_minimum_pairs": 245,
+      "weighted_contrast": 0.1382999569851359
+    }
+  ],
+  "fv_noninitiator_minimum_sensitivity": [
+    {
+      "min_negative_per_stage": 1,
+      "n_contexts": 5,
+      "n_projects": 4,
+      "matched_minimum_pairs": 280,
+      "weighted_contrast": 0.1495094861715177
+    },
+    {
+      "min_negative_per_stage": 2,
+      "n_contexts": 4,
+      "n_projects": 4,
+      "matched_minimum_pairs": 268,
+      "weighted_contrast": 0.16707814120265177
+    },
+    {
+      "min_negative_per_stage": 3,
+      "n_contexts": 3,
+      "n_projects": 3,
+      "matched_minimum_pairs": 246,
+      "weighted_contrast": 0.1369658882478754
+    },
+    {
+      "min_negative_per_stage": 5,
+      "n_contexts": 2,
+      "n_projects": 2,
+      "matched_minimum_pairs": 150,
+      "weighted_contrast": 0.04589389799635697
+    }
+  ],
+  "n_project_years_with_reverse_sign": 2,
+  "between_year_sign_reversals_within_project": {
+    "2015_phd_verhelst_eel": [
+      {
+        "project_year": "2015_phd_verhelst_eel::2016",
+        "delta": -0.24285714285714288,
+        "FV_noninitiators": 1
+      },
+      {
+        "project_year": "2015_phd_verhelst_eel::2017",
+        "delta": 0.5037878787878787,
+        "FV_noninitiators": 2
+      }
+    ]
+  },
+  "equal_project_mean_contrast": 0.18449642951145764,
+  "exploratory_exact_project_signflip_two_sided_p": 0.25,
+  "project_resample_ci": {
+    "n_bootstrap": 10000,
+    "seed": 20261008,
+    "unit": "matched project, with replacement; per-project weighted differences held fixed",
+    "weighted_ci95": [
+      0.012886020362554765,
+      0.2737081674775172
+    ],
+    "fraction_positive": 0.9955
+  },
+  "interpretation_boundary": [
+    "A comparison of differences in AUC gained by adding condition, not a comparison of biological survival/fitness or independent energetic state.",
+    "Only 4 projects and 5 matched project-year cells. Weak project-level inference is indicated by the exact project sign-flip test.",
+    "The 2015 project shows opposite stage contrasts in distinct release years; FV non-initiator counts are 1 and 2 respectively.",
+    "Source stage classifications partly use body mass, so condition is not a physiologically independent axis.",
+    "The stronger FV trend is a hypothesis-generating descriptive pattern, not a replicated developmental mechanism."
+  ]
+}
