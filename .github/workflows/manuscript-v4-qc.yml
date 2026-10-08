@@ -21,6 +21,9 @@ on:
       - "results/fixed_followup_condition_increment_v1.json"
       - "results/paired_temporal_endpoint_condition_v1.json"
       - "results/entrant_onset_latency_discrimination_v1.json"
+      - "results/observability_selection_gate_v1.json"
+      - "results/observability_project_composition_v1.json"
+      - "analysis/46_observability_project_weight_decomposition.py"
       - "manuscript/FIGURE_DATA_CONTRACT_V4.json"
       - "results/dutch_condition_choice_test_v1.json"
       - "results/dutch_arrival_waiting_diagnostic_v1.json"
@@ -35,6 +38,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - name: Reconstruct exact project-weight AUC accounting
+        run: python analysis/46_observability_project_weight_decomposition.py
       - name: Run V4 manuscript QC
         run: python manuscript/qc_manuscript_v4.py
       - name: Show QC
