@@ -24,6 +24,8 @@ jobs:
           python-version: "3.12"
       - name: Install dependency
         run: python -m pip install --disable-pip-version-check numpy
+      - name: Check analysis syntax
+        run: python -m py_compile analysis/31_entry_state_score_transferability.py analysis/32_cross_project_entry_state_score.py analysis/33_within_link_entry_state_speed.py analysis/34_within_link_speed_quality_sensitivity.py analysis/35_within_link_fwl_numerical_audit.py
       - name: Run within-link entry-state speed audit
         run: python analysis/33_within_link_entry_state_speed.py
       - name: Show result
@@ -37,6 +39,7 @@ jobs:
       - name: Show FWL numerical audit
         run: cat analysis/results/within_link_fwl_numerical_audit.json
       - name: Upload result
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: azores-within-link-entry-state-speed
