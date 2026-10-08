@@ -1,0 +1,27 @@
+{
+  "schema": "azores.seasonal_condition_interaction_contract.v1",
+  "date_frozen": "2026-10-08",
+  "evidence_class": "post_hoc_exploratory_after_stage_and_morphology_results",
+  "question": "Does the within-project-year release timing modify how capture condition ranks migration initiation, beyond an additive silvering-stage/body-condition model, in out-of-project predictions?",
+  "training": "6-fold leave-one-entire-project-out: fit independent coefficients in five projects using fixed expert-corrected activation; 575 heldout fish total; no heldout outcomes used to train either score.",
+  "base_predictors": "project-year fixed intercept, centered length per 100 mm, centered release time per 100 days, ordinal Durif score, allometric weight-for-length condition centered within project-year",
+  "interaction_predictors": "base predictors plus centered condition times centered release time per 100 days",
+  "primary_metric": "paired difference in pooled within-project-year initiator/non-initiator concordance AUC (interaction minus additive); evaluate held-out projects only; source release date, not downstream event date.",
+  "secondary_metrics": [
+    "per-heldout-project AUC change and pair count",
+    "6 independent-project bootstrap CI with 10000 resamples of project summaries",
+    "leave-one-project-out pooled AUC changes",
+    "training-fold interaction coefficient sign consistency",
+    "within-project-year early/late AUC where each half has both initiators and noninitiators; descriptive only"
+  ],
+  "inference_rule": "An improved portable seasonal condition gate requires positive heldout pooled AUC delta and six-project bootstrap CI fully greater than zero with no strong project reversals. Otherwise classify not supported as a general mechanism; an individual project gain does not establish hydrological cues.",
+  "outcome_guardrails": [
+    "No source-outcome or event-time information for predictor transforms; center condition and release time using only heldout-project predictor values without outcomes (transductive).",
+    "Do not infer discharge, tidal windows, temperature, energy storage, or lunar effects from release-date timing.",
+    "Release date may be tagging/sampling design, not true environmental opportunity. A direct seasonal hydrology mechanism requires matched environmental data.",
+    "Do not select interaction functional form or favorable project after seeing results.",
+    "Project bootstrap has n=6 clusters, frozen training coefficients, and only reports conditional resampling uncertainty; cannot make causal claims.",
+    "Keep published V4 findings unchanged unless the new result itself warrants an explicitly post-hoc supplement."
+  ],
+  "score_anchor": "analysis/36_cross_project_condition_increment.py"
+}
