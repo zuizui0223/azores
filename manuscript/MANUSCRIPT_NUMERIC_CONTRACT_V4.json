@@ -451,5 +451,137 @@
     "n_morph_complete": 429,
     "scope": "posthoc strength-of-regularization sensitivity, not tuning."
   },
-  "continuous_morphology_penalty_result": "results/continuous_morphology_penalty_sensitivity_v1.json"
+  "continuous_morphology_penalty_result": "results/continuous_morphology_penalty_sensitivity_v1.json",
+  "temporal_entry_decomposition": {
+    "evidence_class": "post_hoc_exploratory_endpoint_and_tracking_followup_sensitivity",
+    "source_files": [
+      "results/seasonal_condition_interaction_v1.json",
+      "results/fixed_followup_condition_increment_v1.json",
+      "results/paired_temporal_endpoint_condition_v1.json",
+      "results/entrant_onset_latency_discrimination_v1.json"
+    ],
+    "seasonal_interaction": {
+      "n": 575,
+      "auc_additive": 0.6433323691061614,
+      "auc_with_interaction": 0.6423199305756436,
+      "delta": -0.0010124385305178007,
+      "project_boot_ci95": [
+        -0.02736189984512131,
+        0.01061472063455035
+      ]
+    },
+    "fixed_window_retrained": {
+      "7": {
+        "n": 496,
+        "observed_onset_events": 239,
+        "condition_auc_delta": -0.026341384341060148,
+        "project_ci95": [
+          -0.0688220835696729,
+          -0.008008687389710844
+        ]
+      },
+      "30": {
+        "n": 484,
+        "observed_onset_events": 299,
+        "condition_auc_delta": -0.029090503789567568,
+        "project_ci95": [
+          -0.06125080593165698,
+          -0.004188229799544845
+        ]
+      },
+      "60": {
+        "n": 478,
+        "observed_onset_events": 331,
+        "condition_auc_delta": -0.02255732801595217,
+        "project_ci95": [
+          -0.047574039067422795,
+          -0.0001330849081714159
+        ]
+      },
+      "90": {
+        "n": 475,
+        "observed_onset_events": 351,
+        "condition_auc_delta": 0.0020777678836449986,
+        "project_ci95": [
+          -0.012103746397694527,
+          0.025416997617156496
+        ]
+      }
+    },
+    "common_cohort_fixed_score": {
+      "n": 475,
+      "n_source": 575,
+      "by_horizon": {
+        "7": {
+          "events": 239,
+          "n_pairs": 5727,
+          "baseline_auc": 0.5877422734415925,
+          "plus_condition_auc": 0.5954251789767767,
+          "condition_delta_auc": 0.007682905535184248
+        },
+        "30": {
+          "events": 299,
+          "n_pairs": 4244,
+          "baseline_auc": 0.5170829406220546,
+          "plus_condition_auc": 0.5499528746465598,
+          "condition_delta_auc": 0.03286993402450522
+        },
+        "60": {
+          "events": 331,
+          "n_pairs": 3873,
+          "baseline_auc": 0.5409243480506067,
+          "plus_condition_auc": 0.5868835528014459,
+          "condition_delta_auc": 0.045959204750839144
+        },
+        "90": {
+          "events": 351,
+          "n_pairs": 3369,
+          "baseline_auc": 0.5770258236865539,
+          "plus_condition_auc": 0.6319382606114574,
+          "condition_delta_auc": 0.05491243692490355
+        },
+        "eventual": {
+          "events": 422,
+          "n_pairs": 2045,
+          "baseline_auc": 0.6665036674816626,
+          "plus_condition_auc": 0.7471882640586797,
+          "condition_delta_auc": 0.0806845965770171
+        }
+      },
+      "paired_four_project_mean_eventual_minus_day30": 0.04305669300431826,
+      "paired_project_boot_ci95": [
+        0.016403308018721197,
+        0.06971007798991533
+      ],
+      "paired_project_signflip_p": 0.125,
+      "category_counts": {
+        "early_le_30": 299,
+        "late_gt_30": 123,
+        "no_detected_initiation": 53
+      },
+      "early_vs_never_condition_gain": 0.08321167883211678,
+      "late_vs_never_condition_gain": 0.07555555555555549,
+      "early_vs_late_condition_gain": 0.008872651356993722
+    },
+    "entrant_latency": {
+      "n": 422,
+      "pairs": 10756,
+      "c_index_base": 0.5446262551134251,
+      "c_index_plus_condition": 0.5461137969505392,
+      "condition_increment": 0.0014875418371140814,
+      "project_boot_ci95": [
+        -0.023666589702147318,
+        0.02015144113336587
+      ],
+      "project_signflip_p": 0.9375,
+      "n_excluding_1_day": 291,
+      "increment_excluding_1_day": -0.008647654093836277,
+      "median_latency_days_by_stage": {
+        "FIII": 7.210503472222222,
+        "FIV": 2.142025462962963,
+        "FV": 2.145162037037037
+      }
+    },
+    "conclusion": "The same capture phenotype contains more information for whether migration starts at all during observed followup than for the order of start among eventual initiators; no measured causal waiting mechanism or unbiased hazard decomposition."
+  }
 }
