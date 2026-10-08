@@ -1,0 +1,124 @@
+{
+  "schema": "azores.cross_project_condition_increment_project_robustness.v1",
+  "evidence_class": "post_hoc_after_pooled_heldout_auc_exposed",
+  "source": "results/cross_project_condition_increment_v1.json",
+  "question": "Is the held-out AUC gain stable at the independently sampled project level rather than only conditionally across 6,914 correlated fish pairs?",
+  "n_projects": 6,
+  "project_effects": [
+    {
+      "project": "2011_Warnow",
+      "pairs": 3638,
+      "gain": 0.0068719076415612035,
+      "base": 0.5566245189664651,
+      "expanded": 0.5634964266080263
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "pairs": 1456,
+      "gain": 0.10851648351648346,
+      "base": 0.7115384615384616,
+      "expanded": 0.820054945054945
+    },
+    {
+      "project": "2013_albertkanaal",
+      "pairs": 393,
+      "gain": 0.10305343511450382,
+      "base": 0.5025445292620865,
+      "expanded": 0.6055979643765903
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "pairs": 931,
+      "gain": 0.04081632653061218,
+      "base": 0.6595059076262084,
+      "expanded": 0.7003222341568206
+    },
+    {
+      "project": "2019_Grotenete",
+      "pairs": 88,
+      "gain": -0.03409090909090906,
+      "base": 0.9204545454545454,
+      "expanded": 0.8863636363636364
+    },
+    {
+      "project": "ESGL",
+      "pairs": 408,
+      "gain": -0.06495098039215685,
+      "base": 0.6433823529411765,
+      "expanded": 0.5784313725490197
+    }
+  ],
+  "pooled_pair_weighted_gain": 0.03355510558287525,
+  "equal_project_mean_gain": 0.026702710553349124,
+  "leave_one_project_out": [
+    {
+      "excluded": "2011_Warnow",
+      "n_projects": 5,
+      "delta_auc": 0.06318681318681314,
+      "remaining_pairs": 3276
+    },
+    {
+      "excluded": "2012_leopoldkanaal",
+      "n_projects": 5,
+      "delta_auc": 0.013558079882740858,
+      "remaining_pairs": 5458
+    },
+    {
+      "excluded": "2013_albertkanaal",
+      "n_projects": 5,
+      "delta_auc": 0.029366661554976158,
+      "remaining_pairs": 6521
+    },
+    {
+      "excluded": "2015_phd_verhelst_eel",
+      "n_projects": 5,
+      "delta_auc": 0.03242520474678248,
+      "remaining_pairs": 5983
+    },
+    {
+      "excluded": "2019_Grotenete",
+      "n_projects": 5,
+      "delta_auc": 0.03442719015528853,
+      "remaining_pairs": 6826
+    },
+    {
+      "excluded": "ESGL",
+      "n_projects": 5,
+      "delta_auc": 0.03973255456501683,
+      "remaining_pairs": 6506
+    }
+  ],
+  "project_cluster_bootstrap": {
+    "resamples": 10000,
+    "seed": 20261008,
+    "unit": "project: 6 clusters sampled with replacement; project summaries fixed, not retraining models",
+    "pair_weighted_gain_ci95": [
+      -0.0007243058217031535,
+      0.091779728651237
+    ],
+    "equal_project_mean_gain_ci95": [
+      -0.02455186620102588,
+      0.07778422339771686
+    ],
+    "prob_pair_weighted_positive": 0.973,
+    "prob_equal_project_positive": 0.8312
+  },
+  "exploratory_exact_sign_flip": {
+    "assumption": "independent symmetric project contributions under sharp zero-direction null; 64 flips; assumes significance null symmetry and makes no causal claim",
+    "weighted": {
+      "one_sided": 0.09375,
+      "two_sided": 0.1875
+    },
+    "equal_project": {
+      "one_sided": 0.171875,
+      "two_sided": 0.34375
+    }
+  },
+  "mechanism_boundary": [
+    "Six independent projects, not 6,914 independent random experimental units; pairwise AUC comparisons share eels and training models.",
+    "Positive pooled AUC and fish-level conditional bootstrap need not imply cross-project statistical certainty.",
+    "Two of six projects have negative improvement. Report both positive and negative projects.",
+    "Source evidence is capture-time body condition and migration initiation, not future escapement or intrinsic swimming capacity.",
+    "Post-hoc exploratory robustness is not preregistered confirmatory analysis; no change to frozen primary audit."
+  ]
+}
