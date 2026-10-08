@@ -625,6 +625,54 @@
         "score_disagreement_nonpositive_at_50": 0.233,
         "all_100_reclassified_auc_gain": 0.06832560101223113,
         "boundary": "Hypothetical allocation simulation only, not identified observation or biological movement process."
+      },
+      "receiver_evidence": {
+        "source": [
+          "results/receiver_witness_observability_v1.json",
+          "results/receiver_stratified_label_tipping_v1.json"
+        ],
+        "n_short_noninitiators": 100,
+        "virtual_only": 24,
+        "with_real_receiver": 76,
+        "later_same_receiver_other_tag_1d": 58,
+        "later_same_receiver_other_tag_90d": 70,
+        "exact_tipping_subgroups": {
+          "any_real_contact": {
+            "n": 76,
+            "first_nonpositive_k": 13,
+            "minimum_auc_at_k11": 0.0028823058446757407
+          },
+          "later_same_receiver_1d": {
+            "n": 58,
+            "first_nonpositive_k": 17,
+            "minimum_auc_at_k11": 0.0074824629773967265
+          },
+          "later_same_receiver_90d": {
+            "n": 70,
+            "first_nonpositive_k": 13,
+            "minimum_auc_at_k11": 0.0028823058446757407
+          },
+          "no_later_same_receiver_1d": {
+            "n": 42,
+            "first_nonpositive_k": null,
+            "minimum_auc_at_k11": 0.01123258948629624
+          },
+          "no_later_same_receiver_90d": {
+            "n": 30,
+            "first_nonpositive_k": null,
+            "minimum_auc_at_k11": 0.02002068557919622
+          },
+          "zero_real_contact": {
+            "n": 24,
+            "first_nonpositive_k": null,
+            "minimum_auc_at_k11": 0.020808909730363423
+          }
+        },
+        "original_witness_composition": {
+          "virtual_only": 2,
+          "with_real": 9
+        },
+        "evidence_limit": "Source event coincidence, not actual receiver deployment-period coverage or biological proof of onset."
       }
     }
   },
@@ -642,6 +690,7 @@
     "Cumulative initiation labels are retrospective telemetry events and do not define confirmed escape, mortality, or physiological movement scheduling.",
     "Show 4-project exact p=0.125 alongside the paired temporal bootstrap CI and n=422 conditional-on-entry latency result.",
     "The 90-day subset retains all source-classified initiators and discards 100/153 noninitiators; apparent eventual AUC improvement is not an elapsed-time physiological effect.",
-    "The exact eleven-label tipping is an adversarial existence result. Hypothetical random-label assignments do not reveal real misclassification prevalence or validate activation labels."
+    "The exact eleven-label tipping is an adversarial existence result. Hypothetical random-label assignments do not reveal real misclassification prevalence or validate activation labels.",
+    "Only 24/100 early-ended noninitiators lack any physical receiver row; another-fish later detection is a point witness, not continuous receiver uptime."
   ]
 }
