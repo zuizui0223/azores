@@ -182,7 +182,7 @@ def run():
     }
     out=Path("analysis/results/stage_specific_condition_gate.json")
     out.parent.mkdir(parents=True,exist_ok=True)
-    out.write_text(json.dumps(result, indent=2)+"\\n", encoding="utf-8")
+    out.write_text(json.dumps(result, indent=2)+"\n", encoding="utf-8")
     print(json.dumps(result, indent=2))
 
 
