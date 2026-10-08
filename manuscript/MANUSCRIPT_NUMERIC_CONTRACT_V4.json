@@ -261,7 +261,8 @@
       "external_context": {
         "european_eel_Ucrit_m_s": 0.94,
         "european_eel_Uopt_m_s": 0.64,
-        "compiled_european_eel_max_m_s": 2.26
+        "compiled_species_max_status": "UNVERIFIED_FROM_PRIMARY_SOURCE",
+        "threshold_logic": "2.5/5/10 m/s are post-hoc heuristic gross-artifact screens, not hard physiological maxima; laboratory sustained swimming rates are contextual only."
       },
       "posthoc_upper_screen_results": {
         "2.5": {
