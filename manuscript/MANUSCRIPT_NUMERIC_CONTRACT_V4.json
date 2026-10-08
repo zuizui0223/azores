@@ -373,5 +373,50 @@
   "heldout_condition_increment_result_files": [
     "results/cross_project_condition_increment_v1.json",
     "results/cross_project_condition_increment_project_robustness_v1.json"
-  ]
+  ],
+  "continuous_morphology_condition_increment": {
+    "evidence_class": "post_hoc_targeted_falsification_of_independent_body_condition_interpretation",
+    "n_original": 575,
+    "n_morphology_complete": 429,
+    "n_projects": 5,
+    "n_informative_strata": 10,
+    "n_positive_negative_pairs": 3272,
+    "auc": {
+      "base": 0.7062958435207825,
+      "morph": 0.7163814180929096,
+      "condition": 0.7405256723716381,
+      "full": 0.7408312958435208
+    },
+    "delta_auc": {
+      "condition_after_morph": 0.02444987775061125,
+      "condition_without_morph": 0.03422982885085568,
+      "morph_without_condition": 0.01008557457212711,
+      "morph_after_condition": 0.0003056234718826767
+    },
+    "n_project_delta_positive": 3,
+    "project_resampling_ci95": [
+      -0.015080603224128976,
+      0.0658737419945105
+    ],
+    "leave_one_project_out_range": [
+      0.012486992715920908,
+      0.03491620111731841
+    ],
+    "stage_within_project_year": {
+      "FIII": {
+        "n_pairs": 949,
+        "condition_after_morph": 0.06322444678609063
+      },
+      "FIV": {
+        "n_pairs": 16,
+        "condition_after_morph": 0
+      },
+      "FV": {
+        "n_pairs": 498,
+        "condition_after_morph": 0.07429718875502012
+      }
+    },
+    "interpretation": "On a five-project complete-morphology subset, body-condition residual adds some pooled held-out AUC beyond eye/fin morphology, but project-resampled 95% uncertainty spans zero; no physiological independence established."
+  },
+  "continuous_morphology_result": "results/continuous_morphology_condition_increment_v1.json"
 }
