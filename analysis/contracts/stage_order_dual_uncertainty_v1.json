@@ -1,0 +1,28 @@
+{
+  "schema": "azores.stage_order_dual_uncertainty_contract.v1",
+  "evidence_class": "post_hoc_conditional_identification_plus_exploratory_sampling_uncertainty",
+  "question": "Does the strict positive +1.57pp worst-case empirical FV-minus-FIII initiation bound remain positive after sampling uncertainty within sites or replacement of the six observed projects?",
+  "source": "results/stage_entry_observability_bounds_v1.json",
+  "original_label_assumption": "422 initiators and 53 day90-supported negatives are fixed; 100 short-followup negatives independently may be latent starts. Existing bounds are sharp for the observed finite sample under these assumptions.",
+  "method": {
+    "replicates": 10000,
+    "seed": 20261008,
+    "rng": "xorshift32; convert unsigned uint32 to U[0,1) by /2^32",
+    "within_project_fish": "Resample exactly n categorical observations (source classified start, short-followup classified negative, day90-supported negative) WITH replacement in every project×stage (FIII and FV), preserving project×stage n. Recompute the pooled FV−FIII lower and upper sharp bounds using original fixed denominator N; keep six projects fixed.",
+    "project_cluster": "Resample six projects with replacement as complete observed project×stage count tables; recompute pooled lower/upper bounds, and equal-project mean interval. No independent-fish resampling in this variant.",
+    "outputs": [
+      "observed lower and upper bound",
+      "bootstrap 2.5%/97.5% lower-bound and upper-bound endpoint ranges",
+      "fraction of bootstrap draws with FV-minus-FIII lower bound strictly positive",
+      "project-cluster variation of lower bound",
+      "conditional assumptions and failures"
+    ]
+  },
+  "inference_limits": [
+    "Original sharp bound is logical finite-sample identification conditional on allowed relabelings, not a confidence interval.",
+    "Fish-within-project resampling assumes exchangeable independent animals within each stage×project, and does not incorporate tag dependence, measurement error, or full sampling frame.",
+    "Project bootstrap has only six heterogeneous clusters; its percentiles are descriptive stability diagnostics not rigorous population-level confidence intervals.",
+    "Neither procedure identifies true initiation probabilities or causal physiological silvering effects.",
+    "If a resampled strict lower bound is negative, that is evidence the positive empirical bound is sampling-sensitive; not proof of negative stage effects."
+  ]
+}
