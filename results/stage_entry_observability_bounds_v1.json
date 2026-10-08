@@ -1,0 +1,304 @@
+{
+  "schema": "azores.stage_entry_observability_bounds.v1",
+  "evidence_class": "post_hoc_sharp_scenario_conditional_partial_identification",
+  "contract": "analysis/contracts/stage_entry_observability_bounds_v1.json",
+  "source": [
+    "results/stage_specific_condition_gate_v1.json",
+    "results/receiver_witness_observability_v1.json"
+  ],
+  "stage_bounds": {
+    "FIII": {
+      "n": 261,
+      "classified_starts": 154,
+      "classified_negatives": 107,
+      "hypothetically_ambiguous_short_negative": 70,
+      "longer_observed_negative": 37,
+      "lower_rate": 0.5900383141762452,
+      "upper_rate": 0.8582375478927203
+    },
+    "FIV": {
+      "n": 68,
+      "classified_starts": 53,
+      "classified_negatives": 15,
+      "hypothetically_ambiguous_short_negative": 13,
+      "longer_observed_negative": 2,
+      "lower_rate": 0.7794117647058824,
+      "upper_rate": 0.9705882352941176
+    },
+    "FV": {
+      "n": 246,
+      "classified_starts": 215,
+      "classified_negatives": 31,
+      "hypothetically_ambiguous_short_negative": 17,
+      "longer_observed_negative": 14,
+      "lower_rate": 0.8739837398373984,
+      "upper_rate": 0.943089430894309
+    }
+  },
+  "fv_minus_fiii_pooled": {
+    "lower": 0.01574619194467808,
+    "upper": 0.3530511167180638,
+    "status": "STRICT_POSITIVE_CONDITIONAL_ON_SHORT_NEGATIVE_SET_ONLY"
+  },
+  "fiv_minus_fiii_pooled": {
+    "lower": -0.07882578318683797,
+    "upper": 0.38054992111787245,
+    "status": "NOT_STRICTLY_IDENTIFIED_CONDITIONAL_ON_SHORT_NEGATIVE_SET"
+  },
+  "fv_minus_fiv_pooled": {
+    "lower": -0.09660449545671923,
+    "upper": 0.1636776661884266,
+    "status": "NOT_STRICTLY_IDENTIFIED_CONDITIONAL_ON_SHORT_NEGATIVE_SET"
+  },
+  "minimum_additional_longer_observed_fiii_negative_relabels_to_erase_fv_over_fiii": {
+    "attainable": true,
+    "needed": 5,
+    "longer_observed_negative_pool": 37,
+    "fraction_of_pool": 0.13513513513513514,
+    "rate_after_extra": 0.8773946360153256,
+    "reference_older_stage_observed_rate": 0.8739837398373984,
+    "count_is_hypothetical_not_observed": true
+  },
+  "project_level": {
+    "2011_Warnow": {
+      "stage_bounds": {
+        "FIII": {
+          "n": 86,
+          "classified_starts": 61,
+          "classified_negatives": 25,
+          "hypothetically_ambiguous_short_negative": 24,
+          "longer_observed_negative": 1,
+          "lower_rate": 0.7093023255813954,
+          "upper_rate": 0.9883720930232558
+        },
+        "FIV": {
+          "n": 27,
+          "classified_starts": 23,
+          "classified_negatives": 4,
+          "hypothetically_ambiguous_short_negative": 4,
+          "longer_observed_negative": 0,
+          "lower_rate": 0.8518518518518519,
+          "upper_rate": 1
+        },
+        "FV": {
+          "n": 28,
+          "classified_starts": 23,
+          "classified_negatives": 5,
+          "hypothetically_ambiguous_short_negative": 5,
+          "longer_observed_negative": 0,
+          "lower_rate": 0.8214285714285714,
+          "upper_rate": 1
+        }
+      },
+      "fv_minus_fiii": {
+        "lower": -0.1669435215946844,
+        "upper": 0.2906976744186046,
+        "status": "NOT_STRICTLY_IDENTIFIED_CONDITIONAL_ON_SHORT_NEGATIVE_SET"
+      }
+    },
+    "2012_leopoldkanaal": {
+      "stage_bounds": {
+        "FIII": {
+          "n": 45,
+          "classified_starts": 21,
+          "classified_negatives": 24,
+          "hypothetically_ambiguous_short_negative": 6,
+          "longer_observed_negative": 18,
+          "lower_rate": 0.4666666666666667,
+          "upper_rate": 0.6
+        },
+        "FIV": {
+          "n": 7,
+          "classified_starts": 7,
+          "classified_negatives": 0,
+          "hypothetically_ambiguous_short_negative": 0,
+          "longer_observed_negative": 0,
+          "lower_rate": 1,
+          "upper_rate": 1
+        },
+        "FV": {
+          "n": 28,
+          "classified_starts": 24,
+          "classified_negatives": 4,
+          "hypothetically_ambiguous_short_negative": 1,
+          "longer_observed_negative": 3,
+          "lower_rate": 0.8571428571428571,
+          "upper_rate": 0.8928571428571429
+        }
+      },
+      "fv_minus_fiii": {
+        "lower": 0.2571428571428571,
+        "upper": 0.42619047619047623,
+        "status": "STRICT_POSITIVE_CONDITIONAL_ON_SHORT_NEGATIVE_SET_ONLY"
+      }
+    },
+    "2013_albertkanaal": {
+      "stage_bounds": {
+        "FIII": {
+          "n": 26,
+          "classified_starts": 26,
+          "classified_negatives": 0,
+          "hypothetically_ambiguous_short_negative": 0,
+          "longer_observed_negative": 0,
+          "lower_rate": 1,
+          "upper_rate": 1
+        },
+        "FIV": {
+          "n": 1,
+          "classified_starts": 1,
+          "classified_negatives": 0,
+          "hypothetically_ambiguous_short_negative": 0,
+          "longer_observed_negative": 0,
+          "lower_rate": 1,
+          "upper_rate": 1
+        },
+        "FV": {
+          "n": 117,
+          "classified_starts": 105,
+          "classified_negatives": 12,
+          "hypothetically_ambiguous_short_negative": 2,
+          "longer_observed_negative": 10,
+          "lower_rate": 0.8974358974358975,
+          "upper_rate": 0.9145299145299145
+        }
+      },
+      "fv_minus_fiii": {
+        "lower": -0.10256410256410253,
+        "upper": -0.0854700854700855,
+        "status": "STRICT_NEGATIVE_CONDITIONAL_ON_SHORT_NEGATIVE_SET_ONLY"
+      }
+    },
+    "2015_phd_verhelst_eel": {
+      "stage_bounds": {
+        "FIII": {
+          "n": 67,
+          "classified_starts": 34,
+          "classified_negatives": 33,
+          "hypothetically_ambiguous_short_negative": 15,
+          "longer_observed_negative": 18,
+          "lower_rate": 0.5074626865671642,
+          "upper_rate": 0.7313432835820896
+        },
+        "FIV": {
+          "n": 23,
+          "classified_starts": 19,
+          "classified_negatives": 4,
+          "hypothetically_ambiguous_short_negative": 2,
+          "longer_observed_negative": 2,
+          "lower_rate": 0.8260869565217391,
+          "upper_rate": 0.9130434782608695
+        },
+        "FV": {
+          "n": 36,
+          "classified_starts": 33,
+          "classified_negatives": 3,
+          "hypothetically_ambiguous_short_negative": 2,
+          "longer_observed_negative": 1,
+          "lower_rate": 0.9166666666666666,
+          "upper_rate": 0.9722222222222222
+        }
+      },
+      "fv_minus_fiii": {
+        "lower": 0.18532338308457708,
+        "upper": 0.464759535655058,
+        "status": "STRICT_POSITIVE_CONDITIONAL_ON_SHORT_NEGATIVE_SET_ONLY"
+      }
+    },
+    "2019_Grotenete": {
+      "stage_bounds": {
+        "FIII": {
+          "n": 11,
+          "classified_starts": 6,
+          "classified_negatives": 5,
+          "hypothetically_ambiguous_short_negative": 5,
+          "longer_observed_negative": 0,
+          "lower_rate": 0.5454545454545454,
+          "upper_rate": 1
+        },
+        "FIV": {
+          "n": 2,
+          "classified_starts": 2,
+          "classified_negatives": 0,
+          "hypothetically_ambiguous_short_negative": 0,
+          "longer_observed_negative": 0,
+          "lower_rate": 1,
+          "upper_rate": 1
+        },
+        "FV": {
+          "n": 25,
+          "classified_starts": 25,
+          "classified_negatives": 0,
+          "hypothetically_ambiguous_short_negative": 0,
+          "longer_observed_negative": 0,
+          "lower_rate": 1,
+          "upper_rate": 1
+        }
+      },
+      "fv_minus_fiii": {
+        "lower": 0,
+        "upper": 0.4545454545454546,
+        "status": "NOT_STRICTLY_IDENTIFIED_CONDITIONAL_ON_SHORT_NEGATIVE_SET"
+      }
+    },
+    "ESGL": {
+      "stage_bounds": {
+        "FIII": {
+          "n": 26,
+          "classified_starts": 6,
+          "classified_negatives": 20,
+          "hypothetically_ambiguous_short_negative": 20,
+          "longer_observed_negative": 0,
+          "lower_rate": 0.23076923076923078,
+          "upper_rate": 1
+        },
+        "FIV": {
+          "n": 8,
+          "classified_starts": 1,
+          "classified_negatives": 7,
+          "hypothetically_ambiguous_short_negative": 7,
+          "longer_observed_negative": 0,
+          "lower_rate": 0.125,
+          "upper_rate": 1
+        },
+        "FV": {
+          "n": 12,
+          "classified_starts": 5,
+          "classified_negatives": 7,
+          "hypothetically_ambiguous_short_negative": 7,
+          "longer_observed_negative": 0,
+          "lower_rate": 0.4166666666666667,
+          "upper_rate": 1
+        }
+      },
+      "fv_minus_fiii": {
+        "lower": -0.5833333333333333,
+        "upper": 0.7692307692307692,
+        "status": "NOT_STRICTLY_IDENTIFIED_CONDITIONAL_ON_SHORT_NEGATIVE_SET"
+      }
+    }
+  },
+  "equal_project_mean_fv_minus_fiii_bounds": {
+    "lower": -0.068395786210781,
+    "upper": 0.3866589707617128
+  },
+  "balanced_stage_sample_weighted_fv_minus_fiii_bounds": {
+    "lower": -0.0033293863849152786,
+    "upper": 0.34618977666087486,
+    "total_weight": 141,
+    "weight_rule": "min(FIII sample size,FV sample size) per project fixed before hypothetical relabeling"
+  },
+  "project_status_summary": {
+    "n_projects": 6,
+    "robust_fv_gt_fiii": 2,
+    "robust_fv_lt_fiii": 1,
+    "not_strictly_identified": 3
+  },
+  "status": "POOLED_STAGE_ORDER_BOUNDED_BUT_PROJECT_HETEROGENEITY_AND_LONG_FOLLOWUP_AMBIGUITY_REMAIN",
+  "interpretation_boundary": [
+    "Sharp logical bounds are conditional on the untestable assumption that 422 source initiators and 53 day-90-supported source negatives are correctly labeled.",
+    "Short-followup negativity and longer-observed negativity are detection-based source categories, not independently verified migratory fates.",
+    "Project pooled ordering can mask opposing individual projects (composition/Simpson-type risk).",
+    "The minimum hypothetical additional negative relabels is a fragility threshold and not an observed hidden-start count.",
+    "No adjustment for project-year sampling, sex, age, hydrology, tagging geometry or independent receiver uptime is identified here."
+  ]
+}
