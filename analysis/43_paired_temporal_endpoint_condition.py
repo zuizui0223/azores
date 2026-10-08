@@ -108,8 +108,8 @@ def paired_project_contrast(earlier:dict,eventual:dict)->dict:
         "project_boot_ci95":[float(np.quantile(sample,.025)),float(np.quantile(sample,.975))],
         "boot_probability_positive":float(np.mean(sample>0)),
         "signflip_two_sided_p":sum(abs(s)>=abs(observed)-1e-12 for s in signs)/len(signs),
-        "n_positive_projects":sum(values>0),
-        "n_negative_projects":sum(values<0),
+        "n_positive_projects":int(np.sum(values>0)),
+        "n_negative_projects":int(np.sum(values<0)),
     }
 
 
