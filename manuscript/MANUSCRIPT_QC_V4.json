@@ -160,7 +160,18 @@
     "ref::Huisman, J. B. J.": true,
     "ref::van Rijn, J.": true,
     "ref::Lennox, R. J.": true,
-    "ref::Moyo, S.": true
+    "ref::Moyo, S.": true,
+    "label_tip_schema": true,
+    "label_tip_evidence_class": true,
+    "label_tip_sample": true,
+    "label_tip_short_followup": true,
+    "label_tip_correct_frozen_baseline": true,
+    "label_tip_exact_tipping": true,
+    "label_tip_10_positive_15_nonpositive": true,
+    "label_tip_11_projects": true,
+    "label_tip_figure_data": true,
+    "label_tip_manuscript_scope": true,
+    "label_tip_not_promoted_biology": true
   },
   "failed": []
 }
