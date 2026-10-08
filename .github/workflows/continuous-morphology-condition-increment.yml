@@ -1,0 +1,39 @@
+name: continuous-morphology-condition-increment
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/continuous_morphology_condition_increment_v1.json"
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/36_cross_project_condition_increment.py"
+      - "analysis/39_continuous_morphology_condition_increment.py"
+      - "analysis/tests/test_continuous_morphology_condition_increment.py"
+      - ".github/workflows/continuous-morphology-condition-increment.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Check syntax
+        run: python -m py_compile analysis/31_entry_state_score_transferability.py analysis/36_cross_project_condition_increment.py analysis/39_continuous_morphology_condition_increment.py analysis/tests/test_continuous_morphology_condition_increment.py
+      - name: Test type-based morphology harmonization and AUC
+        run: python analysis/tests/test_continuous_morphology_condition_increment.py
+      - name: Test independent condition increment after morphology
+        run: python analysis/39_continuous_morphology_condition_increment.py
+      - name: Display result
+        if: always()
+        run: cat analysis/results/continuous_morphology_condition_increment.json || true
+      - name: Upload audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-continuous-morphology-condition-increment
+          path: analysis/results/continuous_morphology_condition_increment.json
