@@ -1,0 +1,35 @@
+name: heldout-condition-discrimination
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/cross_project_condition_increment_v1.json"
+      - "analysis/31_entry_state_score_transferability.py"
+      - "analysis/32_cross_project_entry_state_score.py"
+      - "analysis/36_cross_project_condition_increment.py"
+      - ".github/workflows/heldout-condition-discrimination.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependency
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Check syntax
+        run: python -m py_compile analysis/31_entry_state_score_transferability.py analysis/32_cross_project_entry_state_score.py analysis/36_cross_project_condition_increment.py
+      - name: Audit held-out incremental condition ranking
+        run: python analysis/36_cross_project_condition_increment.py
+      - name: Show AUC results
+        run: cat analysis/results/cross_project_condition_increment.json
+      - name: Upload audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-heldout-condition-discrimination
+          path: analysis/results/cross_project_condition_increment.json
