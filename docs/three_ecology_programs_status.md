@@ -70,6 +70,18 @@ Project-held-out coefficient training gives the same boundary:
 This removes held-out-project outcomes from score-weight estimation, while
 remaining a post-hoc within-programme robustness test rather than external validation.
 
+Condition beyond Durif in project-held-out activation ranking:
+- 575 eels in 6 project-held-out folds, 6,914 positive–negative pairs;
+- base AUC 0.610 versus expanded AUC 0.643, gain **+0.0336**;
+- same-stage AUC 0.480 versus 0.555 over 3,199 pairs;
+- positive incremental gain in 4/6 projects; excluding any one project gives +0.0136 to +0.0632;
+- between-project cluster bootstrap CI **−0.0007 to +0.0918**; exploratory sign-flip p **0.1875**, two-sided;
+- conclusion: continuous body-state information sometimes predicts activation above Durif, but the across-river gain is uncertain, and this provides no evidence that condition improves realized migration speed.
+
+Canonical outputs:
+- `results/cross_project_condition_increment_v1.json`
+- `results/cross_project_condition_increment_project_robustness_v1.json`
+
 Exact-link realized transit-speed audit (corrected expert-eligible cohort, FWL numerical equivalence PASS):
 - **17,792** positive segment rows;
 - **418** eels;
