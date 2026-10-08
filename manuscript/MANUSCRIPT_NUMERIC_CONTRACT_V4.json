@@ -798,5 +798,28 @@
     "min_additional_longer_observed_fiii_negative_flips_to_erase_pooled_order": 5,
     "long_observed_fiii_negative_pool": 37,
     "claim_boundary": "Pooled stage order sign is protected only when 422 classified initiators and 53 day-90 observed noninitiator labels are held fixed. Project-standardized region crosses zero; 1 of 6 project signs reverses; five more hypothetical FIII long-observed negative relabels erase pooled stage order."
+  },
+  "stage_order_sampling_uncertainty": {
+    "evidence_class": "post_hoc_conditional_identification_plus_exploratory_sampling_uncertainty",
+    "source": "results/stage_order_dual_uncertainty_v1.json",
+    "replication": "analysis/52_stage_order_dual_uncertainty.py",
+    "n_projects": 6,
+    "n_resamples": 10000,
+    "seed": 20261008,
+    "finite_sample_bound": [
+      0.01574619194467808,
+      0.3530511167180638
+    ],
+    "within_site_fish_lower_endpoint_ci95": [
+      -0.03906176992804411,
+      0.06868867395570502
+    ],
+    "within_site_fraction_strict_positive": 0.7178,
+    "project_cluster_lower_endpoint_ci95": [
+      -0.1665193044503389,
+      0.1795657726692209
+    ],
+    "project_cluster_fraction_strict_positive": 0.5326,
+    "interpretation": "These are exploratory resampling ranges for the endpoint of a conditional finite-sample sharp label bound, not confidence intervals for true population initiation or causal effect."
   }
 }
