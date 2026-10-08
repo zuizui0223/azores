@@ -82,6 +82,15 @@ Canonical outputs:
 - `results/cross_project_condition_increment_v1.json`
 - `results/cross_project_condition_increment_project_robustness_v1.json`
 
+Continuous eye/fin morphology falsification (new 2026-10-08):
+- Raw typed eye/fin measurements available in 5/6 focal projects; Warnow lacks them.
+- 429 eligible fish, 5 project-held-out folds, 3,272 initiator/noninitiator pairs.
+- AUC baseline **0.706**, +eye/fin **0.716**, +condition **0.741**, +both **0.741**.
+- Condition-after-eye/fin gain **+0.0244**, project bootstrap CI **−0.0151 to +0.0659**, positive in 3/5 projects.
+- Eye/fin-after-condition gain **+0.0003**.
+- Meaning: some extra weight-for-length information remains after direct morphology in pooled analysis but independence and generality are unresolved. Cannot interpret as measured energetic reserve or conservation outcome.
+- `results/continuous_morphology_condition_increment_v1.json`
+
 Exact-link realized transit-speed audit (corrected expert-eligible cohort, FWL numerical equivalence PASS):
 - **17,792** positive segment rows;
 - **418** eels;
