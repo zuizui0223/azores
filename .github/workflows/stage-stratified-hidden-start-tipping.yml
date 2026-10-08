@@ -1,0 +1,37 @@
+name: stage-stratified-hidden-start-tipping
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/stage_stratified_hidden_start_tipping_v1.json"
+      - "analysis/51_stage_stratified_hidden_start_tipping.py"
+      - "analysis/tests/test_stage_stratified_hidden_start_tipping.py"
+      - ".github/workflows/stage-stratified-hidden-start-tipping.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install numpy
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Check syntax
+        run: python -m py_compile analysis/51_stage_stratified_hidden_start_tipping.py analysis/tests/test_stage_stratified_hidden_start_tipping.py
+      - name: Brute-force synthetic correctness
+        run: python analysis/tests/test_stage_stratified_hidden_start_tipping.py
+      - name: Exact stage-restricted sensitivity on pinned source data
+        run: python analysis/51_stage_stratified_hidden_start_tipping.py
+      - name: Print canonical result
+        if: always()
+        run: cat analysis/results/stage_stratified_hidden_start_tipping.json || true
+      - name: Upload artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-stage-stratified-hidden-start-tipping
+          path: analysis/results/stage_stratified_hidden_start_tipping.json
