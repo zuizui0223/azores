@@ -30,6 +30,8 @@ OBS = Path("results/observability_selection_gate_v1.json")
 OBS_MIX = Path("results/observability_project_composition_v1.json")
 LABEL_TIP = Path("results/observability_label_ambiguity_tipping_v1.json")
 RANDOM_HIDDEN = Path("results/observability_random_hidden_start_sensitivity_v1.json")
+RECEIVER_OBS = Path("results/receiver_witness_observability_v1.json")
+RECEIVER_TIP = Path("results/receiver_stratified_label_tipping_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -55,6 +57,8 @@ observability = json.loads(OBS.read_text())
 observability_mix = json.loads(OBS_MIX.read_text())
 label_tip = json.loads(LABEL_TIP.read_text())
 random_hidden = json.loads(RANDOM_HIDDEN.read_text())
+receiver_obs = json.loads(RECEIVER_OBS.read_text())
+receiver_tip = json.loads(RECEIVER_TIP.read_text())
 
 checks = {}
 
@@ -293,6 +297,28 @@ checks["random_hidden_rank_adverse_tail"] = all(abs(next(x for x in random_hidde
 checks["random_hidden_all100_nonmonotonic"] = abs(next(x for x in random_hidden["scenarios"]["uniform"] if x["k"] == 100)["mean_auc_increment"] - rh["deterministic_all_100_reclassified_gain"]) < 1e-10 and rh["deterministic_all_100_reclassified_gain"] > rh["baseline_auc_gain"]
 checks["random_hidden_figure_match"] = abs(rfig["all_100_reclassified_auc_gain"] - rh["deterministic_all_100_reclassified_gain"]) < 1e-10 and abs(rfig["score_disagreement_nonpositive_at_50"] - rh["score_disagreement_enrichment_nonpositive_fraction_by_k"]["50"]) < 1e-10
 checks["random_hidden_reported_as_hypothetical"] = has(r"10,000.{0,8}uniformly selected") and has(r"23\.3%") and has(r"hypothetical") and has(r"not a true detection-error model")
+
+# Physical receiver event evidence is not proof of continuous receiver uptime.
+rc = contract["receiver_observability_and_stratified_tipping"]
+rf = figure["supplementary"]["observation_process_gate"]["receiver_evidence"]
+short = receiver_obs["cohorts"]["short_followup_source_noninitiator"]
+supported = receiver_obs["cohorts"]["day90_supported_source_noninitiator"]
+groups = receiver_tip["observed_receiver_evidence_groups"]
+checks["receiver_obs_schema"] = receiver_obs.get("schema") == "azores.receiver_witness_observability.v1"
+checks["receiver_tip_schema"] = receiver_tip.get("schema") == "azores.receiver_stratified_label_tipping.v1"
+checks["receiver_source_575"] = receiver_obs["source"]["focal_fish"] == 575 and receiver_tip["source_fish"] == 575
+checks["receiver_exact_partition"] = short["n_fish"] == rc["receiver_cohort"]["short_noninitiators"] == 100 and short["n_fish_without_any_real_receiver_contact"] == rc["receiver_cohort"]["virtual_only"] == 24 and short["n_fish_with_real_receiver_contact"] == rc["receiver_cohort"]["any_real"] == 76
+checks["receiver_supported_contrast"] = supported["n_fish"] == rc["receiver_cohort"]["day90_noninitiators"] == 53 and supported["number_real_receiver_rows"]["median"] == rc["receiver_cohort"]["day90_median_real_rows"] == 260 and short["number_real_receiver_rows"]["median"] == rc["receiver_cohort"]["median_real_rows"] == 1
+checks["receiver_other_tag_point_witness"] = all(short["has_later_other_fish_detection_same_receiver"][str(k)]["n_positive"] == rc["receiver_cohort"][f"later_other_fish_same_receiver_{k}d"] for k in [1,7,90])
+checks["receiver_no_fake_uptime"] = receiver_obs["source"]["has_receiver_deployment_and_recovery_times"] is False
+checks["receiver_exact_tipping_partition"] = receiver_tip["unrestricted_first_nonpositive_k"] == rc["unrestricted_first_nonpositive_k"] == 11 and receiver_tip["original_adversarial_11_fish_group_composition"]["zero_real_contact"] == rc["original_11_witness_zero_receiver"] == 2 and receiver_tip["original_adversarial_11_fish_group_composition"]["any_real_contact"] == rc["original_11_witness_real_receiver"] == 9
+checks["receiver_zero_contact_no_tipping"] = groups["zero_real_contact"]["candidate_count"] == 24 and groups["zero_real_contact"]["first_k_with_nonpositive_gain"] is None
+checks["receiver_real_contact_13_tipping"] = groups["any_real_contact"]["candidate_count"] == 76 and groups["any_real_contact"]["first_k_with_nonpositive_gain"] == 13
+checks["receiver_later_witness_13_tipping"] = groups["later_same_receiver_90d"]["candidate_count"] == 70 and groups["later_same_receiver_90d"]["first_k_with_nonpositive_gain"] == 13
+checks["receiver_1day_witness_17_tipping"] = groups["later_same_receiver_1d"]["candidate_count"] == 58 and groups["later_same_receiver_1d"]["first_k_with_nonpositive_gain"] == 17
+checks["receiver_group_figure_consistency"] = rf["virtual_only"] == 24 and rf["with_real_receiver"] == 76 and rf["original_witness_composition"]["with_real"] == 9 and abs(rf["exact_tipping_subgroups"]["any_real_contact"]["minimum_auc_at_k11"] - groups["any_real_contact"]["at_k11"]["minimum_auc_gain"]) < 1e-10
+checks["receiver_manuscript_scope"] = has(r"24 of 100") and has(r"76.{0,30}actual receiver") and has(r"70.{0,100}later detection") and has(r"required .{0,20}13") and has(r"9 previously receiver-detected")
+
 
 
 failed = [k for k,v in checks.items() if not v]
