@@ -46,6 +46,11 @@ def test_stage_decomposition():
         assert abs(s["plus_auc"]-1.0)<1e-12
         assert abs(s["delta_auc"]-0.5)<1e-12
         assert abs(s["condition_only_auc"]-1.0)<1e-12
+    matched=module.compare_within_matched_project_year(groups)
+    assert matched["n_contexts"] == 6
+    assert matched["n_projects"] == 6
+    assert abs(matched["pooled_minimum_pair_weighted_contrast"]) < 1e-12
+    assert all(abs(x["delta_FV_minus_FIII"]) < 1e-12 for x in matched["comparison_cells"])
     module.N_BOOT=50
     b=module.project_bootstrap(projects,stages)
     for stage in module.STAGES:
