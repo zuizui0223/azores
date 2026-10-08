@@ -647,5 +647,46 @@
     },
     "verified_method": "Exact mathematical minimum over all hypothetical false-negative assignments among 100 short-followup labels at frozen score weights, synthetic combinatorial equivalence test passed.",
     "interpretive_boundary": "Not the estimated false-negative rate, not proof of hidden initiation and not uncertainty over model retraining or physiology."
+  },
+  "observability_random_hidden_start_sensitivity": {
+    "source": "results/observability_random_hidden_start_sensitivity_v1.json",
+    "evidence_class": "post_hoc_scenario_sensitivity_after_exact_11_label_tipping",
+    "baseline_auc_gain": 0.033555105582875326,
+    "exact_worst_case_tipping_k": 11,
+    "conditional_repetitions": 10000,
+    "k11": {
+      "uniform": {
+        "median": 0.03373502988345829,
+        "interval95": [
+          0.023086161311873854,
+          0.044631904172824026
+        ],
+        "nonpositive_draws": 0
+      },
+      "FV_enriched": {
+        "median": 0.03276953953449037,
+        "interval95": [
+          0.022679702272022637,
+          0.043386145120553145
+        ],
+        "nonpositive_draws": 0
+      },
+      "score_disagreement_enriched": {
+        "median": 0.026227505422509276,
+        "interval95": [
+          0.015781272003323382,
+          0.037379111914203886
+        ],
+        "nonpositive_draws": 0
+      }
+    },
+    "score_disagreement_enrichment_nonpositive_fraction_by_k": {
+      "20": 0.0006,
+      "30": 0.0325,
+      "50": 0.233,
+      "75": 0.1018
+    },
+    "deterministic_all_100_reclassified_gain": 0.06832560101223113,
+    "inferential_limit": "Distribution of hypothetical labels conditional on arbitrary 3:1 or uniform selection rules; neither actual missing initiation rate nor demonstrated state-dependent detection; coefficients frozen."
   }
 }
