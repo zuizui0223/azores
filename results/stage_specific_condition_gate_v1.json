@@ -1,0 +1,329 @@
+{
+  "schema": "azores.stage_specific_condition_gate.v1",
+  "evidence_class": "post_hoc_exploratory_after_cross_project_auc_result",
+  "contract": "analysis/contracts/stage_specific_condition_gate_v1.json",
+  "question": "Within the same ordinal silvering category (FIII, FIV, FV), where does capture condition add held-out discrimination of migration initiation?",
+  "n_evaluable_fish": 575,
+  "n_projects": 6,
+  "n_informative_same_stage_pairs": 3199,
+  "pooled_same_stage_gain": 0.07502344482650825,
+  "stage": {
+    "FIII": {
+      "n_fish": 261,
+      "n_initiators": 154,
+      "n_noninitiators": 107,
+      "n_informative_project_year_strata": 9,
+      "n_informative_projects": 5,
+      "n_pairs": 2474,
+      "base_auc": 0.48080032336297496,
+      "plus_auc": 0.5278900565885206,
+      "delta_auc": 0.04708973322554566,
+      "condition_only_auc": 0.563055780113177,
+      "project_details": {
+        "2011_Warnow": {
+          "fish": 86,
+          "initiators": 61,
+          "noninitiators": 25,
+          "informative_project_year_strata": 1,
+          "n_pairs": 1525,
+          "auc_base": 0.44524590163934424,
+          "auc_plus": 0.4373770491803279,
+          "gain": -0.007868852459016362,
+          "condition_only_auc": 0.48262295081967216
+        },
+        "2012_leopoldkanaal": {
+          "fish": 45,
+          "initiators": 21,
+          "noninitiators": 24,
+          "informative_project_year_strata": 1,
+          "n_pairs": 504,
+          "auc_base": 0.5456349206349206,
+          "auc_plus": 0.7559523809523809,
+          "gain": 0.21031746031746035,
+          "condition_only_auc": 0.7797619047619048
+        },
+        "2013_albertkanaal": {
+          "fish": 26,
+          "initiators": 26,
+          "noninitiators": 0,
+          "informative_project_year_strata": 0,
+          "n_pairs": 0,
+          "auc_base": null,
+          "auc_plus": null,
+          "gain": null,
+          "condition_only_auc": null
+        },
+        "2015_phd_verhelst_eel": {
+          "fish": 67,
+          "initiators": 34,
+          "noninitiators": 33,
+          "informative_project_year_strata": 4,
+          "n_pairs": 309,
+          "auc_base": 0.45307443365695793,
+          "auc_plus": 0.598705501618123,
+          "gain": 0.14563106796116504,
+          "condition_only_auc": 0.6213592233009708
+        },
+        "2019_Grotenete": {
+          "fish": 11,
+          "initiators": 6,
+          "noninitiators": 5,
+          "informative_project_year_strata": 2,
+          "n_pairs": 16,
+          "auc_base": 0.5625,
+          "auc_plus": 0.4375,
+          "gain": -0.125,
+          "condition_only_auc": 0.5625
+        },
+        "ESGL": {
+          "fish": 26,
+          "initiators": 6,
+          "noninitiators": 20,
+          "informative_project_year_strata": 1,
+          "n_pairs": 120,
+          "auc_base": 0.7208333333333333,
+          "auc_plus": 0.55,
+          "gain": -0.17083333333333328,
+          "condition_only_auc": 0.525
+        }
+      }
+    },
+    "FIV": {
+      "n_fish": 68,
+      "n_initiators": 53,
+      "n_noninitiators": 15,
+      "n_informative_project_year_strata": 3,
+      "n_informative_projects": 3,
+      "n_pairs": 108,
+      "base_auc": 0.5648148148148148,
+      "plus_auc": 0.7870370370370371,
+      "delta_auc": 0.22222222222222232,
+      "condition_only_auc": 0.6944444444444444,
+      "project_details": {
+        "2011_Warnow": {
+          "fish": 27,
+          "initiators": 23,
+          "noninitiators": 4,
+          "informative_project_year_strata": 1,
+          "n_pairs": 92,
+          "auc_base": 0.6630434782608695,
+          "auc_plus": 0.9130434782608695,
+          "gain": 0.25,
+          "condition_only_auc": 0.7608695652173914
+        },
+        "2012_leopoldkanaal": {
+          "fish": 7,
+          "initiators": 7,
+          "noninitiators": 0,
+          "informative_project_year_strata": 0,
+          "n_pairs": 0,
+          "auc_base": null,
+          "auc_plus": null,
+          "gain": null,
+          "condition_only_auc": null
+        },
+        "2013_albertkanaal": {
+          "fish": 1,
+          "initiators": 1,
+          "noninitiators": 0,
+          "informative_project_year_strata": 0,
+          "n_pairs": 0,
+          "auc_base": null,
+          "auc_plus": null,
+          "gain": null,
+          "condition_only_auc": null
+        },
+        "2015_phd_verhelst_eel": {
+          "fish": 23,
+          "initiators": 19,
+          "noninitiators": 4,
+          "informative_project_year_strata": 1,
+          "n_pairs": 9,
+          "auc_base": 0,
+          "auc_plus": 0,
+          "gain": 0,
+          "condition_only_auc": 0.2222222222222222
+        },
+        "2019_Grotenete": {
+          "fish": 2,
+          "initiators": 2,
+          "noninitiators": 0,
+          "informative_project_year_strata": 0,
+          "n_pairs": 0,
+          "auc_base": null,
+          "auc_plus": null,
+          "gain": null,
+          "condition_only_auc": null
+        },
+        "ESGL": {
+          "fish": 8,
+          "initiators": 1,
+          "noninitiators": 7,
+          "informative_project_year_strata": 1,
+          "n_pairs": 7,
+          "auc_base": 0,
+          "auc_plus": 0.14285714285714285,
+          "gain": 0.14285714285714285,
+          "condition_only_auc": 0.42857142857142855
+        }
+      }
+    },
+    "FV": {
+      "n_fish": 246,
+      "n_initiators": 215,
+      "n_noninitiators": 31,
+      "n_informative_project_year_strata": 8,
+      "n_informative_projects": 5,
+      "n_pairs": 617,
+      "base_auc": 0.45948136142625606,
+      "plus_auc": 0.6207455429497569,
+      "delta_auc": 0.16126418152350086,
+      "condition_only_auc": 0.6612641815235009,
+      "project_details": {
+        "2011_Warnow": {
+          "fish": 28,
+          "initiators": 23,
+          "noninitiators": 5,
+          "informative_project_year_strata": 1,
+          "n_pairs": 115,
+          "auc_base": 0.34782608695652173,
+          "auc_plus": 0.33043478260869563,
+          "gain": -0.017391304347826098,
+          "condition_only_auc": 0.43478260869565216
+        },
+        "2012_leopoldkanaal": {
+          "fish": 28,
+          "initiators": 24,
+          "noninitiators": 4,
+          "informative_project_year_strata": 1,
+          "n_pairs": 96,
+          "auc_base": 0.17708333333333334,
+          "auc_plus": 0.6666666666666666,
+          "gain": 0.48958333333333326,
+          "condition_only_auc": 0.7395833333333334
+        },
+        "2013_albertkanaal": {
+          "fish": 117,
+          "initiators": 105,
+          "noninitiators": 12,
+          "informative_project_year_strata": 3,
+          "n_pairs": 337,
+          "auc_base": 0.586053412462908,
+          "auc_plus": 0.7062314540059347,
+          "gain": 0.12017804154302669,
+          "condition_only_auc": 0.7388724035608308
+        },
+        "2015_phd_verhelst_eel": {
+          "fish": 36,
+          "initiators": 33,
+          "noninitiators": 3,
+          "informative_project_year_strata": 2,
+          "n_pairs": 34,
+          "auc_base": 0.23529411764705882,
+          "auc_plus": 0.5882352941176471,
+          "gain": 0.35294117647058826,
+          "condition_only_auc": 0.6470588235294118
+        },
+        "2019_Grotenete": {
+          "fish": 25,
+          "initiators": 25,
+          "noninitiators": 0,
+          "informative_project_year_strata": 0,
+          "n_pairs": 0,
+          "auc_base": null,
+          "auc_plus": null,
+          "gain": null,
+          "condition_only_auc": null
+        },
+        "ESGL": {
+          "fish": 12,
+          "initiators": 5,
+          "noninitiators": 7,
+          "informative_project_year_strata": 1,
+          "n_pairs": 35,
+          "auc_base": 0.6,
+          "auc_plus": 0.6571428571428571,
+          "gain": 0.05714285714285716,
+          "condition_only_auc": 0.45714285714285713
+        }
+      }
+    }
+  },
+  "contrasts_observed": {
+    "FIII_minus_FV": -0.1141744482979552,
+    "FIII_minus_FIV": -0.17513248899667666,
+    "FIV_minus_FV": 0.06095804069872146
+  },
+  "project_bootstrap": {
+    "seed": 20261008,
+    "n_resamples": 10000,
+    "resampling_unit": "six independent projects, with replacement",
+    "model_training": "frozen project-held-out coefficients, no bootstrap refit",
+    "stage": {
+      "FIII": {
+        "status": "ESTIMATED",
+        "n_valid": 10000,
+        "ci95": [
+          -0.03171953255425706,
+          0.19129782445611404
+        ],
+        "fraction_gt_zero": 0.8533
+      },
+      "FIV": {
+        "status": "ESTIMATED",
+        "n_valid": 9826,
+        "ci95": [
+          0,
+          0.25
+        ],
+        "fraction_gt_zero": 0.9232648076531651
+      },
+      "FV": {
+        "status": "ESTIMATED",
+        "n_valid": 9999,
+        "ci95": [
+          0.0334448160535117,
+          0.4067796610169492
+        ],
+        "fraction_gt_zero": 0.9901990199019902
+      }
+    },
+    "contrasts": {
+      "FIII_minus_FV": {
+        "status": "ESTIMATED",
+        "n_valid": 9999,
+        "ci95": [
+          -0.26688998855479934,
+          -0.005644731367347944
+        ],
+        "fraction_gt_zero": 0.017101710171017102
+      },
+      "FIII_minus_FIV": {
+        "status": "ESTIMATED",
+        "n_valid": 9826,
+        "ci95": [
+          -0.26756858915803067,
+          0.18270401948842874
+        ],
+        "fraction_gt_zero": 0.22226745369428047
+      },
+      "FIV_minus_FV": {
+        "status": "ESTIMATED",
+        "n_valid": 9826,
+        "ci95": [
+          -0.3512931034482758,
+          0.2015551839464883
+        ],
+        "fraction_gt_zero": 0.6066558111133726
+      }
+    }
+  },
+  "status": "EXPLORATORY_STAGE_HETEROGENEITY_AUDITED",
+  "interpretation_boundary": [
+    "Show sample size, positive and negative cases, within-stage informative project coverage and interval before discussing stage trend.",
+    "When per-stage model overlap or support is sparse, do not promote an effect.",
+    "Stage differences were designed after overall AUC result and are exploratory; do not call pre-registered.",
+    "Inconsistent project-level signs prevent a general biological inference, even if pooled effects are positive.",
+    "Do not treat condition residual as independent physiology nor link it causally to reserves, hydraulic gates or escapement success."
+  ]
+}
