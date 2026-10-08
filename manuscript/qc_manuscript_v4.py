@@ -32,6 +32,7 @@ LABEL_TIP = Path("results/observability_label_ambiguity_tipping_v1.json")
 RANDOM_HIDDEN = Path("results/observability_random_hidden_start_sensitivity_v1.json")
 RECEIVER_OBS = Path("results/receiver_witness_observability_v1.json")
 RECEIVER_TIP = Path("results/receiver_stratified_label_tipping_v1.json")
+STAGE_BOUNDS = Path("results/stage_entry_observability_bounds_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -59,6 +60,7 @@ label_tip = json.loads(LABEL_TIP.read_text())
 random_hidden = json.loads(RANDOM_HIDDEN.read_text())
 receiver_obs = json.loads(RECEIVER_OBS.read_text())
 receiver_tip = json.loads(RECEIVER_TIP.read_text())
+stage_bounds = json.loads(STAGE_BOUNDS.read_text())
 
 checks = {}
 
@@ -320,6 +322,28 @@ checks["receiver_group_figure_consistency"] = rf["virtual_only"] == 24 and rf["w
 checks["receiver_manuscript_scope"] = has(r"24 of 100") and has(r"76.{0,30}actual receiver") and has(r"70.{0,100}later detection") and has(r"required .{0,20}13") and has(r"9 previously receiver-detected")
 
 
+
+
+# Conditional partial-identification of ordinal silvering contrast under
+# source-observation ambiguity. These are not biological stage-rate estimates.
+sb = contract["stage_entry_observability_partial_identification"]
+stage_figure = figure["supplementary"]["stage_entry_observability_partial_identification"]
+stage_project = stage_bounds["project_status_summary"]
+checks["stage_observability_source_schema"] = stage_bounds.get("schema") == "azores.stage_entry_observability_bounds.v1"
+checks["stage_observability_575_fish"] = sum(v["n"] for v in stage_bounds["stage_bounds"].values()) == 575
+checks["stage_observability_100_short_negative"] = sum(v["hypothetically_ambiguous_short_negative"] for v in stage_bounds["stage_bounds"].values()) == 100
+checks["stage_observability_53_longer_negative"] = sum(v["longer_observed_negative"] for v in stage_bounds["stage_bounds"].values()) == 53
+checks["stage_observability_source_bound_exact"] = all(
+    abs(stage_bounds["stage_bounds"][k]["lower_rate"]-sb["stage_rate_bounds"][k]["rate_interval"][0]) < 1e-10
+    and abs(stage_bounds["stage_bounds"][k]["upper_rate"]-sb["stage_rate_bounds"][k]["rate_interval"][1]) < 1e-10
+    for k in ("FIII","FIV","FV")
+)
+checks["stage_observability_pooled_positive"] = stage_bounds["fv_minus_fiii_pooled"]["lower"] > 0 and abs(stage_bounds["fv_minus_fiii_pooled"]["lower"]-sb["pooled_fv_minus_fiii_bounds"][0]) < 1e-10
+checks["stage_observability_project_uncertainty"] = stage_bounds["equal_project_mean_fv_minus_fiii_bounds"]["lower"] < 0 < stage_bounds["equal_project_mean_fv_minus_fiii_bounds"]["upper"]
+checks["stage_observability_project_status"] = stage_project["robust_fv_gt_fiii"] == sb["project_status"]["robust_fv_gt_fiii"] == 2 and stage_project["robust_fv_lt_fiii"] == sb["project_status"]["robust_fv_lt_fiii"] == 1
+checks["stage_observability_five_hypothetical_longer_flips"] = stage_bounds["minimum_additional_longer_observed_fiii_negative_relabels_to_erase_fv_over_fiii"]["needed"] == sb["min_additional_longer_observed_fiii_negative_flips_to_erase_pooled_order"] == 5
+checks["stage_observability_fig_contract"] = all(abs(x-y)<1e-10 for x,y in zip(stage_figure["pooled_fv_minus_fiii_bounds"], sb["pooled_fv_minus_fiii_bounds"]))
+checks["stage_observability_manuscript"] = has(r"85\.8%") and has(r"87\.4%") and has(r"1\.57 percentage points") and has(r"37 longer-observed FIII") and has(r"five")
 
 failed = [k for k,v in checks.items() if not v]
 result = {
