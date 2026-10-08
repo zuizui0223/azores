@@ -91,6 +91,16 @@ Continuous eye/fin morphology falsification (new 2026-10-08):
 - Meaning: some extra weight-for-length information remains after direct morphology in pooled analysis but independence and generality are unresolved. Cannot interpret as measured energetic reserve or conservation outcome.
 - `results/continuous_morphology_condition_increment_v1.json`
 
+Temporal entry-classification boundary (new post-hoc diagnostic):
+- 7/30/60/90-day event definitions affect eligibility; refitting each horizon yields condition ΔAUC **−0.0263 / −0.0291 / −0.0226 / +0.0021**. Do **not** interpret this re-training contrast as a physiological sign reversal.
+- Same **475** observed eels and frozen held-out eventual-activation coefficients: condition ΔAUC rises **+0.0077 / +0.0329 / +0.0460 / +0.0549 / +0.0807** from 7-day through eventual endpoint.
+- **299** early (<=30-day) entrants, **123** later entrants, **53** source noninitiators: condition ΔAUC early/late vs never **+0.0832 / +0.0756**, but early vs late **+0.0089**.
+- Four-project paired eventual-versus-30-day increment **+0.0431**, project-bootstrap CI **+0.0164–+0.0697**, exact sign-flip **p=0.125**.
+- Among **422 actual initiating eels** (10,756 onset-order pairs), condition barely changes conditional onset rank **0.5446 → 0.5461**; Δ **+0.0015**, project bootstrap **−0.0237–+0.0202**. Removing day-one starts: Δ **−0.0086**.
+- Release-date×condition interaction does not improve held-out entry prediction, ΔAUC **−0.0010**.
+- The implication is a **prediction-target distinction**: observed entry participation versus when an entrant begins. Neither receiver censoring nor energetic physiology is identified.
+- Results: `results/fixed_followup_condition_increment_v1.json`, `results/paired_temporal_endpoint_condition_v1.json`, `results/entrant_onset_latency_discrimination_v1.json`, `results/seasonal_condition_interaction_v1.json`.
+
 Exact-link realized transit-speed audit (corrected expert-eligible cohort, FWL numerical equivalence PASS):
 - **17,792** positive segment rows;
 - **418** eels;
