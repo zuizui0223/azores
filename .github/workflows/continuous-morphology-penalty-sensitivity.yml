@@ -1,0 +1,35 @@
+name: continuous-morphology-penalty-sensitivity
+
+on:
+  push:
+    paths:
+      - "analysis/40_continuous_morphology_regularization_sensitivity.py"
+      - "analysis/39_continuous_morphology_condition_increment.py"
+      - "results/continuous_morphology_condition_increment_v1.json"
+      - ".github/workflows/continuous-morphology-penalty-sensitivity.yml"
+  workflow_dispatch:
+
+jobs:
+  sensitivity:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install dependencies
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Check syntax
+        run: python -m py_compile analysis/39_continuous_morphology_condition_increment.py analysis/40_continuous_morphology_regularization_sensitivity.py
+      - name: Compare held-out ridge penalties
+        run: python analysis/40_continuous_morphology_regularization_sensitivity.py
+      - name: Display sensitivity
+        if: always()
+        run: cat analysis/results/continuous_morphology_penalty_sensitivity.json || true
+      - name: Upload sensitivity artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-continuous-morphology-penalty-sensitivity
+          path: analysis/results/continuous_morphology_penalty_sensitivity.json
