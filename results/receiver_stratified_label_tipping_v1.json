@@ -1,0 +1,153 @@
+{
+  "schema": "azores.receiver_stratified_label_tipping.v1",
+  "evidence_class": "post_hoc_restricted_exact_label_bound_using_observed_receiver_contacts",
+  "contract": "analysis/contracts/receiver_stratified_hidden_start_tipping_v1.json",
+  "source_tipping_result": "results/observability_label_ambiguity_tipping_v1.json",
+  "source_receiver_inventory": "results/receiver_witness_observability_v1.json",
+  "source_fish": 575,
+  "source_ambiguous_noninitiators": 100,
+  "frozen_original_auc_increment": 0.033555105582875326,
+  "unrestricted_first_nonpositive_k": 11,
+  "observed_receiver_evidence_groups": {
+    "any_real_contact": {
+      "candidate_count": 76,
+      "first_k_with_nonpositive_gain": 13,
+      "k11_admissible": true,
+      "at_k11": {
+        "minimum_auc_gain": 0.0028823058446757407,
+        "n_comparison_pairs_after_flip": 6245,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 8,
+          "2013_albertkanaal": 1,
+          "2015_phd_verhelst_eel": 1,
+          "ESGL": 1
+        }
+      },
+      "at_first_tipping": {
+        "minimum_auc_gain": -0.0006409229290177856,
+        "n_comparison_pairs_after_flip": 6241,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 8,
+          "2013_albertkanaal": 1,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 2
+        }
+      }
+    },
+    "later_same_receiver_1d": {
+      "candidate_count": 58,
+      "first_k_with_nonpositive_gain": 17,
+      "k11_admissible": true,
+      "at_k11": {
+        "minimum_auc_gain": 0.0074824629773967265,
+        "n_comparison_pairs_after_flip": 6415,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 6,
+          "2013_albertkanaal": 1,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 2
+        }
+      },
+      "at_first_tipping": {
+        "minimum_auc_gain": -0.0006455777921239509,
+        "n_comparison_pairs_after_flip": 6196,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 9,
+          "2013_albertkanaal": 1,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 5
+        }
+      }
+    },
+    "later_same_receiver_90d": {
+      "candidate_count": 70,
+      "first_k_with_nonpositive_gain": 13,
+      "k11_admissible": true,
+      "at_k11": {
+        "minimum_auc_gain": 0.0028823058446757407,
+        "n_comparison_pairs_after_flip": 6245,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 8,
+          "2013_albertkanaal": 1,
+          "2015_phd_verhelst_eel": 1,
+          "ESGL": 1
+        }
+      },
+      "at_first_tipping": {
+        "minimum_auc_gain": -0.0006409229290177856,
+        "n_comparison_pairs_after_flip": 6241,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 8,
+          "2013_albertkanaal": 1,
+          "2015_phd_verhelst_eel": 2,
+          "ESGL": 2
+        }
+      }
+    },
+    "no_later_same_receiver_1d": {
+      "candidate_count": 42,
+      "first_k_with_nonpositive_gain": null,
+      "k11_admissible": true,
+      "at_k11": {
+        "minimum_auc_gain": 0.01123258948629624,
+        "n_comparison_pairs_after_flip": 6677,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 3,
+          "2012_leopoldkanaal": 3,
+          "2015_phd_verhelst_eel": 1,
+          "ESGL": 4
+        }
+      },
+      "at_first_tipping": null
+    },
+    "no_later_same_receiver_90d": {
+      "candidate_count": 30,
+      "first_k_with_nonpositive_gain": null,
+      "k11_admissible": true,
+      "at_k11": {
+        "minimum_auc_gain": 0.02002068557919622,
+        "n_comparison_pairs_after_flip": 6768,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 2,
+          "2012_leopoldkanaal": 3,
+          "2015_phd_verhelst_eel": 1,
+          "ESGL": 5
+        }
+      },
+      "at_first_tipping": null
+    },
+    "zero_real_contact": {
+      "candidate_count": 24,
+      "first_k_with_nonpositive_gain": null,
+      "k11_admissible": true,
+      "at_k11": {
+        "minimum_auc_gain": 0.020808909730363423,
+        "n_comparison_pairs_after_flip": 6824,
+        "hypothetical_flips_by_project": {
+          "2011_Warnow": 1,
+          "2012_leopoldkanaal": 3,
+          "2015_phd_verhelst_eel": 1,
+          "2019_Grotenete": 1,
+          "ESGL": 5
+        }
+      },
+      "at_first_tipping": null
+    }
+  },
+  "original_adversarial_11_fish_group_composition": {
+    "zero_real_contact": 2,
+    "any_real_contact": 9,
+    "later_same_receiver_90d": 9,
+    "no_later_same_receiver_90d": 2,
+    "later_same_receiver_1d": 7,
+    "no_later_same_receiver_1d": 4
+  },
+  "status": "EXACT_RECEIVER_CONSTRAINED_LABEL_SENSITIVITY",
+  "interpretation_boundary": [
+    "These are counterfactual worst-case label reassignments within measured contact categories. They are not evidence that a particular fish initiated unseen.",
+    "A later other-fish receiver event proves only that this receiver observed that other fish at that later time; not continuous uptime, focal tag operation, focal fish presence, or reliable absence detection.",
+    "Zero physical contacts in the cleaned migration table does not prove there was no raw detection elsewhere.",
+    "Even if a subgroup needs more than 11 strategic flips, that is not its empirical false-negative count.",
+    "Pair-weighted AUC, six projects, source-derived labels and fixed project-held-out scores; not migration success, hazard causality or physiology."
+  ]
+}
