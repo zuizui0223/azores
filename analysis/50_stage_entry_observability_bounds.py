@@ -105,6 +105,23 @@ def compute(stage_source: dict, receiver_source: dict) -> dict:
         assert sum(p["stage_bounds"][stage]["classified_starts"] for p in by_project.values()) == groups[stage]["classified_starts"]
         assert sum(p["stage_bounds"][stage]["hypothetically_ambiguous_short_negative"] for p in by_project.values()) == groups[stage]["hypothetically_ambiguous_short_negative"]
 
+    # Each project is its own context: distinguish pooled fish rates from
+    # descriptive cross-project standardization. Project bounds can be
+    # aggregated by the same fixed, nonnegative weights because assignments
+    # of short-followup labels are unconstrained across projects.
+    contexts = list(by_project.values())
+    equal_project_bounds = {
+        "lower": sum(p["fv_minus_fiii"]["lower"] for p in contexts) / len(contexts),
+        "upper": sum(p["fv_minus_fiii"]["upper"] for p in contexts) / len(contexts),
+    }
+    weights = [min(p["stage_bounds"]["FIII"]["n"], p["stage_bounds"]["FV"]["n"]) for p in contexts]
+    total_weight = sum(weights)
+    min_stage_n_weighted_bounds = {
+        "lower": sum(w*p["fv_minus_fiii"]["lower"] for w,p in zip(weights,contexts)) / total_weight,
+        "upper": sum(w*p["fv_minus_fiii"]["upper"] for w,p in zip(weights,contexts)) / total_weight,
+        "total_weight": total_weight,
+        "weight_rule": "min(FIII sample size,FV sample size) per project fixed before hypothetical relabeling",
+    }
     statuses = [p["fv_minus_fiii"]["status"] for p in by_project.values()]
     robust_positive = sum(x.startswith("STRICT_POSITIVE") for x in statuses)
     robust_negative = sum(x.startswith("STRICT_NEGATIVE") for x in statuses)
@@ -120,6 +137,8 @@ def compute(stage_source: dict, receiver_source: dict) -> dict:
         "fv_minus_fiv_pooled": contrast(groups["FV"], groups["FIV"]),
         "minimum_additional_longer_observed_fiii_negative_relabels_to_erase_fv_over_fiii": minimum_extra_long_observed_flips(groups["FIII"], groups["FV"]),
         "project_level": by_project,
+        "equal_project_mean_fv_minus_fiii_bounds": equal_project_bounds,
+        "balanced_stage_sample_weighted_fv_minus_fiii_bounds": min_stage_n_weighted_bounds,
         "project_status_summary": {
             "n_projects": len(projects),
             "robust_fv_gt_fiii": robust_positive,
