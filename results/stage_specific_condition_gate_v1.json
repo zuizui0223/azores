@@ -318,6 +318,177 @@
       }
     }
   },
+  "matched_project_year_FIII_vs_FV": {
+    "status": "EXPLORATORY_MATCHED_PROJECT_YEAR_COMPARISON",
+    "n_contexts": 5,
+    "n_projects": 4,
+    "comparison_cells": [
+      {
+        "project": "2011_Warnow",
+        "project_year": "2011_Warnow::2011",
+        "FIII": {
+          "project": "2011_Warnow",
+          "project_year": "2011_Warnow::2011",
+          "stage": "FIII",
+          "n_pairs": 1525,
+          "gain": -0.007868852459016362,
+          "base_auc": 0.44524590163934424,
+          "plus_auc": 0.4373770491803279,
+          "n_initiators": 61,
+          "n_noninitiators": 25
+        },
+        "FV": {
+          "project": "2011_Warnow",
+          "project_year": "2011_Warnow::2011",
+          "stage": "FV",
+          "n_pairs": 115,
+          "gain": -0.017391304347826098,
+          "base_auc": 0.34782608695652173,
+          "plus_auc": 0.33043478260869563,
+          "n_initiators": 23,
+          "n_noninitiators": 5
+        },
+        "delta_FV_minus_FIII": -0.009522451888809735,
+        "minimum_stage_pair_count": 115
+      },
+      {
+        "project": "2012_leopoldkanaal",
+        "project_year": "2012_leopoldkanaal::2012",
+        "FIII": {
+          "project": "2012_leopoldkanaal",
+          "project_year": "2012_leopoldkanaal::2012",
+          "stage": "FIII",
+          "n_pairs": 504,
+          "gain": 0.21031746031746035,
+          "base_auc": 0.5456349206349206,
+          "plus_auc": 0.7559523809523809,
+          "n_initiators": 21,
+          "n_noninitiators": 24
+        },
+        "FV": {
+          "project": "2012_leopoldkanaal",
+          "project_year": "2012_leopoldkanaal::2012",
+          "stage": "FV",
+          "n_pairs": 96,
+          "gain": 0.48958333333333326,
+          "base_auc": 0.17708333333333334,
+          "plus_auc": 0.6666666666666666,
+          "n_initiators": 24,
+          "n_noninitiators": 4
+        },
+        "delta_FV_minus_FIII": 0.2792658730158729,
+        "minimum_stage_pair_count": 96
+      },
+      {
+        "project": "2015_phd_verhelst_eel",
+        "project_year": "2015_phd_verhelst_eel::2016",
+        "FIII": {
+          "project": "2015_phd_verhelst_eel",
+          "project_year": "2015_phd_verhelst_eel::2016",
+          "stage": "FIII",
+          "n_pairs": 70,
+          "gain": 0.24285714285714288,
+          "base_auc": 0.4,
+          "plus_auc": 0.6428571428571429,
+          "n_initiators": 7,
+          "n_noninitiators": 10
+        },
+        "FV": {
+          "project": "2015_phd_verhelst_eel",
+          "project_year": "2015_phd_verhelst_eel::2016",
+          "stage": "FV",
+          "n_pairs": 12,
+          "gain": 0,
+          "base_auc": 0,
+          "plus_auc": 0,
+          "n_initiators": 12,
+          "n_noninitiators": 1
+        },
+        "delta_FV_minus_FIII": -0.24285714285714288,
+        "minimum_stage_pair_count": 12
+      },
+      {
+        "project": "2015_phd_verhelst_eel",
+        "project_year": "2015_phd_verhelst_eel::2017",
+        "FIII": {
+          "project": "2015_phd_verhelst_eel",
+          "project_year": "2015_phd_verhelst_eel::2017",
+          "stage": "FIII",
+          "n_pairs": 84,
+          "gain": 0.041666666666666685,
+          "base_auc": 0.48214285714285715,
+          "plus_auc": 0.5238095238095238,
+          "n_initiators": 12,
+          "n_noninitiators": 7
+        },
+        "FV": {
+          "project": "2015_phd_verhelst_eel",
+          "project_year": "2015_phd_verhelst_eel::2017",
+          "stage": "FV",
+          "n_pairs": 22,
+          "gain": 0.5454545454545454,
+          "base_auc": 0.36363636363636365,
+          "plus_auc": 0.9090909090909091,
+          "n_initiators": 11,
+          "n_noninitiators": 2
+        },
+        "delta_FV_minus_FIII": 0.5037878787878787,
+        "minimum_stage_pair_count": 22
+      },
+      {
+        "project": "ESGL",
+        "project_year": "ESGL::2015",
+        "FIII": {
+          "project": "ESGL",
+          "project_year": "ESGL::2015",
+          "stage": "FIII",
+          "n_pairs": 120,
+          "gain": -0.17083333333333328,
+          "base_auc": 0.7208333333333333,
+          "plus_auc": 0.55,
+          "n_initiators": 6,
+          "n_noninitiators": 20
+        },
+        "FV": {
+          "project": "ESGL",
+          "project_year": "ESGL::2015",
+          "stage": "FV",
+          "n_pairs": 35,
+          "gain": 0.05714285714285716,
+          "base_auc": 0.6,
+          "plus_auc": 0.6571428571428571,
+          "n_initiators": 5,
+          "n_noninitiators": 7
+        },
+        "delta_FV_minus_FIII": 0.22797619047619044,
+        "minimum_stage_pair_count": 35
+      }
+    ],
+    "project_summary": {
+      "2011_Warnow": {
+        "n_project_year_contexts": 1,
+        "matched_minimum_pairs": 115,
+        "delta_FV_minus_FIII": -0.009522451888809735
+      },
+      "2012_leopoldkanaal": {
+        "n_project_year_contexts": 1,
+        "matched_minimum_pairs": 96,
+        "delta_FV_minus_FIII": 0.2792658730158729
+      },
+      "2015_phd_verhelst_eel": {
+        "n_project_year_contexts": 2,
+        "matched_minimum_pairs": 34,
+        "delta_FV_minus_FIII": 0.24026610644257693
+      },
+      "ESGL": {
+        "n_project_year_contexts": 1,
+        "matched_minimum_pairs": 35,
+        "delta_FV_minus_FIII": 0.22797619047619044
+      }
+    },
+    "pooled_minimum_pair_weighted_contrast": 0.1495094861715177,
+    "limitation": "Stage-specific AUC differences are conditioned on the same project and release-year, but project/year comparisons still differ in individuals and samples. Stage-specific outcomes were not randomized."
+  },
   "status": "EXPLORATORY_STAGE_HETEROGENEITY_AUDITED",
   "interpretation_boundary": [
     "Show sample size, positive and negative cases, within-stage informative project coverage and interval before discussing stage trend.",
