@@ -1,0 +1,36 @@
+name: silvering-stage-project-heterogeneity-exact
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/silvering_stage_project_heterogeneity_exact_v1.json"
+      - "analysis/53_silvering_stage_project_heterogeneity_exact.py"
+      - "analysis/tests/test_silvering_stage_project_heterogeneity_exact.py"
+      - "results/stage_specific_condition_gate_v1.json"
+      - ".github/workflows/silvering-stage-project-heterogeneity-exact.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax preflight
+        run: python -m py_compile analysis/53_silvering_stage_project_heterogeneity_exact.py analysis/tests/test_silvering_stage_project_heterogeneity_exact.py
+      - name: Run synthetic exact test
+        run: python analysis/tests/test_silvering_stage_project_heterogeneity_exact.py
+      - name: Compute six-project stage heterogeneity
+        run: python analysis/53_silvering_stage_project_heterogeneity_exact.py
+      - name: Show result
+        if: always()
+        run: cat analysis/results/silvering_stage_project_heterogeneity_exact.json || true
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-silvering-stage-project-heterogeneity-exact
+          path: analysis/results/silvering_stage_project_heterogeneity_exact.json
