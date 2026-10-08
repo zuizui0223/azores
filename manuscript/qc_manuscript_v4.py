@@ -33,6 +33,7 @@ RANDOM_HIDDEN = Path("results/observability_random_hidden_start_sensitivity_v1.j
 RECEIVER_OBS = Path("results/receiver_witness_observability_v1.json")
 RECEIVER_TIP = Path("results/receiver_stratified_label_tipping_v1.json")
 STAGE_BOUNDS = Path("results/stage_entry_observability_bounds_v1.json")
+STAGE_SAMPLE = Path("results/stage_order_dual_uncertainty_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -61,6 +62,7 @@ random_hidden = json.loads(RANDOM_HIDDEN.read_text())
 receiver_obs = json.loads(RECEIVER_OBS.read_text())
 receiver_tip = json.loads(RECEIVER_TIP.read_text())
 stage_bounds = json.loads(STAGE_BOUNDS.read_text())
+stage_sample = json.loads(STAGE_SAMPLE.read_text())
 
 checks = {}
 
@@ -344,6 +346,17 @@ checks["stage_observability_project_status"] = stage_project["robust_fv_gt_fiii"
 checks["stage_observability_five_hypothetical_longer_flips"] = stage_bounds["minimum_additional_longer_observed_fiii_negative_relabels_to_erase_fv_over_fiii"]["needed"] == sb["min_additional_longer_observed_fiii_negative_flips_to_erase_pooled_order"] == 5
 checks["stage_observability_fig_contract"] = all(abs(x-y)<1e-10 for x,y in zip(stage_figure["pooled_fv_minus_fiii_bounds"], sb["pooled_fv_minus_fiii_bounds"]))
 checks["stage_observability_manuscript"] = has(r"85\.8%") and has(r"87\.4%") and has(r"1\.57 percentage points") and has(r"37 longer-observed FIII") and has(r"five")
+
+# Separate sharp bounds in the observed fish from fish/context resampling.
+su = contract["stage_order_sampling_uncertainty"]
+checks["stage_dual_uncertainty_schema"] = stage_sample.get("schema") == "azores.stage_order_dual_uncertainty.v1"
+checks["stage_dual_uncertainty_ref"] = abs(stage_sample["observed"]["pooled_lower"] - stage_bounds["fv_minus_fiii_pooled"]["lower"]) < 1e-12
+checks["stage_dual_uncertainty_seed"] = stage_sample.get("n_resamples") == su["n_resamples"] == 10000 and stage_sample.get("seed") == su["seed"] == 20261008
+checks["stage_fish_sample_ci_exact"] = all(abs(a-b)<1e-12 for a,b in zip(stage_sample["sampling_variation"]["within_project_fish"]["lower"]["ci95"],su["within_site_fish_lower_endpoint_ci95"]))
+checks["stage_project_sample_ci_exact"] = all(abs(a-b)<1e-12 for a,b in zip(stage_sample["sampling_variation"]["project_cluster"]["pooled_lower"]["ci95"],su["project_cluster_lower_endpoint_ci95"]))
+checks["stage_dual_ci_cross_zero"] = stage_sample["sampling_variation"]["within_project_fish"]["lower"]["ci95"][0] < 0 < stage_sample["sampling_variation"]["within_project_fish"]["lower"]["ci95"][1] and stage_sample["sampling_variation"]["project_cluster"]["pooled_lower"]["ci95"][0] < 0 < stage_sample["sampling_variation"]["project_cluster"]["pooled_lower"]["ci95"][1]
+checks["stage_dual_manuscript"] = has(r"3\.91 and \+6\.87 percentage points") and has(r"16\.65 to \+17\.96 points") and has(r"finite-sample")
+
 
 failed = [k for k,v in checks.items() if not v]
 result = {
