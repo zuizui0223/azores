@@ -373,6 +373,8 @@ Selection remains an important boundary because post-activation speed is only ob
 
 The time-horizon checks sharpen what the earlier onset Cox hazard represents. Both a higher probability of **ever being classified as an initiator during surveillance** and a tendency toward **earlier detected onset** can affect an observed hazard; a positive hazard ratio is not automatically evidence that body state determines the scheduling of movement *among entrants*. In the source data, the same project-held-out phenotype had predictive value for observed participation in migration, but condition scarcely improved within-project-year ordering of onset times among the 422 animals that entered the migratory classification. The distinction survived removing release-day detections.
 
+The potential separation between physiological readiness and environmental migration cues is **not a novel ecological hypothesis by itself**. In two long-term European eel monitoring rivers, Sandlund et al. (2017) distinguished conditions acting in the months before migration from daily triggers of movement among ready eels, including water-level and nocturnal conditions. Arevalo et al. (2021) likewise showed that the combined thermal and flow environment affects preferred silver-eel migration opportunities, including preferential migration at roughly 10–20 °C with high discharge in those two systems. Both published studies analysed Imsa and Burrishoole, so they are related prior evidence, not independent broad-scale replications of an entry/scheduling mechanism. Our incremental contribution is specifically the **same fitted, project-held-out capture-state phenotype evaluated across onset classification, common-cohort endpoint horizons, conditional onset order and realized transit speed**, with explicit receiver-observation and project-dependence boundaries. We cannot assign environmental cause because the necessary eel-specific time-aligned flow and temperature covariates are missing from this pooled telemetry programme.
+
 This could mean that the capture phenotype contributes to crossing an entry threshold while start time for committed eels is comparatively conditioned by environmental opportunity. **However, the present observations do not measure cue exposure** and cannot identify this as the causal explanation. The cumulative endpoint result also depends on receiver observation: 100 eels did not meet day-90 eligibility, early events and non-events had asymmetric follow-up rules, and the 53 day-90-eligible eventual noninitiators are not confirmed failed or surviving residents. The smaller sample of independent projects and initiation-selection bias limit the generality of the contrast. A testable biological follow-up would distinguish repeated physiological readiness from time-resolved hydraulic/temperature opportunities and tag-detection coverage; the current data support an empirical separation of predictions, not a proven control handoff.
 
 ### Internal readiness predicts activation but not transferable realized transit speed
@@ -498,6 +500,8 @@ No animals were newly captured or handled for the present secondary analysis. An
 
 ## References
 
+Arevalo, E., Drouineau, H., Tétard, S., Durif, C. M. F., Diserud, O. H., Poole, W. R., & Maire, A. (2021). Joint temporal trends in river thermal and hydrological conditions can threaten the downstream migration of the critically endangered European eel. *Scientific Reports*, **11**, 16927. https://doi.org/10.1038/s41598-021-96302-x
+
 Calles, O., Elghagen, J., Nyqvist, D., Harbicht, A., & Nilsson, P. A. (2021). Efficient and timely downstream passage solutions for European silver eels at hydropower dams. *Ecological Engineering*, **170**, 106350. https://doi.org/10.1016/j.ecoleng.2021.106350
 
 Council of the European Union. (2007). Council Regulation (EC) No 1100/2007 of 18 September 2007 establishing measures for the recovery of the stock of European eel. *Official Journal of the European Union*, L 248.
@@ -515,6 +519,8 @@ Nathan, R., Getz, W. M., Revilla, E., Holyoak, M., Kadmon, R., Saltz, D., & Smou
 Lennox, R. J., Økland, F., Jonsson, B., Aronsen, T., Austrheim, E., Diserud, O. H., et al. (2018). European eel *Anguilla anguilla* compromise speed for safety in the early marine spawning migration. *ICES Journal of Marine Science*, **75**, 1984–1991. https://doi.org/10.1093/icesjms/fsy104
 
 Moyo, S., Britton, J. R., Major, T., Wright, R. M., Moore, A., Ives, M., Davies, P., Hall, A. E., Stamp, T., Sheehan, E. V., & Bašić, T. (2026). Initial marine movements of silver European eels *Anguilla anguilla* following their emigration from an English chalk stream. *Hydrobiologia*. https://doi.org/10.1007/s10750-026-06406-6
+
+Sandlund, O. T., Diserud, O. H., Poole, R., Bergesen, K., Dillane, M., Rogan, G., Durif, C., Thorstad, E. B., & Vøllestad, L. A. (2017). Timing and pattern of annual silver eel migration in two European watersheds are determined by similar cues. *Ecology and Evolution*, **7**, 5956–5966. https://doi.org/10.1002/ece3.3099
 
 Sundin, J., Persson, J., Wickström, H., Sjöberg, N., Renman, O., & Skoglund, S. (2022). Evaluation of sampling methods for maturation stage determination in the European eel *Anguilla anguilla*. *Marine and Coastal Fisheries*, **14**, e10219. https://doi.org/10.1002/mcf2.10219
 
