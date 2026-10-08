@@ -1,0 +1,729 @@
+{
+  "schema": "azores.continuous_morphology_condition_increment.v1",
+  "evidence_class": "post_hoc_targeted_falsification_of_independent_body_condition_interpretation",
+  "contract": "analysis/contracts/continuous_morphology_condition_increment_v1.json",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "n_original_evaluable": 575,
+  "n_complete_morphology_evaluable": 429,
+  "n_eligible_projects": 5,
+  "eligible_projects": [
+    "2012_leopoldkanaal",
+    "2013_albertkanaal",
+    "2015_phd_verhelst_eel",
+    "2019_Grotenete",
+    "ESGL"
+  ],
+  "metadata_morphology_coverage": {
+    "2011_Warnow": {
+      "stage_coded": 146,
+      "complete": 0,
+      "incomplete": 146
+    },
+    "2012_leopoldkanaal": {
+      "stage_coded": 80,
+      "complete": 80,
+      "incomplete": 0
+    },
+    "2013_albertkanaal": {
+      "stage_coded": 157,
+      "complete": 152,
+      "incomplete": 5
+    },
+    "2015_phd_verhelst_eel": {
+      "stage_coded": 135,
+      "complete": 135,
+      "incomplete": 0
+    },
+    "2019_Grotenete": {
+      "stage_coded": 38,
+      "complete": 38,
+      "incomplete": 0
+    },
+    "ESGL": {
+      "stage_coded": 47,
+      "complete": 47,
+      "incomplete": 0
+    }
+  },
+  "analysis_evaluable_by_project": {
+    "2012_leopoldkanaal": {
+      "n_morph_complete_evaluable": 80,
+      "n_initiated": 52,
+      "n_noninitiated": 28
+    },
+    "2013_albertkanaal": {
+      "n_morph_complete_evaluable": 139,
+      "n_initiated": 128,
+      "n_noninitiated": 11
+    },
+    "2015_phd_verhelst_eel": {
+      "n_morph_complete_evaluable": 126,
+      "n_initiated": 86,
+      "n_noninitiated": 40
+    },
+    "2019_Grotenete": {
+      "n_morph_complete_evaluable": 38,
+      "n_initiated": 33,
+      "n_noninitiated": 5
+    },
+    "ESGL": {
+      "n_morph_complete_evaluable": 46,
+      "n_initiated": 12,
+      "n_noninitiated": 34
+    }
+  },
+  "features": {
+    "eye_index": "Pankhurst-style index 100*pi*(mean_eye_diameter/2)^2 / total_length_mm",
+    "fin_index": "100*pectoral_fin_mm/length_mm",
+    "all_measurements": "mm; field meaning from *_type, not column ordering"
+  },
+  "models": {
+    "baseline": "project-year FE + length centered within project-year + release-date centered within project-year + ordinal Durif stage",
+    "base_plus_morphology": "baseline + z(eye_index) + z(fin_index)",
+    "base_plus_condition": "baseline + weight-for-length residual condition from existing entry-state pipeline",
+    "full": "baseline + z(eye_index) + z(fin_index) + condition",
+    "estimation": "Frozen L2 penalized logistic, lambda=1.0 on predictor coefficients only, NOT intercept/project-year dummies; train means/SD for continuous morphology from training projects only",
+    "heldout": "Leave one of the complete-morphology projects out. Do not fit coefficient weights with heldout initiation labels. Project/year intercepts not transferred.",
+    "models_same_sample": "All four models scored on exactly the same complete-morphology eels."
+  },
+  "folds": {
+    "2012_leopoldkanaal": {
+      "n_heldout": 80,
+      "n_train": 304,
+      "n_train_strata": 9,
+      "weights": {
+        "base": {
+          "weights": {
+            "l100": 0.14367192625945766,
+            "t100": 0.014839901261162278,
+            "stage_score": 0.7895487312297184
+          },
+          "iterations": 8
+        },
+        "morph": {
+          "weights": {
+            "l100": 0.03577580873429183,
+            "t100": -0.08802117172635726,
+            "stage_score": 0.24619588239742665,
+            "eye_z": 0.7455867486646124,
+            "fin_z": 0.09068195910226705
+          },
+          "iterations": 8
+        },
+        "condition": {
+          "weights": {
+            "l100": 0.1799308903501874,
+            "t100": -0.09174930263899263,
+            "stage_score": 0.8105477096848845,
+            "cond": 0.276767485830594
+          },
+          "iterations": 8
+        },
+        "full": {
+          "weights": {
+            "l100": 0.06873158501641578,
+            "t100": -0.16672601732345513,
+            "stage_score": 0.3223698316396774,
+            "eye_z": 0.7072313906312052,
+            "fin_z": 0.039441468990667104,
+            "cond": 0.22683843685808655
+          },
+          "iterations": 8
+        }
+      },
+      "morph_scale": {
+        "eye_index": {
+          "mean": 9.111633414546942,
+          "sd": 1.8826874662833561
+        },
+        "fin_index": {
+          "mean": 4.910323388809388,
+          "sd": 0.4270659220806105
+        }
+      }
+    },
+    "2013_albertkanaal": {
+      "n_heldout": 139,
+      "n_train": 290,
+      "n_train_strata": 8,
+      "weights": {
+        "base": {
+          "weights": {
+            "l100": 0.37967429333118663,
+            "t100": 0.6690953661627714,
+            "stage_score": 0.9992991587859055
+          },
+          "iterations": 7
+        },
+        "morph": {
+          "weights": {
+            "l100": 0.29480210692221337,
+            "t100": 0.4951186308239009,
+            "stage_score": 0.43686784325754596,
+            "eye_z": 0.6993643630639179,
+            "fin_z": 0.18545046656848396
+          },
+          "iterations": 7
+        },
+        "condition": {
+          "weights": {
+            "l100": 0.4114819446458793,
+            "t100": 0.5648206266584103,
+            "stage_score": 1.0235776312103402,
+            "cond": 0.383661731905155
+          },
+          "iterations": 7
+        },
+        "full": {
+          "weights": {
+            "l100": 0.3262307443714616,
+            "t100": 0.429379527383769,
+            "stage_score": 0.5451445332422491,
+            "eye_z": 0.6516217381615533,
+            "fin_z": 0.0953257394981592,
+            "cond": 0.34683243150571685
+          },
+          "iterations": 7
+        }
+      },
+      "morph_scale": {
+        "eye_index": {
+          "mean": 8.444723178221846,
+          "sd": 2.0138998378196926
+        },
+        "fin_index": {
+          "mean": 4.989109711933431,
+          "sd": 0.4573831847904086
+        }
+      }
+    },
+    "2015_phd_verhelst_eel": {
+      "n_heldout": 126,
+      "n_train": 258,
+      "n_train_strata": 6,
+      "weights": {
+        "base": {
+          "weights": {
+            "l100": 0.6776104029207628,
+            "t100": 1.8980698242844503,
+            "stage_score": 0.61345018667147
+          },
+          "iterations": 8
+        },
+        "morph": {
+          "weights": {
+            "l100": 0.630820850485112,
+            "t100": 1.7780787020184625,
+            "stage_score": 0.27394856724389366,
+            "eye_z": 0.47103487053118814,
+            "fin_z": 0.11697969422781954
+          },
+          "iterations": 8
+        },
+        "condition": {
+          "weights": {
+            "l100": 0.5767826355064615,
+            "t100": 1.890467461219953,
+            "stage_score": 0.7281007573476108,
+            "cond": 0.76470970035365
+          },
+          "iterations": 8
+        },
+        "full": {
+          "weights": {
+            "l100": 0.5337920682670222,
+            "t100": 1.817569743933318,
+            "stage_score": 0.42578142399383684,
+            "eye_z": 0.4864006153540767,
+            "fin_z": 0.028973520296654436,
+            "cond": 0.7776142793548316
+          },
+          "iterations": 8
+        }
+      },
+      "morph_scale": {
+        "eye_index": {
+          "mean": 9.242404266796623,
+          "sd": 2.015000113290309
+        },
+        "fin_index": {
+          "mean": 4.946780227172663,
+          "sd": 0.46836785510607193
+        }
+      }
+    },
+    "2019_Grotenete": {
+      "n_heldout": 38,
+      "n_train": 346,
+      "n_train_strata": 8,
+      "weights": {
+        "base": {
+          "weights": {
+            "l100": 0.410059714430218,
+            "t100": 0.6145963327506583,
+            "stage_score": 0.7428627314584362
+          },
+          "iterations": 8
+        },
+        "morph": {
+          "weights": {
+            "l100": 0.35328315678143124,
+            "t100": 0.4341266172926697,
+            "stage_score": 0.26393600184380583,
+            "eye_z": 0.5709248860667904,
+            "fin_z": 0.21311849300186284
+          },
+          "iterations": 8
+        },
+        "condition": {
+          "weights": {
+            "l100": 0.4544935942473239,
+            "t100": 0.4767319796299562,
+            "stage_score": 0.7807962477455553,
+            "cond": 0.48374642874364465
+          },
+          "iterations": 8
+        },
+        "full": {
+          "weights": {
+            "l100": 0.393234525351613,
+            "t100": 0.33999022453601535,
+            "stage_score": 0.3930858227828702,
+            "eye_z": 0.5234877203447881,
+            "fin_z": 0.11042512344344001,
+            "cond": 0.45833571870380546
+          },
+          "iterations": 8
+        }
+      },
+      "morph_scale": {
+        "eye_index": {
+          "mean": 8.809288687788777,
+          "sd": 1.9884337731486506
+        },
+        "fin_index": {
+          "mean": 4.951155037633649,
+          "sd": 0.44934934901215934
+        }
+      }
+    },
+    "ESGL": {
+      "n_heldout": 46,
+      "n_train": 338,
+      "n_train_strata": 9,
+      "weights": {
+        "base": {
+          "weights": {
+            "l100": 0.4369145723739712,
+            "t100": 0.5180408100705444,
+            "stage_score": 0.9337494086448288
+          },
+          "iterations": 8
+        },
+        "morph": {
+          "weights": {
+            "l100": 0.33837098908638646,
+            "t100": 0.21843318193825106,
+            "stage_score": 0.20079221679650008,
+            "eye_z": 0.9395242646057131,
+            "fin_z": 0.27179816167786713
+          },
+          "iterations": 8
+        },
+        "condition": {
+          "weights": {
+            "l100": 0.4719557593506018,
+            "t100": 0.34166386847547575,
+            "stage_score": 0.9550554887473253,
+            "cond": 0.5314302142710354
+          },
+          "iterations": 8
+        },
+        "full": {
+          "weights": {
+            "l100": 0.3722000540124867,
+            "t100": 0.09395499009517676,
+            "stage_score": 0.3276313779304643,
+            "eye_z": 0.8736226219658236,
+            "fin_z": 0.1700861401752552,
+            "cond": 0.489142335993592
+          },
+          "iterations": 8
+        }
+      },
+      "morph_scale": {
+        "eye_index": {
+          "mean": 8.925183509080856,
+          "sd": 2.0942626942123947
+        },
+        "fin_index": {
+          "mean": 4.947708908468514,
+          "sd": 0.46955614814390767
+        }
+      }
+    }
+  },
+  "primary": {
+    "n_strata": 10,
+    "n_pairs": 3272,
+    "auc": {
+      "base": 0.7062958435207825,
+      "morph": 0.7163814180929096,
+      "condition": 0.7405256723716381,
+      "full": 0.7408312958435208
+    },
+    "deltas": {
+      "condition_after_morph": 0.02444987775061125,
+      "condition_without_morph": 0.03422982885085568,
+      "morph_without_condition": 0.01008557457212711,
+      "morph_after_condition": 0.0003056234718826767
+    },
+    "by_project": {
+      "2012_leopoldkanaal": {
+        "n_strata": 1,
+        "n_pairs": 1456,
+        "auc": {
+          "base": 0.8090659340659341,
+          "morph": 0.8317307692307693,
+          "condition": 0.8543956043956044,
+          "full": 0.8619505494505495
+        },
+        "deltas": {
+          "condition_after_morph": 0.030219780219780223,
+          "condition_without_morph": 0.04532967032967028,
+          "morph_without_condition": 0.022664835164835195,
+          "morph_after_condition": 0.007554945054945139
+        }
+      },
+      "2013_albertkanaal": {
+        "n_strata": 2,
+        "n_pairs": 389,
+        "auc": {
+          "base": 0.5025706940874036,
+          "morph": 0.45758354755784064,
+          "condition": 0.6143958868894601,
+          "full": 0.570694087403599
+        },
+        "deltas": {
+          "condition_after_morph": 0.1131105398457583,
+          "condition_without_morph": 0.1118251928020565,
+          "morph_without_condition": -0.04498714652956298,
+          "morph_after_condition": -0.04370179948586117
+        }
+      },
+      "2015_phd_verhelst_eel": {
+        "n_strata": 4,
+        "n_pairs": 931,
+        "auc": {
+          "base": 0.635875402792696,
+          "morph": 0.6949516648764769,
+          "condition": 0.6691729323308271,
+          "full": 0.7089151450053706
+        },
+        "deltas": {
+          "condition_after_morph": 0.013963480128893702,
+          "condition_without_morph": 0.03329752953813103,
+          "morph_without_condition": 0.059076262083780806,
+          "morph_after_condition": 0.039742212674543476
+        }
+      },
+      "2019_Grotenete": {
+        "n_strata": 2,
+        "n_pairs": 88,
+        "auc": {
+          "base": 0.9204545454545454,
+          "morph": 0.9431818181818182,
+          "condition": 0.8863636363636364,
+          "full": 0.9318181818181818
+        },
+        "deltas": {
+          "condition_after_morph": -0.011363636363636465,
+          "condition_without_morph": -0.03409090909090906,
+          "morph_without_condition": 0.022727272727272818,
+          "morph_after_condition": 0.045454545454545414
+        }
+      },
+      "ESGL": {
+        "n_strata": 1,
+        "n_pairs": 408,
+        "auc": {
+          "base": 0.6482843137254902,
+          "morph": 0.5514705882352942,
+          "condition": 0.5857843137254902,
+          "full": 0.5024509803921569
+        },
+        "deltas": {
+          "condition_after_morph": -0.0490196078431373,
+          "condition_without_morph": -0.0625,
+          "morph_without_condition": -0.09681372549019607,
+          "morph_after_condition": -0.08333333333333337
+        }
+      }
+    },
+    "n_informative_projects": 5
+  },
+  "same_stage": {
+    "FIII": {
+      "n_strata": 8,
+      "n_pairs": 949,
+      "auc": {
+        "base": 0.6106427818756586,
+        "morph": 0.678609062170706,
+        "condition": 0.6965226554267651,
+        "full": 0.7418335089567967
+      },
+      "deltas": {
+        "condition_after_morph": 0.06322444678609063,
+        "condition_without_morph": 0.08587987355110649,
+        "morph_without_condition": 0.06796628029504748,
+        "morph_after_condition": 0.045310853530031614
+      },
+      "by_project": {
+        "2012_leopoldkanaal": {
+          "n_strata": 1,
+          "n_pairs": 504,
+          "auc": {
+            "base": 0.6904761904761905,
+            "morph": 0.7876984126984127,
+            "condition": 0.8055555555555556,
+            "full": 0.8531746031746031
+          },
+          "deltas": {
+            "condition_after_morph": 0.06547619047619047,
+            "condition_without_morph": 0.11507936507936511,
+            "morph_without_condition": 0.09722222222222221,
+            "morph_after_condition": 0.04761904761904756
+          }
+        },
+        "2015_phd_verhelst_eel": {
+          "n_strata": 4,
+          "n_pairs": 309,
+          "auc": {
+            "base": 0.44660194174757284,
+            "morph": 0.540453074433657,
+            "condition": 0.5760517799352751,
+            "full": 0.6375404530744336
+          },
+          "deltas": {
+            "condition_after_morph": 0.09708737864077666,
+            "condition_without_morph": 0.12944983818770228,
+            "morph_without_condition": 0.09385113268608414,
+            "morph_after_condition": 0.06148867313915851
+          }
+        },
+        "2019_Grotenete": {
+          "n_strata": 2,
+          "n_pairs": 16,
+          "auc": {
+            "base": 0.5625,
+            "morph": 0.6875,
+            "condition": 0.5,
+            "full": 0.625
+          },
+          "deltas": {
+            "condition_after_morph": -0.0625,
+            "condition_without_morph": -0.0625,
+            "morph_without_condition": 0.125,
+            "morph_after_condition": 0.125
+          }
+        },
+        "ESGL": {
+          "n_strata": 1,
+          "n_pairs": 120,
+          "auc": {
+            "base": 0.7041666666666667,
+            "morph": 0.575,
+            "condition": 0.575,
+            "full": 0.5583333333333333
+          },
+          "deltas": {
+            "condition_after_morph": -0.016666666666666607,
+            "condition_without_morph": -0.12916666666666676,
+            "morph_without_condition": -0.12916666666666676,
+            "morph_after_condition": -0.016666666666666607
+          }
+        }
+      },
+      "n_informative_projects": 4
+    },
+    "FIV": {
+      "n_strata": 2,
+      "n_pairs": 16,
+      "auc": {
+        "base": 0,
+        "morph": 0,
+        "condition": 0.0625,
+        "full": 0
+      },
+      "deltas": {
+        "condition_after_morph": 0,
+        "condition_without_morph": 0.0625,
+        "morph_without_condition": 0,
+        "morph_after_condition": -0.0625
+      },
+      "by_project": {
+        "2015_phd_verhelst_eel": {
+          "n_strata": 1,
+          "n_pairs": 9,
+          "auc": {
+            "base": 0,
+            "morph": 0,
+            "condition": 0,
+            "full": 0
+          },
+          "deltas": {
+            "condition_after_morph": 0,
+            "condition_without_morph": 0,
+            "morph_without_condition": 0,
+            "morph_after_condition": 0
+          }
+        },
+        "ESGL": {
+          "n_strata": 1,
+          "n_pairs": 7,
+          "auc": {
+            "base": 0,
+            "morph": 0,
+            "condition": 0.14285714285714285,
+            "full": 0
+          },
+          "deltas": {
+            "condition_after_morph": 0,
+            "condition_without_morph": 0.14285714285714285,
+            "morph_without_condition": 0,
+            "morph_after_condition": -0.14285714285714285
+          }
+        }
+      },
+      "n_informative_projects": 2
+    },
+    "FV": {
+      "n_strata": 6,
+      "n_pairs": 498,
+      "auc": {
+        "base": 0.6295180722891566,
+        "morph": 0.5622489959839357,
+        "condition": 0.7269076305220884,
+        "full": 0.6365461847389559
+      },
+      "deltas": {
+        "condition_after_morph": 0.07429718875502012,
+        "condition_without_morph": 0.09738955823293183,
+        "morph_without_condition": -0.06726907630522083,
+        "morph_after_condition": -0.09036144578313254
+      },
+      "by_project": {
+        "2012_leopoldkanaal": {
+          "n_strata": 1,
+          "n_pairs": 96,
+          "auc": {
+            "base": 0.8958333333333334,
+            "morph": 0.7083333333333334,
+            "condition": 0.84375,
+            "full": 0.6666666666666666
+          },
+          "deltas": {
+            "condition_after_morph": -0.04166666666666674,
+            "condition_without_morph": -0.05208333333333337,
+            "morph_without_condition": -0.1875,
+            "morph_after_condition": -0.17708333333333337
+          }
+        },
+        "2013_albertkanaal": {
+          "n_strata": 2,
+          "n_pairs": 333,
+          "auc": {
+            "base": 0.5870870870870871,
+            "morph": 0.5345345345345346,
+            "condition": 0.7117117117117117,
+            "full": 0.6546546546546547
+          },
+          "deltas": {
+            "condition_after_morph": 0.12012012012012008,
+            "condition_without_morph": 0.12462462462462454,
+            "morph_without_condition": -0.052552552552552534,
+            "morph_after_condition": -0.05705705705705699
+          }
+        },
+        "2015_phd_verhelst_eel": {
+          "n_strata": 2,
+          "n_pairs": 34,
+          "auc": {
+            "base": 0.20588235294117646,
+            "morph": 0.5,
+            "condition": 0.5882352941176471,
+            "full": 0.6470588235294118
+          },
+          "deltas": {
+            "condition_after_morph": 0.1470588235294118,
+            "condition_without_morph": 0.3823529411764706,
+            "morph_without_condition": 0.29411764705882354,
+            "morph_after_condition": 0.05882352941176472
+          }
+        },
+        "ESGL": {
+          "n_strata": 1,
+          "n_pairs": 35,
+          "auc": {
+            "base": 0.7142857142857143,
+            "morph": 0.4857142857142857,
+            "condition": 0.6857142857142857,
+            "full": 0.37142857142857144
+          },
+          "deltas": {
+            "condition_after_morph": -0.11428571428571427,
+            "condition_without_morph": -0.02857142857142858,
+            "morph_without_condition": -0.2285714285714286,
+            "morph_after_condition": -0.3142857142857143
+          }
+        }
+      },
+      "n_informative_projects": 4
+    }
+  },
+  "project_uncertainty": {
+    "metric": "condition_after_morph",
+    "n_projects": 5,
+    "n_positive_project_deltas": 3,
+    "leave_one_project_out": {
+      "2012_leopoldkanaal": {
+        "n_pairs": 1816,
+        "delta": 0.01982378854625544
+      },
+      "2013_albertkanaal": {
+        "n_pairs": 2883,
+        "delta": 0.012486992715920908
+      },
+      "2015_phd_verhelst_eel": {
+        "n_pairs": 2341,
+        "delta": 0.0286202477573686
+      },
+      "2019_Grotenete": {
+        "n_pairs": 3184,
+        "delta": 0.025439698492462304
+      },
+      "ESGL": {
+        "n_pairs": 2864,
+        "delta": 0.03491620111731841
+      }
+    },
+    "project_bootstrap": {
+      "seed": 20261008,
+      "n_requested": 10000,
+      "n_valid": 10000,
+      "ci95": [
+        -0.015080603224128976,
+        0.0658737419945105
+      ],
+      "fraction_positive": 0.9172
+    }
+  },
+  "status": "EXPLORATORY_CONTINUOUS_MORPHOLOGY_CONDITION_FALSIFICATION",
+  "claim_boundary": [
+    "Condition residual uses weight and length; the original Durif classification also uses weight/length and eye/fin morphology. These are not independent physiological measurements.",
+    "No direct lipid, endocrine status, hunger or survival is measured.",
+    "The Warnow project has no eye or fin measurements; loss of that project's comparison limits transferability and shifts cohort composition.",
+    "All analyses were developed after observing previous stage-specific results; classify as exploratory falsification.",
+    "Event labels are telemetry-defined initiation, not escapement success or true nonmigration."
+  ]
+}
