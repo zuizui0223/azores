@@ -171,7 +171,21 @@
     "label_tip_11_projects": true,
     "label_tip_figure_data": true,
     "label_tip_manuscript_scope": true,
-    "label_tip_not_promoted_biology": true
+    "label_tip_not_promoted_biology": true,
+    "random_hidden_schema": true,
+    "random_hidden_source_population": true,
+    "random_hidden_exact_tipping_preserved": true,
+    "random_hidden_baseline": true,
+    "random_hidden_scenario_count": true,
+    "random_hidden_frozen_training": true,
+    "random_hidden_conditional_samples": true,
+    "random_hidden_11_uniform": true,
+    "random_hidden_11_FV_enriched": true,
+    "random_hidden_11_score_disagreement_enriched": true,
+    "random_hidden_rank_adverse_tail": true,
+    "random_hidden_all100_nonmonotonic": true,
+    "random_hidden_figure_match": true,
+    "random_hidden_reported_as_hypothetical": true
   },
   "failed": []
 }
