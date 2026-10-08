@@ -1,0 +1,37 @@
+name: observability-selection-gate
+
+on:
+  push:
+    paths:
+      - "analysis/contracts/observability_selection_gate_v1.json"
+      - "analysis/45_observability_selection_gate.py"
+      - "analysis/tests/test_observability_selection_gate.py"
+      - ".github/workflows/observability-selection-gate.yml"
+  workflow_dispatch:
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install NumPy
+        run: python -m pip install --disable-pip-version-check numpy
+      - name: Verify syntax
+        run: python -m py_compile analysis/36_cross_project_condition_increment.py analysis/42_fixed_followup_condition_increment.py analysis/43_paired_temporal_endpoint_condition.py analysis/45_observability_selection_gate.py analysis/tests/test_observability_selection_gate.py
+      - name: Run synthetic selection-null tests
+        run: python analysis/tests/test_observability_selection_gate.py
+      - name: Audit ascertainment selection and stratified counterfactual retention
+        run: python analysis/45_observability_selection_gate.py
+      - name: Show corrected audit
+        if: always()
+        run: cat analysis/results/observability_selection_gate.json || true
+      - name: Upload result for independent review
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-observability-selection-gate
+          path: analysis/results/observability_selection_gate.json
