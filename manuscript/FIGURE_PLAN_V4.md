@@ -110,7 +110,7 @@ Message:
 
 The current numerical results exclude the nine fixed expert-classified 2015 non-migrants. Corrected pair-support ratios are **0.956** (>=3 fish) and **0.999** (>=10 fish); leave-one-project-out ratios range **0.933–1.013**. The 2.5/5/10 m s⁻¹ screens are post-hoc and yield weak negative point estimates (p≈0.07–0.08), not an established speed effect.
 
-## Figure 4 — Independent arrival-defined barrier test falsifies a simple selectivity mechanism
+## Figure 4 — Independent arrival-defined barrier test does not support a simple selectivity mechanism
 
 Panel A — risk-set construction:
 ```
