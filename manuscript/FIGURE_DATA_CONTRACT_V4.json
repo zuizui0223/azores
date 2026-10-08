@@ -330,6 +330,86 @@
         }
       ],
       "supported_interpretation": "Conditional ranking improves in-panel but six-project uncertainty overlaps zero; not universal improvement."
+    },
+    "continuous_silvering_morphology": {
+      "source": "results/continuous_morphology_condition_increment_v1.json",
+      "n_complete_morph_eels": 429,
+      "n_projects": 5,
+      "n_pairs": 3272,
+      "n_project_year_strata": 10,
+      "auc": {
+        "base": 0.7062958435207825,
+        "morph": 0.7163814180929096,
+        "condition": 0.7405256723716381,
+        "full": 0.7408312958435208
+      },
+      "delta_auc": {
+        "condition_after_morph": 0.02444987775061125,
+        "condition_without_morph": 0.03422982885085568,
+        "morph_without_condition": 0.01008557457212711,
+        "morph_after_condition": 0.0003056234718826767
+      },
+      "project_bootstrap_ci95": [
+        -0.015080603224128976,
+        0.0658737419945105
+      ],
+      "project_positive": 3,
+      "stage_summary": {
+        "FIII": {
+          "n_pairs": 949,
+          "condition_after_morph_delta": 0.06322444678609063
+        },
+        "FIV": {
+          "n_pairs": 16,
+          "condition_after_morph_delta": 0
+        },
+        "FV": {
+          "n_pairs": 498,
+          "condition_after_morph_delta": 0.07429718875502012
+        }
+      },
+      "boundary": "Morphological continuous eye/fin measurements are present in five projects, excluding Warnow; higher AUC is not confirmation of independent energetic control."
+    },
+    "stage_specific_condition_gate": {
+      "source": "results/stage_specific_condition_gate_v1.json",
+      "n_source_evaluable": 575,
+      "n_within_stage_pairs": 3199,
+      "stage": {
+        "FIII": {
+          "n_fish": 261,
+          "n_pairs": 2474,
+          "delta_auc": 0.04708973322554566,
+          "project_bootstrap_ci95": [
+            -0.03171953255425706,
+            0.19129782445611404
+          ]
+        },
+        "FIV": {
+          "n_fish": 68,
+          "n_pairs": 108,
+          "delta_auc": 0.22222222222222232,
+          "project_bootstrap_ci95": [
+            0,
+            0.25
+          ]
+        },
+        "FV": {
+          "n_fish": 246,
+          "n_pairs": 617,
+          "delta_auc": 0.16126418152350086,
+          "project_bootstrap_ci95": [
+            0.0334448160535117,
+            0.4067796610169492
+          ]
+        }
+      },
+      "matched_project_year": {
+        "source": "results/stage_gate_context_matched_robustness_v1.json",
+        "n_contexts": 5,
+        "n_projects": 4,
+        "weighted_FV_minus_FIII_delta": 0.1495094861715177,
+        "exact_signflip_p_two_sided": 0.25
+      }
     }
   },
   "boundaries": [
@@ -340,6 +420,8 @@
     "Terminal non-membership is not biological failure.",
     "Figure 3 exact-link numbers use the corrected expert-eligible cohort; old 18,012/426/248 figures are superseded.",
     "Post-hoc upper-speed screens are sensitivity tests; confidence intervals include one and weakly negative effects remain inconclusive.",
-    "The stage+condition initiation AUC advantage is conditional to the study panel, with broad project-level uncertainty and two reversed projects."
+    "The stage+condition initiation AUC advantage is conditional to the study panel, with broad project-level uncertainty and two reversed projects.",
+    "Continuous silvering morphology was retrospectively identified in typed length2/3/4 columns; project-specific ordering is harmonized by measurement type.",
+    "Stage and morphology-conditioned increments are exploratory and cannot establish energetic/physiological causality."
   ]
 }
