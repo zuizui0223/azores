@@ -93,3 +93,14 @@ terminal positive set was **1.15** (95% CI **0.83–1.59**). The historical
 stacked activation-versus-terminal contrast yielded an OR ratio of **1.81**
 (95% CI **1.15–2.84**). The source study did not estimate escapement success;
 terminal non-membership is not interpreted as biological failure.
+
+## Supplementary Figure S4. The entry-state score differentiates observed migration participation more than the schedule of onset among initiators
+
+**(A)** A single pair of models trained for eventual classified migration initiation was applied to an identical 475-eel day-90-eligible population. Only the event endpoint changed from onset within 7/30/60/90 days to eventual initiation. Adding continuous weight-for-length condition above Durif, length and release timing changed within-project-year AUC by **+0.0077, +0.0329, +0.0460, +0.0549 and +0.0807**, respectively. Because endpoint reclassification changes the initiator/noninitiator pairs, this sequence is not a causal change in physiological readiness.
+
+**(B)** The same 475 eels comprised **299** with onset by day 30, **123** later observed initiators, and **53** without source-classified initiation. Condition's incremental AUC was **+0.0832** for early versus never-classified initiators and **+0.0756** for late versus never-classified, but only **+0.0089** when ranking early versus late initiators.
+
+**(C)** Within **422** source-initiating eels, **10,756** time-order pairs in project-year strata yielded onset-order concordance **0.5446** without condition and **0.5461** with it (Δ **+0.0015**, six-project bootstrap 95% CI **−0.0237 to +0.0202**; exact sign-flip **p=0.9375**). Excluding individuals with onset within one day of release left 291 initiators and Δ **−0.0086**.
+
+**(D)** One hundred of 575 source tracks did not meet the day-90 observational eligibility definition. Across just four projects informative for both endpoints, the mean eventual-versus-30-day added condition AUC contrast was **+0.0431** (project-bootstrap CI **+0.0164 to +0.0697**, exact p=**0.125**). The result is descriptive and subject to receiver-detection selection, source algorithm definitions, common training-data overlap and small independent-project numbers. It does not quantify eel escapement, cause of delayed onset or environmental gating.
+
