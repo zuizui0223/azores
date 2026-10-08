@@ -70,22 +70,22 @@ Project-held-out coefficient training gives the same boundary:
 This removes held-out-project outcomes from score-weight estimation, while
 remaining a post-hoc within-programme robustness test rather than external validation.
 
-Exact-link realized transit-speed audit:
-- **18,012** positive segment rows;
-- **426** eels;
-- **248** directed receiver pairs;
-- project-held-out entry-state speed ratio **0.995/SD**;
-- 95% CI **0.912–1.087**, p **0.918**;
-- weighted partial R² **0.00052%**;
-- pair-support sensitivities: **0.991** (>=3 fish) and **1.032** (>=10 fish);
-- leave-one-project-out ratio range **0.970–1.059**.
+Exact-link realized transit-speed audit (corrected expert-eligible cohort, FWL numerical equivalence PASS):
+- **17,792** positive segment rows;
+- **418** eels;
+- **244** directed receiver pairs;
+- project-held-out entry-state speed ratio **0.962/SD**;
+- 95% CI **0.883–1.048**, p **0.372**;
+- weighted partial R² **0.0382%**;
+- pair-support sensitivities: **0.956** (>=3 fish) and **0.999** (>=10 fish);
+- leave-one-project-out ratio range **0.933–1.013**.
 
 The source segment-speed field contains nonphysical extreme values (candidate
 maximum **3752 m/s**). A post-hoc, externally motivated quality audit using
-upper screens of 2.5/5/10 m/s removes **62.5/58.1/52.5%** of candidate rows but
-leaves ratios **0.978/0.979/0.976**, all null-compatible. Thus the exact-link
+upper screens of 2.5/5/10 m/s removes **63.1/58.6/53.0%** of candidate rows but
+leaves ratios **0.942/0.944/0.941**, all null-compatible. Thus the exact-link
 null is robust to gross speed artifacts, while absolute source segment-speed
-values should not be read as swimming capacity.
+values should not be read as swimming capacity. The filtered negative point estimates have p≈0.07–0.08 and 95% intervals including one.
 
 Interpretation:
 
@@ -101,6 +101,7 @@ Canonical artifact:
 - `results/cross_project_entry_state_score_v1.json`
 - `results/within_link_entry_state_speed_v1.json`
 - `results/within_link_speed_quality_sensitivity_v1.json`
+- `results/within_link_fwl_numerical_audit_v1.json`
 - `docs/ENTRY_STATE_SCORE_TRANSFERABILITY_2026_10_07.md`
 
 ### Body-state phase-turnover diagnostic
