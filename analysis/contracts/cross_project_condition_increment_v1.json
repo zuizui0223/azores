@@ -1,0 +1,27 @@
+{
+  "schema": "azores.cross_project_condition_increment_contract.v1",
+  "evidence_class": "post_hoc_frozen_incremental_heldout_discrimination_audit",
+  "question": "Does continuous capture body condition improve project-held-out ranking of migration activation above ordinal Durif stage, length and release timing?",
+  "source": "the same six-project expert-corrected public eel meta-analysis panel used in the V4 manuscript",
+  "upstream_commit": "59578cb622dddbbba5174b4c51bff0807787385a",
+  "folds": "leave one entire project out; fit both models on the remaining projects; evaluate only score rankings within the held-out project's release-year strata",
+  "cohort": "all source-evaluable exact FIII/FIV/FV eels with stage, release, length, weight and source migration classification; preserve nine 2015 expert non-migrant corrections",
+  "base_model": "project-year intercepts + centered body length per 100 mm + centered release timing per 100 days + ordinal Durif stage",
+  "expanded_model": "same base model + standardized capture allometric weight-for-length residual (adjusted for project and capture Durif)",
+  "primary_metric": "pair-weighted within-project-year AUC/concordance difference (expanded minus base), computed from initiator/non-initiator pairs without using held-out outcomes for coefficient estimation",
+  "confidence": "500 seed-20261008 stratified fish-label bootstrap replicates within each held-out project-year to assess conditional evaluation variability; training weights are held fixed, so not a full model-development CI",
+  "secondary": [
+    "equal-project macro AUC difference",
+    "individual held-out project deltas, including projects with no evaluable mixed-outcome stratum",
+    "within-stage initiator/non-initiator pair concordance",
+    "stage-only versus stage-plus-condition contrast without the length/timing controls as ecological descriptive benchmark"
+  ],
+  "support_rule": "An incremental held-out body-condition ranking gain requires positive primary AUC difference with a conditional-bootstrap 95% CI above zero; project-level consistency must be reported, not hidden. Results are developmental even if supported.",
+  "boundaries": [
+    "AUC is a ranking metric only; no held-out-project calibration intercept is estimated, so no claim of calibrated absolute migration probabilities.",
+    "Held-out predictor pre-processing uses project/stage morphometrics without outcomes; only regression coefficients are cross-fitted.",
+    "The condition residual uses body weight and length which also contribute to Durif classification; no independent energetic mechanism is inferred.",
+    "A bootstrap on held-out observations with fixed training weights excludes uncertainty in training and is not a full independent-project replication.",
+    "If expanded score does not beat the base model, the earlier positive within-panel condition coefficient must not be promoted as demonstrated out-of-project added utility."
+  ]
+}
