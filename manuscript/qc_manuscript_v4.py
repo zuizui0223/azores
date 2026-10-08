@@ -21,6 +21,7 @@ J = Path("results/cross_project_condition_increment_project_robustness_v1.json")
 G = Path("results/stage_specific_condition_gate_v1.json")
 H = Path("results/stage_gate_context_matched_robustness_v1.json")
 CM = Path("results/continuous_morphology_condition_increment_v1.json")
+PENALTY = Path("results/continuous_morphology_penalty_sensitivity_v1.json")
 
 text = M.read_text(encoding="utf-8")
 contract = json.loads(C.read_text())
@@ -37,6 +38,7 @@ project_robustness = json.loads(J.read_text())
 stage_gate = json.loads(G.read_text())
 stage_matched = json.loads(H.read_text())
 morphology = json.loads(CM.read_text())
+penalty = json.loads(PENALTY.read_text())
 
 checks = {}
 
@@ -150,6 +152,14 @@ checks["stage_FV_FIII_finite"] = stage_gate["stage"]["FV"]["delta_auc"] > stage_
 checks["stage_matched_schema"] = stage_matched.get("schema") == "azores.stage_gate_context_matched_robustness.v1"
 checks["stage_matched_contexts"] = stage_matched["full"]["n_contexts"] == 5 and stage_matched["full"]["n_projects"] == 4
 checks["stage_matched_uncertainty"] = stage_matched["exploratory_exact_project_signflip_two_sided_p"] == 0.25
+checks["penalty_schema"] = penalty.get("schema") == "azores.continuous_morphology_penalty_sensitivity.v1"
+checks["penalty_three_strengths"] = sorted(penalty.get("sweep",{}).keys()) == ["0.1","1.0","10.0"]
+checks["penalty_frozen_lambda_exact"] = abs(penalty["sweep"]["1.0"]["delta_auc"]["condition_after_morph"] - morphology["primary"]["deltas"]["condition_after_morph"]) < 1e-10
+checks["penalty_all_positive"] = penalty["all_increment_signs_positive"] is True and all(x["delta_auc"]["condition_after_morph"]>0 for x in penalty["sweep"].values())
+checks["penalty_all_project_ci_overlap_zero"] = penalty["all_project_resample_cis_include_zero"] is True and all(x["project_ci95"][0] < 0 < x["project_ci95"][1] for x in penalty["sweep"].values())
+checks["penalty_contract_consistency"] = all(abs(penalty["sweep"][k]["delta_auc"]["condition_after_morph"]-contract["continuous_morphology_penalty_sensitivity"]["condition_after_morph_delta_by_lambda"][k]) < 1e-10 for k in ("0.1","1.0","10.0"))
+checks["penalty_manuscript_reporting"] = has(r"0\.0269") and has(r"0\.0244") and has(r"0\.0214")
+
 
 
 
