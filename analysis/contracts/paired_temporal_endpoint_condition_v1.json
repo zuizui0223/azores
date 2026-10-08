@@ -29,5 +29,6 @@
     "Events after day90 are still eventual initiators in the eventual endpoint; project receiver followup lengths differ.",
     "Only six independent project contexts; many paired ranks share fish and source fold models.",
     "Positive score difference for late vs never does not establish energy storage, seasonal mismatch, hydraulic cue selection or escapement fitness."
-  ]
+  ],
+  "project_contrast_inference": "Primary paired project contrast is equal-project mean of [condition AUC increment for eventual endpoint - condition AUC increment for onset<=30d], among projects with both mixed-outcome endpoints. Project bootstrap samples these paired project contrasts equally with replacement (10k); exact sign flip enumerates 2^n projects. Also show pair-weighted pooled endpoint contrasts as descriptive."
 }
