@@ -98,7 +98,79 @@
           "n": 411,
           "partial_r2": 0.0002568798
         }
-      ]
+      ],
+      "exact_link_transit": {
+        "source": "results/within_link_entry_state_speed_v1.json",
+        "model": "directed receiver-pair FE + project-year FE + body length/release timing, fish-equal weighting, fish-clustered uncertainty",
+        "candidate_migrating_fish": 422,
+        "expert_non_migrant_segment_rows": 0,
+        "n_segment_rows": 17792,
+        "n_fish": 418,
+        "n_directed_links": 244,
+        "ratio_per_sd": 0.9616245210436335,
+        "ci95": [
+          0.8825245689875236,
+          1.0478141368157994
+        ],
+        "p": 0.3715805316915082,
+        "weighted_partial_r2": 0.00038152902016337403,
+        "min_3_fish_ratio": 0.9562445543111118,
+        "min_10_fish_ratio": 0.9985374503002314,
+        "leave_one_project_out_range": [
+          0.9333650357734052,
+          1.0125617721687827
+        ]
+      },
+      "speed_quality_sensitivity": {
+        "source": "results/within_link_speed_quality_sensitivity_v1.json",
+        "class": "post-hoc, registered after impossible source speeds were observed",
+        "data_quality_boundary": "Source-derived speed_m_s reaches >3,700 m/s and is not a swimming-capacity measurement",
+        "upper_screen_results": {
+          "2.5": {
+            "source_speed_ceiling_m_s": 2.5,
+            "fraction_candidate_rows_removed": 0.6307201317753642,
+            "n_filtered_segment_rows": 5726,
+            "n_filtered_fish": 418,
+            "speed_ratio_per_sd": 0.9420860947768545,
+            "ci95": [
+              0.8821618441726389,
+              1.0060809315600094
+            ],
+            "p": 0.07520736139886468
+          },
+          "5.0": {
+            "source_speed_ceiling_m_s": 5,
+            "fraction_candidate_rows_removed": 0.5859885726051371,
+            "n_filtered_segment_rows": 6578,
+            "n_filtered_fish": 418,
+            "speed_ratio_per_sd": 0.9436710963541892,
+            "ci95": [
+              0.8842447457259496,
+              1.007091240743783
+            ],
+            "p": 0.08062521333020566
+          },
+          "10.0": {
+            "source_speed_ceiling_m_s": 10,
+            "fraction_candidate_rows_removed": 0.5300355175786277,
+            "n_filtered_segment_rows": 7628,
+            "n_filtered_fish": 418,
+            "speed_ratio_per_sd": 0.941129544938013,
+            "ci95": [
+              0.8809526474759722,
+              1.0054170594673073
+            ],
+            "p": 0.07190001621112437
+          }
+        },
+        "all_intervals_include_one": true
+      },
+      "fwl_numerical_check": {
+        "source": "results/within_link_fwl_numerical_audit_v1.json",
+        "status": "PASS_FWL_NUMERICAL_EQUIVALENCE",
+        "primary_absolute_beta_difference": 3.6234903966203547e-14,
+        "primary_absolute_se_difference": 3.2645773372086406e-7
+      }
     },
     "figure4": {
       "risk_set_rule": "SewerArrival <= Firstquarter <= PassageTime; duration and source valid flag not used for inclusion",
@@ -182,6 +254,8 @@
     "Do not interpret capture condition as independent physiology.",
     "Do not plot the unstable EZ matched-choice coefficient as a reliable effect.",
     "Dutch barrier analysis is falsification, not handoff confirmation.",
-    "Terminal non-membership is not biological failure."
+    "Terminal non-membership is not biological failure.",
+    "Figure 3 exact-link numbers use the corrected expert-eligible cohort; old 18,012/426/248 figures are superseded.",
+    "Post-hoc upper-speed screens are sensitivity tests; confidence intervals include one and weakly negative effects remain inconclusive."
   ]
 }
