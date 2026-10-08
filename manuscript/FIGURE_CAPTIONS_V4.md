@@ -40,15 +40,18 @@ directly comparable effect-size scales.
 **(B)** A frozen exact-link audit compared positive source-derived movement
 speeds within identical directed receiver-to-receiver links, using
 project-held-out score weights, fish-equal weighting and fish-clustered
-uncertainty. Across **18,012** segments from **426** eels and **248** directed
-pairs, the entry-state speed ratio was **0.995/SD** (95% CI **0.912–1.087**;
-p=**0.918**; weighted partial R² **0.00052%**). Because the raw source speed
+uncertainty. Across **17,792** segments from **418** eels and **244** directed
+pairs, the entry-state speed ratio was **0.962/SD** (95% CI **0.883–1.048**;
+p=**0.372**; weighted partial R² **0.0382%**). Because the raw source speed
 field included biologically impossible values, explicitly post-hoc
 external-plausibility screens at 2.5, 5 and 10 m s⁻¹ were applied as
-data-quality sensitivities; the corresponding ratios were **0.978**, **0.979**
-and **0.976**, with all intervals spanning one. These screens removed
-**52.5–62.5%** of candidate raw segment rows and therefore document a major
+data-quality sensitivities; the corresponding ratios were **0.942**, **0.944**
+and **0.941**, with all intervals spanning one. These screens removed
+**53.0–63.1%** of candidate raw segment rows and therefore document a major
 source-metric quality boundary rather than replacing the frozen primary.
+
+
+All within-link numbers use the corrected expert-eligible cohort; an earlier implementation inadvertently retained nine expert-classified non-migrants. The post-hoc speed-screen estimates have p≈0.07–0.08, remain compatible with no association and do not establish a negative effect. SVD/Frisch–Waugh–Lovell residualization reproduced the corrected coefficient.
 
 ## Figure 4. Arrival-defined Dutch barrier data do not support a general condition-dependent passage-selectivity mechanism
 
