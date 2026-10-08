@@ -73,6 +73,14 @@ Durif alone shows the same boundary: activation OR **2.08**, onset HR **1.29**,
 but post-activation whole-route speed ratio **0.983** and frozen segment-speed
 ratio **1.001**.
 
+## Observation-gated temporal result (2026-10-08)
+
+The matched temporal follow-up analysis has a **critical sampling explanation**. Selecting fish eligible for a 90-day horizon keeps **all 422 source-classified migrators** but only **53 of 153 source noninitiators**, excluding 100 with inadequate post-release final receiver arrival. For the exact *same eventual-initiation* label and frozen held-out score weights, the condition AUC increment changes **+0.0336 (575 fish) → +0.0807 (475 fish)**.
+
+An exact algebraic decomposition shows the **+0.0471** gain shift comprises **+0.0515 from reweighting river-specific comparison pairs** and **−0.0044 from changes within projects**. A 20,000-replicate project-year-matched random negative-retention test gave mean **+0.0844** (95% interval **+0.0606–+0.1083**) and observed **+0.0807**, an unexceptional result (two-sided **p=0.764**). In other words, the inflated AUC **does not constitute evidence that physiological readiness gains predictive importance with time**.
+
+[Validated selection audit](results/observability_selection_gate_v1.json) · [exact project-composition identity](results/observability_project_composition_v1.json) · [interpretation and conservation boundary](docs/OBSERVATION_GATE_2026_10_08.md)
+
 ## Independent Dutch falsification
 
 The full DANS archive associated with van Rijn et al. (2026) was materialized
