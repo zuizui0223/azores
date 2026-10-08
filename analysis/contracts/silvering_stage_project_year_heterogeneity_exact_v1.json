@@ -1,0 +1,24 @@
+{
+  "schema": "azores.silvering_stage_project_year_heterogeneity_exact_contract.v1",
+  "evidence_class": "post_hoc_year_stratified_exact_homogeneity_crosscheck",
+  "frozen_at": "2026-10-08",
+  "question": "Is FV-versus-FIII source-classified initiation heterogeneity across projects still supported after allowing separate initiation baselines for every project × release year?",
+  "source": "Pinned original six-project expert-corrected analysis/31_entry_state_score_transferability.py load; 575 fish; FIII/FV only; 2015 expert exclusions preserved.",
+  "design": "Within each project-release-year stratum, fix FIII and FV counts and total classified initiators. Convolve year-wise Fisher noncentral hypergeometric combinatorial weights to a project-specific sufficient distribution for number of FV starts.",
+  "null": "Common FV-vs-FIII odds ratio in all six projects, with unrestricted project-year baseline rates.",
+  "alternative": "Project-specific FV-vs-FIII odds ratios, allowing separation and sparse cells.",
+  "exact_calibration": "Condition additionally on sum of FV starts across six projects, eliminating common-odds nuisance exactly. Enumerate admissible six-project vectors and weight them by product of convolved combinatorial coefficients, using likelihood-ratio deviance.",
+  "predeclared_comparisons": [
+    "full six-project year-stratified exact p",
+    "leave-one-project-out exact p for all six omissions",
+    "unstratified six-project exact result as crosscheck",
+    "support/year-cell table to expose information loss"
+  ],
+  "caveats": [
+    "Both routes study source-algorithm initiation labels, not physiological migration initiation.",
+    "Year and project stratification remove different baseline rates, but cannot adjust animal-specific receiver detection or cue heterogeneity.",
+    "Only six projects; post-hoc heterogeneity discovery. Project-context mechanism is not identified.",
+    "If a release-year cell contains one stage or no outcome variation it contributes no stage contrast.",
+    "No retrospective changing of expert non-migrant corrections or source classification."
+  ]
+}
