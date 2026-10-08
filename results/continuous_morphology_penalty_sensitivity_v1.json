@@ -1,0 +1,196 @@
+{
+  "schema": "azores.continuous_morphology_penalty_sensitivity.v1",
+  "evidence_class": "post_hoc_after_primary_lambda_1_outcome_exposed",
+  "source": "results/continuous_morphology_condition_increment_v1.json",
+  "question": "Does the five-project held-out condition-after-morphology AUC advantage depend on arbitrary L2 penalty strength?",
+  "ridge_penalties": [
+    0.1,
+    1,
+    10
+  ],
+  "penalty_definition": "penalized logit with unpenalized project-year dummies/intercept; all nonbaseline covariates L2 penalty lambda",
+  "frozen_primary_penalty": 1,
+  "n_evaluable_morphology_complete": 429,
+  "n_projects": 5,
+  "sweep": {
+    "0.1": {
+      "n_scored": 429,
+      "n_pairs": 3272,
+      "auc": {
+        "base": 0.7026283618581907,
+        "morph": 0.7075183374083129,
+        "condition": 0.7341075794621027,
+        "full": 0.7344132029339854
+      },
+      "delta_auc": {
+        "condition_after_morph": 0.02689486552567244,
+        "condition_without_morph": 0.031479217603912035,
+        "morph_without_condition": 0.004889975550122272,
+        "morph_after_condition": 0.0003056234718826767
+      },
+      "positive_projects": 3,
+      "project_ci95": [
+        -0.01144045761830477,
+        0.06674684305472031
+      ],
+      "project_omit_range": [
+        0.015261879986125493,
+        0.037360335195530725
+      ],
+      "full_model_fold_weights": {
+        "2012_leopoldkanaal": {
+          "n_training": 304,
+          "beta_condition_full": 0.23427447956360686,
+          "beta_eye_full": 0.7446095029447414,
+          "beta_fin_full": 0.031957352466381324
+        },
+        "2013_albertkanaal": {
+          "n_training": 290,
+          "beta_condition_full": 0.35605512810117584,
+          "beta_eye_full": 0.6647696952798553,
+          "beta_fin_full": 0.08743728650513084
+        },
+        "2015_phd_verhelst_eel": {
+          "n_training": 258,
+          "beta_condition_full": 0.8489377285354022,
+          "beta_eye_full": 0.4929362762208927,
+          "beta_fin_full": -0.0011479035750106665
+        },
+        "2019_Grotenete": {
+          "n_training": 346,
+          "beta_condition_full": 0.46829587394425837,
+          "beta_eye_full": 0.532526167113977,
+          "beta_fin_full": 0.10674786405258002
+        },
+        "ESGL": {
+          "n_training": 338,
+          "beta_condition_full": 0.5010389486218872,
+          "beta_eye_full": 0.9346491235611649,
+          "beta_fin_full": 0.1695363012174954
+        }
+      }
+    },
+    "1.0": {
+      "n_scored": 429,
+      "n_pairs": 3272,
+      "auc": {
+        "base": 0.7062958435207825,
+        "morph": 0.7163814180929096,
+        "condition": 0.7405256723716381,
+        "full": 0.7408312958435208
+      },
+      "delta_auc": {
+        "condition_after_morph": 0.02444987775061125,
+        "condition_without_morph": 0.03422982885085568,
+        "morph_without_condition": 0.01008557457212711,
+        "morph_after_condition": 0.0003056234718826767
+      },
+      "positive_projects": 3,
+      "project_ci95": [
+        -0.015080603224128976,
+        0.0658737419945105
+      ],
+      "project_omit_range": [
+        0.012486992715920908,
+        0.03491620111731841
+      ],
+      "full_model_fold_weights": {
+        "2012_leopoldkanaal": {
+          "n_training": 304,
+          "beta_condition_full": 0.22683843685808655,
+          "beta_eye_full": 0.7072313906312052,
+          "beta_fin_full": 0.039441468990667104
+        },
+        "2013_albertkanaal": {
+          "n_training": 290,
+          "beta_condition_full": 0.34683243150571685,
+          "beta_eye_full": 0.6516217381615533,
+          "beta_fin_full": 0.0953257394981592
+        },
+        "2015_phd_verhelst_eel": {
+          "n_training": 258,
+          "beta_condition_full": 0.7776142793548316,
+          "beta_eye_full": 0.4864006153540767,
+          "beta_fin_full": 0.028973520296654436
+        },
+        "2019_Grotenete": {
+          "n_training": 346,
+          "beta_condition_full": 0.45833571870380546,
+          "beta_eye_full": 0.5234877203447881,
+          "beta_fin_full": 0.11042512344344001
+        },
+        "ESGL": {
+          "n_training": 338,
+          "beta_condition_full": 0.489142335993592,
+          "beta_eye_full": 0.8736226219658236,
+          "beta_fin_full": 0.1700861401752552
+        }
+      }
+    },
+    "10.0": {
+      "n_scored": 429,
+      "n_pairs": 3272,
+      "auc": {
+        "base": 0.7148533007334963,
+        "morph": 0.7270782396088019,
+        "condition": 0.746638141809291,
+        "full": 0.7484718826405868
+      },
+      "delta_auc": {
+        "condition_after_morph": 0.021393643031784926,
+        "condition_without_morph": 0.03178484107579471,
+        "morph_without_condition": 0.012224938875305624,
+        "morph_after_condition": 0.001833740831295838
+      },
+      "positive_projects": 3,
+      "project_ci95": [
+        -0.022880915236609487,
+        0.06639616377720399
+      ],
+      "project_omit_range": [
+        0.008324661810613865,
+        0.03282122905027929
+      ],
+      "full_model_fold_weights": {
+        "2012_leopoldkanaal": {
+          "n_training": 304,
+          "beta_condition_full": 0.18090667679903805,
+          "beta_eye_full": 0.514644368197168,
+          "beta_fin_full": 0.08126189333532259
+        },
+        "2013_albertkanaal": {
+          "n_training": 290,
+          "beta_condition_full": 0.27845262951304,
+          "beta_eye_full": 0.5365571299342425,
+          "beta_fin_full": 0.13849577108488992
+        },
+        "2015_phd_verhelst_eel": {
+          "n_training": 258,
+          "beta_condition_full": 0.5455247453592112,
+          "beta_eye_full": 0.40199663299719224,
+          "beta_fin_full": 0.09511921938512655
+        },
+        "2019_Grotenete": {
+          "n_training": 346,
+          "beta_condition_full": 0.38055383099702583,
+          "beta_eye_full": 0.43767727515618704,
+          "beta_fin_full": 0.12980817525957122
+        },
+        "ESGL": {
+          "n_training": 338,
+          "beta_condition_full": 0.40229215700282095,
+          "beta_eye_full": 0.6073760465959339,
+          "beta_fin_full": 0.17982015370266755
+        }
+      }
+    }
+  },
+  "all_increment_signs_positive": true,
+  "all_project_resample_cis_include_zero": true,
+  "interpretation_boundary": [
+    "Penalty-strength sweep is post-hoc; do not select a preferred lambda based on apparent performance.",
+    "Differences can arise from both changes in coefficients and changes in within-project-year ranking.",
+    "An apparent positive pooled gain across all lambda values is not independent river replication or proof of energetic mechanism.",
+    "Morphometric measurements are missing in the entire Warnow project, and source Durif classes partly use body mass."
+  ]
+}
