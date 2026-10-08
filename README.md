@@ -44,6 +44,8 @@ than prospective external validation.
 
 See [held-out activation AUC result](results/cross_project_condition_increment_v1.json), [project-heterogeneity audit](results/cross_project_condition_increment_project_robustness_v1.json) and [V4 numerical contract](manuscript/MANUSCRIPT_NUMERIC_CONTRACT_V4.json).
 
+**Exploratory follow-up:** Is condition information concentrated within FIII, FIV or FV silvering classes? The [frozen stage-specific test](analysis/contracts/stage_specific_condition_gate_v1.json), [analysis script](analysis/37_stage_specific_condition_gate.py), [CI workflow](.github/workflows/stage-specific-condition-gate.yml) and [competing ecological hypotheses](docs/STAGE_CONDITION_GATE_HYPOTHESES_2026_10_08.md) are available. No stage-specific biological conclusion is reported until the CI result and its project-level uncertainty are checked.
+
 Within identical directed receiver links, the boundary is even sharper. A
 frozen project-held-out score audit over **17,792** positive segments from
 **418** eels and **244** route links gives a speed ratio of **0.962/SD**
