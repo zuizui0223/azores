@@ -1,0 +1,33 @@
+{
+  "schema": "azores.paired_temporal_endpoint_condition_contract.v1",
+  "evidence_class": "post_hoc_falsification_after_fixed_followup_reversal_observed",
+  "question": "Does positive condition information for eventual migration activation reverse or disappear for early onset when the same eels and the same frozen held-out models are scored?",
+  "source": "analysis/31 fixed original expert-corrected FIII/FIV/FV cohort (575), project-held-out logistic coefficients trained for eventual activation as in analysis/36",
+  "common_cohort": "Eels eligible for fixed 90-day observation window: initiation onset recorded on/before day90, or their last receiver arrival observed at/after day90. Exclude unreconstructable source-onset dates as in analysis/42. Keep this identical cohort for every outcome.",
+  "fixed_prediction": "Train two nested eventual-activation models on 5 projects (stage, length, release date +/- condition), predict held-out project; do not refit either model to early/late outcomes.",
+  "primary_endpoints": [
+    "onset by day 30 among identical 90-day eligible eels",
+    "eventual source-algorithm initiation among those same eels"
+  ],
+  "additional_horizons_days": [
+    7,
+    60,
+    90
+  ],
+  "metrics": [
+    "within-heldout-project-year pair-weighted concordance AUC (base and condition-augmented)",
+    "difference in condition AUC increment between eventual and day30 endpoints",
+    "paired independent-project bootstrap of six project-level increments (10k fixed-training reps)",
+    "exact project-paired sign-flip descriptive inference"
+  ],
+  "competing_risk_set_decomposition": "Within 90day eligible cohort classify early onset <=30 days, late onset >30 days and eventual source-onset documented, and no eventual onset; score early vs never, late vs never, and early vs late without retraining. Only compare fish within the same project-year.",
+  "inference_rule": "A temporal horizon dependence of the frozen condition-information gain is described if eventual-vs-30day paired delta is positive and its 6-project resampling interval excludes zero; report exact sign-flip p and project support; even then association is not causal energetic delay.",
+  "boundaries": [
+    "Eligibility at day90 depends on future receiver detections and can induce informative selection; this is NOT unbiased incident hazard estimation.",
+    "Later detections are not continuous tracking evidence and observed eventual initiation is itself an algorithmic telemetry endpoint.",
+    "The same 90day cohort holds fish fixed but distinct outcome labels necessarily induce different positive/negative pair sets; contrasts are not the same outcome comparison.",
+    "Events after day90 are still eventual initiators in the eventual endpoint; project receiver followup lengths differ.",
+    "Only six independent project contexts; many paired ranks share fish and source fold models.",
+    "Positive score difference for late vs never does not establish energy storage, seasonal mismatch, hydraulic cue selection or escapement fitness."
+  ]
+}
