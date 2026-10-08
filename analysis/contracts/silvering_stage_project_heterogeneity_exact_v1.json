@@ -1,0 +1,20 @@
+{
+  "schema": "azores.silvering_stage_project_heterogeneity_exact_contract.v1",
+  "evidence_class": "post_hoc_fixed_margin_bootstrap_heterogeneity_audit",
+  "frozen_at": "2026-10-08",
+  "question": "Do FIII-versus-FV telemetry-classified initiation odds genuinely differ across the six source projects beyond finite binomial variation, including strata with separated cells?",
+  "input": "results/stage_specific_condition_gate_v1.json, exact expert-corrected project/stage counts, FIII and FV only; no condition predictor",
+  "margin_conditioning": "Within each project fix n_FIII, n_FV and total observed source-classified initiators across these two stages. Sample possible FV initiating counts by Fisher's noncentral hypergeometric distribution.",
+  "null": "All six projects share the same conditional log odds ratio for FV versus FIII, but have unrestricted project-specific baseline initiation odds. No stage-by-project interaction.",
+  "alternative": "Each project has its own FV-vs-FIII odds ratio; boundary/separation are allowed with finite likelihood supremum.",
+  "statistic": "Twice the conditional log-likelihood difference between saturated-by-project and common log-odds models.",
+  "calibration": "Seed 20261008, 10000 parametric bootstrap replicates conditional on each project's stage-by-outcome margins using the fitted common odds ratio. Refit the common odds ratio in every simulated dataset; report Monte Carlo p as (1+extreme)/(B+1).",
+  "sensitivity": "Report project 2x2 counts, log odds estimates/boundary, leave-one-project-out conditional common OR and heterogeneity deviance without treating asymptotic Wald intervals as reliable in separated cells.",
+  "inferential_boundary": [
+    "Post-hoc after observing project reversal; this is an exploratory descriptive heterogeneity test.",
+    "Conditional-on-margins inference applies to telemetry-classified initiation labels, not true physiological departures.",
+    "Project and hydrology, cohort composition, release year, tagging design and detection opportunities remain confounded.",
+    "Failure to reject common OR does not prove no interaction; six project contexts limit power.",
+    "The test does not account for fish and observation-history misclassification or infer escapement."
+  ]
+}
