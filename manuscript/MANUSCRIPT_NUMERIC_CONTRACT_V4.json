@@ -233,24 +233,27 @@
   "within_link_speed_quality_result": "results/within_link_speed_quality_sensitivity_v1.json",
   "within_link_entry_state": {
     "primary": {
-      "n_segment_rows": 18012,
-      "n_fish": 426,
-      "n_directed_pairs": 248,
-      "ratio_per_sd": 0.995412619,
+      "n_segment_rows": 17792,
+      "n_fish": 418,
+      "n_directed_pairs": 244,
+      "ratio_per_sd": 0.9616245210436335,
       "ci95": [
-        0.9115226584,
-        1.0870232057
+        0.8825245689875236,
+        1.0478141368157994
       ],
-      "p": 0.9184701435,
-      "weighted_partial_r2": 0.000005231062,
-      "min_unique_fish_per_pair": 5
+      "p": 0.3715805316915082,
+      "weighted_partial_r2": 0.00038152902016337403,
+      "min_unique_fish_per_pair": 5,
+      "expert_non_migrant_segment_rows": 0,
+      "canonical_expert_non_migrant_count": 9,
+      "raw_candidate_fish": 422
     },
     "pair_support_sensitivity": {
-      "min3_ratio": 0.9910812301,
-      "min10_ratio": 1.0316845109,
+      "min3_ratio": 0.9562445543111118,
+      "min10_ratio": 0.9985374503002314,
       "leave_one_project_out_ratio_range": [
-        0.9695017971,
-        1.0591927898
+        0.9333650357734052,
+        1.0125617721687827
       ]
     },
     "source_speed_quality_boundary": {
@@ -262,44 +265,51 @@
       },
       "posthoc_upper_screen_results": {
         "2.5": {
-          "candidate_fraction_removed": 0.624929872,
-          "n_segment_rows": 5946,
-          "n_fish": 426,
-          "n_pairs": 223,
-          "ratio_per_sd": 0.9776718401,
+          "candidate_fraction_removed": 0.6307201317753642,
+          "n_segment_rows": 5726,
+          "n_fish": 418,
+          "n_pairs": 219,
+          "ratio_per_sd": 0.9420860947768545,
           "ci95": [
-            0.9113816116,
-            1.0487837529
+            0.8821618441726389,
+            1.0060809315600094
           ],
-          "p": 0.5284581743
+          "p": 0.07520736139886468
         },
         "5.0": {
-          "candidate_fraction_removed": 0.5806089662,
-          "n_segment_rows": 6798,
-          "n_fish": 426,
-          "n_pairs": 233,
-          "ratio_per_sd": 0.9787721455,
+          "candidate_fraction_removed": 0.5859885726051371,
+          "n_segment_rows": 6578,
+          "n_fish": 418,
+          "n_pairs": 229,
+          "ratio_per_sd": 0.9436710963541892,
           "ci95": [
-            0.913031861,
-            1.0492458738
+            0.8842447457259496,
+            1.007091240743783
           ],
-          "p": 0.5452740231
+          "p": 0.08062521333020566
         },
         "10.0": {
-          "candidate_fraction_removed": 0.5251695823,
-          "n_segment_rows": 7848,
-          "n_fish": 426,
-          "n_pairs": 235,
-          "ratio_per_sd": 0.9757959233,
+          "candidate_fraction_removed": 0.5300355175786277,
+          "n_segment_rows": 7628,
+          "n_fish": 418,
+          "n_pairs": 231,
+          "ratio_per_sd": 0.941129544938013,
           "ci95": [
-            0.9095848321,
-            1.0468266953
+            0.8809526474759722,
+            1.0054170594673073
           ],
-          "p": 0.4943153984
+          "p": 0.07190001621112437
         }
       },
       "status": "WITHIN_LINK_NULL_ROBUST_TO_GROSS_SPEED_ARTIFACT_SCREEN",
-      "boundary": "The plausibility screens were registered only after the frozen primary exposed impossible source speed values; they are sensitivity analyses and do not replace the primary."
+      "boundary": "Post-hoc speed screens were registered after observing implausible source values; all corrected results exclude the nine fixed expert-classified non-migrants. No upper screen produces a 95% interval excluding 1, although the 2.5/5/10 m/s screen estimates have negative coefficients and p around 0.07–0.08."
+    },
+    "fwl_check": {
+      "status": "PASS_FWL_NUMERICAL_EQUIVALENCE",
+      "beta_discrepancy": 3.6234903966203547e-14,
+      "cluster_se_discrepancy": 3.2645773372086406e-7,
+      "interpretation": "SVD-based residualization reproduces the corrected fixed-effect primary result."
     }
-  }
+  },
+  "within_link_fwl_result": "results/within_link_fwl_numerical_audit_v1.json"
 }
