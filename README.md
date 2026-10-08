@@ -41,14 +41,14 @@ preprocessing remains panel-derived, so this is cross-project robustness rather
 than prospective external validation.
 
 Within identical directed receiver links, the boundary is even sharper. A
-frozen project-held-out score audit over **18,012** positive segments from
-**426** eels and **248** route links gives a speed ratio of **0.995/SD**
-(95% CI **0.912–1.087**, p=**0.918**; weighted partial R² **0.00052%**).
+frozen project-held-out score audit over **17,792** positive segments from
+**418** eels and **244** route links gives a speed ratio of **0.962/SD**
+(95% CI **0.883–1.048**, p=**0.372**; weighted partial R² **0.0382%**).
 The source segment-speed field contains grossly implausible values, but
 explicitly post-hoc external-plausibility screens at 2.5, 5 and 10 m/s leave
-the ratio at **0.976–0.979**, with all intervals spanning one. These screens
-remove **52.5–62.5%** of candidate rows, so absolute source segment speeds
-must not be interpreted as direct swimming physiology.
+the ratio at **0.941–0.944**, with all intervals spanning one. These screens
+remove **53.0–63.1%** of candidate rows, so absolute source segment speeds
+must not be interpreted as direct swimming physiology. The filtered estimates are weakly negative (p≈0.07–0.08), not proof of zero or negative effect.
 
 Thus the canonical V4 statement is:
 
@@ -95,7 +95,7 @@ The upstream terminal/sea-positive set remains a secondary sensitivity only.
 Its complement is not validated biological failure, and this project does not
 estimate escapement probability.
 
-**Within-link correction notice (2026-10-08):** The first within-link result inadvertently included nine fixed expert-classified 2015 non-migrants. Its 18,012-segment / 426-fish estimates and dependent speed-quality sensitivities are provisional until the corrected analysis and numerical audit pass. See [correction ledger](docs/WITHIN_LINK_CORRECTION_LEDGER_2026_10_08.md).
+**Within-link correction completed (2026-10-08):** The initial within-link implementation incorrectly retained nine expert-classified non-migrants. The corrected analysis now uses 422 eligible candidate migratory eels (418 after directed-link support filtering) and passes independent FWL numerical equivalence. The earlier 18,012-segment / 426-fish result is superseded. See [correction ledger](docs/WITHIN_LINK_CORRECTION_LEDGER_2026_10_08.md).
 
 ## Canonical V4 artifacts
 
@@ -107,6 +107,7 @@ estimate escapement probability.
 - [cross-project entry-state robustness](results/cross_project_entry_state_score_v1.json)
 - [within-link entry-state speed result](results/within_link_entry_state_speed_v1.json)
 - [within-link speed-quality sensitivity](results/within_link_speed_quality_sensitivity_v1.json)
+- [within-link FWL numerical audit](results/within_link_fwl_numerical_audit_v1.json)
 - [canonical stage-only benchmark](results/phase_control_canonical_v2.json)
 - [Dutch condition-choice falsification](results/dutch_condition_choice_test_v1.json)
 - [Dutch arrival-defined waiting falsification](results/dutch_arrival_waiting_diagnostic_v1.json)
