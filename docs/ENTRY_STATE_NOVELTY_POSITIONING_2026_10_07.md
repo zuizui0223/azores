@@ -118,8 +118,7 @@ retaining the source-speed quality warning.
 External context:
 - European silver-eel Ucrit about **0.94 m/s** and Uopt about **0.64 m/s**
   (Tudorache et al. 2015);
-- a compiled European-eel swimming-performance database reports observed
-  speeds up to about **2.26 m/s**;
+- the Katopodis & Gervais (2016) database exists, but a claimed **2.26 m/s species maximum** was not independently verified from its source material, and cannot be applied as a strict limit to field ground speed;
 - the source within-link candidate data contain values above **3,700 m/s**.
 
 The registered quality sensitivity repeats the exact primary model at
