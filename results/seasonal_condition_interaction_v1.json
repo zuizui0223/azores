@@ -1,0 +1,236 @@
+{
+  "schema": "azores.seasonal_condition_interaction.v1",
+  "evidence_class": "post_hoc_exploratory_after_stage_and_morphology_results",
+  "contract": "analysis/contracts/seasonal_condition_interaction_v1.json",
+  "question": "Does the within-project-year release timing modify how capture condition ranks migration initiation, beyond an additive silvering-stage/body-condition model, in out-of-project predictions?",
+  "n_evaluable": 575,
+  "n_projects": 6,
+  "primary": {
+    "n_strata": 12,
+    "n_pairs": 6914,
+    "auc_additive": 0.6433323691061614,
+    "auc_interaction": 0.6423199305756436,
+    "delta_auc": -0.0010124385305178007
+  },
+  "project_robustness": {
+    "by_project": {
+      "2011_Warnow": {
+        "n_strata": 1,
+        "n_pairs": 3638,
+        "auc_additive": 0.5634964266080263,
+        "auc_interaction": 0.5744914788345244,
+        "delta_auc": 0.010995052226498103
+      },
+      "2012_leopoldkanaal": {
+        "n_strata": 1,
+        "n_pairs": 1456,
+        "auc_additive": 0.820054945054945,
+        "auc_interaction": 0.782967032967033,
+        "delta_auc": -0.03708791208791207
+      },
+      "2013_albertkanaal": {
+        "n_strata": 3,
+        "n_pairs": 393,
+        "auc_additive": 0.6055979643765903,
+        "auc_interaction": 0.6055979643765903,
+        "delta_auc": 0
+      },
+      "2015_phd_verhelst_eel": {
+        "n_strata": 4,
+        "n_pairs": 931,
+        "auc_additive": 0.7003222341568206,
+        "auc_interaction": 0.7013963480128894,
+        "delta_auc": 0.0010741138560688146
+      },
+      "2019_Grotenete": {
+        "n_strata": 2,
+        "n_pairs": 88,
+        "auc_additive": 0.8863636363636364,
+        "auc_interaction": 0.8977272727272727,
+        "delta_auc": 0.011363636363636354
+      },
+      "ESGL": {
+        "n_strata": 1,
+        "n_pairs": 408,
+        "auc_additive": 0.5784313725490197,
+        "auc_interaction": 0.5906862745098039,
+        "delta_auc": 0.01225490196078427
+      }
+    },
+    "n_boot": 10000,
+    "seed": 20261008,
+    "resample_unit": "six projects, fixed heldout training coefficients",
+    "project_resample_ci95": [
+      -0.02736189984512131,
+      0.01061472063455035
+    ],
+    "fraction_boot_positive": 0.4547,
+    "leave_one_project_out": {
+      "2011_Warnow": -0.014346764346764296,
+      "2012_leopoldkanaal": 0.008611212898497644,
+      "2013_albertkanaal": -0.0010734549915657476,
+      "2015_phd_verhelst_eel": -0.001337121845228162,
+      "2019_Grotenete": -0.001171989452094846,
+      "ESGL": -0.0018444512757453957
+    },
+    "n_positive_project_gains": 4,
+    "n_negative_project_gains": 1,
+    "exploratory_exact_project_sign_flip_two_sided_p": 1,
+    "sign_flip_assumption": "symmetric independently exchangeable paired project gain signs"
+  },
+  "fold_training": {
+    "2011_Warnow": {
+      "n_heldout": 141,
+      "additive": {
+        "n_training": 384,
+        "n_strata": 10,
+        "coef_length": 0.44004989104018,
+        "coef_release": 0.7520004808356199,
+        "coef_stage": 0.8921339089910328,
+        "coef_condition": 0.47660640264402154
+      },
+      "interaction": {
+        "n_training": 384,
+        "n_strata": 10,
+        "beta_length": 0.4466001958967438,
+        "beta_timing": 0.8610754799098581,
+        "beta_stage": 0.8870858822964452,
+        "beta_condition": 0.44692325342428774,
+        "beta_condition_x_timing": -0.9280715688348946,
+        "loglik": -166.34470480938347
+      }
+    },
+    "2012_leopoldkanaal": {
+      "n_heldout": 80,
+      "additive": {
+        "n_training": 445,
+        "n_strata": 10,
+        "coef_length": 0.10655161182004752,
+        "coef_release": -0.21878797660205826,
+        "coef_stage": 0.7107890259523476,
+        "coef_condition": 0.21281104437240195
+      },
+      "interaction": {
+        "n_training": 445,
+        "n_strata": 10,
+        "beta_length": 0.10213941085334187,
+        "beta_timing": -0.3142274704328755,
+        "beta_stage": 0.7095252813056638,
+        "beta_condition": 0.20250697613399088,
+        "beta_condition_x_timing": -0.44211292121114637,
+        "loglik": -208.12247270166117
+      }
+    },
+    "2013_albertkanaal": {
+      "n_heldout": 144,
+      "additive": {
+        "n_training": 431,
+        "n_strata": 9,
+        "coef_length": 0.254006001885771,
+        "coef_release": 0.12774179875863106,
+        "coef_stage": 0.8693068305109976,
+        "coef_condition": 0.3069064548703633
+      },
+      "interaction": {
+        "n_training": 431,
+        "n_strata": 9,
+        "beta_length": 0.24991682210308439,
+        "beta_timing": 0.07965341286526359,
+        "beta_stage": 0.8683318117716539,
+        "beta_condition": 0.2902570719437133,
+        "beta_condition_x_timing": -0.4313604604615112,
+        "loglik": -218.91370141960743
+      }
+    },
+    "2015_phd_verhelst_eel": {
+      "n_heldout": 126,
+      "additive": {
+        "n_training": 399,
+        "n_strata": 7,
+        "coef_length": 0.3683834708173622,
+        "coef_release": 0.619378223393254,
+        "coef_stage": 0.5631143308406436,
+        "coef_condition": 0.49734718078634754
+      },
+      "interaction": {
+        "n_training": 399,
+        "n_strata": 7,
+        "beta_length": 0.3569006184313291,
+        "beta_timing": 0.5585553239874591,
+        "beta_stage": 0.564150399181507,
+        "beta_condition": 0.4881893911127511,
+        "beta_condition_x_timing": -0.4064317965242156,
+        "loglik": -180.73777256534888
+      }
+    },
+    "2019_Grotenete": {
+      "n_heldout": 38,
+      "additive": {
+        "n_training": 487,
+        "n_strata": 9,
+        "coef_length": 0.31297603711698774,
+        "coef_release": 0.11610259373401963,
+        "coef_stage": 0.6759357779930143,
+        "coef_condition": 0.38916886275647355
+      },
+      "interaction": {
+        "n_training": 487,
+        "n_strata": 9,
+        "beta_length": 0.30787673422067247,
+        "beta_timing": 0.06619569626545649,
+        "beta_stage": 0.6735240512807199,
+        "beta_condition": 0.3764787959772276,
+        "beta_condition_x_timing": -0.42227460085239943,
+        "loglik": -236.98962519636564
+      }
+    },
+    "ESGL": {
+      "n_heldout": 46,
+      "additive": {
+        "n_training": 479,
+        "n_strata": 10,
+        "coef_length": 0.3142732215548093,
+        "coef_release": 0.008729821315706276,
+        "coef_stage": 0.8081882470868716,
+        "coef_condition": 0.4217853114392401
+      },
+      "interaction": {
+        "n_training": 479,
+        "n_strata": 10,
+        "beta_length": 0.3107107170884987,
+        "beta_timing": -0.04055940098886422,
+        "beta_stage": 0.8090843622082332,
+        "beta_condition": 0.4115719459077935,
+        "beta_condition_x_timing": -0.32411542225630496,
+        "loglik": -221.3890167500244
+      }
+    }
+  },
+  "early_late_descriptive": {
+    "median_ties_omitted": 127,
+    "earlier": {
+      "n_strata": 8,
+      "n_pairs": 1247,
+      "auc_additive": 0.6214915797914996,
+      "auc_interaction": 0.6439454691259021,
+      "delta_auc": 0.02245388933440251
+    },
+    "later": {
+      "n_strata": 9,
+      "n_pairs": 1362,
+      "auc_additive": 0.6519823788546255,
+      "auc_interaction": 0.6226138032305433,
+      "delta_auc": -0.029368575624082238
+    },
+    "note": "Descriptive only: split by release-time median within project-year, excluding median ties; not evidence of hydrological cues."
+  },
+  "status": "NO_GENERAL_HELDOUT_SEASONAL_CONDITION_INTERACTION_SUPPORT",
+  "interpretation_boundary": [
+    "No source-outcome or event-time information for predictor transforms; center condition and release time using only heldout-project predictor values without outcomes (transductive).",
+    "Do not infer discharge, tidal windows, temperature, energy storage, or lunar effects from release-date timing.",
+    "Release date may be tagging/sampling design, not true environmental opportunity. A direct seasonal hydrology mechanism requires matched environmental data.",
+    "Do not select interaction functional form or favorable project after seeing results.",
+    "Project bootstrap has n=6 clusters, frozen training coefficients, and only reports conditional resampling uncertainty; cannot make causal claims.",
+    "Keep published V4 findings unchanged unless the new result itself warrants an explicitly post-hoc supplement."
+  ]
+}
