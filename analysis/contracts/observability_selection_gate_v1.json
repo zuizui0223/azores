@@ -1,0 +1,24 @@
+{
+  "schema": "azores.observability_selection_gate_contract.v1",
+  "evidence_class": "post_hoc_observation_process_falsification_after_paired_temporal_result",
+  "question": "Does selecting only 90-day ascertainable fish exaggerate the apparent added condition AUC for eventual initiation, beyond simple thinning of source-defined noninitiators?",
+  "source": "Original expert-corrected 575-fish 6-project panel; original source initiation labels; fixed leave-one-project-out coefficients trained for eventual initiation; no retraining or score refitting after 90-day selection.",
+  "cohort_definitions": {
+    "full": "all 575 source eligible eels, 422 source initiation events and 153 source non-events",
+    "day90_eligible": "same horizon_filter as analysis/42: observed onset by day 90 OR receiver arrival at/after day 90; based on source release, onset and last detection; retain late source-classified initiators if their observation extends past day 90.",
+    "all_positive_retained": "verify all 422 eventual source-defined initiators are retained by this selection; never assume without assertion",
+    "comparison": "AUC added by condition beyond stage+length+release timing for the same source-defined eventual initiation label, full cohort vs day90 selected cohort. Fitted held-out scores frozen across both."
+  },
+  "permutation_null": "Within each source project × release-year stratum, hold *all initiators* and the exact observed number of day90-eligible noninitiators. Randomly choose that number of eligible noninitiators from the original noninitiator set without replacement, repeat 20000 draws with seed 20261008. Compute pooled pairwise AUC difference with fixed held-out score weights. This is a conditional negative-control for nonrandom retention *among source-defined noninitiators*, not a valid censoring adjustment.",
+  "secondary": "Within source-defined noninitiators, compare heldout stage-based versus condition-augmented prediction of day90 observability, using only within-project-year comparison groups with both eligible and ineligible controls. Report informative project/year and pair support.",
+  "inference_rule": "Report full vs selected gain and empirical retention-null distribution; if observed selected delta exceeds the random-retention 97.5th percentile, mark selective negative-label composition as unusual; otherwise do not infer that condition specifically drives receiver-followup selection.",
+  "requirements": [
+    "Keep same frozen project-held-out initiation training across all tests.",
+    "Verify all 422 source initiation cases are retained and that excluded 100 are all noninitiation source labels.",
+    "Pair denominator must equal the pre-existing paired temporal result's eventual 2045 for selected common cohort.",
+    "Report attrition, initial-stage composition and project-level support. Do not treat 2045 pair comparisons as independent river replicates.",
+    "Never label source noninitiators as failures, deaths, residents or true nonmigrants; these are source-telemetry categories.",
+    "Successful negative-control does not prove detection bias is causal, since source initiation and last detection are related measurements; effect estimates are descriptive.",
+    "Do not infer a physiological onset threshold from a score trained for eventual initiation."
+  ]
+}
