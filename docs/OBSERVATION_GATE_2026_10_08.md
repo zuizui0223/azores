@@ -1,6 +1,6 @@
 # Observation gate in eel migration initiation — 2026-10-08
 
-**Evidence class:** post-hoc observation-process falsification. The negative-control run is not yet promoted as a result until its CI calculation and checks complete.
+**Evidence class:** verified post-hoc observation-process falsification. Source-matched permutation and synthetic validations **PASS** in GitHub Actions run [37755617841](https://github.com/zuizui0223/azores/actions/runs/37755617841). Numerical results are in `results/observability_selection_gate_v1.json` and `results/observability_project_composition_v1.json`.
 
 ## Why this matters
 
@@ -11,6 +11,25 @@ The six-project activation panel contains **575** stage-eligible European eels: 
 The original held-out activation-discrimination AUC increment from condition was **+0.03356** in all 575. The separate 90-day-eligible cohort gives **+0.08068** for *the same eventual source initiation label* and the *same fitted held-out score model*. The raw contrast is **+0.04713**, but its reason has not yet been distinguished.
 
 **This does not imply physiological time gating.** Both outcome groups and their project-year weights change when the 100 negative-class records are removed; AUC can change even though it is insensitive to *overall* class prevalence under unselected case/control sampling.
+
+## Verified result: apparent later-horizon gain is sampling composition, not evidence of a stronger gate
+
+The original 575-eel eventual-classification AUC gain from condition is **+0.03356** over the base model. The 90-day-eligible cohort (475 eels) gives **+0.08068** with the **same** outcome definition and **same** project-held-out score weights, an increase of **+0.04713**.
+
+The exact project-pair-weight identity attributes:
+- **+0.05153** to changing how informative project pairs are weighted after follow-up selection;
+- **−0.00440** to within-project changes (also including within-project-year mix);
+- sum **+0.04713**, with numerical identity residual essentially zero.
+
+The Warnow project contributes 52.6% of full comparison pairs but only 5.2% of selected pairs, while Leopoldkanaal grows from 21.1% to 53.4%. The apparent stronger benefit in the selected cohort can therefore occur without any new physiological response to elapsed time.
+
+A second check holds all 422 initiators and the exact number of retained noninitiators per project-year, randomly choosing **which** noninitiators survive the screen in **20,000** permutations. The expected condition AUC gain is **+0.08444** (95% permutation interval **+0.06064 to +0.10831**), compared with observed **+0.08068**. The two-sided deviation from the random-retention mean is **p=0.764**. Thus specific retained-fish phenotype selection is **not needed** to explain the observed gain once project-year quotas are fixed.
+
+The source-label negative-control question is whether condition-trained initiation scores also rank which **noninitiator** has a final receiver detection after day 90. Across 326 within-project-year pairs, adding condition improved AUC by just **+0.0092**; signs differ among projects, and the four informative projects do not establish a general observability gradient.
+
+Among the 153 source noninitiators, the 100 excluded individuals have a median time from release to last receiver arrival of **0.515 days**, while the 53 day90-retained individuals have a median **549 days**. These are *last recorded detections*, not continuous monitored exposure; the contrast warns against equating source noninitiation with confirmed biological failure to move.
+
+This is an unusually useful negative result: **the selected-cohort AUC amplification has an identified accounting explanation, without requiring an adaptive physiological timing mechanism**. This does not prove the original activation association is entirely artifactual or that all pathways of detection bias are absent.
 
 ## Competing explanations
 
@@ -27,7 +46,7 @@ See:
 - `analysis/tests/test_observability_selection_gate.py` — synthetic paired-AUC and fail-closed positive-retention tests;
 - `.github/workflows/observability-selection-gate.yml` — reproducible CI job.
 
-The selection-null holds **every source-classified initiator** and each project-year's exact **negative retention quota** constant, randomizing only *which source noninitiation records* remain. The 20,000 random-retention replicates preserve the outcome model and do not re-estimate weights or physiologic state.
+The completed selection-null holds **every source-classified initiator** and each project-year's exact **negative retention quota** constant, randomizing only *which source noninitiation records* remain. The 20,000 random-retention replicates preserve the outcome model and do not re-estimate weights or physiologic state.
 
 ## Interpretation boundaries
 
