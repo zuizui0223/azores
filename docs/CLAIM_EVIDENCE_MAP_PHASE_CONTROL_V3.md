@@ -6,6 +6,7 @@ multivariate-entry-state manuscript.
 | Claim | Evidence | Status | Boundary |
 |---|---|---|---|
 | Capture-time Durif stage predicts migration activation | OR **2.08** per stage, 95% CI **1.56–2.77** in the canonical stage model | Strong developmental | Expected from silvering biology; not novelty alone |
+| Pooled ordinal FV initiation remains more frequent than FIII under limited receiver-observation ambiguity, but not uniformly across waterways | Hold 422 initiator labels and 53 day-90-supported negatives fixed; permit any of 100 short-follow-up source negatives to be unseen starts: FIII 59.0–85.8%, FV 87.4–94.3%, pooled FV−FIII ≥ **+1.57 pp**. Equal-project mean bounds **−6.84 to +38.67 pp**; 2 strict positive, 1 strict negative, 3 unresolved projects | Sharp scenario-conditional partial identification | Five additional hypothetical FIII relabelings among 37 longer-observed source negatives erase even the pooled ordering. No confirmed missed starts, receiver uptime, causal maturation threshold or escapement identified. |
 | Continuous capture body state adds information beyond the ordinal Durif label | Multivariate activation model: condition OR **1.46/SD**, 95% CI **1.16–1.83**; Durif OR **2.13/stage** | Strong developmental | Condition is weight/length-derived and not independent physiology |
 | Additional condition AUC depends on the unresolved true status of short-follow-up source noninitiators | Fixed cross-project scores, 575 fish, 422 source initiators and 153 noninitiation labels; 100 short-follow-up noninitiators. Exact worst-case label-flip optimization gives **11** hypothetical undetected starts to erase the **+0.0336** incremental AUC; ten flips still ≥**+0.00191** | Verified post-hoc exact sensitivity, synthetic enumeration PASS | **No actual false negatives detected or estimated**; these are adversarial allowed allocations; retraining weights could change bound; actual ecological initiation cannot be identified from these receiver records. |
 | Continuous capture condition adds some held-out activation-ranking information, but not consistently across rivers | Six leave-one-project-out models: within-project-year stratified AUC **0.610 → 0.643** (Δ **+0.0336**, 6,914 pairs); within-Durif-stage **0.480 → 0.555** (3,199 pairs); **4/6** projects positive | Conditional held-out ranking evidence | Six-project resampling 95% interval **−0.0007 to +0.0918**; exact project sign-flip two-sided **p=0.1875**. No universal gain established; outcomes used to assess ranks, not train withheld-project coefficients. |
@@ -63,6 +64,7 @@ Do not claim that:
 - `results/cross_project_entry_state_score_v1.json`
 - `results/observability_project_composition_v1.json`
 - `results/observability_selection_gate_v1.json`
+- `results/stage_entry_observability_bounds_v1.json`
 - `results/cross_project_condition_increment_v1.json`
 - `results/cross_project_condition_increment_project_robustness_v1.json`
 - `results/stage_specific_condition_gate_v1.json`
