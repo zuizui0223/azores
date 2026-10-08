@@ -11,7 +11,7 @@
   ],
   "event": "first canonical detected behavioral onset >= release and <= release + horizon",
   "nonevent": "no onset <= horizon; last recorded receiver arrival >= release + horizon",
-  "excluded": "no event within horizon and no recorded arrival beyond horizon; this is informative selection, not missing-at-random correction",
+  "excluded": "no event within horizon and no recorded arrival beyond horizon; this is informative selection, not missing-at-random correction; also exclude the four canonical algorithm-positive eels without a parseable onset timestamp rather than misclassify them as 30-day nonevents",
   "evaluate": "at each horizon leave one entire source project out, train a baseline stage+length+release-timing model and an expanded baseline+weight-for-length residual; evaluate AUC on heldout initiator/noninitiator pairs within each project-year only",
   "primary_horizon_days": 30,
   "secondary_horizons_days": [
@@ -19,7 +19,7 @@
     60,
     90
   ],
-  "sample_integrity": "No event can be counted after horizon; no nonevent included without observed >=horizon last arrival; all nine expert non-migrants remain nonevents unless last arrival meets horizon. Heldout project outcomes never used to estimate coefficients.",
+  "sample_integrity": "No event can be counted after horizon; no nonevent included without observed >=horizon last arrival; all nine expert non-migrants remain nonevents unless last arrival meets horizon. Heldout project outcomes never used to estimate coefficients. Exclude algorithm-positive tracks whose onset timestamp cannot be reconstructed.",
   "output": "per-window total included, events, controls, excluded, project/stratum counts, pooled AUC delta, per-project direction; intervals from 10,000 bootstraps of source projects with fit weights fixed, not independent prospective validation",
   "status_rule": "An initial 30-day condition increment is transportable only if positive and its project bootstrap CI excludes zero with ≥4 informative projects. Otherwise no demonstrated general condition increment at fixed observation horizon.",
   "boundaries": [
