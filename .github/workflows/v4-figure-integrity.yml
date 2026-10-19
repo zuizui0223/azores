@@ -1,0 +1,24 @@
+name: V4 figure numeric integrity
+
+on:
+  push:
+    paths:
+      - "manuscript/rendered_figures_v4/**"
+      - "manuscript/verify_v4_rendered_figures.py"
+      - "manuscript/FIGURE_DATA_CONTRACT_V4.json"
+      - ".github/workflows/v4-figure-integrity.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify SVG source numbers and XML structure
+        run: python manuscript/verify_v4_rendered_figures.py
