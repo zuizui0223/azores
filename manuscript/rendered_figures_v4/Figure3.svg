@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="646" viewBox="0 0 1050 646" role="img" aria-label="Four phase-specific effects of an activation-trained eel capture-state score, with 95 percent confidence intervals. Activation and onset positive, route and segment speeds overlap no association.">
+<rect width="1050" height="646" fill="white"/>
+<text x="48" y="65" font-family="Arial, Helvetica, sans-serif" font-size="24" fill="#1b2833" font-weight="700">Capture phenotype predicts entry, not general transit speed</text>
+<text x="48" y="94" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#536572">Frozen activation-trained state score · 1 SD increase · separate endpoint models</text>
+<line x1="46" x2="1005" y1="119" y2="119" stroke="#ccd4d9" stroke-width="1"/>
+<text x="48" y="145" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#637583" font-weight="700">ECOLOGICAL PHASE</text>
+<text x="550" y="145" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#637583" font-weight="700">ADJUSTED RATIO (95% CI)</text>
+<text x="844" y="145" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#637583" font-weight="700">ESTIMATE</text>
+<line x1="407.87" x2="407.87" y1="158" y2="542" stroke="#E9EEF0" stroke-width="1" stroke-dasharray="2 5"/><line x1="500.13" x2="500.13" y1="158" y2="542" stroke="#7D8E9A" stroke-width="2" stroke-dasharray="5 5"/><line x1="605.01" x2="605.01" y1="158" y2="542" stroke="#E9EEF0" stroke-width="1" stroke-dasharray="2 5"/><line x1="679.42" x2="679.42" y1="158" y2="542" stroke="#E9EEF0" stroke-width="1" stroke-dasharray="2 5"/><line x1="784.30" x2="784.30" y1="158" y2="542" stroke="#E9EEF0" stroke-width="1" stroke-dasharray="2 5"/><g data-phase="Migration activation" data-estimate="2.2300541395" data-lo="1.7041449224" data-hi="2.9182620559">
+  <rect x="46" y="146" width="955" height="74" rx="8" fill="#F3F8F9"/>
+  <text x="58" y="175" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#20323C">Migration activation</text>
+  <text x="58" y="200" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#617381">OR · n=525</text>
+  <line x1="638.01" y1="181" x2="777.15" y2="181" stroke="#1A647A" stroke-width="4" stroke-linecap="round"/>
+  <line x1="638.01" y1="174" x2="638.01" y2="188" stroke="#1A647A" stroke-width="3"/>
+  <line x1="777.15" y1="174" x2="777.15" y2="188" stroke="#1A647A" stroke-width="3"/>
+  <circle cx="707.58" cy="181" r="8" fill="#1A647A" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="844" y="175" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="19" fill="#1A647A">OR 2.230</text>
+  <text x="844" y="201" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#516473">1.704–2.918</text>
+  </g><g data-phase="Behavioral onset" data-estimate="1.3173057497" data-lo="1.168198773" data-hi="1.4854444964">
+  <rect x="46" y="252" width="955" height="74" rx="8" fill="#F3F8F9"/>
+  <text x="58" y="281" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#20323C">Behavioral onset</text>
+  <text x="58" y="306" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#617381">HR · n=570 · 418 events</text>
+  <line x1="540.34" y1="287" x2="602.48" y2="287" stroke="#1A647A" stroke-width="4" stroke-linecap="round"/>
+  <line x1="540.34" y1="280" x2="540.34" y2="294" stroke="#1A647A" stroke-width="3"/>
+  <line x1="602.48" y1="280" x2="602.48" y2="294" stroke="#1A647A" stroke-width="3"/>
+  <circle cx="571.41" cy="287" r="8" fill="#1A647A" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="844" y="281" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="19" fill="#1A647A">HR 1.317</text>
+  <text x="844" y="307" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#516473">1.168–1.485</text>
+  </g><g data-phase="Whole-route speed" data-estimate="0.9459346481" data-lo="0.8318810455" data-hi="1.0756253712">
+  <rect x="46" y="358" width="955" height="74" rx="8" fill="#FBF8F3"/>
+  <text x="58" y="387" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#20323C">Whole-route progression</text>
+  <text x="58" y="412" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#617381">speed ratio · n=418</text>
+  <line x1="452.52" y1="393" x2="518.99" y2="393" stroke="#9A6021" stroke-width="4" stroke-linecap="round"/>
+  <line x1="452.52" y1="386" x2="452.52" y2="400" stroke="#9A6021" stroke-width="3"/>
+  <line x1="518.99" y1="386" x2="518.99" y2="400" stroke="#9A6021" stroke-width="3"/>
+  <circle cx="485.75" cy="393" r="8" fill="#9A6021" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="844" y="387" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="19" fill="#9A6021">speed ratio 0.946</text>
+  <text x="844" y="413" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#516473">0.832–1.076</text>
+  </g><g data-phase="Positive inter-station speed" data-estimate="1.0275696157" data-lo="0.8692505974" data-hi="1.2147237152">
+  <rect x="46" y="464" width="955" height="74" rx="8" fill="#FBF8F3"/>
+  <text x="58" y="493" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="700" fill="#20323C">Inter-station transit</text>
+  <text x="58" y="518" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#617381">speed ratio · n=411</text>
+  <line x1="463.89" y1="499" x2="550.44" y2="499" stroke="#9A6021" stroke-width="4" stroke-linecap="round"/>
+  <line x1="463.89" y1="492" x2="463.89" y2="506" stroke="#9A6021" stroke-width="3"/>
+  <line x1="550.44" y1="492" x2="550.44" y2="506" stroke="#9A6021" stroke-width="3"/>
+  <circle cx="507.16" cy="499" r="8" fill="#9A6021" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="844" y="493" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="19" fill="#9A6021">speed ratio 1.028</text>
+  <text x="844" y="519" font-family="Arial, Helvetica, sans-serif" font-size="15" fill="#516473">0.869–1.215</text>
+  </g><text x="407.87" y="566" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4e626e">0.7</text><text x="500.13" y="566" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4e626e">1</text><text x="605.01" y="566" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4e626e">1.5</text><text x="679.42" y="566" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4e626e">2</text><text x="784.30" y="566" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#4e626e">3</text><text x="586" y="597" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#50616C">Multiplicative association on a log ratio axis (null = 1)</text>
+<text x="48" y="618" font-family="Arial, Helvetica, sans-serif" font-size="12" fill="#637583">Effect families (OR, HR and speed ratios) are distinct and must not be compared as identical causal coefficients.</text>
+<text x="48" y="636" font-family="Arial, Helvetica, sans-serif" font-size="11" fill="#637583">Source: FIGURE_DATA_CONTRACT_V4.json · post-hoc developmental evidence; non-significant speed estimates are not proof of zero.</text>
+</svg>
