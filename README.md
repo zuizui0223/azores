@@ -220,7 +220,7 @@ Numerical provenance:
 - [source-numeric and SVG XML validator](manuscript/verify_v4_rendered_figures.py);
 - [V4 figure-integrity workflow](.github/workflows/v4-figure-integrity.yml).
 
-Direct figure-to-contract checks matched the source numbers across every figure. The workflow and final author visual/typesetting review are separate release gates; a figure existing in Git does not mean submission approval.
+**Figure source-integrity CI PASS**: [GitHub Actions run 39214036336](https://github.com/zuizui0223/azores/actions/runs/39214036336) verified SVG/XML parseability and all 17 frozen numeric groups against `FIGURE_DATA_CONTRACT_V4.json` across the four V4 figures. This does **not** certify visual typography, journal formatting or human-author approval.
 
 ### Historical V2 reference (superseded for V4 manuscript)
 
