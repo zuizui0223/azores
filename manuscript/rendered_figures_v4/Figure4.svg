@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1090" height="680" viewBox="0 0 1090 680" role="img" aria-label="Independent Dutch eel barriers: no convincing association of capture body condition with post-arrival missed opportunities, delays or matched gate-opening choice.">
+<rect width="1090" height="680" fill="#FFFFFF"/>
+<text x="48" y="56" font-family="Arial,Helvetica,sans-serif" font-size="24" font-weight="700" fill="#1B3340">An independent barrier test did not identify condition-dependent waiting</text>
+<text x="48" y="86" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#5B6D77">Source-defined matched arrival risk sets · Dutch pumping station (EZ) and tidal sluice (CL)</text>
+<line x1="48" x2="1042" y1="111" y2="111" stroke="#CBD7DF"/>
+<text x="51" y="150" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" fill="#2A4855">A   Post-arrival condition associations</text>
+<text x="48" y="179" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#60767F">Pearson r; directional point estimates only (not confidence intervals)</text>
+<rect x="46" y="198" width="995" height="290" rx="9" fill="#F7F9FA"/>
+<line x1="500.0" x2="500.0" y1="216" y2="470" stroke="#E0E8EC" stroke-width="1" stroke-dasharray="2 4"/><text x="500.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">-0.3</text><line x1="550.0" x2="550.0" y1="216" y2="470" stroke="#E0E8EC" stroke-width="1" stroke-dasharray="2 4"/><text x="550.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">-0.2</text><line x1="600.0" x2="600.0" y1="216" y2="470" stroke="#E0E8EC" stroke-width="1" stroke-dasharray="2 4"/><text x="600.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">-0.1</text><line x1="650.0" x2="650.0" y1="216" y2="470" stroke="#899BA6" stroke-width="2" stroke-dasharray="5 4"/><text x="650.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">0</text><line x1="700.0" x2="700.0" y1="216" y2="470" stroke="#E0E8EC" stroke-width="1" stroke-dasharray="2 4"/><text x="700.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">0.1</text><line x1="750.0" x2="750.0" y1="216" y2="470" stroke="#E0E8EC" stroke-width="1" stroke-dasharray="2 4"/><text x="750.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">0.2</text><line x1="800.0" x2="800.0" y1="216" y2="470" stroke="#E0E8EC" stroke-width="1" stroke-dasharray="2 4"/><text x="800.0" y="483" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#617783">0.3</text><g data-barrier="EZ" data-response="missed events" data-r="0.0086145127" data-p="0.9596040396" data-n="35">
+<text x="62" y="252" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="16" fill="#233D48">EZ · missed events</text>
+<text x="340" y="252" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#54717A">n=35</text>
+<circle cx="654.31" cy="248" r="8" fill="#2C7185" stroke="#fff" stroke-width="2"/>
+<text x="839" y="252" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#2C7185">r = 0.009</text>
+<text x="945" y="252" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#556E78">p = 0.960</text>
+</g><g data-barrier="EZ" data-response="delay hours" data-r="0.0718864949" data-p="0.6773322668" data-n="35">
+<text x="62" y="319" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="16" fill="#233D48">EZ · delay hours</text>
+<text x="340" y="319" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#54717A">n=35</text>
+<circle cx="685.94" cy="315" r="8" fill="#2C7185" stroke="#fff" stroke-width="2"/>
+<text x="839" y="319" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#2C7185">r = 0.072</text>
+<text x="945" y="319" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#556E78">p = 0.677</text>
+</g><g data-barrier="CL" data-response="missed events" data-r="-0.1042445775" data-p="0.5919408059" data-n="27">
+<text x="62" y="386" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="16" fill="#233D48">CL · missed events</text>
+<text x="340" y="386" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#54717A">n=27</text>
+<circle cx="597.88" cy="382" r="8" fill="#9B642D" stroke="#fff" stroke-width="2"/>
+<text x="839" y="386" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#9B642D">r = −0.104</text>
+<text x="945" y="386" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#556E78">p = 0.592</text>
+</g><g data-barrier="CL" data-response="delay hours" data-r="-0.1818865189" data-p="0.3502649735" data-n="27">
+<text x="62" y="453" font-family="Arial,Helvetica,sans-serif" font-weight="700" font-size="16" fill="#233D48">CL · delay hours</text>
+<text x="340" y="453" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#54717A">n=27</text>
+<circle cx="559.06" cy="449" r="8" fill="#9B642D" stroke="#fff" stroke-width="2"/>
+<text x="839" y="453" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="700" fill="#9B642D">r = −0.182</text>
+<text x="945" y="453" font-family="Arial,Helvetica,sans-serif" font-size="13" fill="#556E78">p = 0.350</text>
+</g><text x="48" y="523" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" fill="#284755">B   Matched passage-window choice</text>
+<rect x="48" y="543" width="995" height="77" rx="9" fill="#F4F7F8"/>
+<text x="66" y="574" font-family="Arial,Helvetica,sans-serif" font-size="16" fill="#234554" font-weight="700">CL</text>
+<text x="115" y="574" font-family="Arial,Helvetica,sans-serif" font-size="15" fill="#4C626E">Condition × opening duration: β = −0.095</text>
+<text x="688" y="574" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#4C626E">permutation p = 0.849 · n=15</text>
+<text x="66" y="604" font-family="Arial,Helvetica,sans-serif" font-size="14" fill="#7B6871">EZ matched choice: near-separated fit; not interpreted as an effect.</text>
+<text x="48" y="651" font-family="Arial,Helvetica,sans-serif" font-size="12" fill="#60737B">Negative mechanistic test; no support for a general condition-dependent barrier-selectivity explanation. Sample sizes and power are limited.</text>
+</svg>
