@@ -1,6 +1,6 @@
 # Does the silvering-stage association with classified migration onset vary among rivers?
 
-**Evidence status (2026-10-08):** unstratified six-project finite-sample exact conditional test PASSED in [GitHub Actions run 37770796620](https://github.com/zuizui0223/azores/actions/runs/37770796620). A separate release-year-stratified exact analysis has been specified and implemented; the release-year result is not yet confirmed.
+**Evidence status (verified 2026-10-19):** unstratified six-project finite-sample exact conditional test PASSED in [GitHub Actions run 37770796620](https://github.com/zuizui0223/azores/actions/runs/37770796620). The release-year-stratified exact computation also **PASSED** in [run 37771223767](https://github.com/zuizui0223/azores/actions/runs/37771223767); two printed machine-readable output copies were independently parsed and matched exactly, and the result is now [retained in-repository](../analysis/results/silvering_stage_project_year_heterogeneity_exact.json).
 
 ## Why this matters
 
@@ -39,12 +39,20 @@ These results reject a **single common FV/FIII source-label association across a
 
 A reproducible exact omission calculation also gave a heterogeneity tail below 0.05 after excluding **each** project. The largest p occurs when Albertkanaal is excluded: **p=0.0448** (five projects); the other omission p-values range from **0.000054 to 0.000887**. These exploratory omission tails were independently reproduced by [GitHub Actions run 37770976891](https://github.com/zuizui0223/azores/actions/runs/37770976891), but they are not a substitute for adjusting project-year composition.
 
-**Critically, different release years may be mixed within projects.** A separate analysis conditions on every project × release-year table before comparing project-specific silvering odds. See:
-- `analysis/contracts/silvering_stage_project_year_heterogeneity_exact_v1.json`
-- `analysis/54_silvering_stage_project_year_heterogeneity_exact.py`
-- `.github/workflows/silvering-stage-project-year-heterogeneity-exact.yml`
+**Release-year-conditioned result (now verified).** The stricter test conditions separately on **14 project × release-year tables**, of which **11** contain informative within-year stage contrasts, while retaining all **507 FIII/FV fish** from the source cohort. It therefore compares stage-associated source-classified initiation after project-year differences in baseline initiation and stage composition have been conditioned out. Its exact result is:
 
-Do not promote a claim of river-specific stage biology until this stricter temporal composition check is completed.
+- common conditional FV/FIII odds ratio **4.1548** (nuisance parameter, not a causal effect);
+- homogeneity LR **19.08685** across **46,116** admissible joint configurations;
+- **exact conditional p = 0.00314221**;
+- five of six exploratory leave-one-project-out tests retain p < 0.05; **excluding Albertkanaal gives p = 0.05310**.
+
+Thus the single-common-stage-association hypothesis remains inconsistent with the panel after release-year conditioning, but the apparent cross-river difference is materially Albertkanaal-sensitive. The unstratified leave-one-out result (all six p < 0.05) must **not** be presented as the robustness result for the year-adjusted test. Year conditioning does not address project-specific fish selection, receiver operations, unobserved departure, time-varying flow or barrier exposure. Do not label this a proven river-specific physiological response.
+
+Authoritative sources:
+- [year-conditioned result JSON](../analysis/results/silvering_stage_project_year_heterogeneity_exact.json);
+- `analysis/contracts/silvering_stage_project_year_heterogeneity_exact_v1.json`;
+- `analysis/54_silvering_stage_project_year_heterogeneity_exact.py`;
+- [successful Actions run and retained artifact](https://github.com/zuizui0223/azores/actions/runs/37771223767).
 
 ## What is — and is not — identified
 
@@ -79,3 +87,5 @@ One may **hypothesize** that external cues and river structure modify readiness-
 - [No-network synthetic checks](../analysis/tests/test_silvering_stage_project_heterogeneity_exact.py)
 - [Successful Actions run](https://github.com/zuizui0223/azores/actions/runs/37770796620)
 - [Verified leave-one-project-out update](https://github.com/zuizui0223/azores/actions/runs/37770976891)
+- [Release-year-stratified exact result](../analysis/results/silvering_stage_project_year_heterogeneity_exact.json)
+- [Successful year-stratified Actions run](https://github.com/zuizui0223/azores/actions/runs/37771223767)
