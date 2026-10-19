@@ -206,16 +206,22 @@ See [three independent ecology programmes](docs/three_ecology_programs.md).
 - [three-programme current status](docs/three_ecology_programs_status.md)
 
 
-## Legacy V2 submission figures
+## V4 manuscript figures (new canonical visual content)
 
-The endpoint-audited V2 reference renders remain committed for provenance, but they predate the V4 multivariate entry-state framing and are **not yet the canonical V4 figure set**:
+The four manuscript figures were rendered as text SVG from the frozen V4 figure-data contract. This replaces V2 **as the V4 submission-facing visual baseline**; no statistical model was rerun and original V2 figures remain for provenance.
 
-- `manuscript/rendered_figures_v2/Figure1.svg`
-- `manuscript/rendered_figures_v2/Figure2.svg`
-- `manuscript/rendered_figures_v2/Figure3.svg`
-- `manuscript/rendered_figures_v2/Figure4.svg`
+- [Figure 1](manuscript/rendered_figures_v4/Figure1.svg) — phase-specific eligibility, not a mortality/escapement flow.
+- [Figure 2](manuscript/rendered_figures_v4/Figure2.svg) — observed FIII/FIV/FV initiation proportions plus multivariate Durif/condition odds ratios.
+- [Figure 3](manuscript/rendered_figures_v4/Figure3.svg) — activation-trained score transfer across initiation, onset and two speed endpoints, with endpoint-type cautions.
+- [Figure 4](manuscript/rendered_figures_v4/Figure4.svg) — independent Dutch post-arrival null mechanism test, without interpreting near-separated EZ fitted choice.
 
-Render QC:
-- `manuscript/RENDERED_FIGURE_QC_V2.json` — **PASS_REFERENCE_RENDER**
+Numerical provenance:
+- [V4 frozen figure source](manuscript/FIGURE_DATA_CONTRACT_V4.json);
+- [source-numeric and SVG XML validator](manuscript/verify_v4_rendered_figures.py);
+- [V4 figure-integrity workflow](.github/workflows/v4-figure-integrity.yml).
 
-V2 numeric content remains locked to `FIGURE_DATA_CONTRACT_V2.json`; terminal positive-set sensitivity remains supplementary only. A V4 figure contract should center the activation-trained entry-state transferability result rather than reuse V2 unchanged.
+Direct figure-to-contract checks matched the source numbers across every figure. The workflow and final author visual/typesetting review are separate release gates; a figure existing in Git does not mean submission approval.
+
+### Historical V2 reference (superseded for V4 manuscript)
+
+The original endpoint-audited V2 figures remain under `manuscript/rendered_figures_v2/Figure1.svg` through `Figure4.svg`; their original `manuscript/RENDERED_FIGURE_QC_V2.json` is retained. V2 numerical and terminal positive-set restrictions are not overwritten by the new figures.
