@@ -1,0 +1,414 @@
+{
+  "schema": "azores.silvering_stage_project_year_heterogeneity_exact.v1",
+  "evidence_class": "post_hoc_year_stratified_exact_homogeneity_crosscheck",
+  "contract": "analysis/contracts/silvering_stage_project_year_heterogeneity_exact_v1.json",
+  "source": "analysis/31_entry_state_score_transferability.py::load; pinned 575-fish six-project panel",
+  "n_projects": 6,
+  "n_fish_all_stages": 575,
+  "n_fish_FIII_FV": 507,
+  "n_project_year_stage_cells": 14,
+  "n_year_cells_with_estimable_stage_contrast": 11,
+  "year_cells": [
+    {
+      "project": "2011_Warnow",
+      "year": 2011,
+      "FIII": {
+        "n": 86,
+        "starts": 61
+      },
+      "FV": {
+        "n": 28,
+        "starts": 23
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        0,
+        28
+      ]
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "year": 2012,
+      "FIII": {
+        "n": 45,
+        "starts": 21
+      },
+      "FV": {
+        "n": 28,
+        "starts": 24
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        0,
+        28
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "year": 2013,
+      "FIII": {
+        "n": 0,
+        "starts": 0
+      },
+      "FV": {
+        "n": 5,
+        "starts": 4
+      },
+      "within_year_stage_odd_information": false,
+      "fv_start_support": [
+        4,
+        4
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "year": 2014,
+      "FIII": {
+        "n": 4,
+        "starts": 4
+      },
+      "FV": {
+        "n": 40,
+        "starts": 30
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        30,
+        34
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "year": 2015,
+      "FIII": {
+        "n": 5,
+        "starts": 5
+      },
+      "FV": {
+        "n": 29,
+        "starts": 29
+      },
+      "within_year_stage_odd_information": false,
+      "fv_start_support": [
+        29,
+        29
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "year": 2016,
+      "FIII": {
+        "n": 16,
+        "starts": 16
+      },
+      "FV": {
+        "n": 34,
+        "starts": 33
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        33,
+        34
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "year": 2017,
+      "FIII": {
+        "n": 1,
+        "starts": 1
+      },
+      "FV": {
+        "n": 9,
+        "starts": 9
+      },
+      "within_year_stage_odd_information": false,
+      "fv_start_support": [
+        9,
+        9
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "year": 2015,
+      "FIII": {
+        "n": 25,
+        "starts": 10
+      },
+      "FV": {
+        "n": 7,
+        "starts": 7
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        0,
+        7
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "year": 2016,
+      "FIII": {
+        "n": 17,
+        "starts": 7
+      },
+      "FV": {
+        "n": 13,
+        "starts": 12
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        2,
+        13
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "year": 2017,
+      "FIII": {
+        "n": 19,
+        "starts": 12
+      },
+      "FV": {
+        "n": 13,
+        "starts": 11
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        4,
+        13
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "year": 2018,
+      "FIII": {
+        "n": 6,
+        "starts": 5
+      },
+      "FV": {
+        "n": 3,
+        "starts": 3
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        2,
+        3
+      ]
+    },
+    {
+      "project": "2019_Grotenete",
+      "year": 2019,
+      "FIII": {
+        "n": 7,
+        "starts": 4
+      },
+      "FV": {
+        "n": 17,
+        "starts": 17
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        14,
+        17
+      ]
+    },
+    {
+      "project": "2019_Grotenete",
+      "year": 2020,
+      "FIII": {
+        "n": 4,
+        "starts": 2
+      },
+      "FV": {
+        "n": 8,
+        "starts": 8
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        6,
+        8
+      ]
+    },
+    {
+      "project": "ESGL",
+      "year": 2015,
+      "FIII": {
+        "n": 26,
+        "starts": 6
+      },
+      "FV": {
+        "n": 12,
+        "starts": 5
+      },
+      "within_year_stage_odd_information": true,
+      "fv_start_support": [
+        0,
+        11
+      ]
+    }
+  ],
+  "project_margins": [
+    {
+      "project": "2011_Warnow",
+      "n_release_years": 1,
+      "FIII": {
+        "n": 86,
+        "starts": 61
+      },
+      "FV": {
+        "n": 28,
+        "starts": 23
+      },
+      "fv_starts_support": [
+        0,
+        28
+      ]
+    },
+    {
+      "project": "2012_leopoldkanaal",
+      "n_release_years": 1,
+      "FIII": {
+        "n": 45,
+        "starts": 21
+      },
+      "FV": {
+        "n": 28,
+        "starts": 24
+      },
+      "fv_starts_support": [
+        0,
+        28
+      ]
+    },
+    {
+      "project": "2013_albertkanaal",
+      "n_release_years": 5,
+      "FIII": {
+        "n": 26,
+        "starts": 26
+      },
+      "FV": {
+        "n": 117,
+        "starts": 105
+      },
+      "fv_starts_support": [
+        105,
+        110
+      ]
+    },
+    {
+      "project": "2015_phd_verhelst_eel",
+      "n_release_years": 4,
+      "FIII": {
+        "n": 67,
+        "starts": 34
+      },
+      "FV": {
+        "n": 36,
+        "starts": 33
+      },
+      "fv_starts_support": [
+        8,
+        36
+      ]
+    },
+    {
+      "project": "2019_Grotenete",
+      "n_release_years": 2,
+      "FIII": {
+        "n": 11,
+        "starts": 6
+      },
+      "FV": {
+        "n": 25,
+        "starts": 25
+      },
+      "fv_starts_support": [
+        20,
+        25
+      ]
+    },
+    {
+      "project": "ESGL",
+      "n_release_years": 1,
+      "FIII": {
+        "n": 26,
+        "starts": 6
+      },
+      "FV": {
+        "n": 12,
+        "starts": 5
+      },
+      "fv_starts_support": [
+        0,
+        11
+      ]
+    }
+  ],
+  "year_baseline_adjusted_exact_test": {
+    "common_or_FV_vs_FIII": 4.154814910794565,
+    "common_log_or": 1.4242678811767107,
+    "lr": 19.086847497176976,
+    "exact_p": 0.0031422108733520295,
+    "joint_configurations": 46116,
+    "finite_sample_nuisance_cancelled": true
+  },
+  "leave_one_project_out": [
+    {
+      "excluded": "2011_Warnow",
+      "n_projects": 5,
+      "pooled_common_or": 5.1365659201140845,
+      "exact_conditional_p": 0.0038255315336126272,
+      "observed_lr": 16.73612210444289,
+      "admissible_joint_vectors": 3677
+    },
+    {
+      "excluded": "2012_leopoldkanaal",
+      "n_projects": 5,
+      "pooled_common_or": 3.618240231873059,
+      "exact_conditional_p": 0.0018941367532288316,
+      "observed_lr": 18.254227306219498,
+      "admissible_joint_vectors": 4105
+    },
+    {
+      "excluded": "2013_albertkanaal",
+      "n_projects": 5,
+      "pooled_common_or": 5.283566226932034,
+      "exact_conditional_p": 0.05310055195047864,
+      "observed_lr": 9.966141783406115,
+      "admissible_joint_vectors": 5286
+    },
+    {
+      "excluded": "2015_phd_verhelst_eel",
+      "n_projects": 5,
+      "pooled_common_or": 3.1513443170800834,
+      "exact_conditional_p": 0.004911336412813251,
+      "observed_lr": 16.0742380146758,
+      "admissible_joint_vectors": 4536
+    },
+    {
+      "excluded": "2019_Grotenete",
+      "n_projects": 5,
+      "pooled_common_or": 3.550960670480637,
+      "exact_conditional_p": 0.013327363333485737,
+      "observed_lr": 13.570601776608662,
+      "admissible_joint_vectors": 10326
+    },
+    {
+      "excluded": "ESGL",
+      "n_projects": 5,
+      "pooled_common_or": 4.573779411212557,
+      "exact_conditional_p": 0.0018437876328278454,
+      "observed_lr": 18.3664512894494,
+      "admissible_joint_vectors": 3381
+    }
+  ],
+  "claim_boundaries": [
+    "Both routes study source-algorithm initiation labels, not physiological migration initiation.",
+    "Year and project stratification remove different baseline rates, but cannot adjust animal-specific receiver detection or cue heterogeneity.",
+    "Only six projects; post-hoc heterogeneity discovery. Project-context mechanism is not identified.",
+    "If a release-year cell contains one stage or no outcome variation it contributes no stage contrast.",
+    "No retrospective changing of expert non-migrant corrections or source classification."
+  ]
+}
