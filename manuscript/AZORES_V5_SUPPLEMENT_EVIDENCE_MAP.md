@@ -35,6 +35,10 @@ Primary scientific statement: **Capture phenotype predicts entry and onset, not 
 
 **S8 — Documentation and reproducibility.** Retain all frozen numerical contracts, result JSON provenance, source file links, original protocol limitations, figure-data V4 contract, and validated SVGs. V5 has no new estimated number. V4 full-length text is archived as an evidence ledger, not an independently verified journal supplement ready for submission.
 
+## Current populated supplementary draft
+
+The [S1–S8 supplementary Methods and Results manuscript](AZORES_V5_SUPPLEMENT_METHODS_RESULTS_DRAFT.md) now contains 35 verbatim source sections extracted from the V4 Methods, Results and source-limitations passages. This is a **populated evidence draft**, not yet a journal-style Supplement with independently typeset tables or bibliography. Its [exact source-integrity verifier](../validation/verify_v5_supplement_source_integrity.py) compares each full section with the unchanged original V4 to prevent truncated or reinterpreted evidence.
+
 ## Current canonical file references
 
 - Full source evidence manuscript: [AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md](AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md).
