@@ -5,6 +5,8 @@ on:
     paths:
       - "manuscript/AZORES_PHASE_TRANSFER_MAIN_V5_DRAFT.md"
       - "manuscript/AZORES_V5_SUPPLEMENT_EVIDENCE_MAP.md"
+      - "manuscript/AZORES_V5_SUPPLEMENT_METHODS_RESULTS_DRAFT.md"
+      - "validation/verify_v5_supplement_source_integrity.py"
       - "validation/verify_v5_main_source_integrity.py"
       - ".github/workflows/v5-condensed-main-science-qc.yml"
   workflow_dispatch:
@@ -25,6 +27,8 @@ jobs:
         run: python manuscript/verify_v4_rendered_figures.py
       - name: Validate compact V5 source numerics and scientific claim boundaries
         run: python validation/verify_v5_main_source_integrity.py
+      - name: Verify each V5 supplement passage against unchanged V4
+        run: python validation/verify_v5_supplement_source_integrity.py
       - name: Preserve V5 evidence-status audit
         if: always()
         uses: actions/upload-artifact@v4
@@ -32,4 +36,6 @@ jobs:
           name: azores-v5-main-science-review
           retention-days: 90
           if-no-files-found: warn
-          path: manuscript/V5_SCIENTIFIC_REVIEW_QC.json
+          path: |
+            manuscript/V5_SCIENTIFIC_REVIEW_QC.json
+            manuscript/V5_SUPPLEMENT_SOURCE_QC.json
