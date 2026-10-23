@@ -74,7 +74,7 @@ def docx(md,out,resources):
     src=out.with_suffix(".input.md")
     src.write_text(md,encoding="utf-8")
     args=["--standalone","--resource-path="+":".join(str(x) for x in resources)]
-    pypandoc.convert_file(str(src),"docx",format="markdown+tex_math_dollars",
+    pypandoc.convert_file(str(src),"docx",format="markdown-yaml_metadata_block+tex_math_dollars",
                           outputfile=str(out),extra_args=args)
     style_doc(out)
     src.unlink()
