@@ -164,7 +164,7 @@ def main():
       "pdf_checks":{
         "main":audit(ppdf,["Migration activation","Abstract","Methods","Discussion","Albertkanaal"],7),
         "supplement":audit(spdf,["Supplementary Methods and Results","S8.","FIII","Albertkanaal"],10),
-        "figures":audit(fpdf,["Figure 1","Figure 4","review"],3,4)},
+        "figures":audit(fpdf,["Figure 1","Figure 4","review"],2,4)},
       "visual_review_required":True,
       "pdf_renderer":"LibreOffice if present; otherwise HTML source proof via WeasyPrint (not exact Word pagination)",
       "author_submission_blockers":[
