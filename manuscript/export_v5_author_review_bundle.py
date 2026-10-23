@@ -81,15 +81,32 @@ def docx(md,out,resources):
     return out
 
 def pdf_from(doc,out):
-    made=OUT/"lo_pdf"
-    made.mkdir(exist_ok=True)
-    p=subprocess.run(["libreoffice","-env:UserInstallation=file:///tmp/azores_v5_authorproof",
-                      "--headless","--convert-to","pdf","--outdir",str(made),str(doc)],
-                     text=True,capture_output=True,timeout=220)
-    dest=made/(doc.stem+".pdf")
-    if p.returncode or not dest.is_file():
-        raise RuntimeError("LibreOffice failed: "+p.stdout[:350]+" "+p.stderr[:350])
-    shutil.copy2(dest,out)
+    # Prefer exact Word-like LibreOffice rendering when the executable exists.
+    # An HTML proof can be generated without apt-get when the runner has no
+    # LibreOffice. An HTML proof is NOT an exact Word-pagination approval.
+    if shutil.which("libreoffice"):
+        made=OUT/"lo_pdf"
+        made.mkdir(exist_ok=True)
+        p=subprocess.run(["libreoffice","-env:UserInstallation=file:///tmp/azores_v5_authorproof",
+                          "--headless","--convert-to","pdf","--outdir",str(made),str(doc)],
+                         text=True,capture_output=True,timeout=220)
+        dest=made/(doc.stem+".pdf")
+        if p.returncode or not dest.is_file():
+            raise RuntimeError("LibreOffice failed: "+p.stdout[:350]+" "+p.stderr[:350])
+        shutil.copy2(dest,out)
+    else:
+        from weasyprint import HTML, CSS
+        media=OUT/(doc.stem+"_extracted_media")
+        html=pypandoc.convert_file(str(doc),"html5",format="docx",
+            extra_args=["--extract-media="+str(media)])
+        css=CSS(string="""@page { size: A4; margin: 22mm 20mm 22mm 20mm; }
+          body { font-family: 'Liberation Serif', serif; font-size: 10pt; line-height: 1.4; }
+          h1,h2,h3 { break-after: avoid; }
+          table { width: 100%; border-collapse: collapse; font-size: 8pt; }
+          th,td { border-bottom: 0.5pt solid #9ca4aa; padding: 3px 4px; }
+          img { max-width: 100%; height: auto; }""")
+        HTML(string=html,base_url=str(ROOT)).write_pdf(str(out),stylesheets=[css])
+        assert out.is_file() and out.stat().st_size>10000
     return out
 
 def audit(pdf,required,minimum_pages,figures=0):
@@ -149,6 +166,7 @@ def main():
         "supplement":audit(spdf,["Supplementary Methods and Results","S8.","FIII","Albertkanaal"],10),
         "figures":audit(fpdf,["Figure 1","Figure 4","review"],3,4)},
       "visual_review_required":True,
+      "pdf_renderer":"LibreOffice if present; otherwise HTML source proof via WeasyPrint (not exact Word pagination)",
       "author_submission_blockers":[
         "actual author list/affiliations/corresponding email","study ethics/data permission verification",
         "full publisher-verified bibliography","journal-specific supplement tables/figures and Word layout proof",
@@ -160,6 +178,7 @@ def main():
       encoding="utf-8")
     (OUT/"SOURCE_AND_LAYOUT_QC.json").write_text(json.dumps(qc,indent=2)+"\n",encoding="utf-8")
     shutil.rmtree(OUT/"lo_pdf",ignore_errors=True)
+    for p in OUT.glob("*_extracted_media"):shutil.rmtree(p,ignore_errors=True)
     ARCHIVE.parent.mkdir(parents=True,exist_ok=True)
     with zipfile.ZipFile(ARCHIVE,"w",compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
         for f in sorted(OUT.rglob("*")):
