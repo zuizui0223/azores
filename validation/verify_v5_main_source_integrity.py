@@ -38,19 +38,25 @@ def verify():
               "## References")
     checks["all_scientific_sections"]=all(x in m for x in headings)
     checks["source_separated_from_paper"]=all(x in m for x in (
-        "secondary analyses","not a direct replication",
-        "not a verified failure","does not prove", "source-classified"))
+        "secondary analyses", "does not directly replicate",
+        "not a verified failure", "do not prove", "source-classified"))
     checks["six_projects_and_575"]=("six European projects" in m and "575 stage-coded" in m)
     checks["canonical_stage_counts"]=all(
         f"{row['initiated']}/{row['tracked']}" in m
         for row in figures["figure2"]["activation_by_stage"]
     )
     main=figures["figure3"]["entry_state_transfer"]
+    # The main narrative intentionally rounds the dimensionless OR/HR to 2
+    # decimals and speed ratios to 3. Validate displayed rounding against
+    # canonical unrounded figure data without requiring hidden digits in text.
+    def headline_precision(row):
+        return 2 if row["effect_type"] in ("odds ratio","hazard ratio") else 3
     checks["phase_score_point_values"]=all(
-        f"{x['estimate']:.3f}" in m for x in main
+        f"{row['estimate']:.{headline_precision(row)}f}" in m for row in main
     )
     checks["phase_score_interval_values"]=all(
-        f"{x['lo']:.3f}" in m and f"{x['hi']:.3f}" in m for x in main
+        f"{row['lo']:.{headline_precision(row)}f}" in m and
+        f"{row['hi']:.{headline_precision(row)}f}" in m for row in main
     )
     checks["coefficient_source"]=(
         f"{figures['figure2']['multivariate_activation'][0]['estimate']:.2f}" in m
@@ -60,8 +66,9 @@ def verify():
         x in m for x in ("OR 1.97","hazard ratio 1.26","ratio 0.948","1.013")
     )
     link=figures["figure3"]["exact_link_transit"]
-    checks["within_link_sample"]=all(str(x) in m for x in
-             (link["n_segment_rows"],link["n_fish"],link["n_directed_links"]))
+    checks["within_link_sample"]=all(
+        (str(x) in m or f"{x:,}" in m) for x in
+        (link["n_segment_rows"],link["n_fish"],link["n_directed_links"]))
     checks["within_link_ratio"]=f"{link['ratio_per_sd']:.3f}" in m
     checks["river_year_exact"]=all(
         v in m for v in ("507","14 project × release-year","19.087",
