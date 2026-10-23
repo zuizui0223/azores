@@ -21,8 +21,9 @@ jobs:
           python-version: "3.12"
       - name: Install pinned ecological source-document export dependencies
         run: |
-          python -m pip install pypandoc_binary python-docx pymupdf cairosvg
-          which libreoffice || (sudo apt-get -qq update && sudo apt-get -y install libreoffice-writer)
+          python -m pip install "pypandoc_binary==1.17" "python-docx==1.2.0" \
+            "pymupdf==1.24.9" "cairosvg==2.9.1" "weasyprint==66.0"
+          python -c "import pypandoc; print('Pandoc',pypandoc.get_pandoc_version())"
       - name: Require source-exact V4 ecological figures and S1-S8 supplement
         run: |
           python manuscript/verify_v4_rendered_figures.py
