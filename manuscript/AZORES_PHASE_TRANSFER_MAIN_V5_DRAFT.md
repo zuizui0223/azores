@@ -115,7 +115,7 @@ European eel migration should be analyzed as a series of ecological transitions 
 
 Original eel telemetry products and metadata are from Verhelst et al. (2025); the Dutch opening/detection archive is at DOI 10.17026/LS/WTSUNG. Reanalysis scripts, numeric contracts and original full-length exploratory/sensitivity text are archived in the [azores repository](https://github.com/zuizui0223/azores). No animals were newly captured or handled for the reanalysis. Original animal-care approvals must be documented from each source study before journal submission.
 
-**Author contributions and acknowledgements are not yet populated. This is a scientific main-text candidate, not a certified journal-format submission.** Detailed observational and stage-specific sensitivities remain in [full V4 evidence manuscript](AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md) and must be allocated to the eventual supplement under journal requirements.
+**Author contributions and acknowledgements are not yet populated. This is a scientific main-text candidate, not a certified journal-format submission.** The S1–S8 [populated supplementary Methods and Results draft](AZORES_V5_SUPPLEMENT_METHODS_RESULTS_DRAFT.md) retains 35 source-exact V4 evidence sections. The complete [V4 evidence manuscript](AZORES_PHASE_CONTROL_MANUSCRIPT_V4.md) remains unchanged as the original scientific source. The supplement still requires final journal-specific tables, references and author review.
 
 ## References (core subset, preserved from V4)
 
