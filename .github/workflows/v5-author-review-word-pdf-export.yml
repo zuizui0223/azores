@@ -1,0 +1,64 @@
+name: Azores V5 author-review Word and Supplement PDF export
+
+on:
+  push:
+    paths:
+      - "manuscript/export_v5_author_review_bundle.py"
+      - ".github/workflows/v5-author-review-word-pdf-export.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install pinned ecological source-document export dependencies
+        run: |
+          python -m pip install pypandoc_binary python-docx pymupdf cairosvg
+          which libreoffice || (sudo apt-get -qq update && sudo apt-get -y install libreoffice-writer)
+      - name: Require source-exact V4 ecological figures and S1-S8 supplement
+        run: |
+          python manuscript/verify_v4_rendered_figures.py
+          python validation/verify_v5_main_source_integrity.py
+          python validation/verify_v5_supplement_source_integrity.py
+      - name: Build V5 DOCX, Supplement PDF, four figure plates and source-digest audit
+        run: python manuscript/export_v5_author_review_bundle.py
+      - name: Verify review package and non-final publication status
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          q=json.loads(Path("results/generated_v5_submission_review/SOURCE_AND_LAYOUT_QC.json").read_text())
+          assert q["status"]=="AUTHOR_REVIEW_EXPORT_NOT_SUBMITTED"
+          assert q["verbatim_supplement_blocks"]==35
+          assert q["pdf_checks"]["figures"]["rendered_image_references"]>=4
+          assert q["pdf_checks"]["main"]["pages"]>=7
+          z=Path("results/AZORES_V5_AUTHOR_REVIEW_PACKAGE.zip")
+          assert z.exists() and z.stat().st_size>100000
+          print("PASS V5 author-review files and four source-backed figures")
+          PY
+      - name: Upload complete author-review package (not submitted)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-v5-word-supplement-figure-review
+          retention-days: 90
+          if-no-files-found: warn
+          path: results/AZORES_V5_AUTHOR_REVIEW_PACKAGE.zip
+      - name: Upload independent source and page-geometry audit
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: azores-v5-export-source-qa
+          retention-days: 90
+          if-no-files-found: warn
+          path: |
+            results/generated_v5_submission_review/SOURCE_AND_LAYOUT_QC.json
+            results/generated_v5_submission_review/AUTHOR_CHECKLIST.md
